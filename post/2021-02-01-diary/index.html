@@ -7,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Overview of all pages with the tag #Tags - sawa.md</title>
-  <meta name="description" content="Overview of all pages with the tag #Tags, such as: 日記">
+  <title>2021 02 01 Diary - sawa.md</title>
   <meta name="author" content="Sawa"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -29,14 +28,62 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io\/post\/2021-02-01-diary\/",
+          "name": "2021 02 01 diary"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sawa"
+  },
+  "headline": "2021 02 01 Diary",
+  "description" : "",
+  "inLanguage" : "ja",
+  "wordCount":  53 ,
+  "datePublished" : "2021-02-01T11:06:43",
+  "dateModified" : "2021-02-01T11:06:43",
+  "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+  "keywords" : [ "日記" ],
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/2021-02-01-diary\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/SawaTszm.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Tags" />
+<meta property="og:title" content="2021 02 01 Diary" />
 <meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
-<meta property="og:url" content="https://SawaTszm.github.io/tags/" />
+<meta property="og:url" content="https://SawaTszm.github.io/post/2021-02-01-diary/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="sawa.md" />
 
-  <meta name="twitter:title" content="Tags" />
+  <meta name="twitter:title" content="2021 02 01 Diary" />
   <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@SawaTszm" />
@@ -187,14 +234,29 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="tags-heading">
+            <div class="post-heading">
               
-                <h1>Tags</h1>
-              
-              
-                <hr class="small">
+                <h1>2021 02 01 Diary</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 1, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sawa
+    
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -205,46 +267,149 @@ if (!doNotTrack) {
 
 
     
-
-
-
 <div class="container" role="main">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> 
-    <article class="post-preview">
-      <div class="panel-group" id="accordion">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="気になったニュース">気になったニュース</h2>
+<p><a href="https://anond.hatelabo.jp/20160725092419">gitにおけるコミットログ/メッセージ例文集100</a></p>
+<p><a href="https://github.blog/changelog/2021-01-21-access-control-for-github-pages/">Access control for GitHub Pages - GitHub Changelog</a><br>
+社内ドキュメントとしての運用とかにも良さそう。<br>
+エディタ+ mdファイル編集 + GithubにPushで完結するのはとても健康にいい。</p>
+<hr>
+<h2 id="調べたこと">調べたこと</h2>
+<h3 id="bigqueryへの差分アップロード">BigQueryへの差分アップロード</h3>
+<p>Insert/Upsertを意識するんじゃなくて、updated_dateを持った状態で複数データ入れてしまう方がいいかなと思った。<br>
+Insert/Upsertを実現できる<code>merge</code>はテーブルサイズ分課金されるので（SELECTと同じ）、日次で取り込むデータサイクルに入れるのは避けたい。<br>
+対して上書きでなくて重複データをInsertする方法では、</p>
+<ul>
+<li>集計するときは<code>COUNT(DISTINCT x)</code>で重複削除すればいい</li>
+<li>重複データが積もってきたらSQLで整理ができる</li>
+</ul>
+<p>ので、こっちの方が良さげ。<br>
+そうすればBQに移行する日次データは「その日に新規作成されたもの」と「その日に上書きされたもの」だけでよくなる。</p>
+<p>参考：<br>
+<a href="https://dev.classmethod.jp/articles/bigquery-load-diff/">BigQuery にデータを差分ロード（UPSERT）する方法まとめ | Developers.IO</a><br>
+<a href="https://qiita.com/satoru_mag/items/fb233c188dd63f1aafff">BigQueryでUPDATE？？ - Qiita</a><br>
+<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions?hl=ja#count">標準 SQL の集計関数  |  BigQuery  |  Google Cloud</a></p>
+<h3 id="sqlのorについて">SQLのORについて</h3>
+<p>OR使わないといけないかなと思って調べてたら下記記事を見つけた。</p>
+<p><a href="https://techracho.bpsinc.jp/hachi8833/2020_04_16/79219">PostgreSQL: 「OR」を避けてパフォーマンスを向上させよう（翻訳）</a></p>
+<p>「まだマシ」なダメな例をやろうとしていたのと、後半の話は知らなかったのでﾁｮｯﾄ勉強になった。<br>
+SQL、苦手意識があって若干避けてきたけどそろそろ向き合うべき時が来た気がする。</p>
+<hr>
+<h2 id="他">他</h2>
+<p>原神くんの1.3アプデ、鍾離先生の上方修正が確定したので楽しみ。<br>
+コントローラーで操作できるようになるのも楽しみ。<br>
+これでもうボタンスカって敵の攻撃が直撃するミスがなくなるんだ……。</p>
+<p>プロセカはやっと実装された星4冬弥くん引きたいけど、金の力で解決しようとするとあと5万くらいかかるの普通に心が折れるなぁと思いました（作文）。<br>
+鍾離先生PU復刻が来たらそっちで天井引きたいしなぁ。等々。</p>
+
         
-          <div class="panel panel-default">
-            <a class="collapsed" role="button" data-toggle="collapse" data-target="#collapse日記" data-parent="#accordion">
-                <div class="panel-heading" id="header日記">
-                  <h4 class="panel-title">
-                      日記
-                    <span class="badge">3</span>
-                  </h4>
-                </div>
-            </a>
-            <div id="collapse日記" class="panel-collapse collapse">
-              <div class="panel-body">
-                <a href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/" class="list-group-item view-all">
-                View all</a>
-                <div class="list-group">
-                  
-                    <a href="https://SawaTszm.github.io/post/2021-02-01-diary/" class="list-group-item">2021 02 01 Diary</a>
-                  
-                    <a href="https://SawaTszm.github.io/post/2021-01-28-amazon-chat/" class="list-group-item">Amazonの荷物が届いたのに宅配ボックスの番号がわからなくて焦った</a>
-                  
-                    <a href="https://SawaTszm.github.io/post/2021-01-28-diary/" class="list-group-item">2021-01-28 Diary</a>
-                  
-                </div>
-              </div>
-            </div>
+          <div class="blog-tags">
+            
+              <a href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/">日記</a>&nbsp;
+            
           </div>
         
-      </div>
-    </article>
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f2021-02-01-diary%2f&amp;text=2021%2002%2001%20Diary&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2f2021-02-01-diary%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f2021-02-01-diary%2f&amp;title=2021%2002%2001%20Diary" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f2021-02-01-diary%2f&amp;title=2021%2002%2001%20Diary" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f2021-02-01-diary%2f&amp;title=2021%2002%2001%20Diary" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f2021-02-01-diary%2f&amp;description=2021%2002%2001%20Diary" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">関連</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2021-01-28-amazon-chat/">Amazonの荷物が届いたのに宅配ボックスの番号がわからなくて焦った</a></li>
+                
+                    <li><a href="/post/2021-01-28-diary/">2021-01-28 Diary</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://SawaTszm.github.io/post/2021-01-28-amazon-chat/" data-toggle="tooltip" data-placement="top" title="Amazonの荷物が届いたのに宅配ボックスの番号がわからなくて焦った">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
   </div>
 </div>
-
-
 
       
 <footer>
