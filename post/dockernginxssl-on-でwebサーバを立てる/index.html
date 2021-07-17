@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編) - sawa.md</title>
+  <meta name="author" content="Sawa"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sawa.md",
+    
+    "url": "https:\/\/SawaTszm.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/SawaTszm.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io\/post\/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B\/",
+          "name": "【 docker】【nginx】docker compose上のnginxをhttps対応する(開発環境編)"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sawa"
+  },
+  "headline": "【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)",
+  "description" : "",
+  "inLanguage" : "ja",
+  "wordCount":  133 ,
+  "datePublished" : "2021-02-19T12:01:46",
+  "dateModified" : "2021-02-19T12:01:46",
+  "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+  "keywords" : [ "Docker, nginx" ],
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/SawaTszm.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)" />
+<meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+<meta property="og:url" content="https://SawaTszm.github.io/post/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sawa.md" />
+
+  <meta name="twitter:title" content="【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)" />
+  <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@SawaTszm" />
+  <meta name="twitter:creator" content="@SawaTszm" />
+  <link href='https://SawaTszm.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://SawaTszm.github.io/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://SawaTszm.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://SawaTszm.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://SawaTszm.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-188317733-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://SawaTszm.github.io">sawa.md</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sawa.md" href="https://SawaTszm.github.io">
+            <img class="avatar-img" src="https://SawaTszm.github.io/images/icon.JPG" alt="sawa.md" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 19, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sawa
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="目的">目的</h2>
+<p>docker-composeで立てたnginxをhttps対応にする。<br>
+あくまでも開発環境用なのでオレオレ証明書です。</p>
+<h2 id="手順">手順</h2>
+<h3 id="自己署名証明書をサクッと作成する">自己署名証明書をサクッと作成する</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">❯ openssl req -x509 -nodes -new -keyout server.key -out server.crt -days <span class="m">365</span>
+</code></pre></div><h3 id="docker-composeの更新">docker-composeの更新</h3>
+<p>443ポートを使用するように変更。<br>
+また、作成した証明書も読み込めるように<code>volumes</code>も更新。</p>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">version: <span class="s2">&#34;3.5&#34;</span><span class="err">
+</span><span class="err"></span>services:<span class="err">
+</span><span class="err"></span>    web:<span class="err">
+</span><span class="err"></span>        build: ./docker/nginx<span class="err">
+</span><span class="err"></span>        restart: always<span class="err">
+</span><span class="err"></span>        ports:<span class="err">
+</span><span class="err"></span>            - 443:443  <span class="c1"># 変更</span><span class="err">
+</span><span class="err"></span>        depends_on:<span class="err">
+</span><span class="err"></span>            - app<span class="err">
+</span><span class="err"></span>        volumes:<span class="err">
+</span><span class="err"></span>            - ./:/var/www/html<span class="err">
+</span><span class="err"></span>            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf<span class="err">
+</span><span class="err"></span>            - ./docker/nginx/server.crt:/etc/nginx/server.crt  <span class="c1"># 追加</span><span class="err">
+</span><span class="err"></span>            - ./docker/nginx/server.key:/etc/nginx/server.key  <span class="c1"># 追加</span><span class="err">
+</span><span class="err"></span>        links:<span class="err">
+</span><span class="err"></span>            - app<span class="err">
+</span><span class="err"></span>        networks:<span class="err">
+</span><span class="err"></span>            - default<span class="err">
+</span></code></pre></div><h3 id="defaultconfの更新">default.confの更新</h3>
+<p>ポートを443に変更し、証明書の情報を追加します。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">server {
+    listen       443;
+    ssl on;
+    ssl_certificate /etc/nginx/server.crt;
+    ssl_certificate_key /etc/nginx/server.key;
+    index index.php index.html;
+    server_name php-docker.local;
+    error_log  /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    root /var/www/html/laravel/public;
+
+    location / {
+     try_files $uri $uri/ @laravel;
+    }
+</code></pre></div><h3 id="立ち上げ">立ち上げ</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">❯ docker-compose down <span class="o">&amp;&amp;</span> docker-compose up -d
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">❯ docker-compose ps
+       Name                      Command              State                           Ports
+--------------------------------------------------------------------------------------------------------------------
+
+web_1                 nginx -g daemon off<span class="p">;</span>            Up      0.0.0.0:443-&gt;443/tcp
+</code></pre></div><p>オレオレ証明書なので接続時に警告が出ますが、ひとまずこれでhttpsでの接続が可能になりました。</p>
+<h2 id="補足laravel-admin対応">【補足】laravel-admin対応</h2>
+<h3 id="環境変数の更新">環境変数の更新</h3>
+<p><code>.env</code>の<code>APP_URL</code>を更新する。<br>
+<code>APP_URL=https://~~~</code></p>
+<p>ちなみに実際の作業時、ここをちゃんとhttpsにはしてたんですが、お試しデプロイ時にlocalhostにしたままにしてしまって遷移先が全部つながらずフフ……となるなどしました。</p>
+<h3 id="設定ファイルの更新">設定ファイルの更新</h3>
+<p>larave-adminの遷移先URLもhttpsにするため、<code>confit/admin.php</code>も修正。</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">    <span class="s1">&#39;https&#39;</span> <span class="o">=&gt;</span> <span class="nx">env</span><span class="p">(</span><span class="s1">&#39;ADMIN_HTTPS&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">),</span>
+</code></pre></div><h2 id="参考にさせていただいたもの">参考にさせていただいたもの</h2>
+<p><a href="https://qiita.com/ll_kuma_ll/items/13c962a6a74874af39c6">オレだよオレオレ認証局で証明書つくる - Qiita</a><br>
+<a href="https://tomcky.hatenadiary.jp/entry/2018/01/28/193719">Nginx on DockerでHTTPS接続できるローカルサーバーを用意する - Tomcky’s blog</a></p>
+<p>これも大事<br>
+<a href="https://qiita.com/Sheile/items/dc91128e8918fc823562">オレオレ証明書を使いたがる人を例を用いて説得する - Qiita</a></p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://SawaTszm.github.io/tags/docker/">Docker</a>&nbsp;
+            
+              <a href="https://SawaTszm.github.io/tags/nginx/">nginx</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockernginxssl-on-%25E3%2581%25A7web%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%2f&amp;text=%e3%80%90Docker%e3%80%91%e3%80%90nginx%e3%80%91docker-compose%e4%b8%8a%e3%81%aenginx%e3%82%92https%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e7%b7%a8%29&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockernginxssl-on-%25E3%2581%25A7web%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockernginxssl-on-%25E3%2581%25A7web%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%2f&amp;title=%e3%80%90Docker%e3%80%91%e3%80%90nginx%e3%80%91docker-compose%e4%b8%8a%e3%81%aenginx%e3%82%92https%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e7%b7%a8%29" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockernginxssl-on-%25E3%2581%25A7web%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%2f&amp;title=%e3%80%90Docker%e3%80%91%e3%80%90nginx%e3%80%91docker-compose%e4%b8%8a%e3%81%aenginx%e3%82%92https%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e7%b7%a8%29" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockernginxssl-on-%25E3%2581%25A7web%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%2f&amp;title=%e3%80%90Docker%e3%80%91%e3%80%90nginx%e3%80%91docker-compose%e4%b8%8a%e3%81%aenginx%e3%82%92https%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e7%b7%a8%29" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockernginxssl-on-%25E3%2581%25A7web%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%2f&amp;description=%e3%80%90Docker%e3%80%91%e3%80%90nginx%e3%80%91docker-compose%e4%b8%8a%e3%81%aenginx%e3%82%92https%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e7%b7%a8%29" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">関連</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/">【Docker】Killedと言われないためにメモリ割り当てを増やす</a></li>
+                
+                    <li><a href="/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://SawaTszm.github.io/post/embulk%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%ABdynamodb%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" data-toggle="tooltip" data-placement="top" title="【Embulk】インストール＆dynamoDBのインポートを試してみる">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://SawaTszm.github.io/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/" data-toggle="tooltip" data-placement="top" title="【Docker】Killedと言われないためにメモリ割り当てを増やす">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/SawaTszm" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/SawaTszm" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Sawa
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://SawaTszm.github.io">sawa.md</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.80.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://SawaTszm.github.io/js/main.js"></script>
+<script src="https://SawaTszm.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://SawaTszm.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

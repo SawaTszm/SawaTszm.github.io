@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築 - sawa.md</title>
+  <meta name="author" content="Sawa"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sawa.md",
+    
+    "url": "https:\/\/SawaTszm.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/SawaTszm.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io\/post\/laravel\u002bmysql\u002bnginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89\/",
+          "name": "【 laravel\u002b my s q l\u002bnginx】docker composeで最小構成の環境構築"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sawa"
+  },
+  "headline": "【Laravel\u002bMySQL\u002bnginx】docker-composeで最小構成の環境構築",
+  "description" : "",
+  "inLanguage" : "ja",
+  "wordCount":  316 ,
+  "datePublished" : "2021-02-19T12:01:46",
+  "dateModified" : "2021-02-19T12:01:46",
+  "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+  "keywords" : [ "Laravel, MySQL, nginx" ],
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/laravel\u002bmysql\u002bnginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/SawaTszm.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築" />
+<meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+<meta property="og:url" content="https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sawa.md" />
+
+  <meta name="twitter:title" content="【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築" />
+  <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@SawaTszm" />
+  <meta name="twitter:creator" content="@SawaTszm" />
+  <link href='https://SawaTszm.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://SawaTszm.github.io/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://SawaTszm.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://SawaTszm.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://SawaTszm.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-188317733-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://SawaTszm.github.io">sawa.md</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sawa.md" href="https://SawaTszm.github.io">
+            <img class="avatar-img" src="https://SawaTszm.github.io/images/icon.JPG" alt="sawa.md" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 19, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sawa
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="目的">目的</h2>
+<p>laravel-admin使いたいだけの用途にLaradockは重すぎる……<br>
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;MySQLのみの環境を立てる。<br>
+その上でlaravel-adminの管理画面まで開けるようにする。</p>
+<h2 id="構成">構成</h2>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">project_root_dir
+├── docker-compose.yml
+├── docker
+│   ├── nginx
+│   │   ├── Dockerfile
+│   │   └── default.conf
+│   ├── php
+│   │   └── Dockerfile
+│   └── db
+│   │   ├── my.cnf
+│       └── Dockerfile
+└── laravel
+        └── ...
+</code></pre></div><h2 id="手順">手順</h2>
+<h3 id="docker-composeymlを作成">docker-compose.ymlを作成</h3>
+<div class="highlight"><pre class="chroma"><code class="language-docker:docker-compose.yml" data-lang="docker:docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span><span class="w">            </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/php/Dockerfile</span><span class="w">
+</span><span class="w">            </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">PROJECT_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">app_admin</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">database</span><span class="w">
+</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">database</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="s2">&#34;4000:80&#34;</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;4001:8080&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">        </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l">.env_db</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;23306:3306&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&#34;</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/nginx</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf</span><span class="w">
+</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span></code></pre></div><h3 id="appコンテナ設定">appコンテナ設定</h3>
+<p>composerはもうここに含める</p>
+<div class="highlight"><pre class="chroma"><code class="language-Docker:./docker/php/Dockerfile" data-lang="Docker:./docker/php/Dockerfile"><span class="k">FROM</span><span class="s"> php:7-fpm</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> php.ini /usr/local/etc/php/<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>  libfreetype6-dev libjpeg62-turbo-dev libpng-dev libmcrypt-dev libonig-dev <span class="se">\
+</span><span class="se"></span>  git vim unzip <span class="se">\
+</span><span class="se"></span>  <span class="o">&amp;&amp;</span> docker-php-ext-install pdo_mysql mysqli gd iconv <span class="se">\
+</span><span class="se"></span>  <span class="o">&amp;&amp;</span> apt-get clean<span class="err">
+</span><span class="err"></span><span class="c"># install composer</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> curl -sS https://getcomposer.org/installer <span class="p">|</span> php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer<span class="err">
+</span></code></pre></div><h3 id="webコンテナ設定">webコンテナ設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-Docker:./docker/nginx/Dockerfile" data-lang="Docker:./docker/nginx/Dockerfile"><span class="k">FROM</span><span class="s"> nginx:latest</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>    vim <span class="se">\
+</span><span class="se"></span>    unzip <span class="se">\
+</span><span class="se"></span>    zip <span class="se">\
+</span><span class="se"></span>    git<span class="err">
+</span></code></pre></div><p>後々laravelディレクトリを作るので、設定ファイルのルートは<code>/var/www/html/laravel/~</code>にしておく。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">server {
+    listen       80;
+    index index.php index.html;
+    server_name php-docker.local;
+    error_log  /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    root /var/www/html/laravel/public;  // ココ
+
+    location / {
+     try_files $uri $uri/ @laravel;
+    }
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root /var/www/html;
+    }
+
+    location ~ \.php$ {
+    try_files $uri $uri/ @laravel;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass app:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+
+    location @laravel {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass app:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php;  // ココ
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+}
+</code></pre></div><h3 id="dbコンテナの設定">dbコンテナの設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[mysql]
+default-character-set=utf8mb4
+
+[mysqld]
+sql-mode=&#34;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#34;
+character-set-server=utf8mb4
+collation-server=utf8mb4_general_ci
+
+[mysqld_safe]
+timezone = UTC
+default-time-zone = UTC
+</code></pre></div><p>後はHOST情報などを<code>.enb_db</code>(docker-compose.ymlで指定したファイル)に記述する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MYSQL_DATABASE=[my_database_name]
+MYSQL_USERNAME=root
+MYSQL_PASSWORD=
+MYSQL_HOSTNAME=127.0.0.1
+MYSQL_ROOT_PASSWORD=
+API_MYSQL_PORT=23306
+
+</code></pre></div><h3 id="起動laravelのインストール">起動＆Laravelのインストール</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 起動</span>
+$ docker-compose up -d
+
+<span class="c1"># laravelプロジェクトの作成</span>
+$ docker-compose <span class="nb">exec</span> app /bin/bash  
+app$ composer create-project --prefer-dist laravel/laravel laravel
+</code></pre></div><p><a href="http://localhost/">http://localhost/</a> でwelcomページが見られるようになる。</p>
+<h3 id="laravel環境変数ファイルの修正">Laravel環境変数ファイルの修正</h3>
+<p><code>laravel/.env</code>を、DB情報を作成したdockerコンテナに合わせて修正。</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt:laravel/.env" data-lang="txt:laravel/.env"><span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
+<span class="nv">DB_HOST</span><span class="o">=</span>db
+<span class="nv">DB_PORT</span><span class="o">=</span><span class="m">3306</span>
+<span class="nv">DB_DATABASE</span><span class="o">=[</span>my_database_name<span class="o">]</span>
+<span class="nv">DB_USERNAME</span><span class="o">=</span>root
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>
+</code></pre></div><h3 id="laravel-adminをインストール">laravel-adminをインストール</h3>
+<p>composerを使用してインストールし、有効化する。
+<a href="https://laravel-admin.org/docs/#/en/installation">公式ドキュメント</a>がかなりまとまっていて素敵です。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose <span class="nb">exec</span> app /bin/bash 
+app $ <span class="nb">cd</span> laravel
+app/laravel $ composer require encore/laravel-admin
+app/laravel $ php artisan vendor:publish --provider<span class="o">=</span><span class="s2">&#34;Encore\Admin\AdminServiceProvider&#34;</span>
+app/laravel $ php artisan admin:install
+</code></pre></div><p><a href="http://localhost/admin/">http://localhost/admin/</a>に接続して、ログイン画面が出ればおk！<br>
+admin/adminで入れます。</p>
+<h2 id="補足既にある開発環境のdbコンテナに接続する">補足：既にある開発環境のDBコンテナに接続する</h2>
+<p>なんらかの理由で、管理画面開発に使用したいDBコンテナが既存の<code>docker-compose.yml</code>にある場合。<br>
+(開発側はPythonでもりもり作業してるからLaravelのディレクトリ混ぜたくないとかそう言った場合)</p>
+<p>前提として、以下であれば比較的簡単に繋げられます。</p>
+<ul>
+<li>DBコンテナ側でなんらかのDockerNetworkを設定している</li>
+<li>開発環境の方でも<code>docker-compose up -d</code>を実行している
+(直接でも良いし、もしくは開発環境のリポジトリをサブモジュール として引っ張ってきて叩くなどする)</li>
+</ul>
+<p>例えば<code>test-app</code>という名前のnetworkを設定している↓のであれば、</p>
+<div class="highlight"><pre class="chroma"><code class="language-docker:既存docker-compose.yml" data-lang="docker:既存docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">database</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
+</span><span class="w">    </span><span class="l">~~~</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">default</span><span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-app</span><span class="w">
+</span></code></pre></div><p>管理画面側のdocker-compose.ymlでそれを使用するように書き換える↓</p>
+<div class="highlight"><pre class="chroma"><code class="language-docker:docker-compose.yml" data-lang="docker:docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span><span class="w">            </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/php/Dockerfile</span><span class="w">
+</span><span class="w">            </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">PROJECT_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">recipe_app_admin</span><span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="s2">&#34;4000:80&#34;</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;4001:8080&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">default</span><span class="w">
+</span><span class="w">    </span><span class="c"># dbコンテナの設定は不要になる</span><span class="w">
+</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/nginx</span><span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf</span><span class="w">
+</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span><span class="w">        </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">default</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-app</span><span class="w">
+</span><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 外部ファイルで設定していることを指定</span><span class="w">
+</span></code></pre></div><p>後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に<code>docker-compose up -d</code>を叩くだけです。</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://SawaTszm.github.io/tags/laravel/">Laravel</a>&nbsp;
+            
+              <a href="https://SawaTszm.github.io/tags/mysql/">MySQL</a>&nbsp;
+            
+              <a href="https://SawaTszm.github.io/tags/nginx/">nginx</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel%2bmysql%2bnginxdocker-compose%25E3%2581%25A7%25E6%259C%2580%25E5%25B0%258F%25E6%25A7%258B%25E6%2588%2590%25E3%2581%25AE%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%2f&amp;text=%e3%80%90Laravel%2bMySQL%2bnginx%e3%80%91docker-compose%e3%81%a7%e6%9c%80%e5%b0%8f%e6%a7%8b%e6%88%90%e3%81%ae%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel%2bmysql%2bnginxdocker-compose%25E3%2581%25A7%25E6%259C%2580%25E5%25B0%258F%25E6%25A7%258B%25E6%2588%2590%25E3%2581%25AE%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel%2bmysql%2bnginxdocker-compose%25E3%2581%25A7%25E6%259C%2580%25E5%25B0%258F%25E6%25A7%258B%25E6%2588%2590%25E3%2581%25AE%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%2f&amp;title=%e3%80%90Laravel%2bMySQL%2bnginx%e3%80%91docker-compose%e3%81%a7%e6%9c%80%e5%b0%8f%e6%a7%8b%e6%88%90%e3%81%ae%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel%2bmysql%2bnginxdocker-compose%25E3%2581%25A7%25E6%259C%2580%25E5%25B0%258F%25E6%25A7%258B%25E6%2588%2590%25E3%2581%25AE%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%2f&amp;title=%e3%80%90Laravel%2bMySQL%2bnginx%e3%80%91docker-compose%e3%81%a7%e6%9c%80%e5%b0%8f%e6%a7%8b%e6%88%90%e3%81%ae%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel%2bmysql%2bnginxdocker-compose%25E3%2581%25A7%25E6%259C%2580%25E5%25B0%258F%25E6%25A7%258B%25E6%2588%2590%25E3%2581%25AE%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%2f&amp;title=%e3%80%90Laravel%2bMySQL%2bnginx%e3%80%91docker-compose%e3%81%a7%e6%9c%80%e5%b0%8f%e6%a7%8b%e6%88%90%e3%81%ae%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel%2bmysql%2bnginxdocker-compose%25E3%2581%25A7%25E6%259C%2580%25E5%25B0%258F%25E6%25A7%258B%25E6%2588%2590%25E3%2581%25AE%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%2f&amp;description=%e3%80%90Laravel%2bMySQL%2bnginx%e3%80%91docker-compose%e3%81%a7%e6%9c%80%e5%b0%8f%e6%a7%8b%e6%88%90%e3%81%ae%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">関連</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B/">【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)</a></li>
+                
+                    <li><a href="/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/">【laravel-admin】インストール＆画面作成まで 編</a></li>
+                
+                    <li><a href="/post/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</a></li>
+                
+                    <li><a href="/post/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/">【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</a></li>
+                
+                    <li><a href="/post/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/">【Laravel】独自ペジネータで自前のCollectionを使う</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/" data-toggle="tooltip" data-placement="top" title="【laravel-admin】インストール＆画面作成まで 編">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://SawaTszm.github.io/post/embulk%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%ABdynamodb%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" data-toggle="tooltip" data-placement="top" title="【Embulk】インストール＆dynamoDBのインポートを試してみる">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/SawaTszm" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/SawaTszm" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Sawa
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://SawaTszm.github.io">sawa.md</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.80.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://SawaTszm.github.io/js/main.js"></script>
+<script src="https://SawaTszm.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://SawaTszm.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

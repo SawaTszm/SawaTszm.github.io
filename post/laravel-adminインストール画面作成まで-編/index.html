@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>【laravel-admin】インストール＆画面作成まで 編 - sawa.md</title>
+  <meta name="author" content="Sawa"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sawa.md",
+    
+    "url": "https:\/\/SawaTszm.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/SawaTszm.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io\/post\/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8\/",
+          "name": "【laravel admin】インストール＆画面作成まで 編"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sawa"
+  },
+  "headline": "【laravel-admin】インストール＆画面作成まで 編",
+  "description" : "",
+  "inLanguage" : "ja",
+  "wordCount":  110 ,
+  "datePublished" : "2021-02-19T12:01:46",
+  "dateModified" : "2021-02-19T12:01:46",
+  "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+  "keywords" : [ "Laravel, laravel-admin" ],
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/SawaTszm.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="【laravel-admin】インストール＆画面作成まで 編" />
+<meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+<meta property="og:url" content="https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sawa.md" />
+
+  <meta name="twitter:title" content="【laravel-admin】インストール＆画面作成まで 編" />
+  <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@SawaTszm" />
+  <meta name="twitter:creator" content="@SawaTszm" />
+  <link href='https://SawaTszm.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://SawaTszm.github.io/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://SawaTszm.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://SawaTszm.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://SawaTszm.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-188317733-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://SawaTszm.github.io">sawa.md</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sawa.md" href="https://SawaTszm.github.io">
+            <img class="avatar-img" src="https://SawaTszm.github.io/images/icon.JPG" alt="sawa.md" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>【laravel-admin】インストール＆画面作成まで 編</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 19, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sawa
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>こんにちは。バックエンドエンジニアの佐和です。<br>
+案件でしばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。<br>
+まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。</p>
+<h2 id="laravel-adminとは">laravel-adminとは</h2>
+<p>laravelで簡単にDBの管理画面を作成することができるライブラリです。<br>
+ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。</p>
+<p><a href="https://laravel-admin.org/docs/#/">Laravel-admin(ドキュメント)</a><br>
+<a href="https://github.com/z-song/laravel-admin">GitHubページ</a></p>
+<p>基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。</p>
+<p>主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。</p>
+<h2 id="プロジェクトの作成">プロジェクトの作成</h2>
+<p>既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。</p>
+<p>何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。</p>
+<p>公式によると、現在のバージョンでは以下の環境が推奨されるようです。</p>
+<ul>
+<li>PHP 7+</li>
+<li>laravel 5.5+</li>
+</ul>
+<blockquote>
+<p>This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4<br>
+<a href="https://laravel-admin.org/docs/#/en/installation">laravel-admin install</a></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$composer</span> create-project --prefer-dist <span class="s2">&#34;laravel/laravel=5.5.*&#34;</span> &lt;project-name&gt;
+</code></pre></div><p>DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。<br>
+よければこちらの記事も参考にしてみてください。<br>
+<a href="https://sawa-t.hatenablog.com/entry/2020/04/16/081302">【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog</a></p>
+<h2 id="インストール">インストール</h2>
+<p>laravelの準備ができたら早速laravel-adminをインストールします。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$composer</span> require encore/laravel-admin
+</code></pre></div><p>インストールが終わったら下記コマンドを実行します。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$php</span> artisan vendor:publish --provider<span class="o">=</span><span class="s2">&#34;Encore\Admin\AdminServiceProvider&#34;</span>
+
+<span class="nv">$php</span> artisan admin:install
+</code></pre></div><p>これらを実行すると、<code>app/Admin</code>ディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。<br>
+ファイルの初期配置は以下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">app/Admin
+├── Controllers
+│   ├── ExampleController.php
+│   └── HomeController.php
+├── bootstrap.php
+└── routes.php
+</code></pre></div><p>フロント周りのファイルは<code>/public/packages/admin</code>に置かれています。<br>
+構成ファイルは<code>config/admin.php</code>です。後々触ることになります。</p>
+<p>ここまでで既にダッシュボードは作成されているので、<code>php artisan serve</code>などをして、<a href="http://localhost:8000/admin">http://localhost:8000/admin</a> にアクセスしてみましょう。<br>
+ID・PASSどちらにも<code>admin</code>と入力し、無事ダッシュボードが表示されれば成功です。<br>
+早速DBテーブルの管理画面を作成していきましょう。</p>
+<h2 id="モデルコントローラ作成">モデル・コントローラ作成</h2>
+<p>laravelでDBテーブルを認識するためにモデルを作成します。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$php</span> artisan make:model Recipe
+</code></pre></div><p>モデルが作成されたのを確認したら、それを利用して<strong>Admin用のコントローラ</strong>を作成します。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$php</span> artisan admin:make RecipeController --model<span class="o">=</span>App<span class="se">\\</span>Recipe
+</code></pre></div><p>成功すると、作成したコントローラのルーティング情報がターミナルに出力されます。<br>
+これを<code>app/Admin/routes.php</code>に記述しましょう。</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$router</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;admin/recipes&#39;</span><span class="p">,</span> <span class="nx">RecipeController</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div><p>上記ルーティング情報のURLを叩くと、それらしい画面が表示されていると思います。<br>
+あとは作成したAdmin用のコントローラを、ドキュメントを参考にしながら更新していく流れになります。</p>
+<p>現在仕様として提供されているのは以下のページです。</p>
+<ul>
+<li>一覧画面(<code>grid</code>関数)</li>
+<li>詳細画面(<code>show</code>関数)</li>
+<li>新規作成・編集画面(<code>form</code>関数)</li>
+</ul>
+<p>それぞれドキュメントに基本の使用方法からカスタマイズ方法まで乗っていますので、一通り目を通すことをお勧めします。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>とても簡単に導入できるので、気になっている方は一度試して見ると面白いかも知れません。<br>
+その他、主にカスタマイズ部分でつまづくことが多かったので、少しずつ記事にして行こうかと思います。</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://laravel-admin.org/docs/#/">Laravel-admin(ドキュメント)</a><br>
+<a href="https://github.com/z-song/laravel-admin">laravel-admin(GitHub)</a></p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://SawaTszm.github.io/tags/laravel/">Laravel</a>&nbsp;
+            
+              <a href="https://SawaTszm.github.io/tags/laravel-admin/">laravel-admin</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel-admin%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E7%2594%25BB%25E9%259D%25A2%25E4%25BD%259C%25E6%2588%2590%25E3%2581%25BE%25E3%2581%25A7-%25E7%25B7%25A8%2f&amp;text=%e3%80%90laravel-admin%e3%80%91%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%86%e7%94%bb%e9%9d%a2%e4%bd%9c%e6%88%90%e3%81%be%e3%81%a7%20%e7%b7%a8&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel-admin%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E7%2594%25BB%25E9%259D%25A2%25E4%25BD%259C%25E6%2588%2590%25E3%2581%25BE%25E3%2581%25A7-%25E7%25B7%25A8%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel-admin%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E7%2594%25BB%25E9%259D%25A2%25E4%25BD%259C%25E6%2588%2590%25E3%2581%25BE%25E3%2581%25A7-%25E7%25B7%25A8%2f&amp;title=%e3%80%90laravel-admin%e3%80%91%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%86%e7%94%bb%e9%9d%a2%e4%bd%9c%e6%88%90%e3%81%be%e3%81%a7%20%e7%b7%a8" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel-admin%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E7%2594%25BB%25E9%259D%25A2%25E4%25BD%259C%25E6%2588%2590%25E3%2581%25BE%25E3%2581%25A7-%25E7%25B7%25A8%2f&amp;title=%e3%80%90laravel-admin%e3%80%91%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%86%e7%94%bb%e9%9d%a2%e4%bd%9c%e6%88%90%e3%81%be%e3%81%a7%20%e7%b7%a8" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel-admin%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E7%2594%25BB%25E9%259D%25A2%25E4%25BD%259C%25E6%2588%2590%25E3%2581%25BE%25E3%2581%25A7-%25E7%25B7%25A8%2f&amp;title=%e3%80%90laravel-admin%e3%80%91%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%86%e7%94%bb%e9%9d%a2%e4%bd%9c%e6%88%90%e3%81%be%e3%81%a7%20%e7%b7%a8" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2flaravel-admin%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AB%25E7%2594%25BB%25E9%259D%25A2%25E4%25BD%259C%25E6%2588%2590%25E3%2581%25BE%25E3%2581%25A7-%25E7%25B7%25A8%2f&amp;description=%e3%80%90laravel-admin%e3%80%91%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%86%e7%94%bb%e9%9d%a2%e4%bd%9c%e6%88%90%e3%81%be%e3%81%a7%20%e7%b7%a8" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">関連</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</a></li>
+                
+                    <li><a href="/post/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</a></li>
+                
+                    <li><a href="/post/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/">【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</a></li>
+                
+                    <li><a href="/post/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/">【Laravel】独自ペジネータで自前のCollectionを使う</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://SawaTszm.github.io/post/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/" data-toggle="tooltip" data-placement="top" title="【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" data-toggle="tooltip" data-placement="top" title="【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/SawaTszm" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/SawaTszm" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Sawa
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://SawaTszm.github.io">sawa.md</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.80.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://SawaTszm.github.io/js/main.js"></script>
+<script src="https://SawaTszm.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://SawaTszm.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

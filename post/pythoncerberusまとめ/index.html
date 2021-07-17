@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>【Python】cerberusまとめ - sawa.md</title>
+  <meta name="author" content="Sawa"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sawa.md",
+    
+    "url": "https:\/\/SawaTszm.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/SawaTszm.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io\/post\/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81\/",
+          "name": "【 python】cerberusまとめ"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sawa"
+  },
+  "headline": "【Python】cerberusまとめ",
+  "description" : "",
+  "inLanguage" : "ja",
+  "wordCount":  800 ,
+  "datePublished" : "2021-02-19T12:01:46",
+  "dateModified" : "2021-02-19T12:01:46",
+  "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+  "keywords" : [ "python" ],
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/SawaTszm.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="【Python】cerberusまとめ" />
+<meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+<meta property="og:url" content="https://SawaTszm.github.io/post/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sawa.md" />
+
+  <meta name="twitter:title" content="【Python】cerberusまとめ" />
+  <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@SawaTszm" />
+  <meta name="twitter:creator" content="@SawaTszm" />
+  <link href='https://SawaTszm.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://SawaTszm.github.io/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://SawaTszm.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://SawaTszm.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://SawaTszm.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-188317733-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://SawaTszm.github.io">sawa.md</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sawa.md" href="https://SawaTszm.github.io">
+            <img class="avatar-img" src="https://SawaTszm.github.io/images/icon.JPG" alt="sawa.md" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>【Python】cerberusまとめ</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 19, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sawa
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <blockquote>
+<p><em>CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary</em></p>
+</blockquote>
+<p>ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。<br>
+公式曰く、拡張も容易なため、カスタム検証も可能です。</p>
+<p>(以下、9割公式のドキュメントの翻訳です)</p>
+<hr>
+<h2 id="概要">概要</h2>
+<p>検証用のスキーマを定義し、それを Validator クラスのインスタンスに渡します。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">schma</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}}</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+</code></pre></div><p>次に、<code>validate()</code>を呼び出すことで、簡単にスキーマと辞書を検証できます。<br>
+検証が成功すると True が返されます。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john doe&#39;</span><span class="p">}</span>
+<span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>  <span class="c1"># True</span>
+</code></pre></div><hr>
+<h2 id="インストール">インストール</h2>
+<p>安定バージョンは<code>pip</code>から取得できます。<br>
+<code>pip install cerberus</code></p>
+<hr>
+<h2 id="使い方">使い方</h2>
+<h3 id="基本的な使い方">基本的な使い方</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 概要の通り。スキーマを定義し、Validatorクラスに渡して検証する。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cerberus</span> <span class="kn">import</span> <span class="n">Validator</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john doe&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="c1"># スキーマと辞書を同時に渡すこともできる。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="c1"># Validatorクラスとそのインスタンスは呼び出し可能なので、以下の簡略構文が使える。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+<span class="bp">True</span>
+</code></pre></div><p>ケルベロスは、検証に問題があった時点(最初のバリデーションエラーが起きた時点)では停止しません(！)。<br>
+文書全体が常に処理されてから<code>False</code>を返します。その後、エラープロパティにアクセスすることで、起きた問題のリストを取得できます。<br>
+つまり<strong>検証したデータ内で起きたバリデーションエラーは全て取得できます</strong>。</p>
+<p>バリデーションエラーは<code>Validator.errors</code>に格納されます。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min value is 10&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;must be of string type&#39;</span><span class="p">]}</span>
+</code></pre></div><h3 id="未知のものを許可">未知のものを許可</h3>
+<p>デフォルトでは、スキーマで定義された以外のキーは許可されません。<br>
+ただし、Validator で<code>allow_unknown = True</code>を設定することにより、スキーマに記述されていないキーを許可したり、検証をかけたりすることができます。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># デフォルトでは、スキーマで定義されたキーのみが許可される。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;maxlength&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">},</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;unknown field&#39;</span><span class="p">]}</span>
+
+<span class="c1"># allow_unknownをTrueに設定することで、不明なキーを許可できる。(検証はしない)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">})</span>
+<span class="bp">True</span>
+
+<span class="c1"># もしくは、検証スキーマに設定できる。この場合は未知のキーが検証される。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;must be of string type&#39;</span><span class="p">]}</span>
+
+<span class="c1"># 初期化時に設定することも可能。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">({},</span> <span class="n">allow_unknown</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">})</span>
+<span class="bp">True</span>
+
+<span class="c1"># スキーマのルールとして設定することもできる。ネストした先の辞書等にも使用可能。</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span>
+<span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+<span class="o">...</span>   <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
+<span class="o">...</span>   <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">...</span>     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span><span class="p">,</span>
+<span class="o">...</span>     <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1">#a_dict辞書の未知のキーを許可</span>
+<span class="o">...</span>     <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">...</span>       <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
+<span class="o">...</span>     <span class="p">}</span>
+<span class="o">...</span>   <span class="p">}</span>
+<span class="o">...</span> <span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span>
+<span class="o">...</span>             <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="s1">&#39;is allowed&#39;</span><span class="p">}},</span>
+<span class="o">...</span>            <span class="n">schema</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span>
+<span class="o">...</span>             <span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="s1">&#39;is not allowed&#39;</span><span class="p">,</span>  <span class="c1"># 親の辞書はv.allow_unknown == False</span>
+<span class="o">...</span>             <span class="s1">&#39;a_dict&#39;</span><span class="p">:{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="s1">&#39;is allowed&#39;</span><span class="p">}},</span>
+<span class="o">...</span>            <span class="n">schema</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;unknown field&#39;</span><span class="p">]}</span>
+</code></pre></div><h3 id="全てを要求する">全てを要求する</h3>
+<p>デフォルトでは、スキーマで定義されたキーは不要です。<br>
+ただし、Validator で<code>require_all = True</code>を設定することにより、スキーマに記述した全てのキーを要求できます。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">require_all</span>
+<span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+<span class="o">...</span>   <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
+<span class="o">...</span>   <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">...</span>     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span><span class="p">,</span>
+<span class="o">...</span>     <span class="s1">&#39;require_all&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+<span class="o">...</span>     <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">...</span>       <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
+<span class="o">...</span>     <span class="p">}</span>
+<span class="o">...</span>   <span class="p">}</span>
+<span class="o">...</span> <span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{}},</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;required field&#39;</span><span class="p">]}]}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;foobar&#39;</span><span class="p">}},</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">True</span>
+</code></pre></div><h3 id="処理済みドキュメントの取得">処理済みドキュメントの取得</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 検証されたドキュメントはドキュメントプロパティに格納される</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;coerce&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">})</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">document</span>
+<span class="p">{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="c1"># validated()</span>
+<span class="c1"># 検証済みの値のみを返す</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;maxlength&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validated</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;hoge&#39;</span><span class="p">})</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;hoge&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validated</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">})</span>
+<span class="c1"># None</span>
+
+<span class="c1"># normalized()</span>
+<span class="c1"># 検証せずにDocumentの正規化されたコピーを返す</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">normalized</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="c1"># &lt;class &#39;int&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">normalized</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;hoge&#39;</span><span class="p">})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="c1"># &lt;class &#39;str&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">n</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;hoge&#39;</span><span class="p">}</span>
+</code></pre></div><hr>
+<h2 id="検証スキーマ">検証スキーマ</h2>
+<p>前述の通りですが、デフォルトの設定では、スキーマに書かれている全てのキーはオプションとして扱われます。<br>
+極端な話、デフォルトではどんなスキーマ相手でも<code>document = {}</code>で検証が通ります。<br>
+設定を変えるか、<code>Validator.require_all</code>を True にして全てのスキーマキーを要求することが望ましいです。</p>
+<h3 id="２つのレジスタ">２つのレジスタ</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># schema_registry</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cerberus</span> <span class="kn">import</span> <span class="n">schema_registry</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema_registry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;non-system user&#39;</span><span class="p">,</span>
+<span class="o">...</span>                     <span class="p">{</span><span class="s1">&#39;uid&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mh">0xffff</span><span class="p">}})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sender&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s1">&#39;non-system user&#39;</span><span class="p">,</span>
+<span class="o">...</span>                      <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+<span class="o">...</span>           <span class="s1">&#39;receiver&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s1">&#39;non-system user&#39;</span><span class="p">,</span>
+<span class="o">...</span>                        <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}}</span>
+
+<span class="c1"># rules_set_registry</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cerberus</span> <span class="kn">import</span> <span class="n">rules_set_registry</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rules_set_registry</span><span class="o">.</span><span class="n">extend</span><span class="p">(((</span><span class="s1">&#39;boolean&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">}),</span>
+<span class="o">...</span>                            <span class="p">(</span><span class="s1">&#39;booleans&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;valuesrules&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">})))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;booleans&#39;</span><span class="p">}</span>
+</code></pre></div><p>レジストリを設定、及びダンプするには、<code>extend()</code>及び<code>all()</code>を使用します。</p>
+<h3 id="検証">検証</h3>
+<p>スキーマ自体の検証は、決まったタイミングのみ行われます。<br>
+(when passed to the validator or a new set of rules is set for a document’s field)</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">({</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;allowed&#39;</span><span class="p">:</span> <span class="p">[]}})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;allowed&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&#34;cerberus/schema.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">99</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__setitem__</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+  <span class="n">File</span> <span class="s2">&#34;cerberus/schema.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">126</span><span class="p">,</span> <span class="ow">in</span> <span class="n">validate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&#34;cerberus/schema.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">141</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_validate</span>
+    <span class="k">raise</span> <span class="n">SchemaError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema_validator</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
+<span class="n">SchemaError</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;allowed&#39;</span><span class="p">:</span> <span class="s1">&#39;must be of container type&#39;</span><span class="p">}}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">][</span><span class="s1">&#39;allowed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;strings are no valid constraint for allowed&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&#34;&lt;input&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&#34;cerberus/schema.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">126</span><span class="p">,</span> <span class="ow">in</span> <span class="n">validate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&#34;cerberus/schema.py&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">141</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_validate</span>
+    <span class="k">raise</span> <span class="n">SchemaError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema_validator</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
+<span class="n">SchemaError</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;allowed&#39;</span><span class="p">:</span> <span class="s1">&#39;must be of container type&#39;</span><span class="p">}}</span>
+</code></pre></div><h3 id="serialization">Serialization</h3>
+<p>Cerberus スキーマは、Python の型(<code>dict, list, string</code>など)で構成されています。<br>
+ユーザ定義の検証ルールも、スキーマ内では<code>string</code>型としてその名前が呼び出されます。<br>
+これによって、PyYAML など、様々な方法でスキーマを定義することができます。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">yaml</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">... name:
+</span><span class="s1">...   type: string
+</span><span class="s1">... age:
+</span><span class="s1">...   type: integer
+</span><span class="s1">...   min: 10
+</span><span class="s1">... &#39;&#39;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">schema_text</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Little Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min value is 10&#39;</span><span class="p">]}</span>
+</code></pre></div><p>YAML 以外にも、ネストされた辞書を生成できるデコーダーがあれば、どんなシリアライザーも利用できます。<br>
+JSON とか。</p>
+<hr>
+<h2 id="検証ルール">検証ルール</h2>
+<p>基本は 👇 にまとまってます<br>
+<a href="https://docs.python-cerberus.org/en/stable/validation-rules.html">Validation Rules — Cerberus is a lightweight and extensible data validation library for Python</a></p>
+<h3 id="valuesrules">valuesrules</h3>
+<p>検証される全てのデータに適応されるルールを定義します。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span>
+<span class="o">...</span>              <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span><span class="p">,</span>
+<span class="o">...</span>               <span class="s1">&#39;valuesrules&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
+<span class="o">...</span> <span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;an integer&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;another integer&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;an integer&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;an integer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min value is 10&#39;</span><span class="p">]}]}</span>
+</code></pre></div><hr>
+<h2 id="エラー">エラー</h2>
+<h3 id="ドキュメントが見つからない時または無効な値の時">ドキュメントが見つからない時、または無効な値の時</h3>
+<p><strong><code>cerberus.validator.DocumentError</code></strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+
+<span class="n">cerberus</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">DocumentError</span><span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">document</span><span class="p">,</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="nb">dict</span>
+</code></pre></div><h3 id="無効な検証スキーマを検出した場合">無効な検証スキーマを検出した場合</h3>
+<p><strong><code>cerberus.schema.SchemaError</code></strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;hoge&#34;</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+<span class="n">cerberus</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">SchemaError</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Unsupported types: hoge&#39;</span><span class="p">]}]}</span>
+</code></pre></div><hr>
+<hr>
+<h2 id="参考">参考</h2>
+<p><a href="https://dev.classmethod.jp/server-side/python/python-cerberus-often-use/">Python のバリデーションライブラリ「Cerberus」のよく使うバリデーションルールをまとめてみた ｜ Developers.IO</a><br>
+<a href="https://mkai.hateblo.jp/entry/2018/12/18/224244">Cerberus 入門！ばりばりバリデーションしよう！ - hogehoge diary</a></p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://SawaTszm.github.io/tags/python/">python</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fpythoncerberus%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2f&amp;text=%e3%80%90Python%e3%80%91cerberus%e3%81%be%e3%81%a8%e3%82%81&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2fpythoncerberus%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fpythoncerberus%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2f&amp;title=%e3%80%90Python%e3%80%91cerberus%e3%81%be%e3%81%a8%e3%82%81" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fpythoncerberus%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2f&amp;title=%e3%80%90Python%e3%80%91cerberus%e3%81%be%e3%81%a8%e3%82%81" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fpythoncerberus%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2f&amp;title=%e3%80%90Python%e3%80%91cerberus%e3%81%be%e3%81%a8%e3%82%81" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fpythoncerberus%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2f&amp;description=%e3%80%90Python%e3%80%91cerberus%e3%81%be%e3%81%a8%e3%82%81" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">関連</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/">【Python】poetryを試してみる</a></li>
+                
+                    <li><a href="/post/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【Python】エラーについて</a></li>
+                
+                    <li><a href="/post/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/">【Pytyon】リストの重複要素をカウントする</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://SawaTszm.github.io/post/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" data-toggle="tooltip" data-placement="top" title="【Python】poetryを試してみる">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://SawaTszm.github.io/post/mysql%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/" data-toggle="tooltip" data-placement="top" title="【MySQL】外部キー追加時にエラー">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/SawaTszm" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/SawaTszm" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Sawa
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://SawaTszm.github.io">sawa.md</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.80.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://SawaTszm.github.io/js/main.js"></script>
+<script src="https://SawaTszm.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://SawaTszm.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
