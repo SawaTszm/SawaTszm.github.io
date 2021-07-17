@@ -89,7 +89,7 @@
   <meta name="twitter:site" content="@SawaTszm" />
   <meta name="twitter:creator" content="@SawaTszm" />
   <link href='https://SawaTszm.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   <link rel="alternate" href="https://SawaTszm.github.io/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://SawaTszm.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -299,16 +299,16 @@ if (!doNotTrack) {
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john doe&#39;</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># スキーマと辞書を同時に渡すこともできる。</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># Validatorクラスとそのインスタンスは呼び出し可能なので、以下の簡略構文が使える。</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </code></pre></div><p>ケルベロスは、検証に問題があった時点(最初のバリデーションエラーが起きた時点)では停止しません(！)。<br>
 文書全体が常に処理されてから<code>False</code>を返します。その後、エラープロパティにアクセスすることで、起きた問題のリストを取得できます。<br>
 つまり<strong>検証したデータ内で起きたバリデーションエラーは全て取得できます</strong>。</p>
@@ -316,7 +316,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min value is 10&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;must be of string type&#39;</span><span class="p">]}</span>
 </code></pre></div><h3 id="未知のものを許可">未知のものを許可</h3>
@@ -325,39 +325,39 @@ if (!doNotTrack) {
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># デフォルトでは、スキーマで定義されたキーのみが許可される。</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;maxlength&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">},</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;unknown field&#39;</span><span class="p">]}</span>
 
 <span class="c1"># allow_unknownをTrueに設定することで、不明なキーを許可できる。(検証はしない)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">})</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># もしくは、検証スキーマに設定できる。この場合は未知のキーが検証される。</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;must be of string type&#39;</span><span class="p">]}</span>
 
 <span class="c1"># 初期化時に設定することも可能。</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">({},</span> <span class="n">allow_unknown</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">({},</span> <span class="n">allow_unknown</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">})</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># スキーマのルールとして設定することもできる。ネストした先の辞書等にも使用可能。</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">allow_unknown</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
 <span class="o">...</span>   <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
 <span class="o">...</span>   <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span>
 <span class="o">...</span>     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span><span class="p">,</span>
-<span class="o">...</span>     <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1">#a_dict辞書の未知のキーを許可</span>
+<span class="o">...</span>     <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1">#a_dict辞書の未知のキーを許可</span>
 <span class="o">...</span>     <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="p">{</span>
 <span class="o">...</span>       <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
 <span class="o">...</span>     <span class="p">}</span>
@@ -367,13 +367,13 @@ if (!doNotTrack) {
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span>
 <span class="o">...</span>             <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="s1">&#39;is allowed&#39;</span><span class="p">}},</span>
 <span class="o">...</span>            <span class="n">schema</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span>
 <span class="o">...</span>             <span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="s1">&#39;is not allowed&#39;</span><span class="p">,</span>  <span class="c1"># 親の辞書はv.allow_unknown == False</span>
 <span class="o">...</span>             <span class="s1">&#39;a_dict&#39;</span><span class="p">:{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="s1">&#39;is allowed&#39;</span><span class="p">}},</span>
 <span class="o">...</span>            <span class="n">schema</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;an_unknown_field&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;unknown field&#39;</span><span class="p">]}</span>
 </code></pre></div><h3 id="全てを要求する">全てを要求する</h3>
@@ -381,13 +381,13 @@ if (!doNotTrack) {
 ただし、Validator で<code>require_all = True</code>を設定することにより、スキーマに記述した全てのキーを要求できます。</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">require_all</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
 <span class="o">...</span>   <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
 <span class="o">...</span>   <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span>
 <span class="o">...</span>     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span><span class="p">,</span>
-<span class="o">...</span>     <span class="s1">&#39;require_all&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+<span class="o">...</span>     <span class="s1">&#39;require_all&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 <span class="o">...</span>     <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="p">{</span>
 <span class="o">...</span>       <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
 <span class="o">...</span>     <span class="p">}</span>
@@ -395,17 +395,17 @@ if (!doNotTrack) {
 <span class="o">...</span> <span class="p">}</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{}},</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;required field&#39;</span><span class="p">]}]}</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;a_dict&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;foobar&#39;</span><span class="p">}},</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </code></pre></div><h3 id="処理済みドキュメントの取得">処理済みドキュメントの取得</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 検証されたドキュメントはドキュメントプロパティに格納される</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;coerce&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">})</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">document</span>
 <span class="p">{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 
@@ -439,9 +439,9 @@ if (!doNotTrack) {
 <span class="o">&gt;&gt;&gt;</span> <span class="n">schema_registry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;non-system user&#39;</span><span class="p">,</span>
 <span class="o">...</span>                     <span class="p">{</span><span class="s1">&#39;uid&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mh">0xffff</span><span class="p">}})</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sender&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s1">&#39;non-system user&#39;</span><span class="p">,</span>
-<span class="o">...</span>                      <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+<span class="o">...</span>                      <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
 <span class="o">...</span>           <span class="s1">&#39;receiver&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s1">&#39;non-system user&#39;</span><span class="p">,</span>
-<span class="o">...</span>                        <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}}</span>
+<span class="o">...</span>                        <span class="s1">&#39;allow_unknown&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}}</span>
 
 <span class="c1"># rules_set_registry</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cerberus</span> <span class="kn">import</span> <span class="n">rules_set_registry</span>
@@ -488,7 +488,7 @@ if (!doNotTrack) {
 <span class="o">&gt;&gt;&gt;</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">schema_text</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Little Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min value is 10&#39;</span><span class="p">]}</span>
 </code></pre></div><p>YAML 以外にも、ネストされた辞書を生成できるデコーダーがあれば、どんなシリアライザーも利用できます。<br>
@@ -505,11 +505,11 @@ JSON とか。</p>
 <span class="o">...</span> <span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;an integer&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;another integer&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">document</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;an integer&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">errors</span>
 <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;an integer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min value is 10&#39;</span><span class="p">]}]}</span>
@@ -690,7 +690,7 @@ JSON とか。</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.80.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          起動力に<a href="https://gohugo.io">Hugo v0.85.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
