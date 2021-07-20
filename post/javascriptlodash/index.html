@@ -58,7 +58,7 @@
   "headline": "Lodashの概要と関数まとめ",
   "description" : "",
   "inLanguage" : "ja",
-  "wordCount":  78 ,
+  "wordCount":  90 ,
   "datePublished" : "2021-07-17T11:11:15",
   "dateModified" : "2021-07-17T11:11:15",
   "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
@@ -306,6 +306,13 @@ if (!doNotTrack) {
 </code></pre></div><p><code>array</code>を一段分フラットにする。非破壊的メソッド。<br>
 (例：<code>[1, [2, [3, [4]], 5]]</code>を<code>[1, 2, [3, [4]], 5]</code>に)<br>
 全部フラットにする<code>_.flattenDeep(array)</code>や任意の深さをフラットにする<code>_.flattenDepth(array, [depth=1])</code>もある。</p>
+<h3 id="_isnil">_.isNil()</h3>
+<div class="highlight"><pre class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="mi">_</span><span class="p">.</span><span class="nx">isNil</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</code></pre></div><p><code>value</code>の値がnullか、もしくは未定義かをチェックする。</p>
+<h3 id="sortby">sortBy()</h3>
+<div class="highlight"><pre class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="mi">_</span><span class="p">.</span><span class="nx">sortBy</span><span class="p">(</span><span class="nx">collection</span><span class="p">,</span> <span class="p">[</span><span class="nx">iteratees</span><span class="o">=</span><span class="p">[</span><span class="mi">_</span><span class="p">.</span><span class="nx">identity</span><span class="p">]])</span>
+<span class="c1">// 例：_.sortBy(users, [&#34;id&#34;, &#34;name&#34;]) id-&gt;nameの順でソート
+</span></code></pre></div><p>要素の配列を作成する。非破壊的メソッド。</p>
 
         
           <div class="blog-tags">
