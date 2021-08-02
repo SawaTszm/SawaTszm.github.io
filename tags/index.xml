@@ -5,7 +5,16 @@
     <link>https://SawaTszm.github.io/tags/</link>
     <description>Recent content in Tags on sawa.md</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Jul 2021 11:11:15 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Aug 2021 18:52:08 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://SawaTszm.github.io/tags/python/</link>
+      <pubDate>Mon, 02 Aug 2021 18:52:08 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>JavaScript</title>
       <link>https://SawaTszm.github.io/tags/javascript/</link>
@@ -84,15 +93,6 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/tags/nginx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://SawaTszm.github.io/tags/python/</link>
-      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/tags/python/</guid>
       <description></description>
     </item>
     
