@@ -34,13 +34,24 @@ p a {
   color: #19a895;
 }
 h1 {
-  margin: 40px 0 15px 0;
+  font-size: 25px;
 }
 h2 {
-  margin: 40px 0 15px 0;
+  font-size: 20px;
 }
 h3 {
-  margin: 40px 0 15px 0;
+  font-size: 18px;
+}
+@media only screen and (min-width: 768px) {
+  h1 {
+    margin: 40px 0 15px 0;
+  }
+  h2 {
+    margin: 40px 0 15px 0;
+  }
+  h3 {
+    margin: 40px 0 15px 0;
+  }
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -533,7 +544,7 @@ footer .theme-by {
 }
 .intro-header .post-heading h1 {
   margin-top: 0;
-  font-size: 35px;
+  font-size: 25px;
 }
 .intro-header .page-heading .page-subheading,
 .intro-header .post-heading .post-subheading {
