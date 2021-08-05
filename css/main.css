@@ -344,7 +344,7 @@ footer .theme-by {
 
 @media only screen and (min-width: 768px) {
   .post-preview {
-    padding: 35px 0;
+    padding: 25px 0;
   }
 }
 
@@ -364,7 +364,7 @@ footer .theme-by {
 }
 
 .post-preview .post-title {
-  font-size: 30px;
+  font-size: 25px;
   margin-top: 0;
 }
 .post-preview .post-subtitle {
@@ -376,7 +376,7 @@ footer .theme-by {
 .post-heading .post-meta,
 .page-meta {
   color: #808080;
-  font-size: 18px;
+  font-size: 15px;
   font-style: italic;
   margin: 0 0 10px;
 }
@@ -419,12 +419,13 @@ footer .theme-by {
   font-weight: 800;
   float: right;
 }
-
+/* タイトルPCから見るとデカすぎるのでいらない気がする
 @media only screen and (min-width: 768px) {
   .post-preview .post-title {
     font-size: 36px;
   }
 }
+*/
 
 /* --- Tags --- */
 
@@ -578,7 +579,7 @@ footer .theme-by {
   .intro-header .page-heading h1,
   .intro-header .tags-heading h1,
   .intro-header .categories-heading h1 {
-    font-size: 80px;
+    font-size: 60px;
   }
   .intro-header .post-heading h1 {
     font-size: 50px;
