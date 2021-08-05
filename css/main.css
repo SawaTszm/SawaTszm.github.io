@@ -2,7 +2,7 @@
 
 body {
   font-family: 'arial', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #404040;
   position: relative;
   background: #FFF;
@@ -31,22 +31,32 @@ p + p {
 }
 p a {
   /* text-decoration: underline */
-  color: #008AFF;
+  color: #19a895;
+}
+h1 {
+  margin: 40px 0 15px 0;
+}
+h2 {
+  margin: 40px 0 15px 0;
+}
+h3 {
+  margin: 40px 0 15px 0;
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  /*font-weight: 600;*/
 }
 a {
-  color: #008AFF;
+  color: #19a895;
 }
 a:hover,
 a:focus {
-  color: #0085a1;
+  color: #22d3bb;
 }
 blockquote {
   color: #808080;
   font-style: italic;
+  font-size: 15.5px;
 }
 blockquote p:first-child {
   margin-top: 0;
@@ -338,13 +348,13 @@ footer .theme-by {
 /* --- Post preview --- */
 
 .post-preview {
-  padding: 20px 0;
+  padding: 15px 0;
   border-bottom: 1px solid #eee;
 }
 
 @media only screen and (min-width: 768px) {
   .post-preview {
-    padding: 25px 0;
+    padding: 15px 0;
   }
 }
 
@@ -364,7 +374,7 @@ footer .theme-by {
 }
 
 .post-preview .post-title {
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 0;
 }
 .post-preview .post-subtitle {
@@ -378,7 +388,7 @@ footer .theme-by {
   color: #808080;
   font-size: 15px;
   font-style: italic;
-  margin: 0 0 10px;
+  margin: 0 0 10px 15px;
 }
 .page-meta {
   align-self: center;
@@ -419,13 +429,13 @@ footer .theme-by {
   font-weight: 800;
   float: right;
 }
-/* タイトルPCから見るとデカすぎるのでいらない気がする
+
 @media only screen and (min-width: 768px) {
   .post-preview .post-title {
-    font-size: 36px;
+    font-size: 25px;
   }
 }
-*/
+
 
 /* --- Tags --- */
 
@@ -436,12 +446,8 @@ footer .theme-by {
   margin-bottom: 30px;
 }
 
-.blog-tags:before {
-  content: "Tags: ";
-}
-
 .blog-tags a {
-  color: #008AFF;
+  color: #19a895;
   text-decoration: none;
   padding: 0px 5px;
 }
@@ -452,8 +458,7 @@ footer .theme-by {
 
 .blog-tags a:hover {
   border-radius: 2px;
-  color: #008AFF;
-  background-color: #CCC;
+  color: #22d3bb;
 }
 
 .post-preview .blog-tags {
@@ -582,7 +587,7 @@ footer .theme-by {
     font-size: 60px;
   }
   .intro-header .post-heading h1 {
-    font-size: 50px;
+    font-size: 35px;
   }
   .intro-header.big-img .img-desc {
     font-size: 14px;
