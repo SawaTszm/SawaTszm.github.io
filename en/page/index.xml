@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on sawa.md</title>
+    <link>https://SawaTszm.github.io/en/page/</link>
+    <description>Recent content in Pages on sawa.md</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://SawaTszm.github.io/en/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About me</title>
+      <link>https://SawaTszm.github.io/en/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://SawaTszm.github.io/en/page/about/</guid>
+      <description>What is this place? This is a blog that I write about learned as programmer.
+ Who are you? I&amp;rsquo;m Sawa.
+ Web application engineer LIKE: Python, cats, reptiles, and games Basically an indoor person, but sometimes mountain climbing and cycling   What do you use for work? Python/Vue.js/PHP(Laravel)/&amp;hellip;
+AWS/GCP/Docker/&amp;hellip;
+ </description>
+    </item>
+    
+  </channel>
+</rss>
