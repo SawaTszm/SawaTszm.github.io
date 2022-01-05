@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>laravel-admin - sawa.md</title>
+  <title>初めてのOSS Contribute【First Contributions編】 - sawa.md</title>
   <meta name="author" content="Sawa"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +28,62 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/SawaTszm.github.io\/post\/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8\/",
+          "name": "初めての o s s contribute【 first contributions編】"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sawa"
+  },
+  "headline": "初めてのOSS Contribute【First Contributions編】",
+  "description" : "",
+  "inLanguage" : "ja",
+  "wordCount":  45 ,
+  "datePublished" : "2022-01-05T20:34:34",
+  "dateModified" : "2022-01-05T20:34:34",
+  "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+  "keywords" : [ "Tech, OSS" ],
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/SawaTszm.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="laravel-admin" />
+<meta property="og:title" content="初めてのOSS Contribute【First Contributions編】" />
 <meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
-<meta property="og:url" content="https://SawaTszm.github.io/tags/laravel-admin/" />
+<meta property="og:url" content="https://SawaTszm.github.io/post/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="sawa.md" />
 
-  <meta name="twitter:title" content="laravel-admin" />
+  <meta name="twitter:title" content="初めてのOSS Contribute【First Contributions編】" />
   <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@SawaTszm" />
@@ -198,14 +246,25 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="tags-heading">
+            <div class="post-heading">
               
-                <h1>laravel-admin</h1>
-              
-              
-                <hr class="small">
+                <h1>初めてのOSS Contribute【First Contributions編】</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;January 5, 2022
+  
+  
+  
+  &nbsp;|&nbsp;
+  
+</span>
+
+
               
             </div>
           </div>
@@ -216,55 +275,147 @@ if (!doNotTrack) {
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><a href="https://firstcontributions.github.io/">First Contributions - Make your first open source contribution in 5 minutes</a></p>
+<hr>
+<p>ということで、「OSS貢献してみたいけどよくわからないなー」と思って調べていた時に発見したプロジェクトでタイトルの通りOSSコントリビュータデビューさせてもらった時の備忘録です。</p>
+<h2 id="手順">手順</h2>
+<p>基本的にはリポジトリのREADMEに沿って進めるだけです。本当に5分かかりませんでした。</p>
+<p><a href="https://github.com/firstcontributions/first-contributions/blob/master/translations/README.ja.md">first-contributions/README.ja.md at master · firstcontributions/first-contributions · GitHub</a></p>
+<p><a href="https://github.com/firstcontributions/first-contributions/blob/master/translations/Translations.md">様々な言語で翻訳</a>されていて、コミュニティの大きさを感じます。</p>
+<hr>
+<div class="highlight"><pre class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span> リポジトリをフォーク
+<span class="k">2.</span> フォークしたリポジトリをクローン
+<span class="k">3.</span> ブランチを作成
+<span class="k">4.</span> コードを変更してコミット
+<span class="k">5.</span> Push
+<span class="k">6.</span> PRを送る(githubで自分のリポジトリに行くとCompare <span class="err">&amp;</span> pull requestボタンが表示される)
+</code></pre></div><p>これで完了です！botの手ですぐにmergeされました。</p>
+<h2 id="今後の貢献について">今後の貢献について</h2>
+<p>大体のリポジトリでは、READMEや<code>Contribute.md</code>などに貢献の方法(ルール)が明記されています。まずはそれを見て、issueを立てたりPRを出して提案したりすることになりそうです。<br>
+（OSSコントリビューションというと花形のPRに目が行きがちですが、issueでのエラー報告も立派な貢献になるみたいです。言われてみれば確かに、実装中エラーに当たった時OSSのissueにはお世話になってます……）</p>
+<h2 id="余談">余談</h2>
+<ul>
+<li>カタカナ表記の場合、<code>リポジトリ</code>派閥と<code>レポジトリ</code>派閥があることに気がつきました。<a href="https://e-words.jp/w/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html">IT用語辞典</a>などでも併記されているので、完全に好みの問題みたいです。</li>
+<li>軽い気持ちでやったお試しOSSコントリビューションでしたが、これひとつでfindyの偏差値が10近く上がりました（！）。OSSへの貢献は一つのハードルなのかも知れないですね。</li>
+</ul>
+
         
-        <div class="posts-list">
+          <div class="blog-tags">
+            
+              <a href="https://SawaTszm.github.io/tags/tech/">Tech</a>&nbsp;
+            
+              <a href="https://SawaTszm.github.io/tags/oss/">OSS</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2581%25AEoss-contributefirst-contributions%25E7%25B7%25A8%2f&amp;text=%e5%88%9d%e3%82%81%e3%81%a6%e3%81%aeOSS%20Contribute%e3%80%90First%20Contributions%e7%b7%a8%e3%80%91&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2f%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2581%25AEoss-contributefirst-contributions%25E7%25B7%25A8%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2581%25AEoss-contributefirst-contributions%25E7%25B7%25A8%2f&amp;title=%e5%88%9d%e3%82%81%e3%81%a6%e3%81%aeOSS%20Contribute%e3%80%90First%20Contributions%e7%b7%a8%e3%80%91" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2581%25AEoss-contributefirst-contributions%25E7%25B7%25A8%2f&amp;title=%e5%88%9d%e3%82%81%e3%81%a6%e3%81%aeOSS%20Contribute%e3%80%90First%20Contributions%e7%b7%a8%e3%80%91" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2581%25AEoss-contributefirst-contributions%25E7%25B7%25A8%2f&amp;title=%e5%88%9d%e3%82%81%e3%81%a6%e3%81%aeOSS%20Contribute%e3%80%90First%20Contributions%e7%b7%a8%e3%80%91" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2f%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2581%25AEoss-contributefirst-contributions%25E7%25B7%25A8%2f&amp;description=%e5%88%9d%e3%82%81%e3%81%a6%e3%81%aeOSS%20Contribute%e3%80%90First%20Contributions%e7%b7%a8%e3%80%91" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/">
-        <h2 class="post-title">【laravel-admin】インストール＆画面作成まで 編</h2>
-        
-        
-        
-    </a>
-
-    <p>
-        <span class="post-meta">
-            <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 19, 2021
-  
-  
-  
-  &nbsp;|&nbsp;
-  
-</span>
-
-
-        </span>
-        
-        <span class="blog-tags">
             
-            <a href="https://SawaTszm.github.io/tags/laravel/">Laravel</a>&nbsp;
-            
-            <a href="https://SawaTszm.github.io/tags/laravel-admin/">laravel-admin</a>&nbsp;
-            
-            <a href="https://SawaTszm.github.io/tags/tech/">Tech</a>&nbsp;
-            
-        </span>
-        
-    </p>
-
-</article>
           
-        </div>
+
+          
+                  <h4 class="see-also">関連</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/">【Python】フォーマット済み文字列リテラル</a></li>
+                
+                    <li><a href="/post/javascriptlodash/">Lodashの概要と関数まとめ</a></li>
+                
+                    <li><a href="/post/aws-sam%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%A7cloudwatch%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B/">【AWS SAM】テンプレートでCloudWatchイベントを記述する</a></li>
+                
+                    <li><a href="/post/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/">【DDD】前提知識まとめ</a></li>
+                
+                    <li><a href="/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/">【Docker】Killedと言われないためにメモリ割り当てを増やす</a></li>
+                
+              </ul>
+
+          
         
-      </div>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://SawaTszm.github.io/post/2021-08-05-diary/" data-toggle="tooltip" data-placement="top" title="2021 08 05 Diary">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
     </div>
   </div>
+</div>
 
       
 <footer>
