@@ -34,24 +34,32 @@ p a {
   color: #19a895;
 }
 h1 {
-  font-size: 25px;
+  font-size: 30px;
 }
 h2 {
-  font-size: 20px;
+  font-size: 25px;
+  padding: 10px 0 10px 0;
+  border-bottom: 1px dotted #999;
 }
 h3 {
-  font-size: 18px;
+  display: inline-block;
+  font-size: 20px;
+  padding: 0 0 5px 0;
+  border-bottom: 1px dotted #999;
 }
 @media only screen and (min-width: 768px) {
   h1 {
     margin: 40px 0 15px 0;
   }
   h2 {
-    margin: 40px 0 15px 0;
+    margin: 40px 0 40px 0;
   }
   h3 {
     margin: 40px 0 15px 0;
   }
+  h2 + h3 {
+    margin: 0 0 15px 0;
+}
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -387,6 +395,9 @@ footer .theme-by {
 .post-preview .post-title {
   font-size: 20px;
   margin-top: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  border-bottom: none;
 }
 .post-preview .post-subtitle {
   margin: 0;
@@ -454,6 +465,7 @@ footer .theme-by {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #999;
   font-size: 15px;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 
