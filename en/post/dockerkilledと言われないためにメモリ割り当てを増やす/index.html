@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>【Docker】Killedと言われないためにメモリ割り当てを増やす - sawa.md</title>
+  <title>【Docker】Increase memory allocation to avoid Killed. - sawa.md</title>
   <meta name="author" content="Sawa"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -43,8 +43,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/SawaTszm.github.io\/post\/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99\/",
-          "name": "【 docker】 killedと言われないためにメモリ割り当てを増やす"
+          "@id": "https:\/\/SawaTszm.github.io\/en\/post\/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99\/",
+          "name": "【 docker】 increase memory allocation to avoid killed."
         }
     }]
 }
@@ -55,15 +55,15 @@
   "author": {
     "name" : "Sawa"
   },
-  "headline": "【Docker】Killedと言われないためにメモリ割り当てを増やす",
+  "headline": "【Docker】Increase memory allocation to avoid Killed.",
   "description" : "",
-  "inLanguage" : "ja",
-  "wordCount":  104 ,
+  "inLanguage" : "en",
+  "wordCount":  409 ,
   "datePublished" : "2021-02-19T12:01:46",
   "dateModified" : "2021-02-19T12:01:46",
   "image" : "https:\/\/SawaTszm.github.io\/images\/icon.JPG",
   "keywords" : [ "Docker, Tech" ],
-  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/post\/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99\/",
+  "mainEntityOfPage" : "https:\/\/SawaTszm.github.io\/en\/post\/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/SawaTszm.github.io",
@@ -77,20 +77,20 @@
 }
 </script>
 
-<meta property="og:title" content="【Docker】Killedと言われないためにメモリ割り当てを増やす" />
+<meta property="og:title" content="【Docker】Increase memory allocation to avoid Killed." />
 <meta property="og:image" content="https://SawaTszm.github.io/images/icon.JPG" />
-<meta property="og:url" content="https://SawaTszm.github.io/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/" />
+<meta property="og:url" content="https://SawaTszm.github.io/en/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="sawa.md" />
 
-  <meta name="twitter:title" content="【Docker】Killedと言われないためにメモリ割り当てを増やす" />
+  <meta name="twitter:title" content="【Docker】Increase memory allocation to avoid Killed." />
   <meta name="twitter:image" content="https://SawaTszm.github.io/images/icon.JPG" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@SawaTszm" />
   <meta name="twitter:creator" content="@SawaTszm" />
   <link href='https://SawaTszm.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="alternate" href="https://SawaTszm.github.io/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://SawaTszm.github.io/en/index.xml" type="application/rss+xml" title="sawa.md"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://SawaTszm.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -117,12 +117,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://SawaTszm.github.io">sawa.md</a>
+      <a class="navbar-brand" href="https://SawaTszm.github.io/en/">sawa.md</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -130,19 +130,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/page/about">About</a>
+              <a title="About" href="/en/page/about">About</a>
             </li>
           
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -152,9 +152,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">English</a>
-                
               
+                
+                  <a href="/ja" lang="ja">Japanese</a>
                 
               
             </li>
@@ -168,7 +168,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="sawa.md" href="https://SawaTszm.github.io">
+          <a title="sawa.md" href="https://SawaTszm.github.io/en/">
             <img class="avatar-img" src="https://SawaTszm.github.io/images/icon.JPG" alt="sawa.md" />
           </a>
         </div>
@@ -248,7 +248,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>【Docker】Killedと言われないためにメモリ割り当てを増やす</h1>
+                <h1>【Docker】Increase memory allocation to avoid Killed.</h1>
               
               
               
@@ -256,12 +256,12 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;February 19, 2021
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 19, 2021
   
   
   
   &nbsp;|&nbsp;
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://SawaTszm.github.io/en/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/" lang="en">English</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://SawaTszm.github.io/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/" lang="ja">Japanese</a>
 </span>
 
 
@@ -279,8 +279,8 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="目的">目的</h2>
-<p>laravelプロジェクトにawsのs3アダプタをインストールしようとして、dockerコンテナ内に入って<code>composer require league/flysystem-aws-s3-v3 ~1.0</code>を実行したら下記の通りKillされました。</p>
+        <h2 id="problem">Problem</h2>
+<p>When I tried to install the aws s3 adapter in my laravel project, I went into the docker container and ran <code>composer require league/flysystem-aws-s3-v3 ~1.0</code> and it was killed as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0
 
 ./composer.json has been updated
@@ -289,45 +289,46 @@ Updating dependencies <span class="o">(</span>including require-dev<span class="
 
 Killed
 
-</code></pre></div><p>ｺﾛｻﾅｲﾃﾞ……<br>
-これを、ちゃんと殺されずにインストール完了させたいので色々調べました。</p>
+</code></pre></div><p>Pls don&rsquo;t kill it&hellip;
+I want to complete the installation of this without getting killed.</p>
 <h2 id="tldr">TL;DR</h2>
-<p>Docker for Macのメモリ割り当てをできる範囲で増やす。</p>
-<h2 id="解決法">解決法</h2>
-<h3 id="調べたこと">調べたこと</h3>
-<p>まず、<code>Killed</code>がどういう時に発動するのかを調べました。<br>
-ら、<code>OOM Killer</code>と呼ばれる動作らしいです。</p>
+<p>Increase the memory allocation of Docker for Mac as much as possible.</p>
+<h2 id="solution">Solution</h2>
+<h3 id="what-i-found">What I found</h3>
+<p>First, I checked when <code>Killed</code> is triggered.<br>
+This seems to be a behavior called <code>OOM Killer</code>.</p>
 <blockquote>
-<p>　OOM Killer（Out of Memory Killer）は，システムが実メモリーと仮想メモリー空間（スワップ領域）を使い切り，必要なメモリー領域を新たに確保できない場合に，プロセスを強制終了させて空きメモリーを確保する，Linuxカーネルの仕組みです。OOM Killerは，空きメモリーが確保できないことによりシステム自体が停止するという最悪の事態を避けるために用意されています。</p>
+<p>　OOM Killer (Out of Memory Killer) is a mechanism in the Linux kernel that kills processes to free up memory when the system has used up all of its real and virtual memory space (swap space) and cannot allocate the necessary memory space. Killer is provided to avoid the worst-case scenario where the system itself stops due to inability to allocate free memory.<br>
+(translated)</p>
 </blockquote>
-<p><a href="https://xtech.nikkei.com/it/article/Keyword/20070207/260459/">日経XTECH</a>さんより引用</p>
-<p>強制的にプロセスがKillされてしまうのは、システム自体が止まってしまわないようにOOM Killerさんが働いた結果らしいです。<br>
-つまり、今回の原因はメモリ不足。</p>
-<p>Docker for macで、<code>Preferences &gt; Resources &gt; Memory</code>を見てみると、現在は3.75GB割り当てしていることがわかりました。Swapは1GB。<br>
-合わせてMacのアクティビティモニタでdockerが使っているメモリを調べて見ると、割り当て分ほとんど使い切っていました。</p>
-<h3 id="実行したこと">実行したこと</h3>
-<p>Docker for macの<code>Preferences &gt; Resources &gt; Memory</code>から、割り当てのメモリをできる範囲で増やしました。<br>
-mac自体は16GBなので、まぁ一回様子見て5GBまであげてみることに。</p>
-<p>改めて<code>composer require league/flysystem-aws-s3-v3 ~1.0</code>を実行。</p>
+<p><a href="https://xtech.nikkei.com/it/article/Keyword/20070207/260459/">日経XTECH</a></p>
+<p>It seems that the forced kill of the process is the result of OOM Killer&rsquo;s work to prevent the system itself from stopping.<br>
+In other words, the cause this time was lack of memory.</p>
+<p>In Docker for mac, I looked at <code>Preferences &gt; Resources &gt; Memory</code> and found that I currently have 3.75GB allocated, and Swap is 1GB.<br>
+In addition, I checked the memory used by docker in the Mac&rsquo;s Activity Monitor, and found that it was using up almost all of the allocated memory.</p>
+<h3 id="what-i-tried">What I tried</h3>
+<p>I went to <code>Preferences &gt; Resources &gt; Memory</code> in Docker for mac and increased the allocated memory as much as I could.<br>
+The mac itself is 16GB, so I decided to take a look at it and increase it to 5GB.</p>
+<p>Once again, I ran <code>composer require league/flysystem-aws-s3-v3 ~1.0</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3
 Using version ^1.0 <span class="k">for</span> league/flysystem-aws-s3-v3
 
-~略~
+~~~
 
 Package manifest generated successfully.
 <span class="m">38</span> packages you are using are looking <span class="k">for</span> funding.
 Use the <span class="sb">`</span>composer fund<span class="sb">`</span> <span class="nb">command</span> to find out more!
-</code></pre></div><p>無事入りました。</p>
-<h2 id="思ったこと">思ったこと</h2>
-<p>今回は5GBで足りたけど、例えばいくつかの案件を掛け持ちしていて、常にいくつもDockerコンテナを立ち上げる……という状態だとメモリ割り当て→食いきるのいたちごっこになるのでは？と思いました。<br>
-開発時からコンテナは<code>restart: always</code>で設定しがちだけど、長く使わないものはちゃんと落としておく、などの対策もした合わせてした方が良いのかもしれないですね。</p>
+</code></pre></div><p>it worked well:)</p>
+<h2 id="what-i-thought">What I thought</h2>
+<p>In this case, 5GB was enough, but if you&rsquo;re working on several projects, for example, and you&rsquo;re constantly setting up several Docker containers on, you&rsquo;ll probably end up allocating memory and then eating it up.<br>
+I tend to set up containers with <code>restart: always</code> from the time of development, but it might be better to take measures such as dropping containers that are not used for a long time.</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://SawaTszm.github.io/tags/docker/">Docker</a>&nbsp;
+              <a href="https://SawaTszm.github.io/en/tags/docker/">Docker</a>&nbsp;
             
-              <a href="https://SawaTszm.github.io/tags/tech/">Tech</a>&nbsp;
+              <a href="https://SawaTszm.github.io/en/tags/tech/">Tech</a>&nbsp;
             
           </div>
         
@@ -342,42 +343,42 @@ Use the <span class="sb">`</span>composer fund<span class="sb">`</span> <span cl
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;text=%e3%80%90Docker%e3%80%91Killed%e3%81%a8%e8%a8%80%e3%82%8f%e3%82%8c%e3%81%aa%e3%81%84%e3%81%9f%e3%82%81%e3%81%ab%e3%83%a1%e3%83%a2%e3%83%aa%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e3%82%92%e5%a2%97%e3%82%84%e3%81%99&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fSawaTszm.github.io%2fen%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;text=%e3%80%90Docker%e3%80%91Increase%20memory%20allocation%20to%20avoid%20Killed.&amp;via=SawaTszm" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fSawaTszm.github.io%2fen%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;title=%e3%80%90Docker%e3%80%91Killed%e3%81%a8%e8%a8%80%e3%82%8f%e3%82%8c%e3%81%aa%e3%81%84%e3%81%9f%e3%82%81%e3%81%ab%e3%83%a1%e3%83%a2%e3%83%aa%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e3%82%92%e5%a2%97%e3%82%84%e3%81%99" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fen%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;title=%e3%80%90Docker%e3%80%91Increase%20memory%20allocation%20to%20avoid%20Killed." target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;title=%e3%80%90Docker%e3%80%91Killed%e3%81%a8%e8%a8%80%e3%82%8f%e3%82%8c%e3%81%aa%e3%81%84%e3%81%9f%e3%82%81%e3%81%ab%e3%83%a1%e3%83%a2%e3%83%aa%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e3%82%92%e5%a2%97%e3%82%84%e3%81%99" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fSawaTszm.github.io%2fen%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;title=%e3%80%90Docker%e3%80%91Increase%20memory%20allocation%20to%20avoid%20Killed." target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;title=%e3%80%90Docker%e3%80%91Killed%e3%81%a8%e8%a8%80%e3%82%8f%e3%82%8c%e3%81%aa%e3%81%84%e3%81%9f%e3%82%81%e3%81%ab%e3%83%a1%e3%83%a2%e3%83%aa%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e3%82%92%e5%a2%97%e3%82%84%e3%81%99" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fSawaTszm.github.io%2fen%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;title=%e3%80%90Docker%e3%80%91Increase%20memory%20allocation%20to%20avoid%20Killed." target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;description=%e3%80%90Docker%e3%80%91Killed%e3%81%a8%e8%a8%80%e3%82%8f%e3%82%8c%e3%81%aa%e3%81%84%e3%81%9f%e3%82%81%e3%81%ab%e3%83%a1%e3%83%a2%e3%83%aa%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e3%82%92%e5%a2%97%e3%82%84%e3%81%99" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fSawaTszm.github.io%2fen%2fpost%2fdockerkilled%25E3%2581%25A8%25E8%25A8%2580%25E3%2582%258F%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E5%2589%25B2%25E3%2582%258A%25E5%25BD%2593%25E3%2581%25A6%25E3%2582%2592%25E5%25A2%2597%25E3%2582%2584%25E3%2581%2599%2f&amp;description=%e3%80%90Docker%e3%80%91Increase%20memory%20allocation%20to%20avoid%20Killed." target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -395,19 +396,11 @@ Use the <span class="sb">`</span>composer fund<span class="sb">`</span> <span cl
           
 
           
-                  <h4 class="see-also">関連</h4>
+                  <h4 class="see-also">See also</h4>
                   <ul>
                 
                 
-                    <li><a href="/post/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/">【Docker】docker for Macが更新できない</a></li>
-                
-                    <li><a href="/post/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/">初めてのOSS Contribute【First Contributions編】</a></li>
-                
-                    <li><a href="/post/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/">【Python】フォーマット済み文字列リテラル</a></li>
-                
-                    <li><a href="/post/javascriptlodash/">Lodashの概要と関数まとめ</a></li>
-                
-                    <li><a href="/post/aws-sam%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%A7cloudwatch%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B/">【AWS SAM】テンプレートでCloudWatchイベントを記述する</a></li>
+                    <li><a href="/en/post/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/">【Docker】Docker for mac doesn&#39;t work</a></li>
                 
               </ul>
 
@@ -418,13 +411,9 @@ Use the <span class="sb">`</span>composer fund<span class="sb">`</span> <span cl
       
         <ul class="pager blog-pager">
           
-            <li class="previous">
-              <a href="https://SawaTszm.github.io/post/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B/" data-toggle="tooltip" data-placement="top" title="【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)">&larr; 前ページ</a>
-            </li>
-          
           
             <li class="next">
-              <a href="https://SawaTszm.github.io/post/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/" data-toggle="tooltip" data-placement="top" title="【DDD】前提知識まとめ">次ページ &rarr;</a>
+              <a href="https://SawaTszm.github.io/en/post/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/" data-toggle="tooltip" data-placement="top" title="【Docker】Docker for mac doesn&#39;t work">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -479,12 +468,12 @@ Use the <span class="sb">`</span>composer fund<span class="sb">`</span> <span cl
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://SawaTszm.github.io">sawa.md</a>
+            <a href="https://SawaTszm.github.io/en/">sawa.md</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.80.0</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
