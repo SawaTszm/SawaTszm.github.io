@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>【DDD】前提知識まとめ</title>
+
+<link rel='canonical' href='https://SawaTszm.github.io/p/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='【DDD】前提知識まとめ'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='https://SawaTszm.github.io/p/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/'>
+<meta property='og:site_name' content='sawa.md'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DDD' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-02-19T12:01:46&#43;09:00'/><meta property='article:modified_time' content='2021-02-19T12:01:46&#43;09:00'/>
+<meta name="twitter:site" content="@SawaTszm">
+    <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【DDD】前提知識まとめ">
+<meta name="twitter:description" content="">
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188317733-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/">【DDD】前提知識まとめ</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 19, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="目的">目的</h2>
+<p>社内お勉強会で DDD 本を輪読することになったんですが、<br>
+改めて「〇〇ってわかりますか？」と言われると戸惑ってしまうことが多いので自分用にまとめました。</p>
+<hr>
+<h2 id="抽象クラスabstract-class">抽象クラス(abstract class)</h2>
+<p>他のクラスで継承してもらうことを前提としたクラス。<br>
+複数のクラスの共通処理の中に、一部異なる処理を使用したい場合などに定義する。</p>
+<ul>
+<li>抽象クラス自体はインスタンス化できない</li>
+<li><code>abstract function</code>で抽象メソッドを定義できる</li>
+</ul>
+<h2 id="インターフェース">インターフェース</h2>
+<p>クラスが実装するメソッドを定義することができるもの。</p>
+<ul>
+<li>メソッドの実体は持てない(定義のみ)</li>
+<li>使用できる修飾子は<code>public</code>のみ</li>
+<li>定数を持てる。実装先のクラスでのオーバーライドはできない<br>
+不特定のクラスで、共通のメソッドを定義したい場合などに定義する。</li>
+</ul>
+<h2 id="ポリモーフィズム">ポリモーフィズム</h2>
+<p>「中に入るものによって、同じ関数でも違う処理を行える」というオブジェクト指向プログラミングの特徴のこと。</p>
+<p>「モノが「そのモノ」らしく振る舞うこと」
+=「呼び出した関数が、呼び出し元のオブジェクトに適した振る舞いをすること」</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="c1"># 動物は必ず「鳴く」
+</span><span class="c1"></span><span class="k">interface</span> <span class="nx">Animal</span> <span class="p">{</span>
+    <span class="nx">sound</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1"># 犬は「動物らしい振る舞い」をする(鳴く)
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">dog</span> <span class="k">implements</span> <span class="nx">Animal</span> <span class="p">{</span>
+    <span class="nx">sound</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/**/</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># 動物は「鳴く」ので、引数の動物ごとの異なる鳴き声を処理する
+</span><span class="c1"># 引数で与えられる動物によって、異なる処理(鳴き声)ができる
+</span><span class="c1"></span><span class="k">public</span> <span class="k">function</span> <span class="nf">animalsound</span><span class="p">(</span><span class="nx">animal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">animal</span><span class="o">.</span><span class="nx">sound</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="継承">継承</h2>
+<p>親クラスの振る舞いを引き継いで、子クラスを実装すること。
+子クラス側で親クラスを拡張することができる。</p>
+<h2 id="委譲">委譲</h2>
+<p>実際の振る舞いを別のオブジェクトに委ねることで、別のオブジェクトの振る舞いを再利用する手法。(？)</p>
+<h2 id="カプセル化">カプセル化</h2>
+<p>関連のあるデータとその使い方を一まとめにしたもの。
+内部のデータを直接いじることはさせずに、使い方だけを見せる。</p>
+<h2 id="gof-デザインパターン">GoF デザインパターン</h2>
+<p>23 種類あるヤツ(雑)<br>
+勉強します<br>
+<a class="link" href="https://qiita.com/rch1223/items/5ab98d4bf3430937013c"  target="_blank" rel="noopener"
+    >3 分でわかるデザインパターン入門</a></p>
+<h2 id="solid-原則">SOLID 原則</h2>
+<h3 id="solid-原則とは">SOLID 原則とは</h3>
+<p>Robert C. Martin によって提唱された 5 つのガイドライン。<br>
+これらのガイドライン(原則)に則ることで、開発者にとって読みやすく、メンテナンスが可能なプログラムを作成しやすくなる。</p>
+<p><strong>Robert C. Martin：</strong><br>
+「ボブおじさん」の通称で知られる(？)ソフトフェア技術者・インストラクター。<br>
+アジャイル宣言の著者の一人。<br>
+「プログラマが知るべき 97 のこと」でもいくつかエッセイを書いている。</p>
+<h3 id="5-つの原則">5 つの原則</h3>
+<ul>
+<li>S：SRP、単一責任の原則<br>
+→ クラスその他諸々が負う責任は一つにしようね</li>
+<li>O：OCP、解放閉鎖の原則<br>
+→ 修正時に既存のロジックを弄らないといけない実装は駄目だよ</li>
+<li>L：LSP、リスコフの置換原則<br>
+→ サブクラスとスーパークラスを入れ替えても動くように設計してね</li>
+<li>I：ISP、インタフェース分離の原則<br>
+→ 使用しないメソッドをクラスに強要するインターフェースを作らないでね</li>
+<li>D：DIP、依存性逆転の原則</li>
+</ul>
+<h3 id="単一責任の原則srp">単一責任の原則(SRP)</h3>
+<p>クラスは１つのことだけ責任を負うべき。<br>
+もし複数の責任を負っている場合、それらは連動してしまう。<br>
+　※この原則はクラスだけでなく、ソフトフェアコンポーネントやマイクロサービスにも当てはまる。</p>
+<ul>
+<li>違反する例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="c1"># プロパティ管理とDB管理の二つの責任を持ってしまっているクラス
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">getAnimalName</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">saveAnimal</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Animal</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div><ul>
+<li>SRP に一致する改善案</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">getAnimalName</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">AnimalDB</span> <span class="p">{</span>
+    <span class="nx">getAnimal</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Animal</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">saveAnimal</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Animal</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="解放閉鎖の原則ocp">解放閉鎖の原則(OCP)</h3>
+<p>ソフトウェアのエンティティ(クラス、モジュール、関数)は、拡張に対して開き、修正に対して閉じていなければならない。(？)<br>
+→ ロジックのパターンが増える度に既存の処理を修正 or 追記しなくちゃいけないような書き方は避ける。</p>
+<ul>
+<li>違反する例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">getAnimalName</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># animalリストを順に処理し、泣き声を出す
+</span><span class="c1"></span><span class="k">const</span> <span class="no">animals</span><span class="o">:</span> <span class="k">Array</span><span class="o">&lt;</span><span class="nx">Animal</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">“lion”</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">“mouse”</span><span class="p">)</span>
+<span class="p">];</span>
+<span class="c1"># animalsが更新されるごとに修正を入れないといけない
+</span><span class="c1"># animalsの修正に対して「閉じていない」関数
+</span><span class="c1"></span><span class="k">function</span> <span class="nf">AnimalSound</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="k">Array</span><span class="o">&lt;</span><span class="nx">Animal</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">a</span><span class="o">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">.</span><span class="nx">name</span> <span class="o">==</span> <span class="nx">“lion”</span><span class="p">)</span>
+            <span class="nx">log</span><span class="p">(</span><span class="nx">“gaogao”</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">.</span><span class="nx">name</span> <span class="o">==</span> <span class="nx">“mouse”</span><span class="p">)</span>
+            <span class="nx">log</span><span class="p">(</span><span class="nx">“chu”</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">AnimalSound</span><span class="p">(</span><span class="nx">animals</span><span class="p">);</span>
+</code></pre></div><ul>
+<li>OCP に一致する例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="c1"># Animalに仮想メソッドmakeSound()を宣言
+</span><span class="c1"># 各々の動物に各々のmakeSound()が実装されるので、
+</span><span class="c1"># 新しい動物が増える度にAnimalSound()を変更する必要はない
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="nx">makeSound</span><span class="p">();</span>
+    <span class="c1"># ...
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">class</span> <span class="nc">Lion</span> <span class="k">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
+    <span class="nx">nameSound</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">“gaogao”</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">mouse</span> <span class="k">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
+    <span class="nx">nameSound</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">“chu”</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># お好きなアニマルをanimalsに突っ込む
+</span><span class="c1"></span><span class="nx">fanction</span> <span class="nx">AnimalSound</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="k">Array</span><span class="o">&lt;</span><span class="nx">Animal</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">a</span><span class="o">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">.</span><span class="nx">makeSound</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">AnimalSound</span><span class="p">(</span><span class="nx">animals</span><span class="p">);</span>
+</code></pre></div><h3 id="リスコフの置換原則lsp">リスコフの置換原則(LSP)</h3>
+<p>サブクラスは、そのスーパークラスで代用可能でなければならない。</p>
+<ul>
+<li>違反している例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="c1"># 全部のAnimalの型を見て、それに関連するLegCountを呼び出す必要がある
+</span><span class="c1"># コードでクラスの型をチェックしていたら、LSPに違反している場合が多い
+</span><span class="c1"># OCPにも違反している
+</span><span class="c1"></span><span class="k">function</span> <span class="nf">AnimalLegCount</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="k">Array</span><span class="o">&lt;</span><span class="nx">animal</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">a</span><span class="o">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">typeof</span> <span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">Lion</span><span class="p">)</span>
+            <span class="nx">log</span><span class="p">(</span><span class="nx">LionLegCount</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">typeof</span> <span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">Mouse</span><span class="p">)</span>
+            <span class="nx">log</span><span class="p">(</span><span class="nx">MouseLegCount</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">typeof</span> <span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">Snake</span><span class="p">)</span>
+            <span class="nx">log</span><span class="p">(</span><span class="nx">SnakeLegCount</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">AnimalLegCount</span><span class="p">(</span><span class="nx">animals</span><span class="p">);</span>
+</code></pre></div><ul>
+<li>LSP に一致した例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="c1"># OCPに一致させるために仮想メソッドを定義
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="nx">LegCount</span><span class="p">();</span>
+    <span class="c1"># ...
+</span><span class="c1"></span><span class="p">}</span>
+<span class="c1"># Animal型が通過しても気にせず、ただLegCountメソッドを呼び出すだけ
+</span><span class="c1"></span><span class="k">function</span> <span class="nf">AnimalLegCount</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="k">Array</span><span class="o">&lt;</span><span class="nx">Animal</span><span class="o">&gt;</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">a</span><span class="o">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">.</span><span class="nx">LegCount</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">AnimalLegCount</span><span class="p">(</span><span class="nx">animals</span><span class="p">);</span>
+</code></pre></div><p>(この例だと OCP の解決法とほぼ一緒なのでは……)</p>
+<h3 id="インターフェース分離の原則isp">インターフェース分離の原則(ISP)</h3>
+<p>顧客に特化した細粒度のインターフェースを作る。<br>
+顧客は、自分たちが使わないインターフェースに依存することを強いられるべきではない。</p>
+<ul>
+<li>違反する例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">interface</span> <span class="nx">ISape</span> <span class="p">{</span>
+    <span class="nx">drawCircle</span><span class="p">();</span>
+    <span class="nx">drawSquare</span><span class="p">();</span>
+    <span class="nx">drawRectagle</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1"># 円しか書かないのにdrawSquare()、drawRectagle()を実装しないといけない
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">Circle</span> <span class="k">implements</span> <span class="nx">IShape</span> <span class="p">{</span>
+    <span class="nx">drawCircle</span><span class="p">(){</span> <span class="cm">/**/</span> <span class="p">}</span>
+    <span class="nx">drawSquare</span><span class="p">(){</span> <span class="cm">/**/</span> <span class="p">}</span>
+    <span class="nx">drawRectangle</span><span class="p">(){</span> <span class="cm">/**/</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>ISP に一致する例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">interface</span> <span class="nx">IShape</span> <span class="p">{</span>
+    <span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">interface</span> <span class="nx">Icicle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">drawCicle</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">interface</span> <span class="nx">ISquare</span> <span class="p">{</span>
+    <span class="nx">drawSquare</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">Circle</span> <span class="k">implements</span> <span class="nx">ICircle</span> <span class="p">{</span>
+    <span class="nx">drawCicle</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/**/</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># もしくは、IShapeを継承してお好きなdrawを組み立てる
+</span></code></pre></div><h3 id="依存性逆転の原則dip">依存性逆転の原則(DIP)</h3>
+<p>依存性は、具体化ではなく抽象化でなければならない。</p>
+<p>具体的な依存性の問題点：</p>
+<ul>
+<li>
+<p>依存元を修正するとき、依存先も修正する必要がある</p>
+</li>
+<li>
+<p>単体テストの範囲が大きくなりがち(場合によっては書けない)</p>
+</li>
+<li>
+<p>テストの範囲が大きくなる。失敗時の原因特定が難しくなる。</p>
+</li>
+<li>
+<p>違反している例(具体的な依存性)</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">Class</span> <span class="nc">Speaker</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">sound</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/**/</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># この書き方をすることで、RadioTunerはSpeakerに強く依存している
+</span><span class="c1"># (Speakerの事を直接「知ってしまっている」)
+</span><span class="c1"># Speakerを修正する場合、RadioTunerも修正が必要になる
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">RadioTuner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$speaker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Speaker</span><span class="p">();</span>
+    <span class="nv">$speaker</span><span class="o">-&gt;</span><span class="na">sound</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>DIP に一致する例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">interface</span> <span class="nx">AudioOutput</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">sound</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1"># Speakerはinterfaceに依存
+</span><span class="c1"></span><span class="k">Class</span> <span class="nc">Speaker</span> <span class="k">implements</span> <span class="nx">AudioOutput</span> <span class="p">{</span>
+    <span class="nx">sound</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/**/</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># RadioTunerもinterfaceに依存
+</span><span class="c1"># RadioTuner自体は、自分が実際に渡されているクラスを知らない
+</span><span class="c1"># (ポリモーフィズムという)
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">RadioTuner</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">output</span><span class="p">(</span><span class="nx">AudoiOutput</span> <span class="nv">$outputCircuit</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1"># sound()があることはinterfaceで保証されている
+</span><span class="c1"></span>        <span class="nv">$outputCircuit</span><span class="o">-&gt;</span><span class="na">sound</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="サービスコンテナ">サービスコンテナ</h2>
+<p><a class="link" href="https://readouble.com/laravel/5.8/ja/container.html"  target="_blank" rel="noopener"
+    >サービスコンテナ 5.8 Laravel</a></p>
+<blockquote>
+<p>Laravel のサービスコンテナは、クラス間の依存を管理する強力な管理ツールです。依存注入というおかしな言葉は主に「コンストラクターか、ある場合には<em>セッター</em>メソッドを利用し、あるクラスをそれらに依存しているクラスへ外部から<em>注入</em>する」という意味で使われます。</p>
+</blockquote>
+<p>クラスのインスタンスを作ってくれるツール。
+同じ文字列から、条件によって異なるクラスのインスタンスを生成することができる。</p>
+<p>使用することで、DI と呼ばれるデザインパターンを実現できてクラスの依存性が薄まるので、
+単体テストがしやすくなるなどの恩恵が得られる。</p>
+<h2 id="ファザード">ファザード</h2>
+<blockquote>
+<p>ファサード（facade、「入り口」）はアプリケーションの <a class="link" href="https://readouble.com/laravel/5.5/ja/container.html"  target="_blank" rel="noopener"
+    >サービスコンテナ</a> に登録したクラスへ、「静的」なインターフェイスを提供します。Laravel のほとんどの機能に対して、ファサードが用意されています。Laravel の「ファサード」は、サービスコンテナ下で動作しているクラスに対し、&ldquo;static proxy&quot;として動作しています。これにより伝統的な静的メソッドよりもテストの行いやすさと柔軟性を保ちながらも、簡潔で記述的であるという利点があります。</p>
+</blockquote>
+<p>Laravel くんが用意してくれている便利なメソッド集(曲解)。<br>
+DB ファザードであれば、DB の操作に便利なメソッドがたくさんある(<code>DB::hogehoge</code>)</p>
+<hr>
+<h2 id="参考">参考</h2>
+<p><a class="link" href="https://postd.cc/solid-principles-every-developer-should-know/"  target="_blank" rel="noopener"
+    >開発者が知っておくべき SOLID の原則 | POSTD</a><br>
+<a class="link" href="https://sites.google.com/site/unclebobconsultingllc/getting-a-solid-start"  target="_blank" rel="noopener"
+    >Getting a SOLID start. - Clean Coder</a></p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ddd/">DDD</a>
+        
+            <a href="/tags/tech/">Tech</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 sawa.md
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#目的">目的</a></li>
+    <li><a href="#抽象クラスabstract-class">抽象クラス(abstract class)</a></li>
+    <li><a href="#インターフェース">インターフェース</a></li>
+    <li><a href="#ポリモーフィズム">ポリモーフィズム</a></li>
+    <li><a href="#継承">継承</a></li>
+    <li><a href="#委譲">委譲</a></li>
+    <li><a href="#カプセル化">カプセル化</a></li>
+    <li><a href="#gof-デザインパターン">GoF デザインパターン</a></li>
+    <li><a href="#solid-原則">SOLID 原則</a>
+      <ol>
+        <li><a href="#solid-原則とは">SOLID 原則とは</a></li>
+        <li><a href="#5-つの原則">5 つの原則</a></li>
+        <li><a href="#単一責任の原則srp">単一責任の原則(SRP)</a></li>
+        <li><a href="#解放閉鎖の原則ocp">解放閉鎖の原則(OCP)</a></li>
+        <li><a href="#リスコフの置換原則lsp">リスコフの置換原則(LSP)</a></li>
+        <li><a href="#インターフェース分離の原則isp">インターフェース分離の原則(ISP)</a></li>
+        <li><a href="#依存性逆転の原則dip">依存性逆転の原則(DIP)</a></li>
+      </ol>
+    </li>
+    <li><a href="#サービスコンテナ">サービスコンテナ</a></li>
+    <li><a href="#ファザード">ファザード</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

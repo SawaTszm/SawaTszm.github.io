@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
+
+<link rel='canonical' href='https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/'>
+<meta property='og:site_name' content='sawa.md'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Laravel' /><meta property='article:tag' content='MySQL' /><meta property='article:tag' content='nginx' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-02-19T12:01:46&#43;09:00'/><meta property='article:modified_time' content='2021-02-19T12:01:46&#43;09:00'/>
+<meta name="twitter:site" content="@SawaTszm">
+    <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築">
+<meta name="twitter:description" content="">
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188317733-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 19, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="目的">目的</h2>
+<p>laravel-admin使いたいだけの用途にLaradockは重すぎる……<br>
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;MySQLのみの環境を立てる。<br>
+その上でlaravel-adminの管理画面まで開けるようにする。</p>
+<h2 id="構成">構成</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">project_root_dir
+├── docker-compose.yml
+├── docker
+│   ├── nginx
+│   │   ├── Dockerfile
+│   │   └── default.conf
+│   ├── php
+│   │   └── Dockerfile
+│   └── db
+│   │   ├── my.cnf
+│       └── Dockerfile
+└── laravel
+        └── ...
+</code></pre></div><h2 id="手順">手順</h2>
+<h3 id="docker-composeymlを作成">docker-compose.ymlを作成</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker:docker-compose.yml" data-lang="docker:docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span><span class="w">            </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/php/Dockerfile</span><span class="w">
+</span><span class="w">            </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">PROJECT_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">app_admin</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">database</span><span class="w">
+</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">database</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="s2">&#34;4000:80&#34;</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;4001:8080&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">        </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l">.env_db</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;23306:3306&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&#34;</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/nginx</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf</span><span class="w">
+</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span></code></pre></div><h3 id="appコンテナ設定">appコンテナ設定</h3>
+<p>composerはもうここに含める</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker:./docker/php/Dockerfile" data-lang="Docker:./docker/php/Dockerfile"><span class="k">FROM</span><span class="s"> php:7-fpm</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> php.ini /usr/local/etc/php/<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>  libfreetype6-dev libjpeg62-turbo-dev libpng-dev libmcrypt-dev libonig-dev <span class="se">\
+</span><span class="se"></span>  git vim unzip <span class="se">\
+</span><span class="se"></span>  <span class="o">&amp;&amp;</span> docker-php-ext-install pdo_mysql mysqli gd iconv <span class="se">\
+</span><span class="se"></span>  <span class="o">&amp;&amp;</span> apt-get clean<span class="err">
+</span><span class="err"></span><span class="c"># install composer</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> curl -sS https://getcomposer.org/installer <span class="p">|</span> php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer<span class="err">
+</span></code></pre></div><h3 id="webコンテナ設定">webコンテナ設定</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker:./docker/nginx/Dockerfile" data-lang="Docker:./docker/nginx/Dockerfile"><span class="k">FROM</span><span class="s"> nginx:latest</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>    vim <span class="se">\
+</span><span class="se"></span>    unzip <span class="se">\
+</span><span class="se"></span>    zip <span class="se">\
+</span><span class="se"></span>    git<span class="err">
+</span></code></pre></div><p>後々laravelディレクトリを作るので、設定ファイルのルートは<code>/var/www/html/laravel/~</code>にしておく。</p>
+<pre tabindex="0"><code class="language-conf:./docker/nginx/default.conf" data-lang="conf:./docker/nginx/default.conf">server {
+    listen       80;
+    index index.php index.html;
+    server_name php-docker.local;
+    error_log  /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    root /var/www/html/laravel/public;  // ココ
+
+    location / {
+     try_files $uri $uri/ @laravel;
+    }
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root /var/www/html;
+    }
+
+    location ~ \.php$ {
+    try_files $uri $uri/ @laravel;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass app:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+
+    location @laravel {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass app:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php;  // ココ
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+}
+</code></pre><h3 id="dbコンテナの設定">dbコンテナの設定</h3>
+<pre tabindex="0"><code class="language-conf:docker/database/my.cnf" data-lang="conf:docker/database/my.cnf">[mysql]
+default-character-set=utf8mb4
+
+[mysqld]
+sql-mode=&quot;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
+character-set-server=utf8mb4
+collation-server=utf8mb4_general_ci
+
+[mysqld_safe]
+timezone = UTC
+default-time-zone = UTC
+</code></pre><p>後はHOST情報などを<code>.enb_db</code>(docker-compose.ymlで指定したファイル)に記述する。</p>
+<pre tabindex="0"><code class="language-txt:.env_db" data-lang="txt:.env_db">MYSQL_DATABASE=[my_database_name]
+MYSQL_USERNAME=root
+MYSQL_PASSWORD=
+MYSQL_HOSTNAME=127.0.0.1
+MYSQL_ROOT_PASSWORD=
+API_MYSQL_PORT=23306
+
+</code></pre><h3 id="起動laravelのインストール">起動＆Laravelのインストール</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 起動</span>
+$ docker-compose up -d
+
+<span class="c1"># laravelプロジェクトの作成</span>
+$ docker-compose <span class="nb">exec</span> app /bin/bash  
+app$ composer create-project --prefer-dist laravel/laravel laravel
+</code></pre></div><p><a class="link" href="http://localhost/"  target="_blank" rel="noopener"
+    >http://localhost/</a> でwelcomページが見られるようになる。</p>
+<h3 id="laravel環境変数ファイルの修正">Laravel環境変数ファイルの修正</h3>
+<p><code>laravel/.env</code>を、DB情報を作成したdockerコンテナに合わせて修正。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt:laravel/.env" data-lang="txt:laravel/.env"><span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
+<span class="nv">DB_HOST</span><span class="o">=</span>db
+<span class="nv">DB_PORT</span><span class="o">=</span><span class="m">3306</span>
+<span class="nv">DB_DATABASE</span><span class="o">=[</span>my_database_name<span class="o">]</span>
+<span class="nv">DB_USERNAME</span><span class="o">=</span>root
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>
+</code></pre></div><h3 id="laravel-adminをインストール">laravel-adminをインストール</h3>
+<p>composerを使用してインストールし、有効化する。
+<a class="link" href="https://laravel-admin.org/docs/#/en/installation"  target="_blank" rel="noopener"
+    >公式ドキュメント</a>がかなりまとまっていて素敵です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose <span class="nb">exec</span> app /bin/bash 
+app $ <span class="nb">cd</span> laravel
+app/laravel $ composer require encore/laravel-admin
+app/laravel $ php artisan vendor:publish --provider<span class="o">=</span><span class="s2">&#34;Encore\Admin\AdminServiceProvider&#34;</span>
+app/laravel $ php artisan admin:install
+</code></pre></div><p><a class="link" href="http://localhost/admin/"  target="_blank" rel="noopener"
+    >http://localhost/admin/</a>に接続して、ログイン画面が出ればおk！<br>
+admin/adminで入れます。</p>
+<h2 id="補足既にある開発環境のdbコンテナに接続する">補足：既にある開発環境のDBコンテナに接続する</h2>
+<p>なんらかの理由で、管理画面開発に使用したいDBコンテナが既存の<code>docker-compose.yml</code>にある場合。<br>
+(開発側はPythonでもりもり作業してるからLaravelのディレクトリ混ぜたくないとかそう言った場合)</p>
+<p>前提として、以下であれば比較的簡単に繋げられます。</p>
+<ul>
+<li>DBコンテナ側でなんらかのDockerNetworkを設定している</li>
+<li>開発環境の方でも<code>docker-compose up -d</code>を実行している
+(直接でも良いし、もしくは開発環境のリポジトリをサブモジュール として引っ張ってきて叩くなどする)</li>
+</ul>
+<p>例えば<code>test-app</code>という名前のnetworkを設定している↓のであれば、</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker:既存docker-compose.yml" data-lang="docker:既存docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">database</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
+</span><span class="w">    </span><span class="l">~~~</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">default</span><span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-app</span><span class="w">
+</span></code></pre></div><p>管理画面側のdocker-compose.ymlでそれを使用するように書き換える↓</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker:docker-compose.yml" data-lang="docker:docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span><span class="w">            </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/php/Dockerfile</span><span class="w">
+</span><span class="w">            </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">PROJECT_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">recipe_app_admin</span><span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> 
+</span><span class="w">            </span>- <span class="s2">&#34;4000:80&#34;</span><span class="w">
+</span><span class="w">            </span>- <span class="s2">&#34;4001:8080&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">default</span><span class="w">
+</span><span class="w">    </span><span class="c"># dbコンテナの設定は不要になる</span><span class="w">
+</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/nginx</span><span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">            </span>- <span class="l">./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf</span><span class="w">
+</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+</span><span class="w">        </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="l">default</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-app</span><span class="w">
+</span><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 外部ファイルで設定していることを指定</span><span class="w">
+</span></code></pre></div><p>後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に<code>docker-compose up -d</code>を叩くだけです。</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/laravel/">Laravel</a>
+        
+            <a href="/tags/mysql/">MySQL</a>
+        
+            <a href="/tags/nginx/">nginx</a>
+        
+            <a href="/tags/tech/">Tech</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/dockernginxdocker-compose%E4%B8%8A%E3%81%AEnginx%E3%82%92https%E5%AF%BE%E5%BF%9C%E3%81%99%E3%82%8B%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E7%B7%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【Laravel】独自ペジネータで自前のCollectionを使う</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/mysql%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MySQL】外部キー追加時にエラー</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 sawa.md
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#目的">目的</a></li>
+    <li><a href="#構成">構成</a></li>
+    <li><a href="#手順">手順</a>
+      <ol>
+        <li><a href="#docker-composeymlを作成">docker-compose.ymlを作成</a></li>
+        <li><a href="#appコンテナ設定">appコンテナ設定</a></li>
+        <li><a href="#webコンテナ設定">webコンテナ設定</a></li>
+        <li><a href="#dbコンテナの設定">dbコンテナの設定</a></li>
+        <li><a href="#起動laravelのインストール">起動＆Laravelのインストール</a></li>
+        <li><a href="#laravel環境変数ファイルの修正">Laravel環境変数ファイルの修正</a></li>
+        <li><a href="#laravel-adminをインストール">laravel-adminをインストール</a></li>
+      </ol>
+    </li>
+    <li><a href="#補足既にある開発環境のdbコンテナに接続する">補足：既にある開発環境のDBコンテナに接続する</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
