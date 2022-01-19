@@ -7,24 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://SawaTszm.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About me</title>
-      <link>https://SawaTszm.github.io/about-me/</link>
+      <title>About</title>
+      <link>https://SawaTszm.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://SawaTszm.github.io/about-me/</guid>
-      <description>What is this place? This is a blog that I write about learned as programmer.
- Who are you? I&amp;rsquo;m Sawa.
- Web application engineer LIKE: Python, cats, reptiles, and games Basically an indoor person, but sometimes mountain climbing and cycling   What do you use for work? Python/Vue.js/PHP(Laravel)/&amp;hellip;
-AWS/GCP/Docker/&amp;hellip;
- </description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://SawaTszm.github.io/about-me/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://SawaTszm.github.io/about-me/</guid>
+      <guid>https://SawaTszm.github.io/about/</guid>
       <description>このブログは？ 社会人5年目の新米(？)Webエンジニアが学んだことを書いているブログです。
 誰？ 佐和(Sawa)です。
  Webエンジニア2年生（バックエンド/インフラ/運用） ネットワーク系SIer2年→転職してWebエンジニアへ 猫と爬虫類とお酒とゲームとPythonが好き たまに山に登ったりサイクリングしたりする  何使ってる？ 言語 現在はPython/Vue.jsがメイン。

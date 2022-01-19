@@ -7,41 +7,6 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Mon, 10 Jan 2022 12:45:25 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【Docker】Docker for mac doesn&#39;t work</title>
-        <link>https://SawaTszm.github.io/p/dockerdocker-for-mac-doesnt-work/</link>
-        <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/dockerdocker-for-mac-doesnt-work/</guid>
-        <description>&lt;h2 id=&#34;environment&#34;&gt;Environment&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;PC: macbook Air (M1)&lt;/li&gt;
-&lt;li&gt;OS: Big Sur 11.6.1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
-&lt;p&gt;One day, when I pressed &lt;code&gt;Preferences&lt;/code&gt; from the docker desktop for mac icon, the Docker screen did not come up (the icon bounced a couple of times and then dropped).&lt;br&gt;
-When I restarted my PC, I got an error window saying &lt;code&gt;Fatal Error Failed to ping backend API&lt;/code&gt; and docker itself did not start up.&lt;br&gt;
-The &lt;code&gt;Reset Docker to factory defaults, Diagnose &amp;amp; Feedback, Exit&lt;/code&gt; option is there, but I can&amp;rsquo;t press it (the cursor is going around) and it won&amp;rsquo;t let me reset it.&lt;/p&gt;
-&lt;p&gt;Apparently there are quite a few people in a similar situation, and it seems to be a known bug.(&lt;a class=&#34;link&#34; href=&#34;https://github.com/docker/for-mac/issues/5037&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;docker for mac issue&lt;/a&gt;)。It is still being discussed here, and it looks like there is no perfect solution yet.&lt;/p&gt;
-&lt;p&gt;I would like to leave you with the procedure as I was able to update it and work it with various references.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-update&#34;&gt;How To Update&lt;/h2&gt;
-&lt;h3 id=&#34;kill-docker-related-processes&#34;&gt;Kill docker related processes&lt;/h3&gt;
-&lt;p&gt;command to turn it off, or check &lt;code&gt;docker&lt;/code&gt; in the activity monitor and terminate the one that comes up.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$killall&lt;/span&gt; Docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;uninstall&#34;&gt;Uninstall&lt;/h3&gt;
-&lt;p&gt;It went from the Applications folder to the Trash. In hindsight, I think there was a smarter way to do it.&lt;/p&gt;
-&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
-&lt;p&gt;Download &amp;amp; install the latest version from &lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/desktop/mac/install/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;docs.docker.com&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;allow-full-access&#34;&gt;Allow full access&lt;/h3&gt;
-&lt;p&gt;If the above installation works, you can skip this step (docker will suggest you to change the access permissions at startup).&lt;/p&gt;
-&lt;p&gt;Go to &lt;code&gt;System Preferences&amp;gt;Security and Privacy&amp;gt;Full Disk Access&lt;/code&gt; and grant full access to docker.&lt;/p&gt;
-&lt;p&gt;(Postscript)&lt;br&gt;
-I looked at another macbook that I hadn&amp;rsquo;t touched for a while and found that I hadn&amp;rsquo;t given docker such permissions (but it was working fine), so I may be a bit uncertain about this.&lt;/p&gt;
-&lt;h3 id=&#34;restart-docker&#34;&gt;Restart docker&lt;/h3&gt;
-&lt;p&gt;It worked well:)&lt;/p&gt;</description>
-        </item>
-        <item>
         <title>【Docker】docker for Macが更新できない</title>
         <link>https://SawaTszm.github.io/p/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</link>
         <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
@@ -549,57 +514,6 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
     &gt;開発者が知っておくべき SOLID の原則 | POSTD&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://sites.google.com/site/unclebobconsultingllc/getting-a-solid-start&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Getting a SOLID start. - Clean Coder&lt;/a&gt;&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>【Docker】Increase memory allocation to avoid Killed.</title>
-        <link>https://SawaTszm.github.io/p/dockerincrease-memory-allocation-to-avoid-killed./</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/dockerincrease-memory-allocation-to-avoid-killed./</guid>
-        <description>&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
-&lt;p&gt;When I tried to install the aws s3 adapter in my laravel project, I went into the docker container and ran &lt;code&gt;composer require league/flysystem-aws-s3-v3 ~1.0&lt;/code&gt; and it was killed as follows.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0
-
-./composer.json has been updated
-Loading composer repositories with package information
-Updating dependencies &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;including require-dev&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-
-Killed
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pls don&amp;rsquo;t kill it&amp;hellip;
-I want to complete the installation of this without getting killed.&lt;/p&gt;
-&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
-&lt;p&gt;Increase the memory allocation of Docker for Mac as much as possible.&lt;/p&gt;
-&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
-&lt;h3 id=&#34;what-i-found&#34;&gt;What I found&lt;/h3&gt;
-&lt;p&gt;First, I checked when &lt;code&gt;Killed&lt;/code&gt; is triggered.&lt;br&gt;
-This seems to be a behavior called &lt;code&gt;OOM Killer&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;　OOM Killer (Out of Memory Killer) is a mechanism in the Linux kernel that kills processes to free up memory when the system has used up all of its real and virtual memory space (swap space) and cannot allocate the necessary memory space. Killer is provided to avoid the worst-case scenario where the system itself stops due to inability to allocate free memory.&lt;br&gt;
-(translated)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xtech.nikkei.com/it/article/Keyword/20070207/260459/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;日経XTECH&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;It seems that the forced kill of the process is the result of OOM Killer&amp;rsquo;s work to prevent the system itself from stopping.&lt;br&gt;
-In other words, the cause this time was lack of memory.&lt;/p&gt;
-&lt;p&gt;In Docker for mac, I looked at &lt;code&gt;Preferences &amp;gt; Resources &amp;gt; Memory&lt;/code&gt; and found that I currently have 3.75GB allocated, and Swap is 1GB.&lt;br&gt;
-In addition, I checked the memory used by docker in the Mac&amp;rsquo;s Activity Monitor, and found that it was using up almost all of the allocated memory.&lt;/p&gt;
-&lt;h3 id=&#34;what-i-tried&#34;&gt;What I tried&lt;/h3&gt;
-&lt;p&gt;I went to &lt;code&gt;Preferences &amp;gt; Resources &amp;gt; Memory&lt;/code&gt; in Docker for mac and increased the allocated memory as much as I could.&lt;br&gt;
-The mac itself is 16GB, so I decided to take a look at it and increase it to 5GB.&lt;/p&gt;
-&lt;p&gt;Once again, I ran &lt;code&gt;composer require league/flysystem-aws-s3-v3 ~1.0&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3
-Using version ^1.0 &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; league/flysystem-aws-s3-v3
-
-~~~
-
-Package manifest generated successfully.
-&lt;span class=&#34;m&#34;&gt;38&lt;/span&gt; packages you are using are looking &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; funding.
-Use the &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;composer fund&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; to find out more!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;it worked well:)&lt;/p&gt;
-&lt;h2 id=&#34;what-i-thought&#34;&gt;What I thought&lt;/h2&gt;
-&lt;p&gt;In this case, 5GB was enough, but if you&amp;rsquo;re working on several projects, for example, and you&amp;rsquo;re constantly setting up several Docker containers on, you&amp;rsquo;ll probably end up allocating memory and then eating it up.&lt;br&gt;
-I tend to set up containers with &lt;code&gt;restart: always&lt;/code&gt; from the time of development, but it might be better to take measures such as dropping containers that are not used for a long time.&lt;/p&gt;</description>
         </item>
         <item>
         <title>【Docker】Killedと言われないためにメモリ割り当てを増やす</title>
