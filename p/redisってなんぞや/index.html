@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>【Redis】ってなんぞや</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='目的 案件で触らせてもらうことになったぜ
+何もわからないぜ
+という状態なので、自分が調べたことについてまとめておきます。
+Radis とは  REmote DIctionary Serverの略 読んで字の如く、ネットワーク接続されたKey-Value型のNoSQLデータベース 永続化可能なインメモリデータベース オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語 AWS上でもRedis-serverが提供されている 様々なデータ構造をサポートしている  STRING LIST SET HASH ZSET (ソート済みのset) 補足：インメモリDB すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。
+インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey
+インストールと動作確認 少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。
+Try Redis
+Macであれば下記brewコマンドで一発。
+$brew install Redis インストールできたら、サーバを立ち上げてみます。
+$ redis-server # 立ち上がったら別のタブで動作確認 $ redis-cli 127.0.0.1:6379&amp;gt; set test &amp;#34;hoge&amp;#34; OK 127.0.0.1:6379&amp;gt; get test &amp;#34;hoge&amp;#34; 動作確認までできました。
+このコマンドを叩く先のredis-serverがローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)
+データのタイプ Redisは前述の通り様々なデータタイプに対応しています。
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。
+コマンドの詳細などは公式ドキュメントで。
+Data types – Redis
+Strings 最も基本的な、KeyとValueが1:1な構造。
+Key = valueの形。'><title>【Redis】ってなんぞや</title>
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/'>
 
 <link rel="stylesheet" href="/scss/style.min.0138f7b95d0129f02509909068f76ee4682c28dfd1397631daad73a97f57c322.css"><meta property='og:title' content='【Redis】ってなんぞや'>
-<meta property='og:description' content=''>
+<meta property='og:description' content='目的 案件で触らせてもらうことになったぜ
+何もわからないぜ
+という状態なので、自分が調べたことについてまとめておきます。
+Radis とは  REmote DIctionary Serverの略 読んで字の如く、ネットワーク接続されたKey-Value型のNoSQLデータベース 永続化可能なインメモリデータベース オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語 AWS上でもRedis-serverが提供されている 様々なデータ構造をサポートしている  STRING LIST SET HASH ZSET (ソート済みのset) 補足：インメモリDB すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。
+インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey
+インストールと動作確認 少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。
+Try Redis
+Macであれば下記brewコマンドで一発。
+$brew install Redis インストールできたら、サーバを立ち上げてみます。
+$ redis-server # 立ち上がったら別のタブで動作確認 $ redis-cli 127.0.0.1:6379&amp;gt; set test &amp;#34;hoge&amp;#34; OK 127.0.0.1:6379&amp;gt; get test &amp;#34;hoge&amp;#34; 動作確認までできました。
+このコマンドを叩く先のredis-serverがローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)
+データのタイプ Redisは前述の通り様々なデータタイプに対応しています。
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。
+コマンドの詳細などは公式ドキュメントで。
+Data types – Redis
+Strings 最も基本的な、KeyとValueが1:1な構造。
+Key = valueの形。'>
 <meta property='og:url' content='https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/'>
 <meta property='og:site_name' content='sawa.md'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Redis' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-02-19T12:01:46&#43;09:00'/><meta property='article:modified_time' content='2021-02-19T12:01:46&#43;09:00'/>
 <meta name="twitter:site" content="@SawaTszm">
     <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【Redis】ってなんぞや">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="目的 案件で触らせてもらうことになったぜ
+何もわからないぜ
+という状態なので、自分が調べたことについてまとめておきます。
+Radis とは  REmote DIctionary Serverの略 読んで字の如く、ネットワーク接続されたKey-Value型のNoSQLデータベース 永続化可能なインメモリデータベース オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語 AWS上でもRedis-serverが提供されている 様々なデータ構造をサポートしている  STRING LIST SET HASH ZSET (ソート済みのset) 補足：インメモリDB すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。
+インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey
+インストールと動作確認 少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。
+Try Redis
+Macであれば下記brewコマンドで一発。
+$brew install Redis インストールできたら、サーバを立ち上げてみます。
+$ redis-server # 立ち上がったら別のタブで動作確認 $ redis-cli 127.0.0.1:6379&amp;gt; set test &amp;#34;hoge&amp;#34; OK 127.0.0.1:6379&amp;gt; get test &amp;#34;hoge&amp;#34; 動作確認までできました。
+このコマンドを叩く先のredis-serverがローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)
+データのタイプ Redisは前述の通り様々なデータタイプに対応しています。
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。
+コマンドの詳細などは公式ドキュメントで。
+Data types – Redis
+Strings 最も基本的な、KeyとValueが1:1な構造。
+Key = valueの形。">
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
 <script type="application/javascript">
@@ -274,9 +328,10 @@ if (!doNotTrack) {
 </header>
 
     <section class="article-content">
-    <p>案件で触らせてもらうことになったぜ<br>
-何もわからないぜ<br>
-という状態なので、自分が調べたことについてまとめておきます。</p>
+    <h2 id="目的">目的</h2>
+<p>案件で触らせてもらうことになったぜ<br>
+何もわからないぜ</p>
+<p>という状態なので、自分が調べたことについてまとめておきます。</p>
 <h2 id="radis-とは">Radis とは</h2>
 <ul>
 <li>REmote DIctionary Serverの略</li>
@@ -292,15 +347,15 @@ SET
 HASH
 ZSET (ソート済みのset)
 </code></pre></div><h3 id="補足インメモリdb">補足：インメモリDB</h3>
-<p>すべてのデータをコンピュータのメインメモリ上に展開しながら動作する。<br>
-コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータをどこかに保存したりすることがある。</p>
+<p>すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。<br>
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。</p>
 <p><a class="link" href="https://www.publickey1.jp/blog/13/_3.html"  target="_blank" rel="noopener"
     >インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey</a></p>
 <h2 id="インストールと動作確認">インストールと動作確認</h2>
 <p>少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。<br>
 <a class="link" href="https://try.redis.io/"  target="_blank" rel="noopener"
     >Try Redis</a></p>
-<p>Macであればbrewコマンドで一発。</p>
+<p>Macであれば下記brewコマンドで一発。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$brew</span> install Redis
 </code></pre></div><p>インストールできたら、サーバを立ち上げてみます。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ redis-server
@@ -310,13 +365,13 @@ $ redis-cli
 OK
 127.0.0.1:6379&gt; get <span class="nb">test</span>
 <span class="s2">&#34;hoge&#34;</span>
-</code></pre></div><p>動作確認までできました。<br>
-このコマンドを叩く先の<code>redis-server</code>がローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。<br>
-(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくる位)</p>
+</code></pre></div><p>動作確認までできました。</p>
+<p>このコマンドを叩く先の<code>redis-server</code>がローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。<br>
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)</p>
 <h2 id="データのタイプ">データのタイプ</h2>
 <p>Redisは前述の通り様々なデータタイプに対応しています。<br>
-どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。<br>
-コマンドの詳細などは公式ドキュメントで。<br>
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。</p>
+<p>コマンドの詳細などは公式ドキュメントで。<br>
 <a class="link" href="https://redis.io/topics/data-types"  target="_blank" rel="noopener"
     >Data types – Redis</a></p>
 <h3 id="strings">Strings</h3>
@@ -406,6 +461,7 @@ OK
     >【初心者向け】Redisのデータ型とPythonでの使い方サンプル - Qiita</a><br>
 <a class="link" href="https://qiita.com/wind-up-bird/items/f2d41d08e86789322c71"  target="_blank" rel="noopener"
     >【入門】Redis - Qiita</a></p>
+
 </section>
 
 
@@ -565,6 +621,7 @@ OK
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
+    <li><a href="#目的">目的</a></li>
     <li><a href="#radis-とは">Radis とは</a>
       <ol>
         <li><a href="#補足インメモリdb">補足：インメモリDB</a></li>

@@ -13,7 +13,12 @@
       <pubDate>Mon, 02 Aug 2021 18:52:08 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</guid>
-      <description></description>
+      <description>目的 すごく今更&amp;amp;簡潔にだけど、python3.6以降で利用できる文字列フォーマットについてまとめていきます。
+（ずっとstr.format()を使っていたので戒めも兼ねて）。
+フォーマット済み文字列リテラルとは フォーマット済み文字列リテラル(f-string)では、文字列の先頭にfを付けることで、pythonの式を文字列内に{式}の形で埋め込むことができます。
+従来の書き方よりも簡潔、かつわかりやすく記述することができる書き方です。
+公式ドキュメント
+使い方 変数に入った数字を3文字のカンマ区切りにする hoge = 99999999 # 従来のstr.format() print(&amp;#34;{:,}&amp;#34;.format(hoge)) # フォーマット済み文字列リテラル print(f&amp;#34;{hoge:,d}&amp;#34;) :の後ろに整数をつけて縦を揃える tokuten = {&amp;#34;kokugo&amp;#34;: 9, &amp;#34;sugaku&amp;#34;: 81, &amp;#34;eigo&amp;#34;: 100} for sub, point in tokuten.items(): print(f&amp;#39;{sub:10}==&amp;gt; {point:5d}&amp;#39;) # kokugo ==&amp;gt; 9 # sugaku ==&amp;gt; 81 # eigo ==&amp;gt; 100 まとめ 従来のstr.format()と比べると、f-stringは最終結果が人の目で見てもわかりやすいですね。</description>
     </item>
     
     <item>
@@ -22,7 +27,14 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-      <description></description>
+      <description>cerberusとは  CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary
+ ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。
+公式曰く、拡張も容易なため、カスタム検証も可能です。
+(以下、9割公式のドキュメントの翻訳です)
+ 概要 検証用のスキーマを定義し、それを Validator クラスのインスタンスに渡します。
+schma = {&amp;#39;name&amp;#39;: {&amp;#39;type&amp;#39;: &amp;#39;string&amp;#39;}} v = Validator(schema) 次に、validate()を呼び出すことで、簡単にスキーマと辞書を検証できます。
+検証が成功すると True が返されます。
+document = {&amp;#39;name&amp;#39;: &amp;#39;john doe&amp;#39;} v.validate(document) # True  インストール 安定バージョンはpipから取得できます。</description>
     </item>
     
     <item>
@@ -31,7 +43,15 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
-      <description></description>
+      <description>poetryとは pythonの環境管理ツールです。
+機能としてはpipenvに近い感じでした。
+本当に触りだけやってみたリポジトリはこちら。
+sample-poetry
+インストール $pip install poetry プロジェクトを作る $poetry new sample-project 実行すると下記のファイル・フォルダが作成されます。
+sample-project ├── README.rst ├── pyproject.toml ├── sample_project │ └── __init__.py └── tests ├── __init__.py └── test_sample_project.py モジュールの追加 $cd sample-project # pyproject.tomlがある階層で $poetry add [--dev] &amp;lt;package name&amp;gt; これでpoetryが管理している仮想環境内にモジュールが追加されます。
+それに伴って、ファイルと依存関係を管理する pyproject.tomlとpoetry.lock が作成されます。
+Remove Deoendency $poetry remove &amp;lt;package name&amp;gt; This is very simple :)
+Use Virtual Environment # not active $poetry run python -m pytest # active $poetry shell Use Exsting Environment $poetry install [--no-dev] Reference Poetry - Python dependency management and packaging made easy.</description>
     </item>
     
     <item>
@@ -40,7 +60,10 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
-      <description></description>
+      <description>知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
+Python の例外処理（try, except, else, finally） | note.nkmk.me
+8. エラーと例外 — Python 3.8.1 ドキュメント
+  Except 節では例外名の後に変数を指定できる。 この変数は例外インスタンスに結び付けられ、instance.</description>
     </item>
     
     <item>
@@ -49,7 +72,13 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</guid>
-      <description></description>
+      <description>目的 投票結果を DB に貯めて、その結果を一位から取得したい。
+DB 構成は、
+   Id Recipe     int str    というシンプルな感じです。
+ここからレコードの recipe の値を、[a, b, c, b, ...]と言ったリストに直した際、
+「一番投票数の多かったもの」や「投票数が多かった順の要素のリスト」が欲しい。
+TL;DR collectionsを使えば比較的簡単にできます。
+要素のカウントは collections が便利 import collections votes_list = [a, b, c, b] c = collections.Counter(votes_list) # Counter({&amp;#39;b&amp;#39;: 2, &amp;#39;a&amp;#39;: 1, &amp;#39;c&amp;#39;: 1}) # `要素`: `出現回数` recipe = c.most_common() # [(&amp;#39;b&amp;#39;, 2), (&amp;#39;a&amp;#39;, 1), (&amp;#39;c&amp;#39;, 1)] # 出現回数が多い順に並べ替えてくれる recipe = c.most_common()[0][0] # b 参考にさせていただいたもの お世話になりました。</description>
     </item>
     
   </channel>

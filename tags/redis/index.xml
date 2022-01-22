@@ -13,7 +13,25 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-      <description></description>
+      <description>目的 案件で触らせてもらうことになったぜ
+何もわからないぜ
+という状態なので、自分が調べたことについてまとめておきます。
+Radis とは  REmote DIctionary Serverの略 読んで字の如く、ネットワーク接続されたKey-Value型のNoSQLデータベース 永続化可能なインメモリデータベース オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語 AWS上でもRedis-serverが提供されている 様々なデータ構造をサポートしている  STRING LIST SET HASH ZSET (ソート済みのset) 補足：インメモリDB すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。
+インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey
+インストールと動作確認 少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。
+Try Redis
+Macであれば下記brewコマンドで一発。
+$brew install Redis インストールできたら、サーバを立ち上げてみます。
+$ redis-server # 立ち上がったら別のタブで動作確認 $ redis-cli 127.0.0.1:6379&amp;gt; set test &amp;#34;hoge&amp;#34; OK 127.0.0.1:6379&amp;gt; get test &amp;#34;hoge&amp;#34; 動作確認までできました。
+このコマンドを叩く先のredis-serverがローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)
+データのタイプ Redisは前述の通り様々なデータタイプに対応しています。
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。
+コマンドの詳細などは公式ドキュメントで。
+Data types – Redis
+Strings 最も基本的な、KeyとValueが1:1な構造。
+Key = valueの形。</description>
     </item>
     
   </channel>

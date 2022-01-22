@@ -278,7 +278,7 @@ if (!doNotTrack) {
 <p>Laravel くんで Controller をすっきりさせたいので、バリデーションをフォームリクエストで行いたい。<br>
 プラスで、簡単な条件分岐のバリデーションも付け足したい。</p>
 <h2 id="結論">結論</h2>
-<p><code>withValodator</code>メソッドを通して<code>sometimes</code>を使うのが良さげ。</p>
+<p><code>withValodator</code>メソッドを通して<code>sometimes</code>を使うのが良さげです。</p>
 <h2 id="詳しく">詳しく</h2>
 <h3 id="通常のフォームリクエストでのバリデーション">通常のフォームリクエストでのバリデーション</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="c1">// FormRequest
@@ -322,9 +322,8 @@ if (!doNotTrack) {
 </span><span class="c1"></span>        <span class="p">}</span>
     <span class="p">}</span>
 </code></pre></div><p>これだけで通常のバリデーションは出来ますね。<br>
-なんて便利なんだ Laravel。<br>
 ただ、例えば<code>item_type == 'web'</code>の時だけ<code>url</code>カラムは必須にしたいとか、そういった簡単な条件付けは rules の中ではできません。</p>
-<h4 id="条件付きのバリデーションの追加">条件付きのバリデーションの追加</h4>
+<h3 id="条件付きのバリデーションの追加">条件付きのバリデーションの追加</h3>
 <p>じゃあどうするよ。前述の通り、<code>withValidator</code>メソッドと<code>sometimes</code>を使います。<br>
 メソッドについては、以下にそれらしいことが書いてあります。</p>
 <p><a class="link" href="https://laravel.com/docs/5.4/validation"  target="_blank" rel="noopener"
@@ -399,12 +398,12 @@ if (!doNotTrack) {
                 
                     
 <article class="">
-    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
+    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</h2>
+            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</h2>
         </div>
     </a>
 </article>
@@ -562,11 +561,8 @@ if (!doNotTrack) {
     <li><a href="#結論">結論</a></li>
     <li><a href="#詳しく">詳しく</a>
       <ol>
-        <li><a href="#通常のフォームリクエストでのバリデーション">通常のフォームリクエストでのバリデーション</a>
-          <ol>
-            <li><a href="#条件付きのバリデーションの追加">条件付きのバリデーションの追加</a></li>
-          </ol>
-        </li>
+        <li><a href="#通常のフォームリクエストでのバリデーション">通常のフォームリクエストでのバリデーション</a></li>
+        <li><a href="#条件付きのバリデーションの追加">条件付きのバリデーションの追加</a></li>
       </ol>
     </li>
   </ol>

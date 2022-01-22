@@ -6,16 +6,7 @@
     <description>Recent content in Tech on sawa.md</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jan 2022 12:45:25 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>【Docker】docker for Macが更新できない</title>
-      <link>https://SawaTszm.github.io/p/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</link>
-      <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/p/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 05 Jan 2022 20:34:34 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初めてのOSS Contribute【First Contributions編】</title>
       <link>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</link>
@@ -31,7 +22,12 @@
       <pubDate>Mon, 02 Aug 2021 18:52:08 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</guid>
-      <description></description>
+      <description>目的 すごく今更&amp;amp;簡潔にだけど、python3.6以降で利用できる文字列フォーマットについてまとめていきます。
+（ずっとstr.format()を使っていたので戒めも兼ねて）。
+フォーマット済み文字列リテラルとは フォーマット済み文字列リテラル(f-string)では、文字列の先頭にfを付けることで、pythonの式を文字列内に{式}の形で埋め込むことができます。
+従来の書き方よりも簡潔、かつわかりやすく記述することができる書き方です。
+公式ドキュメント
+使い方 変数に入った数字を3文字のカンマ区切りにする hoge = 99999999 # 従来のstr.format() print(&amp;#34;{:,}&amp;#34;.format(hoge)) # フォーマット済み文字列リテラル print(f&amp;#34;{hoge:,d}&amp;#34;) :の後ろに整数をつけて縦を揃える tokuten = {&amp;#34;kokugo&amp;#34;: 9, &amp;#34;sugaku&amp;#34;: 81, &amp;#34;eigo&amp;#34;: 100} for sub, point in tokuten.items(): print(f&amp;#39;{sub:10}==&amp;gt; {point:5d}&amp;#39;) # kokugo ==&amp;gt; 9 # sugaku ==&amp;gt; 81 # eigo ==&amp;gt; 100 まとめ 従来のstr.format()と比べると、f-stringは最終結果が人の目で見てもわかりやすいですね。</description>
     </item>
     
     <item>
@@ -40,7 +36,21 @@
       <pubDate>Sat, 17 Jul 2021 11:11:15 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/lodash%E3%81%AE%E6%A6%82%E8%A6%81%E3%81%A8%E9%96%A2%E6%95%B0%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-      <description></description>
+      <description>lodashとは  The Lodash library exported as a UMD module.
+(中略) &amp;hellip;Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+ 配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリです。
+_.getや_.eachなどがそれ。
+公式ドキュメントがすごくわかりやすくていい感じです。
+lodash - github
+公式ドキュメント
+ 使い方 インポート import _ from &amp;#39;lodash&amp;#39;; 関数 _.get() _.get(object, path, [defaultValue]) objectのpathの値を取得する。値を解決できなかった場合、defaultValueを返す。
+_.has() _.has(object, path) objectのpathの値が存在するかを調べる。値自体は返さない。
+_.set() _.set(object, path, value) objectのpathにvalueの値をセットする。
+pathが定義されていない場合は新しく作られる。
+インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)
+_.each() -&amp;gt; forEach() _.forEach(collection, [iteratee=_.identity]) collectionの要素を反復し、各要素に対してiterateeを実行。
+iterateeは3つの引数(value, index|key, collection)で呼び出される。
+※iteratee関数は明示的にfalseを返すことで反復を終わらせることができる</description>
     </item>
     
     <item>
@@ -58,16 +68,20 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>【Docker】Killedと言われないためにメモリ割り当てを増やす</title>
-      <link>https://SawaTszm.github.io/p/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/</link>
-      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/p/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/</guid>
-      <description></description>
+      <description>目的 社内お勉強会で DDD 本を輪読することになったんですが、
+改めて「〇〇ってわかりますか？」と言われると戸惑ってしまうことが多いので自分用にまとめました。
+ 抽象クラス(abstract class) 他のクラスで継承してもらうことを前提としたクラス。
+複数のクラスの共通処理の中に、一部異なる処理を使用したい場合などに定義する。
+ 抽象クラス自体はインスタンス化できない abstract functionで抽象メソッドを定義できる  インターフェース クラスが実装するメソッドを定義することができるもの。
+ メソッドの実体は持てない(定義のみ) 使用できる修飾子はpublicのみ 定数を持てる。実装先のクラスでのオーバーライドはできない
+不特定のクラスで、共通のメソッドを定義したい場合などに定義する。  ポリモーフィズム 「中に入るものによって、同じ関数でも違う処理を行える」というオブジェクト指向プログラミングの特徴のこと。
+「モノが「そのモノ」らしく振る舞うこと」 =「呼び出した関数が、呼び出し元のオブジェクトに適した振る舞いをすること」
+# 動物は必ず「鳴く」 interface Animal { sound(); } # 犬は「動物らしい振る舞い」をする(鳴く) class dog implements Animal { sound() { /**/ } } # 動物は「鳴く」ので、引数の動物ごとの異なる鳴き声を処理する # 引数で与えられる動物によって、異なる処理(鳴き声)ができる public function animalsound(animal) { animal.sound() } 継承 親クラスの振る舞いを引き継いで、子クラスを実装すること。 子クラス側で親クラスを拡張することができる。
+委譲 実際の振る舞いを別のオブジェクトに委ねることで、別のオブジェクトの振る舞いを再利用する手法。(？)
+カプセル化 関連のあるデータとその使い方を一まとめにしたもの。 内部のデータを直接いじることはさせずに、使い方だけを見せる。
+GoF デザインパターン 23 種類あるヤツ(雑)
+勉強します
+3 分でわかるデザインパターン入門</description>
     </item>
     
     <item>
@@ -94,7 +108,10 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
-      <description></description>
+      <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
     </item>
     
     <item>
@@ -103,16 +120,44 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
-      <description></description>
+      <description>目的 ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。
+まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。
+laravel-adminとは laravelで簡単にDBの管理画面を作成することができるライブラリです。
+ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。
+Laravel-admin(ドキュメント)
+GitHubページ
+基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。
+主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。
+プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
+何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
+公式によると、現在のバージョンでは以下の環境が推奨されるようです。
+ PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+laravel-admin install
+ $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+よければこちらの記事も参考にしてみてください。
+【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
+インストール laravelの準備ができたら早速laravel-adminをインストールします。
+$composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
+$php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
+ファイルの初期配置は以下。
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
     </item>
     
     <item>
-      <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</title>
-      <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
+      <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</title>
+      <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
-      <description></description>
+      <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
+      <description>起こった問題 タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。
+設定後下記を確認して、
+&amp;gt;&amp;gt;&amp;gt; config(&amp;#39;database.connections.pgsql&amp;#39;) =&amp;gt; [ &amp;#34;read&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; [ &amp;#34;postgres2&amp;#34;, ], ], &amp;#34;write&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ], ... 反映されてるな、と思って念の為connectionも見てみました。
+&amp;gt;&amp;gt;&amp;gt; DB::connection(&amp;#39;pgsql::read&amp;#39;)-&amp;gt;getConfig(); =&amp;gt; [ ..., &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ] ……あれ？
+Readコネクションなのでpostgres2であって欲しいのに、postgresが出てきてしまいました。
+反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。
+調べたこと getConfigで参照されるconfigは、
+Illuminate\Database\Connectors\ConnectionFactory::make内で、
+/** * Establish a PDO connection based on the configuration. * * @param array $config * @param string|null $name * @return \Illuminate\Database\Connection */ public function make(array $config, $name = null) { $config = $this-&amp;gt;parseConfig($config, $name); if (isset($config[&amp;#39;read&amp;#39;])) { return $this-&amp;gt;createReadWriteConnection($config); } return $this-&amp;gt;createSingleConnection($config); } createReadWriteConnectionが呼び出され、</description>
     </item>
     
     <item>
@@ -148,7 +193,14 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-      <description></description>
+      <description>cerberusとは  CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary
+ ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。
+公式曰く、拡張も容易なため、カスタム検証も可能です。
+(以下、9割公式のドキュメントの翻訳です)
+ 概要 検証用のスキーマを定義し、それを Validator クラスのインスタンスに渡します。
+schma = {&amp;#39;name&amp;#39;: {&amp;#39;type&amp;#39;: &amp;#39;string&amp;#39;}} v = Validator(schema) 次に、validate()を呼び出すことで、簡単にスキーマと辞書を検証できます。
+検証が成功すると True が返されます。
+document = {&amp;#39;name&amp;#39;: &amp;#39;john doe&amp;#39;} v.validate(document) # True  インストール 安定バージョンはpipから取得できます。</description>
     </item>
     
     <item>
@@ -157,7 +209,15 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
-      <description></description>
+      <description>poetryとは pythonの環境管理ツールです。
+機能としてはpipenvに近い感じでした。
+本当に触りだけやってみたリポジトリはこちら。
+sample-poetry
+インストール $pip install poetry プロジェクトを作る $poetry new sample-project 実行すると下記のファイル・フォルダが作成されます。
+sample-project ├── README.rst ├── pyproject.toml ├── sample_project │ └── __init__.py └── tests ├── __init__.py └── test_sample_project.py モジュールの追加 $cd sample-project # pyproject.tomlがある階層で $poetry add [--dev] &amp;lt;package name&amp;gt; これでpoetryが管理している仮想環境内にモジュールが追加されます。
+それに伴って、ファイルと依存関係を管理する pyproject.tomlとpoetry.lock が作成されます。
+Remove Deoendency $poetry remove &amp;lt;package name&amp;gt; This is very simple :)
+Use Virtual Environment # not active $poetry run python -m pytest # active $poetry shell Use Exsting Environment $poetry install [--no-dev] Reference Poetry - Python dependency management and packaging made easy.</description>
     </item>
     
     <item>
@@ -166,7 +226,10 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
-      <description></description>
+      <description>知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
+Python の例外処理（try, except, else, finally） | note.nkmk.me
+8. エラーと例外 — Python 3.8.1 ドキュメント
+  Except 節では例外名の後に変数を指定できる。 この変数は例外インスタンスに結び付けられ、instance.</description>
     </item>
     
     <item>
@@ -175,7 +238,13 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</guid>
-      <description></description>
+      <description>目的 投票結果を DB に貯めて、その結果を一位から取得したい。
+DB 構成は、
+   Id Recipe     int str    というシンプルな感じです。
+ここからレコードの recipe の値を、[a, b, c, b, ...]と言ったリストに直した際、
+「一番投票数の多かったもの」や「投票数が多かった順の要素のリスト」が欲しい。
+TL;DR collectionsを使えば比較的簡単にできます。
+要素のカウントは collections が便利 import collections votes_list = [a, b, c, b] c = collections.Counter(votes_list) # Counter({&amp;#39;b&amp;#39;: 2, &amp;#39;a&amp;#39;: 1, &amp;#39;c&amp;#39;: 1}) # `要素`: `出現回数` recipe = c.most_common() # [(&amp;#39;b&amp;#39;, 2), (&amp;#39;a&amp;#39;, 1), (&amp;#39;c&amp;#39;, 1)] # 出現回数が多い順に並べ替えてくれる recipe = c.most_common()[0][0] # b 参考にさせていただいたもの お世話になりました。</description>
     </item>
     
     <item>
@@ -184,7 +253,25 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-      <description></description>
+      <description>目的 案件で触らせてもらうことになったぜ
+何もわからないぜ
+という状態なので、自分が調べたことについてまとめておきます。
+Radis とは  REmote DIctionary Serverの略 読んで字の如く、ネットワーク接続されたKey-Value型のNoSQLデータベース 永続化可能なインメモリデータベース オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語 AWS上でもRedis-serverが提供されている 様々なデータ構造をサポートしている  STRING LIST SET HASH ZSET (ソート済みのset) 補足：インメモリDB すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。
+インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey
+インストールと動作確認 少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。
+Try Redis
+Macであれば下記brewコマンドで一発。
+$brew install Redis インストールできたら、サーバを立ち上げてみます。
+$ redis-server # 立ち上がったら別のタブで動作確認 $ redis-cli 127.0.0.1:6379&amp;gt; set test &amp;#34;hoge&amp;#34; OK 127.0.0.1:6379&amp;gt; get test &amp;#34;hoge&amp;#34; 動作確認までできました。
+このコマンドを叩く先のredis-serverがローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)
+データのタイプ Redisは前述の通り様々なデータタイプに対応しています。
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。
+コマンドの詳細などは公式ドキュメントで。
+Data types – Redis
+Strings 最も基本的な、KeyとValueが1:1な構造。
+Key = valueの形。</description>
     </item>
     
     <item>
@@ -193,7 +280,15 @@
       <pubDate>Thu, 28 Jan 2021 19:10:59 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-      <description></description>
+      <description>目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
+という要件を貰ったけど、
+そのあたり全く初見だったので調べてまとめてみました。
+ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
+スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
+プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+https:// から始まる URL を利用できます。
+メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.</description>
     </item>
     
   </channel>

@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>【ディープリンク】ってなんぞや</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
+という要件を貰ったけど、
+そのあたり全く初見だったので調べてまとめてみました。
+ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
+スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
+プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+https:// から始まる URL を利用できます。
+メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.'><title>【ディープリンク】ってなんぞや</title>
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/'>
 
 <link rel="stylesheet" href="/scss/style.min.0138f7b95d0129f02509909068f76ee4682c28dfd1397631daad73a97f57c322.css"><meta property='og:title' content='【ディープリンク】ってなんぞや'>
-<meta property='og:description' content=''>
+<meta property='og:description' content='目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
+という要件を貰ったけど、
+そのあたり全く初見だったので調べてまとめてみました。
+ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
+スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
+プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+https:// から始まる URL を利用できます。
+メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.'>
 <meta property='og:url' content='https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/'>
 <meta property='og:site_name' content='sawa.md'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ディープリンク' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-01-28T19:10:59&#43;09:00'/><meta property='article:modified_time' content='2021-01-28T19:10:59&#43;09:00'/>
 <meta name="twitter:site" content="@SawaTszm">
     <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【ディープリンク】ってなんぞや">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
+という要件を貰ったけど、
+そのあたり全く初見だったので調べてまとめてみました。
+ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
+スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
+プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+https:// から始まる URL を利用できます。
+メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.">
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
 <script type="application/javascript">
@@ -275,14 +299,18 @@ if (!doNotTrack) {
 
     <section class="article-content">
     <h2 id="目的">目的</h2>
-<p>LINEBOT くんのメッセージからアプリに飛びたいという要件を貰ったけど、<br>
-そのあたり全く初見だったのでまとめてみた。<br>
-① なのは全然わからなかったところがあるからです。追記するかもう一個記事書くかします。</p>
-<h2 id="所感">所感</h2>
-<p>ディープリンク：任意のアプリの、任意の画面に遷移させる URI とその仕組み</p>
+<p>「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」</p>
+<p>という要件を貰ったけど、<br>
+そのあたり全く初見だったので調べてまとめてみました。</p>
+<h2 id="ディープリンクとは">ディープリンクとは</h2>
+<p>任意のアプリに遷移できるリンク(URL)のことです。<br>
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。</p>
+<p>スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。</p>
+<h2 id="プラットフォームごとのディープリンク対応">プラットフォームごとのディープリンク対応</h2>
 <table>
 <thead>
 <tr>
+<th>プラットフォーム</th>
 <th>種類</th>
 <th>対応</th>
 <th>URL</th>
@@ -290,38 +318,35 @@ if (!doNotTrack) {
 </thead>
 <tbody>
 <tr>
+<td>Android</td>
 <td>App links</td>
 <td>Android6.0 以降</td>
 <td>WebURL</td>
 </tr>
 <tr>
+<td>Android</td>
 <td>App Indexing</td>
 <td>Android</td>
 <td>WebURL</td>
 </tr>
 <tr>
+<td>Apple</td>
 <td>universal links</td>
 <td>iOS9 以降</td>
 <td>WebURL</td>
 </tr>
 <tr>
+<td>どちらも</td>
 <td>Custom URL Scheme</td>
 <td>iOS,Android</td>
 <td>カスタム URL</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><code>App Links</code> ≒ <code>universal links</code>が良さげ</li>
-</ul>
-<p>どちらも WebURL から直接アプリを起動できるので、LINE のメッセージ上から遷移が可能<br>
-受け取る URL を使ってアプリのどの画面を表示させるかを制御する</p>
 <h2 id="androidgoogle">Android(Google)</h2>
 <h2 id="app-links">App Links</h2>
-<p><code>https://</code> から始まる URL を利用する。</p>
-<h3 id="設定方法">設定方法</h3>
-<p><a class="link" href="https://qiita.com/noboru_i/items/fd4634ecb326b3749ac0"  target="_blank" rel="noopener"
-    >App Linksに対応してみた - Qiita</a></p>
+<p>App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。<br>
+<code>https://</code> から始まる URL を利用できます。</p>
 <h3 id="メリット">メリット</h3>
 <ul>
 <li>WebURL から直接アプリを起動できる</li>
@@ -332,18 +357,20 @@ if (!doNotTrack) {
 <li>認証情報ファイルを https 通信可能なサーバに上げておく必要がある</li>
 <li>android 6.0(2015 年 10 月リリース)以降しか対応していない</li>
 </ul>
+<h3 id="設定方法">設定方法</h3>
+<p>下記が参考になりました。<br>
+<a class="link" href="https://qiita.com/noboru_i/items/fd4634ecb326b3749ac0"  target="_blank" rel="noopener"
+    >App Linksに対応してみた - Qiita</a></p>
 <h2 id="app-indexing">App Indexing</h2>
-<p><a class="link" href="https://qiita.com/nein37/items/3b69f85b97d0883eb1ca"  target="_blank" rel="noopener"
-    >AppIndexing について - Qiita</a><br>
-ムズカシイ　ヨクワカラナイ</p>
-<hr>
+<p>App Indexingは、その名の通りアプリのコンテンツをインデックスして、Google検索の結果からアプリに直接遷移することができるサービスです。Googleが提供しています。</p>
+<p>参考になった記事:
+<a class="link" href="https://qiita.com/nein37/items/3b69f85b97d0883eb1ca"  target="_blank" rel="noopener"
+    >AppIndexing について - Qiita</a></p>
 <h2 id="iosapple">iOS(Apple)</h2>
 <h2 id="universal-links">universal links</h2>
-<p><code>https://</code> から始まる URL を利用する。<br>
+<p>universal linksは、iOS9から使用できるサービスです。<br>
+<code>https://</code> から始まる URL を利用できます。<br>
 例：LINE(<code>https://line.me/R/</code>)</p>
-<h3 id="設定方法universal-links">設定方法(universal links)</h3>
-<p><a class="link" href="https://dev.classmethod.jp/smartphone/universal-links/"  target="_blank" rel="noopener"
-    >Universal Links を試してみました。関連づけファイル(apple-app-site-association）は S3 に置きました。 ｜ Developers.IO</a></p>
 <h3 id="メリットuniversal-links">メリット(universal links)</h3>
 <ul>
 <li>アプリが端末に入っていない場合の挙動を設定できる(Store に飛ばす等)</li>
@@ -354,34 +381,39 @@ if (!doNotTrack) {
 <li>認証情報ファイルを https 通信可能なサーバに上げておく必要がある</li>
 <li>iOS9(2015 年 9 月リリース)以降でしか使えない</li>
 </ul>
-<hr>
+<h3 id="設定方法universal-links">設定方法(universal links)</h3>
+<p>こちらが参考になりました。<br>
+<a class="link" href="https://dev.classmethod.jp/smartphone/universal-links/"  target="_blank" rel="noopener"
+    >Universal Links を試してみました。関連づけファイル(apple-app-site-association）は S3 に置きました。 ｜ Developers.IO</a></p>
 <h2 id="共通">共通</h2>
 <h2 id="custom-url-scheme">Custom URL Scheme</h2>
-<p><code>amzn://apps/android?asin=B004FRX0MY</code> や <code>comgooglemaps://</code> など、アプリ独自に決めた scheme を利用する方法。</p>
-<h3 id="設定方法ios">設定方法(iOS)</h3>
-<p>２種類の実装方法があるけど内容は同じ。</p>
-<ol>
-<li><code>info.plist</code>から設定する</li>
-<li><code>TARGET &gt; info</code>から設定する</li>
-</ol>
-<p>Safari から固定 URL(<code>my-app://</code>など)を叩けばアプリを起動できる。</p>
+<p><code>amzn://apps/android?asin=B004FRX0MY</code> や <code>comgooglemaps://</code> など、アプリ独自に決めた scheme を利用する方法です。</p>
 <h3 id="メリットcustom-url-scheme">メリット(Custom URL Scheme)</h3>
 <ul>
-<li>iOS8 以前,android 6.0 以前でも動く。</li>
+<li>iOS8 以前,android 6.0 以前でも動く</li>
 </ul>
 <h3 id="デメリットcustom-url-scheme">デメリット(Custom URL Scheme)</h3>
 <ul>
 <li>アプリがインストールされていない場合に動作しない</li>
 <li>他のアプリと競合する可能性がある</li>
 </ul>
-<hr>
-<hr>
+<h3 id="設定方法ios">設定方法(iOS)</h3>
+<p>２種類の実装方法があるけど内容は同じです。</p>
+<ol>
+<li><code>info.plist</code>から設定する</li>
+<li><code>TARGET &gt; info</code>から設定する</li>
+</ol>
+<p>Safariから固定 URL(<code>my-app://</code>など)を叩けばアプリを起動できます。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>今から実装するとなったら<code>App Links</code> ≒ <code>universal links</code>が良さげだなと思いました。</p>
+<p>どちらもWebURLから直接アプリを起動できるので、LINEのメッセージ上から遷移が可能です。</p>
 <h2 id="参考">参考</h2>
-<p>途中に載せさせて頂いてるサイトも大変参考になりました……ありがとうございます……<br>
-<a class="link" href="https://qiita.com/dongri/items/a4430c20c2ea3b01a566"  target="_blank" rel="noopener"
+<p>途中に載せさせて頂いてるサイトも大変参考になりました……ありがとうございます……</p>
+<p><a class="link" href="https://qiita.com/dongri/items/a4430c20c2ea3b01a566"  target="_blank" rel="noopener"
     >真面目に Deep Link 対応したい話 - Qiita</a><br>
 <a class="link" href="https://qiita.com/noboru_i/items/abf83e068999a073d6b0"  target="_blank" rel="noopener"
     >iOS/Android のディープリンクについての雑な説明 - Qiita</a></p>
+
 </section>
 
 
@@ -542,32 +574,34 @@ if (!doNotTrack) {
                     <nav id="TableOfContents">
   <ol>
     <li><a href="#目的">目的</a></li>
-    <li><a href="#所感">所感</a></li>
+    <li><a href="#ディープリンクとは">ディープリンクとは</a></li>
+    <li><a href="#プラットフォームごとのディープリンク対応">プラットフォームごとのディープリンク対応</a></li>
     <li><a href="#androidgoogle">Android(Google)</a></li>
     <li><a href="#app-links">App Links</a>
       <ol>
-        <li><a href="#設定方法">設定方法</a></li>
         <li><a href="#メリット">メリット</a></li>
         <li><a href="#デメリット">デメリット</a></li>
+        <li><a href="#設定方法">設定方法</a></li>
       </ol>
     </li>
     <li><a href="#app-indexing">App Indexing</a></li>
     <li><a href="#iosapple">iOS(Apple)</a></li>
     <li><a href="#universal-links">universal links</a>
       <ol>
-        <li><a href="#設定方法universal-links">設定方法(universal links)</a></li>
         <li><a href="#メリットuniversal-links">メリット(universal links)</a></li>
         <li><a href="#デメリットuniversal-links">デメリット(universal links)</a></li>
+        <li><a href="#設定方法universal-links">設定方法(universal links)</a></li>
       </ol>
     </li>
     <li><a href="#共通">共通</a></li>
     <li><a href="#custom-url-scheme">Custom URL Scheme</a>
       <ol>
-        <li><a href="#設定方法ios">設定方法(iOS)</a></li>
         <li><a href="#メリットcustom-url-scheme">メリット(Custom URL Scheme)</a></li>
         <li><a href="#デメリットcustom-url-scheme">デメリット(Custom URL Scheme)</a></li>
+        <li><a href="#設定方法ios">設定方法(iOS)</a></li>
       </ol>
     </li>
+    <li><a href="#まとめ">まとめ</a></li>
     <li><a href="#参考">参考</a></li>
   </ol>
 </nav>

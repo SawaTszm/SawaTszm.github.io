@@ -306,13 +306,13 @@ tables created with &gt;= InnoDB-4.1.12, and such columns in old tables
 cannot be referenced by such columns in new tables.
 Please refer to http://dev.mysql.com/doc/refman/5.7/en/innodb-foreign-key-constraints.html for correct foreign key definition.
 </code></pre></div><p>“参照された列が最初の列として表示される参照された表にインデックスが見つからないか、テーブルの列タイプと参照された表が制約に一致しません”</p>
-<p>この一文に沿って見てみたら、参照される側のテーブルの項目と参照するテーブルの項目が合っていませんでした。<br>
-ちなみにこのエラーの前は(調べる前に気がつきましたが)「参照される側のテーブルの項目は PRIMARY KEY でなくてはならない」と言うのを忘れて外部キーを設定しようとしてました。<br>
+<p>この一文に沿って見てみたら、参照される側のテーブルの項目と参照するテーブルの項目が合っていませんでした。</p>
+<p>ちなみにこのエラーの前は(調べる前に気がつきましたが)「参照される側のテーブルの項目は PRIMARY KEY でなくてはならない」と言うのを忘れて外部キーを設定しようとしてました。<br>
 正月ボケだね〜フフと言いたいところですが、これは単純な初心者ボケ(ガチ)です。</p>
 <p>型を参照される側のテーブルの項目に合わせたら無事設定できました。</p>
 <h2 id="参考にさせて頂いたもの">参考にさせて頂いたもの</h2>
-<p>お世話になりました。<br>
-<a class="link" href="https://dev.mysql.com/doc/refman/5.6/ja/show-engine.html"  target="_blank" rel="noopener"
+<p>お世話になりました。</p>
+<p><a class="link" href="https://dev.mysql.com/doc/refman/5.6/ja/show-engine.html"  target="_blank" rel="noopener"
     >MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文</a><br>
 <a class="link" href="https://taupe.site/entry/cannot-add-foreign-key-constraint/"  target="_blank" rel="noopener"
     >MySQL の外部キー追加時にエラー…ERROR 1215 (HY000): Cannot add foreign key constraint</a><br>

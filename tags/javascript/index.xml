@@ -13,7 +13,21 @@
       <pubDate>Sat, 17 Jul 2021 11:11:15 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/lodash%E3%81%AE%E6%A6%82%E8%A6%81%E3%81%A8%E9%96%A2%E6%95%B0%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-      <description></description>
+      <description>lodashとは  The Lodash library exported as a UMD module.
+(中略) &amp;hellip;Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+ 配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリです。
+_.getや_.eachなどがそれ。
+公式ドキュメントがすごくわかりやすくていい感じです。
+lodash - github
+公式ドキュメント
+ 使い方 インポート import _ from &amp;#39;lodash&amp;#39;; 関数 _.get() _.get(object, path, [defaultValue]) objectのpathの値を取得する。値を解決できなかった場合、defaultValueを返す。
+_.has() _.has(object, path) objectのpathの値が存在するかを調べる。値自体は返さない。
+_.set() _.set(object, path, value) objectのpathにvalueの値をセットする。
+pathが定義されていない場合は新しく作られる。
+インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)
+_.each() -&amp;gt; forEach() _.forEach(collection, [iteratee=_.identity]) collectionの要素を反復し、各要素に対してiterateeを実行。
+iterateeは3つの引数(value, index|key, collection)で呼び出される。
+※iteratee関数は明示的にfalseを返すことで反復を終わらせることができる</description>
     </item>
     
   </channel>

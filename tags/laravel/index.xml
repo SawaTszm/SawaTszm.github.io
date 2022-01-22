@@ -13,7 +13,10 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
-      <description></description>
+      <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
     </item>
     
     <item>
@@ -22,16 +25,44 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
-      <description></description>
+      <description>目的 ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。
+まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。
+laravel-adminとは laravelで簡単にDBの管理画面を作成することができるライブラリです。
+ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。
+Laravel-admin(ドキュメント)
+GitHubページ
+基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。
+主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。
+プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
+何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
+公式によると、現在のバージョンでは以下の環境が推奨されるようです。
+ PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+laravel-admin install
+ $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+よければこちらの記事も参考にしてみてください。
+【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
+インストール laravelの準備ができたら早速laravel-adminをインストールします。
+$composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
+$php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
+ファイルの初期配置は以下。
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
     </item>
     
     <item>
-      <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</title>
-      <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
+      <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</title>
+      <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
-      <description></description>
+      <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
+      <description>起こった問題 タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。
+設定後下記を確認して、
+&amp;gt;&amp;gt;&amp;gt; config(&amp;#39;database.connections.pgsql&amp;#39;) =&amp;gt; [ &amp;#34;read&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; [ &amp;#34;postgres2&amp;#34;, ], ], &amp;#34;write&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ], ... 反映されてるな、と思って念の為connectionも見てみました。
+&amp;gt;&amp;gt;&amp;gt; DB::connection(&amp;#39;pgsql::read&amp;#39;)-&amp;gt;getConfig(); =&amp;gt; [ ..., &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ] ……あれ？
+Readコネクションなのでpostgres2であって欲しいのに、postgresが出てきてしまいました。
+反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。
+調べたこと getConfigで参照されるconfigは、
+Illuminate\Database\Connectors\ConnectionFactory::make内で、
+/** * Establish a PDO connection based on the configuration. * * @param array $config * @param string|null $name * @return \Illuminate\Database\Connection */ public function make(array $config, $name = null) { $config = $this-&amp;gt;parseConfig($config, $name); if (isset($config[&amp;#39;read&amp;#39;])) { return $this-&amp;gt;createReadWriteConnection($config); } return $this-&amp;gt;createSingleConnection($config); } createReadWriteConnectionが呼び出され、</description>
     </item>
     
     <item>

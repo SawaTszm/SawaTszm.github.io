@@ -13,7 +13,15 @@
       <pubDate>Thu, 28 Jan 2021 19:10:59 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-      <description></description>
+      <description>目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
+という要件を貰ったけど、
+そのあたり全く初見だったので調べてまとめてみました。
+ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
+スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
+プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+https:// から始まる URL を利用できます。
+メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.</description>
     </item>
     
   </channel>

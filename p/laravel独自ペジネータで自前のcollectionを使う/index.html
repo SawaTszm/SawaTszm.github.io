@@ -281,10 +281,10 @@ if (!doNotTrack) {
 <code>Illuminate\Pagination\LengthAwarePaginator</code>インスタンスを作成して、自前の Collection を Collection のままページネーションしたい。</p>
 <h2 id="結論">結論</h2>
 <p>ペジネーションは引数に Collection を許容しているので実装が可能。<br>
-<code>LengthAwarePaginator</code>インスタンスの第一引数に渡す Collection を、<code>slice()</code>メソッドを使って Collection の型を崩さずに区切る。<br>
-これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。</p>
+<code>LengthAwarePaginator</code>インスタンスの第一引数に渡す Collection を、<code>slice()</code>メソッドを使って Collection の型を崩さずに区切る。</p>
+<p>これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。</p>
 <h2 id="ハマった流れ">ハマった流れ</h2>
-<p>まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照。</p>
+<p>まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照しました。</p>
 <blockquote>
 <p>Note: 自前でペジネーターインスタンスを生成する場合、ペジネーターに渡す結果の配列を自分で”slice”する必要があります。その方法を思いつかなければ、 [array_slice] PHP 関数を調べてください。</p>
 </blockquote>
@@ -304,13 +304,13 @@ if (!doNotTrack) {
 </span><span class="c1"></span>    <span class="nv">$slice</span> <span class="o">=</span> <span class="nx">array_slice</span><span class="p">(</span><span class="nv">$items</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">(),</span> <span class="nv">$offset</span><span class="p">,</span> <span class="nv">$limit</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="k">new</span> <span class="nx">LengthAwarePaginator</span><span class="p">(</span><span class="nv">$slice</span><span class="p">,</span> <span class="nx">count</span><span class="p">(</span><span class="nv">$items</span><span class="p">),</span> <span class="nv">$limit</span><span class="p">,</span> <span class="nv">$page</span><span class="p">);</span>
-</code></pre></div><p>これでも<code>$columns</code>の値を参照する分には特に問題ない。<br>
-ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて<code>$this-&gt;relatedUsers...</code>なんていうふうに書くとその時点でエラーになってしまう。</p>
+</code></pre></div><p>これでも<code>$columns</code>の値を参照する分には特に問題ありません。</p>
+<p>ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて<code>$this-&gt;relatedUsers...</code>なんていうふうに書くとその時点でエラーになってしまいます。</p>
 <p>原因は<code>$slice = array_slice($items-&gt;toArray(), $offset, $limit);</code>の部分で、collection 型だった$items を配列に戻してしまっているので、この時点でリレーションの情報は消えてしまっていると。<br>
 (Collection から配列に変換する際、採用されるのは collection 内の attributes 部分だけ)</p>
 <h2 id="解決した流れ">解決した流れ</h2>
-<p>公式ドキュメントで<code>array_slice</code>を推しているということは、<code>LengthAwarePaginator</code>には collection を渡せないのか……？<br>
-と思い<code>LengthAwarePaginator</code>の定義に飛ぶ。</p>
+<p>公式ドキュメントで<code>array_slice</code>を推しているということは、<code>LengthAwarePaginator</code>には collection を渡せないのか……？</p>
+<p>と思い<code>LengthAwarePaginator</code>の定義を見てみました。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="c1">// LengthAwarePaginator.php
 </span><span class="c1"></span>
     <span class="k">class</span> <span class="nc">LengthAwarePaginator</span> <span class="k">extends</span> <span class="nx">AbstractPaginator</span> <span class="k">implements</span> <span class="nx">Arrayable</span><span class="p">,</span> <span class="nx">ArrayAccess</span><span class="p">,</span> <span class="nx">Countable</span><span class="p">,</span> <span class="nx">IteratorAggregate</span><span class="p">,</span> <span class="nx">JsonSerializable</span><span class="p">,</span> <span class="nx">Jsonable</span><span class="p">,</span> <span class="nx">LengthAwarePaginatorContract</span>
@@ -343,12 +343,12 @@ if (!doNotTrack) {
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">currentPage</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setCurrentPage</span><span class="p">(</span><span class="nv">$currentPage</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pageName</span><span class="p">);</span>
             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">items</span> <span class="o">=</span> <span class="nv">$items</span> <span class="nx">instanceof</span> <span class="nx">Collection</span> <span class="o">?</span> <span class="nv">$items</span> <span class="o">:</span> <span class="nx">Collection</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="nv">$items</span><span class="p">);</span>
         <span class="p">}</span>
-</code></pre></div><p><code>__construct</code>を確認すると、任意の配列を受け取る第一引数は<code>$items</code>と定義されている。</p>
+</code></pre></div><p><code>__construct</code>を確認すると、任意の配列を受け取る第一引数は<code>$items</code>と定義されています。</p>
 <p>この引数の初期化処理を見てみると、<br>
 <code>$this-&gt;items = $items instanceof Collection ? $items : Collection::make($items);</code><br>
 「collection で来たらそのまま格納して、そうじゃなかったら collection 型にして返す」。<br>
-バリバリに collection 型を出す想定なので、引数に collection を渡しても大丈夫。</p>
-<p>であれば後は、問題の箇所だった<code>array_slice</code>の collection バージョンがあれば万事解決。</p>
+バリバリに collection 型を出す想定なので、引数に collection を渡しても大丈夫そうです。</p>
+<p>であれば後は、問題の箇所だった<code>array_slice</code>の collection バージョンがあれば万事解決ということ。</p>
 <p><a class="link" href="https://readouble.com/laravel/5.8/ja/collections.html#method-slice:embed:cite"  target="_blank" rel="noopener"
     >コレクション 5.8 Laravel</a></p>
 <blockquote>
@@ -356,7 +356,7 @@ if (!doNotTrack) {
 Slice メソッドは指定したインデックスからコレクションを切り分けます。</p>
 </blockquote>
 <p>ググれば一発ですね。</p>
-<h3 id="解決後のコード">解決後のコード</h3>
+<h2 id="解決後のコード">解決後のコード</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="c1">// app/Services/ItemsService.php
 </span><span class="c1">// 前略。$columnsには取得したいカラム名を格納
 </span><span class="c1"></span>
@@ -372,11 +372,10 @@ Slice メソッドは指定したインデックスからコレクションを�
 
     <span class="c1">// $sliceの中身はcollectionなので、この戻り値を受け取った先でもcollectionに対する操作が出来る
 </span><span class="c1"></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">LengthAwarePaginator</span><span class="p">(</span><span class="nv">$slice</span><span class="p">,</span> <span class="nx">count</span><span class="p">(</span><span class="nv">$items</span><span class="p">),</span> <span class="nv">$limit</span><span class="p">,</span> <span class="nv">$page</span><span class="p">);</span>
-</code></pre></div><p>これで無事に Resource 側でもリレーションを参照できるようになった。</p>
+</code></pre></div><p>これで無事に Resource 側でもリレーションを参照できるようになりました。</p>
 <h2 id="まとめ">まとめ</h2>
-<p>Collection に対する理解が浅かった＆各動作の戻り値を意識しなかったために起きた悲劇。初心者のハマるポイントは誰にも予想ができない。<br>
-(昨日の出来事だったんだけど今見ても普通に恥ずかしい)<br>
-(というか名称からして LengthAwarePaginator が slice 周りもサポートしてくれるものだと思ってたけど違うんですね)</p>
+<p>Collection に対する理解が浅かった＆各動作の戻り値を意識しなかったために起きた悲劇でした。初心者のハマるポイントは誰にも予想ができない。<br>
+(名称からして LengthAwarePaginator が slice 周りもサポートしてくれるものだと思ってたけど違うんですね)</p>
 <p>もし他に良い実装方法があれば教えて頂けると嬉しいです:)<br>
 では。</p>
 </section>
@@ -434,12 +433,12 @@ Slice メソッドは指定したインデックスからコレクションを�
                 
                     
 <article class="">
-    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
+    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</h2>
+            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</h2>
         </div>
     </a>
 </article>
@@ -596,11 +595,8 @@ Slice メソッドは指定したインデックスからコレクションを�
     <li><a href="#やりたいこと">やりたいこと</a></li>
     <li><a href="#結論">結論</a></li>
     <li><a href="#ハマった流れ">ハマった流れ</a></li>
-    <li><a href="#解決した流れ">解決した流れ</a>
-      <ol>
-        <li><a href="#解決後のコード">解決後のコード</a></li>
-      </ol>
-    </li>
+    <li><a href="#解決した流れ">解決した流れ</a></li>
+    <li><a href="#解決後のコード">解決後のコード</a></li>
     <li><a href="#まとめ">まとめ</a></li>
   </ol>
 </nav>

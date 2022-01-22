@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.'><title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/'>
 
 <link rel="stylesheet" href="/scss/style.min.0138f7b95d0129f02509909068f76ee4682c28dfd1397631daad73a97f57c322.css"><meta property='og:title' content='【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築'>
-<meta property='og:description' content=''>
+<meta property='og:description' content='目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.'>
 <meta property='og:url' content='https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/'>
 <meta property='og:site_name' content='sawa.md'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Laravel' /><meta property='article:tag' content='MySQL' /><meta property='article:tag' content='nginx' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-02-19T12:01:46&#43;09:00'/><meta property='article:modified_time' content='2021-02-19T12:01:46&#43;09:00'/>
 <meta name="twitter:site" content="@SawaTszm">
     <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.">
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
 <script type="application/javascript">
@@ -276,8 +285,8 @@ if (!doNotTrack) {
     <section class="article-content">
     <h2 id="目的">目的</h2>
 <p>laravel-admin使いたいだけの用途にLaradockは重すぎる……<br>
-ので、お勉強も兼ねて、docker-composeでLaravel&amp;MySQLのみの環境を立てる。<br>
-その上でlaravel-adminの管理画面まで開けるようにする。</p>
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;MySQLのみの環境を立てました。<br>
+その上でlaravel-adminの管理画面まで開けるようにしてみます。</p>
 <h2 id="構成">構成</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">project_root_dir
 ├── docker-compose.yml
@@ -294,47 +303,51 @@ if (!doNotTrack) {
         └── ...
 </code></pre></div><h2 id="手順">手順</h2>
 <h3 id="docker-composeymlを作成">docker-compose.ymlを作成</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker:docker-compose.yml" data-lang="docker:docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
-</span><span class="w">            </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/php/Dockerfile</span><span class="w">
-</span><span class="w">            </span><span class="nt">args</span><span class="p">:</span><span class="w">
-</span><span class="w">                </span><span class="nt">PROJECT_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">app_admin</span><span class="w">
-</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> 
-</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
-</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">database</span><span class="w">
-</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">database</span><span class="w">
-</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> 
-</span><span class="w">            </span>- <span class="s2">&#34;4000:80&#34;</span><span class="w">
-</span><span class="w">            </span>- <span class="s2">&#34;4001:8080&#34;</span><span class="w">
-</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
-</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span><span class="w">        </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l">.env_db</span><span class="w">
-</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="s2">&#34;23306:3306&#34;</span><span class="w">
-</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="s2">&#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&#34;</span><span class="w">
-</span><span class="w">            </span>- <span class="s2">&#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&#34;</span><span class="w">
-</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/nginx</span><span class="w">
-</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
-</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">app</span><span class="w">
-</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
-</span><span class="w">            </span>- <span class="l">./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf</span><span class="w">
-</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">app</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="c"># docker-compose.yml</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>version: <span class="s2">&#34;3.5&#34;</span><span class="err">
+</span><span class="err"></span>services:<span class="err">
+</span><span class="err"></span>    app:<span class="err">
+</span><span class="err"></span>        build:<span class="err">
+</span><span class="err"></span>            context: .<span class="err">
+</span><span class="err"></span>            dockerfile: ./docker/php/Dockerfile<span class="err">
+</span><span class="err"></span>            args:<span class="err">
+</span><span class="err"></span>                PROJECT_NAME: app_admin<span class="err">
+</span><span class="err"></span>        volumes: <span class="err">
+</span><span class="err"></span>            - ./:/var/www/html<span class="err">
+</span><span class="err"></span>        depends_on:<span class="err">
+</span><span class="err"></span>            - database<span class="err">
+</span><span class="err"></span>        links:<span class="err">
+</span><span class="err"></span>            - database<span class="err">
+</span><span class="err"></span>        ports: <span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;4000:80&#34;</span><span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;4001:8080&#34;</span><span class="err">
+</span><span class="err"></span>        tty: true<span class="err">
+</span><span class="err"></span>    database:<span class="err">
+</span><span class="err"></span>        image: mysql:5.7<span class="err">
+</span><span class="err"></span>        restart: always<span class="err">
+</span><span class="err"></span>        env_file: .env_db<span class="err">
+</span><span class="err"></span>        ports:<span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;23306:3306&#34;</span><span class="err">
+</span><span class="err"></span>        volumes:<span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&#34;</span><span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&#34;</span><span class="err">
+</span><span class="err"></span>    web:<span class="err">
+</span><span class="err"></span>        build: ./docker/nginx<span class="err">
+</span><span class="err"></span>        ports:<span class="err">
+</span><span class="err"></span>            - 80:80<span class="err">
+</span><span class="err"></span>        depends_on:<span class="err">
+</span><span class="err"></span>            - app<span class="err">
+</span><span class="err"></span>        volumes:<span class="err">
+</span><span class="err"></span>            - ./:/var/www/html<span class="err">
+</span><span class="err"></span>            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf<span class="err">
+</span><span class="err"></span>        links:<span class="err">
+</span><span class="err"></span>            - app<span class="err">
 </span></code></pre></div><h3 id="appコンテナ設定">appコンテナ設定</h3>
-<p>composerはもうここに含める</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker:./docker/php/Dockerfile" data-lang="Docker:./docker/php/Dockerfile"><span class="k">FROM</span><span class="s"> php:7-fpm</span><span class="err">
+<p>composerはもうここに含めます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker" data-lang="Docker"><span class="c"># ./docker/php/Dockerfile</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> php:7-fpm</span><span class="err">
 </span><span class="err"></span><span class="k">COPY</span> php.ini /usr/local/etc/php/<span class="err">
 </span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
 </span><span class="se"></span>  libfreetype6-dev libjpeg62-turbo-dev libpng-dev libmcrypt-dev libonig-dev <span class="se">\
@@ -344,72 +357,78 @@ if (!doNotTrack) {
 </span><span class="err"></span><span class="c"># install composer</span><span class="err">
 </span><span class="err"></span><span class="k">RUN</span> curl -sS https://getcomposer.org/installer <span class="p">|</span> php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer<span class="err">
 </span></code></pre></div><h3 id="webコンテナ設定">webコンテナ設定</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker:./docker/nginx/Dockerfile" data-lang="Docker:./docker/nginx/Dockerfile"><span class="k">FROM</span><span class="s"> nginx:latest</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Docker" data-lang="Docker"><span class="c"># ./docker/nginx/Dockerfile</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> nginx:latest</span><span class="err">
 </span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
 </span><span class="se"></span>    vim <span class="se">\
 </span><span class="se"></span>    unzip <span class="se">\
 </span><span class="se"></span>    zip <span class="se">\
 </span><span class="se"></span>    git<span class="err">
-</span></code></pre></div><p>後々laravelディレクトリを作るので、設定ファイルのルートは<code>/var/www/html/laravel/~</code>にしておく。</p>
-<pre tabindex="0"><code class="language-conf:./docker/nginx/default.conf" data-lang="conf:./docker/nginx/default.conf">server {
-    listen       80;
-    index index.php index.html;
-    server_name php-docker.local;
-    error_log  /var/log/nginx/error.log;
-    access_log /var/log/nginx/access.log;
-    root /var/www/html/laravel/public;  // ココ
-
-    location / {
-     try_files $uri $uri/ @laravel;
-    }
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root /var/www/html;
-    }
-
-    location ~ \.php$ {
-    try_files $uri $uri/ @laravel;
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass app:9000;
-        fastcgi_index index.php;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param PATH_INFO $fastcgi_path_info;
-    }
-
-    location @laravel {
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass app:9000;
-        fastcgi_index index.php;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php;  // ココ
-        fastcgi_param PATH_INFO $fastcgi_path_info;
-    }
-}
-</code></pre><h3 id="dbコンテナの設定">dbコンテナの設定</h3>
-<pre tabindex="0"><code class="language-conf:docker/database/my.cnf" data-lang="conf:docker/database/my.cnf">[mysql]
-default-character-set=utf8mb4
-
-[mysqld]
-sql-mode=&quot;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
-character-set-server=utf8mb4
-collation-server=utf8mb4_general_ci
-
-[mysqld_safe]
-timezone = UTC
-default-time-zone = UTC
-</code></pre><p>後はHOST情報などを<code>.enb_db</code>(docker-compose.ymlで指定したファイル)に記述する。</p>
-<pre tabindex="0"><code class="language-txt:.env_db" data-lang="txt:.env_db">MYSQL_DATABASE=[my_database_name]
+</span></code></pre></div><p>後々laravelディレクトリを作るので、設定ファイルのルートは<code>/var/www/html/laravel/~</code>にしておきます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="c"># ./docker/nginx/default.conf</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>server <span class="o">{</span><span class="err">
+</span><span class="err"></span>    listen       80<span class="p">;</span><span class="err">
+</span><span class="err"></span>    index index.php index.html<span class="p">;</span><span class="err">
+</span><span class="err"></span>    server_name php-docker.local<span class="p">;</span><span class="err">
+</span><span class="err"></span>    error_log  /var/log/nginx/error.log<span class="p">;</span><span class="err">
+</span><span class="err"></span>    access_log /var/log/nginx/access.log<span class="p">;</span><span class="err">
+</span><span class="err"></span>    root /var/www/html/laravel/public<span class="p">;</span>  <span class="c1"># ココ</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>    location / <span class="o">{</span><span class="err">
+</span><span class="err"></span>     try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ @laravel<span class="p">;</span><span class="err">
+</span><span class="err"></span>    <span class="o">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>    <span class="c1"># redirect server error pages to the static page /50x.html</span><span class="err">
+</span><span class="err"></span>    <span class="c1">#</span><span class="err">
+</span><span class="err"></span>    error_page   <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span>  /50x.html<span class="p">;</span><span class="err">
+</span><span class="err"></span>    <span class="nv">location</span> <span class="o">=</span> /50x.html <span class="o">{</span><span class="err">
+</span><span class="err"></span>        root /var/www/html<span class="p">;</span><span class="err">
+</span><span class="err"></span>    <span class="o">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>    location ~ <span class="se">\.</span>php$ <span class="o">{</span><span class="err">
+</span><span class="err"></span>    try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ @laravel<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_split_path_info ^<span class="o">(</span>.+<span class="se">\.</span>php<span class="o">)(</span>/.+<span class="o">)</span>$<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_pass app:9000<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_index index.php<span class="p">;</span><span class="err">
+</span><span class="err"></span>        include fastcgi_params<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_param SCRIPT_FILENAME <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_param PATH_INFO <span class="nv">$fastcgi_path_info</span><span class="p">;</span><span class="err">
+</span><span class="err"></span>    <span class="o">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>    location @laravel <span class="o">{</span><span class="err">
+</span><span class="err"></span>        fastcgi_split_path_info ^<span class="o">(</span>.+<span class="se">\.</span>php<span class="o">)(</span>/.+<span class="o">)</span>$<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_pass app:9000<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_index index.php<span class="p">;</span><span class="err">
+</span><span class="err"></span>        include fastcgi_params<span class="p">;</span><span class="err">
+</span><span class="err"></span>        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php<span class="p">;</span>  // ココ<span class="err">
+</span><span class="err"></span>        fastcgi_param PATH_INFO <span class="nv">$fastcgi_path_info</span><span class="p">;</span><span class="err">
+</span><span class="err"></span>    <span class="o">}</span><span class="err">
+</span><span class="err"></span><span class="o">}</span><span class="err">
+</span></code></pre></div><h3 id="dbコンテナの設定">dbコンテナの設定</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="c"># docker/database/my.cnf</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="o">[</span>mysql<span class="o">]</span><span class="err">
+</span><span class="err"></span>default-character-set<span class="o">=</span>utf8mb4<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="o">[</span>mysqld<span class="o">]</span><span class="err">
+</span><span class="err"></span>sql-mode<span class="o">=</span><span class="s2">&#34;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#34;</span><span class="err">
+</span><span class="err"></span>character-set-server<span class="o">=</span>utf8mb4<span class="err">
+</span><span class="err"></span>collation-server<span class="o">=</span>utf8mb4_general_ci<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="o">[</span>mysqld_safe<span class="o">]</span><span class="err">
+</span><span class="err"></span><span class="nv">timezone</span> <span class="o">=</span> UTC<span class="err">
+</span><span class="err"></span>default-time-zone <span class="o">=</span> UTC<span class="err">
+</span></code></pre></div><p>後はHOST情報などを<code>.enb_db</code>(docker-compose.ymlで指定したファイル)に記述する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt">MYSQL_DATABASE=[my_database_name]
 MYSQL_USERNAME=root
 MYSQL_PASSWORD=
 MYSQL_HOSTNAME=127.0.0.1
 MYSQL_ROOT_PASSWORD=
 API_MYSQL_PORT=23306
 
-</code></pre><h3 id="起動laravelのインストール">起動＆Laravelのインストール</h3>
+</code></pre></div><h3 id="起動laravelのインストール">起動＆Laravelのインストール</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 起動</span>
 $ docker-compose up -d
 
@@ -420,12 +439,12 @@ app$ composer create-project --prefer-dist laravel/laravel laravel
     >http://localhost/</a> でwelcomページが見られるようになる。</p>
 <h3 id="laravel環境変数ファイルの修正">Laravel環境変数ファイルの修正</h3>
 <p><code>laravel/.env</code>を、DB情報を作成したdockerコンテナに合わせて修正。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt:laravel/.env" data-lang="txt:laravel/.env"><span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
-<span class="nv">DB_HOST</span><span class="o">=</span>db
-<span class="nv">DB_PORT</span><span class="o">=</span><span class="m">3306</span>
-<span class="nv">DB_DATABASE</span><span class="o">=[</span>my_database_name<span class="o">]</span>
-<span class="nv">DB_USERNAME</span><span class="o">=</span>root
-<span class="nv">DB_PASSWORD</span><span class="o">=</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt">DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=[my_database_name]
+DB_USERNAME=root
+DB_PASSWORD=
 </code></pre></div><h3 id="laravel-adminをインストール">laravel-adminをインストール</h3>
 <p>composerを使用してインストールし、有効化する。
 <a class="link" href="https://laravel-admin.org/docs/#/en/installation"  target="_blank" rel="noopener"
@@ -448,56 +467,61 @@ admin/adminで入れます。</p>
 (直接でも良いし、もしくは開発環境のリポジトリをサブモジュール として引っ張ってきて叩くなどする)</li>
 </ul>
 <p>例えば<code>test-app</code>という名前のnetworkを設定している↓のであれば、</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker:既存docker-compose.yml" data-lang="docker:既存docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">database</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
-</span><span class="w">    </span><span class="l">~~~</span><span class="w">
-</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">default</span><span class="w">
-</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-app</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="c"># 既存docker-compose.yml</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>version: <span class="s2">&#34;3.5&#34;</span><span class="err">
+</span><span class="err"></span>services:<span class="err">
+</span><span class="err"></span>  database:<span class="err">
+</span><span class="err"></span>    hostname: database<span class="err">
+</span><span class="err"></span>    image: mysql:5.7<span class="err">
+</span><span class="err"></span>    ~~~<span class="err">
+</span><span class="err"></span>    networks:<span class="err">
+</span><span class="err"></span>      - default<span class="err">
+</span><span class="err"></span>networks:<span class="err">
+</span><span class="err"></span>  default:<span class="err">
+</span><span class="err"></span>    name: test-app<span class="err">
 </span></code></pre></div><p>管理画面側のdocker-compose.ymlでそれを使用するように書き換える↓</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker:docker-compose.yml" data-lang="docker:docker-compose.yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
-</span><span class="w">            </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/php/Dockerfile</span><span class="w">
-</span><span class="w">            </span><span class="nt">args</span><span class="p">:</span><span class="w">
-</span><span class="w">                </span><span class="nt">PROJECT_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">recipe_app_admin</span><span class="w">
-</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> 
-</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
-</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> 
-</span><span class="w">            </span>- <span class="s2">&#34;4000:80&#34;</span><span class="w">
-</span><span class="w">            </span>- <span class="s2">&#34;4001:8080&#34;</span><span class="w">
-</span><span class="w">        </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">        </span><span class="nt">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">default</span><span class="w">
-</span><span class="w">    </span><span class="c"># dbコンテナの設定は不要になる</span><span class="w">
-</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./docker/nginx</span><span class="w">
-</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
-</span><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">app</span><span class="w">
-</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">./:/var/www/html</span><span class="w">
-</span><span class="w">            </span>- <span class="l">./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf</span><span class="w">
-</span><span class="w">        </span><span class="nt">links</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">app</span><span class="w">
-</span><span class="w">        </span><span class="nt">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">default</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-app</span><span class="w">
-</span><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 外部ファイルで設定していることを指定</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="c"># docker-compose.yml</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>version: <span class="s2">&#34;3.5&#34;</span><span class="err">
+</span><span class="err"></span>services:<span class="err">
+</span><span class="err"></span>    app:<span class="err">
+</span><span class="err"></span>        build:<span class="err">
+</span><span class="err"></span>            context: .<span class="err">
+</span><span class="err"></span>            dockerfile: ./docker/php/Dockerfile<span class="err">
+</span><span class="err"></span>            args:<span class="err">
+</span><span class="err"></span>                PROJECT_NAME: recipe_app_admin<span class="err">
+</span><span class="err"></span>        restart: always<span class="err">
+</span><span class="err"></span>        volumes: <span class="err">
+</span><span class="err"></span>            - ./:/var/www/html<span class="err">
+</span><span class="err"></span>        ports: <span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;4000:80&#34;</span><span class="err">
+</span><span class="err"></span>            - <span class="s2">&#34;4001:8080&#34;</span><span class="err">
+</span><span class="err"></span>        tty: true<span class="err">
+</span><span class="err"></span>        networks:<span class="err">
+</span><span class="err"></span>            - default<span class="err">
+</span><span class="err"></span>    <span class="c1"># dbコンテナの設定は不要になる</span><span class="err">
+</span><span class="err"></span>    web:<span class="err">
+</span><span class="err"></span>        build: ./docker/nginx<span class="err">
+</span><span class="err"></span>        restart: always<span class="err">
+</span><span class="err"></span>        ports:<span class="err">
+</span><span class="err"></span>            - 80:80<span class="err">
+</span><span class="err"></span>        depends_on:<span class="err">
+</span><span class="err"></span>            - app<span class="err">
+</span><span class="err"></span>        volumes:<span class="err">
+</span><span class="err"></span>            - ./:/var/www/html<span class="err">
+</span><span class="err"></span>            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf<span class="err">
+</span><span class="err"></span>        links:<span class="err">
+</span><span class="err"></span>            - app<span class="err">
+</span><span class="err"></span>        networks:<span class="err">
+</span><span class="err"></span>            - default<span class="err">
+</span><span class="err">
+</span><span class="err"></span>networks:<span class="err">
+</span><span class="err"></span>  default:<span class="err">
+</span><span class="err"></span>    name: test-app<span class="err">
+</span><span class="err"></span>    external: <span class="nb">true</span>  <span class="c1"># 外部ファイルで設定していることを指定</span><span class="err">
 </span></code></pre></div><p>後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に<code>docker-compose up -d</code>を叩くだけです。</p>
+
 </section>
 
 
@@ -557,12 +581,12 @@ admin/adminで入れます。</p>
                 
                     
 <article class="">
-    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
+    <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</h2>
+            <h2 class="article-title">【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</h2>
         </div>
     </a>
 </article>

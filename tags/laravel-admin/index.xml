@@ -13,7 +13,27 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
-      <description></description>
+      <description>目的 ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。
+まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。
+laravel-adminとは laravelで簡単にDBの管理画面を作成することができるライブラリです。
+ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。
+Laravel-admin(ドキュメント)
+GitHubページ
+基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。
+主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。
+プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
+何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
+公式によると、現在のバージョンでは以下の環境が推奨されるようです。
+ PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+laravel-admin install
+ $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+よければこちらの記事も参考にしてみてください。
+【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
+インストール laravelの準備ができたら早速laravel-adminをインストールします。
+$composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
+$php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
+ファイルの初期配置は以下。
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
     </item>
     
   </channel>

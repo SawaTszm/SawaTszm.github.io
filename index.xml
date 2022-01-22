@@ -6,43 +6,7 @@
         <description>Recent content on sawa.md</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 10 Jan 2022 12:45:25 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【Docker】docker for Macが更新できない</title>
-        <link>https://SawaTszm.github.io/p/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</link>
-        <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</guid>
-        <description>&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;PC: macbook Air (M1)&lt;/li&gt;
-&lt;li&gt;OS: Big Sur 11.6.1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;起きた問題&#34;&gt;起きた問題&lt;/h2&gt;
-&lt;p&gt;ある日、docker desktop for macのアイコンから&lt;code&gt;Preferences&lt;/code&gt;を押してもDockerの画面が立ち上がらなくなりました(アイコンが2,3回跳ねて落ちる)。&lt;br&gt;
-同様にDownload updateも立ち上がらないのでおや？と思い、一度PCを再起動したら&lt;code&gt;Fatal Error Failed to ping backend API&lt;/code&gt;というエラーウィンドウが出てdocker自体が立ち上がらなくなりました。&lt;br&gt;
-&lt;code&gt;Reset Docker to factory defaults, Diagnose &amp;amp; Feedback, Exit&lt;/code&gt;の選択肢はありますが押せない（カーソルぐるぐる）状態になっていて、リセットもさせてくれません。&lt;/p&gt;
-&lt;p&gt;どうやら似た状況になっている方も結構いるようで、既知のバグ？のようです。(&lt;a class=&#34;link&#34; href=&#34;https://github.com/docker/for-mac/issues/5037&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;docker for macのissue&lt;/a&gt;)。こちらでも未だに議論されていて、完璧な解決策はまだ出ていないように見えます。&lt;/p&gt;
-&lt;p&gt;色々参考にさせてもらいつつとりあえず復旧はさせたので、手順を残しておこうと思います。&lt;/p&gt;
-&lt;h2 id=&#34;復帰方法&#34;&gt;復帰方法&lt;/h2&gt;
-&lt;h3 id=&#34;docker関連のプロセスをkillする&#34;&gt;docker関連のプロセスをkillする&lt;/h3&gt;
-&lt;p&gt;コマンドで消すか、アクティビティモニタで&lt;code&gt;docker&lt;/code&gt;を調べて出てきたものを終了させます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# コマンドの場合&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;$killall&lt;/span&gt; Docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;アンインストール&#34;&gt;アンインストール&lt;/h3&gt;
-&lt;p&gt;アプリケーションフォルダからゴミ箱にどん。今思えばもうちょっとスマートなやりようがあった気がします。&lt;/p&gt;
-&lt;h3 id=&#34;新しいのをインストールする&#34;&gt;新しいのをインストールする&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/desktop/mac/install/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;公式サイト&lt;/a&gt;から最新版をダウンロード＆インストール。&lt;/p&gt;
-&lt;h3 id=&#34;フルアクセスを許可&#34;&gt;フルアクセスを許可&lt;/h3&gt;
-&lt;p&gt;上記でインストールしたものが上手く立ち上がればここはスキップしてもいいと思います（起動時にアクセス権限の変更をdocker側から提案してくれる筈なので）。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;システム環境設定&amp;gt;セキュリティとプライバシー&amp;gt;フルディスクアクセス&lt;/code&gt;からdockerにフルアクセスを許可します。&lt;/p&gt;
-&lt;p&gt;（追記）&lt;br&gt;
-しばらく触っていなかった別のmacbookを見てみたらdockerにそんな権限は渡していなかった（でも上手く動いている）ので、ここに関してはちょっと不確かかも知れません。&lt;/p&gt;
-&lt;h3 id=&#34;docker再起動&#34;&gt;docker再起動&lt;/h3&gt;
-&lt;p&gt;うまく動きました。&lt;/p&gt;</description>
-        </item>
-        <item>
+        <lastBuildDate>Wed, 05 Jan 2022 20:34:34 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>初めてのOSS Contribute【First Contributions編】</title>
         <link>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</link>
         <pubDate>Wed, 05 Jan 2022 20:34:34 +0900</pubDate>
@@ -77,55 +41,40 @@
 &lt;/ul&gt;</description>
         </item>
         <item>
-        <title>2021 08 05 Diary</title>
-        <link>https://SawaTszm.github.io/p/2021-08-05-diary/</link>
-        <pubDate>Thu, 05 Aug 2021 21:26:58 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/2021-08-05-diary/</guid>
-        <description>&lt;h2 id=&#34;最近やったこと&#34;&gt;最近やったこと&lt;/h2&gt;
-&lt;h3 id=&#34;diy初級&#34;&gt;DIY(初級)&lt;/h3&gt;
-&lt;p&gt;人生初DIYで元々使ってた机をL字に改造した。&lt;br&gt;
-加工済みのいい感じのサイズの板買ってきてネジで止めただけの簡易机ながら結構快適。仕事も趣味も机に向かってやる系でオンオフの切り替え(というか机片付けてPCしまってiPad出して……の一連の作業)が面倒くさくて困ってたから、趣味の環境をL字の部分にそのまま広げて置くことで凄く楽になった。&lt;br&gt;
-板ギコギコが楽しかったのでまた何か作りたい欲はある。&lt;/p&gt;
-&lt;h3 id=&#34;ブログここの改装&#34;&gt;ブログ(ここ)の改装&lt;/h3&gt;
-&lt;p&gt;見た目を若干弄った。&lt;br&gt;
-HTML, CSSに苦手意識を持っててあんまり積極的に触ってこなかったけど(仕事で必要な時にリファレンス見ればいいやの精神)、色々教えてもらってソース見たり弄ったりするのが楽しくなってきた。&lt;br&gt;
-そのうちHUGOのテーマ作りたい。&lt;/p&gt;
-&lt;h2 id=&#34;気になったもの&#34;&gt;気になったもの&lt;/h2&gt;
-&lt;h3 id=&#34;crowdin&#34;&gt;crowdin&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://crowdin.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;crowdin - Agile localization for tech companies&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;最近買ったDjango本で紹介されてた&lt;a class=&#34;link&#34; href=&#34;https://tutorial.djangogirls.org/ja/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Django Girlsのチュートリアル&lt;/a&gt;内で、翻訳を進めていくために使われてた。&lt;/p&gt;
-&lt;h3 id=&#34;django-girlsのチュートリアル&#34;&gt;Django Girlsのチュートリアル&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tutorial.djangogirls.org/ja/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Django Girls&lt;/a&gt;(上とダブるけど)&lt;br&gt;
-さっと見たけどめちゃくちゃわかりやすかった。特にインターネットの仕組みあたり。&lt;br&gt;
-人に教える機会があったらここおすすめしたい。&lt;/p&gt;
-&lt;h2 id=&#34;その他&#34;&gt;その他&lt;/h2&gt;
-&lt;p&gt;新すばせかが楽しい。指は死んでる。&lt;/p&gt;</description>
-        </item>
-        <item>
         <title>【Python】フォーマット済み文字列リテラル</title>
         <link>https://SawaTszm.github.io/p/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</link>
         <pubDate>Mon, 02 Aug 2021 18:52:08 +0900</pubDate>
         
         <guid>https://SawaTszm.github.io/p/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</guid>
-        <description>&lt;p&gt;すごく今更&amp;amp;簡潔にだけど、python3.6以降で利用できる文字列フォーマットについて（ずっと&lt;code&gt;str.format()&lt;/code&gt;を使っていたので戒めも兼ねて）。&lt;/p&gt;
+        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
+&lt;p&gt;すごく今更&amp;amp;簡潔にだけど、python3.6以降で利用できる文字列フォーマットについてまとめていきます。&lt;/p&gt;
+&lt;p&gt;（ずっと&lt;code&gt;str.format()&lt;/code&gt;を使っていたので戒めも兼ねて）。&lt;/p&gt;
 &lt;h2 id=&#34;フォーマット済み文字列リテラルとは&#34;&gt;フォーマット済み文字列リテラルとは&lt;/h2&gt;
-&lt;p&gt;従来の書き方よりも簡潔、かつわかりやすく記述することができる書き方。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://docs.python.org/ja/3.8/tutorial/inputoutput.html#formatted-string-literals&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;フォーマット済み文字列リテラル(f-string)では、文字列の先頭に&lt;code&gt;f&lt;/code&gt;を付けることで、pythonの式を文字列内に&lt;code&gt;{式}&lt;/code&gt;の形で埋め込むことができます。&lt;br&gt;
+従来の書き方よりも簡潔、かつわかりやすく記述することができる書き方です。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.python.org/ja/3.11/tutorial/inputoutput.html#formatted-string-literals&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;公式ドキュメント&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;使い方&#34;&gt;使い方&lt;/h2&gt;
-&lt;p&gt;例えば変数に入った数字を3文字のカンマ区切りにする場合：&lt;/p&gt;
+&lt;h3 id=&#34;変数に入った数字を3文字のカンマ区切りにする&#34;&gt;変数に入った数字を3文字のカンマ区切りにする&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;hoge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;99999999&lt;/span&gt;
 
-&lt;span class=&#34;c1&#34;&gt;# str.format()&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 従来のstr.format()&lt;/span&gt;
 &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{:,}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hoge&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
 
 &lt;span class=&#34;c1&#34;&gt;# フォーマット済み文字列リテラル&lt;/span&gt;
 &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hoge&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,d&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;の後ろに整数をつけて縦を揃える&#34;&gt;&lt;code&gt;:&lt;/code&gt;の後ろに整数をつけて縦を揃える&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;tokuten&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;kokugo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;sugaku&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;81&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;eigo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;point&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tokuten&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sub&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt; ==&amp;gt; &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;point&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;5d&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# kokugo     ==&amp;gt;     9&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# sugaku     ==&amp;gt;    81&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# eigo       ==&amp;gt;   100&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;従来の&lt;code&gt;str.format()&lt;/code&gt;と比べると、f-stringは最終結果が人の目で見てもわかりやすいですね。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>Lodashの概要と関数まとめ</title>
@@ -133,14 +82,14 @@ HTML, CSSに苦手意識を持っててあんまり積極的に触ってこな�
         <pubDate>Sat, 17 Jul 2021 11:11:15 +0900</pubDate>
         
         <guid>https://SawaTszm.github.io/p/lodash%E3%81%AE%E6%A6%82%E8%A6%81%E3%81%A8%E9%96%A2%E6%95%B0%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-        <description>&lt;h2 id=&#34;lodashとは&#34;&gt;lodashとは？&lt;/h2&gt;
+        <description>&lt;h2 id=&#34;lodashとは&#34;&gt;lodashとは&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The Lodash library exported as a UMD module.&lt;br&gt;
 (中略) &amp;hellip;Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリ。&lt;br&gt;
-&lt;code&gt;_.get&lt;/code&gt;や&lt;code&gt;_.each&lt;/code&gt;などがそれ。&lt;br&gt;
-公式ドキュメントがわかりやすいので、これなんだっけ？とかこういうのなかったっけ？とかはそっちを先に見に行きたい。&lt;/p&gt;
+&lt;p&gt;配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリです。&lt;br&gt;
+&lt;code&gt;_.get&lt;/code&gt;や&lt;code&gt;_.each&lt;/code&gt;などがそれ。&lt;/p&gt;
+&lt;p&gt;公式ドキュメントがすごくわかりやすくていい感じです。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lodash/lodash&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;lodash - github&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://lodash.com/docs/4.17.15&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -149,9 +98,7 @@ HTML, CSSに苦手意識を持っててあんまり積極的に触ってこな�
 &lt;h2 id=&#34;使い方&#34;&gt;使い方&lt;/h2&gt;
 &lt;h3 id=&#34;インポート&#34;&gt;インポート&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;lodash&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;関数&#34;&gt;関数&lt;/h2&gt;
-&lt;p&gt;調べたり使用したりしたものを追記していくつもり。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;関数&#34;&gt;関数&lt;/h2&gt;
 &lt;h3 id=&#34;_get&#34;&gt;_.get()&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;defaultValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;object&lt;/code&gt;の&lt;code&gt;path&lt;/code&gt;の値を取得する。値を解決できなかった場合、&lt;code&gt;defaultValue&lt;/code&gt;を返す。&lt;/p&gt;
@@ -161,13 +108,13 @@ HTML, CSSに苦手意識を持っててあんまり積極的に触ってこな�
 &lt;h3 id=&#34;_set&#34;&gt;_.set()&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;object&lt;/code&gt;の&lt;code&gt;path&lt;/code&gt;に&lt;code&gt;value&lt;/code&gt;の値をセットする。&lt;br&gt;
-&lt;code&gt;path&lt;/code&gt;が定義されていない場合は新しく作られる。&lt;br&gt;
-インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)&lt;/p&gt;
+&lt;code&gt;path&lt;/code&gt;が定義されていない場合は新しく作られる。&lt;/p&gt;
+&lt;p&gt;インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)&lt;/p&gt;
 &lt;h3 id=&#34;_each---foreach&#34;&gt;_.each() -&amp;gt; forEach()&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;forEach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iteratee&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;identity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;collection&lt;/code&gt;の要素を反復し、各要素に対して&lt;code&gt;iteratee&lt;/code&gt;を実行。&lt;br&gt;
-&lt;code&gt;iteratee&lt;/code&gt;は3つの引数(value, index|key, collection)で呼び出される。&lt;br&gt;
-※&lt;code&gt;iteratee&lt;/code&gt;関数は明示的にfalseを返すことで反復を終わらせることができる&lt;/p&gt;
+&lt;code&gt;iteratee&lt;/code&gt;は3つの引数(value, index|key, collection)で呼び出される。&lt;/p&gt;
+&lt;p&gt;※&lt;code&gt;iteratee&lt;/code&gt;関数は明示的にfalseを返すことで反復を終わらせることができる&lt;/p&gt;
 &lt;h3 id=&#34;_flatten&#34;&gt;_.flatten()&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flatten&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;array&lt;/code&gt;を一段分フラットにする。非破壊的メソッド。&lt;br&gt;
@@ -179,7 +126,8 @@ HTML, CSSに苦手意識を持っててあんまり積極的に触ってこな�
 &lt;h3 id=&#34;sortby&#34;&gt;sortBy()&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;sortBy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iteratees&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;identity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;// 例：_.sortBy(users, [&amp;#34;id&amp;#34;, &amp;#34;name&amp;#34;]) id-&amp;gt;nameの順でソート
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要素の配列を作成する。非破壊的メソッド。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要素の配列を作成する。非破壊的メソッド。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【AWS SAM】テンプレートでCloudWatchイベントを記述する</title>
@@ -188,7 +136,7 @@ HTML, CSSに苦手意識を持っててあんまり積極的に触ってこな�
         
         <guid>https://SawaTszm.github.io/p/aws-sam%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%A7cloudwatch%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;バッチ処理も AWS Lambda で書きたいので、SAM テンプレートに記述できるのかどうかを調べる。&lt;/p&gt;
+&lt;p&gt;バッチ処理も AWS Lambda で書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。&lt;/p&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
 &lt;p&gt;できる。&lt;br&gt;
 し、わかりやすい。&lt;br&gt;
@@ -513,57 +461,8 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://postd.cc/solid-principles-every-developer-should-know/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;開発者が知っておくべき SOLID の原則 | POSTD&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://sites.google.com/site/unclebobconsultingllc/getting-a-solid-start&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Getting a SOLID start. - Clean Coder&lt;/a&gt;&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>【Docker】Killedと言われないためにメモリ割り当てを増やす</title>
-        <link>https://SawaTszm.github.io/p/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;laravelプロジェクトにawsのs3アダプタをインストールしようとして、dockerコンテナ内に入って&lt;code&gt;composer require league/flysystem-aws-s3-v3 ~1.0&lt;/code&gt;を実行したら下記の通りKillされました。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0
-
-./composer.json has been updated
-Loading composer repositories with package information
-Updating dependencies &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;including require-dev&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-
-Killed
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ｺﾛｻﾅｲﾃﾞ……&lt;br&gt;
-これを、ちゃんと殺されずにインストール完了させたいので色々調べました。&lt;/p&gt;
-&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
-&lt;p&gt;Docker for Macのメモリ割り当てをできる範囲で増やす。&lt;/p&gt;
-&lt;h2 id=&#34;解決法&#34;&gt;解決法&lt;/h2&gt;
-&lt;h3 id=&#34;調べたこと&#34;&gt;調べたこと&lt;/h3&gt;
-&lt;p&gt;まず、&lt;code&gt;Killed&lt;/code&gt;がどういう時に発動するのかを調べました。&lt;br&gt;
-ら、&lt;code&gt;OOM Killer&lt;/code&gt;と呼ばれる動作らしいです。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;　OOM Killer（Out of Memory Killer）は，システムが実メモリーと仮想メモリー空間（スワップ領域）を使い切り，必要なメモリー領域を新たに確保できない場合に，プロセスを強制終了させて空きメモリーを確保する，Linuxカーネルの仕組みです。OOM Killerは，空きメモリーが確保できないことによりシステム自体が停止するという最悪の事態を避けるために用意されています。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xtech.nikkei.com/it/article/Keyword/20070207/260459/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;日経XTECH&lt;/a&gt;さんより引用&lt;/p&gt;
-&lt;p&gt;強制的にプロセスがKillされてしまうのは、システム自体が止まってしまわないようにOOM Killerさんが働いた結果らしいです。&lt;br&gt;
-つまり、今回の原因はメモリ不足。&lt;/p&gt;
-&lt;p&gt;Docker for macで、&lt;code&gt;Preferences &amp;gt; Resources &amp;gt; Memory&lt;/code&gt;を見てみると、現在は3.75GB割り当てしていることがわかりました。Swapは1GB。&lt;br&gt;
-合わせてMacのアクティビティモニタでdockerが使っているメモリを調べて見ると、割り当て分ほとんど使い切っていました。&lt;/p&gt;
-&lt;h3 id=&#34;実行したこと&#34;&gt;実行したこと&lt;/h3&gt;
-&lt;p&gt;Docker for macの&lt;code&gt;Preferences &amp;gt; Resources &amp;gt; Memory&lt;/code&gt;から、割り当てのメモリをできる範囲で増やしました。&lt;br&gt;
-mac自体は16GBなので、まぁ一回様子見て5GBまであげてみることに。&lt;/p&gt;
-&lt;p&gt;改めて&lt;code&gt;composer require league/flysystem-aws-s3-v3 ~1.0&lt;/code&gt;を実行。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3
-Using version ^1.0 &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; league/flysystem-aws-s3-v3
-
-~略~
-
-Package manifest generated successfully.
-&lt;span class=&#34;m&#34;&gt;38&lt;/span&gt; packages you are using are looking &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; funding.
-Use the &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;composer fund&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; to find out more!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;無事入りました。&lt;/p&gt;
-&lt;h2 id=&#34;思ったこと&#34;&gt;思ったこと&lt;/h2&gt;
-&lt;p&gt;今回は5GBで足りたけど、例えばいくつかの案件を掛け持ちしていて、常にいくつもDockerコンテナを立ち上げる……という状態だとメモリ割り当て→食いきるのいたちごっこになるのでは？と思いました。&lt;br&gt;
-開発時からコンテナは&lt;code&gt;restart: always&lt;/code&gt;で設定しがちだけど、長く使わないものはちゃんと落としておく、などの対策もした合わせてした方が良いのかもしれないですね。&lt;/p&gt;</description>
+    &gt;Getting a SOLID start. - Clean Coder&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)</title>
@@ -788,8 +687,8 @@ yamlファイルでは&lt;code&gt;~/.aws/credentials&lt;/code&gt;の&lt;code&gt;
         <guid>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;p&gt;laravel-admin使いたいだけの用途にLaradockは重すぎる……&lt;br&gt;
-ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てる。&lt;br&gt;
-その上でlaravel-adminの管理画面まで開けるようにする。&lt;/p&gt;
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。&lt;br&gt;
+その上でlaravel-adminの管理画面まで開けるようにしてみます。&lt;/p&gt;
 &lt;h2 id=&#34;構成&#34;&gt;構成&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;project_root_dir
 ├── docker-compose.yml
@@ -806,47 +705,51 @@ yamlファイルでは&lt;code&gt;~/.aws/credentials&lt;/code&gt;の&lt;code&gt;
         └── ...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
 &lt;h3 id=&#34;docker-composeymlを作成&#34;&gt;docker-compose.ymlを作成&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker:docker-compose.yml&#34; data-lang=&#34;docker:docker-compose.yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;dockerfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;./docker/php/Dockerfile&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;PROJECT_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;app_admin&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;depends_on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;database&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;database&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;database&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;mysql:5.7&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;restart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;always&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;env_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;.env_db&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;23306:3306&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;web&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;./docker/nginx&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;depends_on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    app:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            context: .&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            dockerfile: ./docker/php/Dockerfile&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            args:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;                PROJECT_NAME: app_admin&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes: &lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - database&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - database&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports: &lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        tty: true&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    database:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        image: mysql:5.7&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        env_file: .env_db&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;23306:3306&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    web:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build: ./docker/nginx&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - 80:80&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;appコンテナ設定&#34;&gt;appコンテナ設定&lt;/h3&gt;
-&lt;p&gt;composerはもうここに含める&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker:./docker/php/Dockerfile&#34; data-lang=&#34;Docker:./docker/php/Dockerfile&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; php:7-fpm&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;p&gt;composerはもうここに含めます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker&#34; data-lang=&#34;Docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/php/Dockerfile&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; php:7-fpm&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; php.ini /usr/local/etc/php/&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  libfreetype6-dev libjpeg62-turbo-dev libpng-dev libmcrypt-dev libonig-dev &lt;span class=&#34;se&#34;&gt;\
@@ -856,72 +759,78 @@ yamlファイルでは&lt;code&gt;~/.aws/credentials&lt;/code&gt;の&lt;code&gt;
 &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# install composer&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; curl -sS https://getcomposer.org/installer &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; php -- --install-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/bin --filename&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;composer&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;webコンテナ設定&#34;&gt;webコンテナ設定&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker:./docker/nginx/Dockerfile&#34; data-lang=&#34;Docker:./docker/nginx/Dockerfile&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; nginx:latest&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker&#34; data-lang=&#34;Docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/nginx/Dockerfile&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; nginx:latest&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    vim &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    unzip &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    zip &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    git&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後々laravelディレクトリを作るので、設定ファイルのルートは&lt;code&gt;/var/www/html/laravel/~&lt;/code&gt;にしておく。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf:./docker/nginx/default.conf&#34; data-lang=&#34;conf:./docker/nginx/default.conf&#34;&gt;server {
-    listen       80;
-    index index.php index.html;
-    server_name php-docker.local;
-    error_log  /var/log/nginx/error.log;
-    access_log /var/log/nginx/access.log;
-    root /var/www/html/laravel/public;  // ココ
-
-    location / {
-     try_files $uri $uri/ @laravel;
-    }
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root /var/www/html;
-    }
-
-    location ~ \.php$ {
-    try_files $uri $uri/ @laravel;
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass app:9000;
-        fastcgi_index index.php;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param PATH_INFO $fastcgi_path_info;
-    }
-
-    location @laravel {
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass app:9000;
-        fastcgi_index index.php;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php;  // ココ
-        fastcgi_param PATH_INFO $fastcgi_path_info;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;dbコンテナの設定&#34;&gt;dbコンテナの設定&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf:docker/database/my.cnf&#34; data-lang=&#34;conf:docker/database/my.cnf&#34;&gt;[mysql]
-default-character-set=utf8mb4
-
-[mysqld]
-sql-mode=&amp;quot;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;quot;
-character-set-server=utf8mb4
-collation-server=utf8mb4_general_ci
-
-[mysqld_safe]
-timezone = UTC
-default-time-zone = UTC
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;後はHOST情報などを&lt;code&gt;.enb_db&lt;/code&gt;(docker-compose.ymlで指定したファイル)に記述する。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-txt:.env_db&#34; data-lang=&#34;txt:.env_db&#34;&gt;MYSQL_DATABASE=[my_database_name]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後々laravelディレクトリを作るので、設定ファイルのルートは&lt;code&gt;/var/www/html/laravel/~&lt;/code&gt;にしておきます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/nginx/default.conf&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;server &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    listen       80&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    index index.php index.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    server_name php-docker.local&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    error_log  /var/log/nginx/error.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    access_log /var/log/nginx/access.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    root /var/www/html/laravel/public&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# ココ&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location / &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;     try_files &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt;/ @laravel&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# redirect server error pages to the static page /50x.html&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    error_page   &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;502&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;503&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;504&lt;/span&gt;  /50x.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; /50x.html &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        root /var/www/html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location ~ &lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php$ &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    try_files &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt;/ @laravel&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_split_path_info ^&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;.+&lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php&lt;span class=&#34;o&#34;&gt;)(&lt;/span&gt;/.+&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;$&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_pass app:9000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_index index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        include fastcgi_params&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param SCRIPT_FILENAME &lt;span class=&#34;nv&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param PATH_INFO &lt;span class=&#34;nv&#34;&gt;$fastcgi_path_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location @laravel &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_split_path_info ^&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;.+&lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php&lt;span class=&#34;o&#34;&gt;)(&lt;/span&gt;/.+&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;$&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_pass app:9000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_index index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        include fastcgi_params&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  // ココ&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param PATH_INFO &lt;span class=&#34;nv&#34;&gt;$fastcgi_path_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dbコンテナの設定&#34;&gt;dbコンテナの設定&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker/database/my.cnf&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysql&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;default-character-set&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysqld&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;sql-mode&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;character-set-server&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;collation-server&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4_general_ci&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysqld_safe&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;timezone&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; UTC&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;default-time-zone &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; UTC&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はHOST情報などを&lt;code&gt;.enb_db&lt;/code&gt;(docker-compose.ymlで指定したファイル)に記述する。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;MYSQL_DATABASE=[my_database_name]
 MYSQL_USERNAME=root
 MYSQL_PASSWORD=
 MYSQL_HOSTNAME=127.0.0.1
 MYSQL_ROOT_PASSWORD=
 API_MYSQL_PORT=23306
 
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;起動laravelのインストール&#34;&gt;起動＆Laravelのインストール&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;起動laravelのインストール&#34;&gt;起動＆Laravelのインストール&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 起動&lt;/span&gt;
 $ docker-compose up -d
 
@@ -932,12 +841,12 @@ app$ composer create-project --prefer-dist laravel/laravel laravel
     &gt;http://localhost/&lt;/a&gt; でwelcomページが見られるようになる。&lt;/p&gt;
 &lt;h3 id=&#34;laravel環境変数ファイルの修正&#34;&gt;Laravel環境変数ファイルの修正&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;laravel/.env&lt;/code&gt;を、DB情報を作成したdockerコンテナに合わせて修正。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt:laravel/.env&#34; data-lang=&#34;txt:laravel/.env&#34;&gt;&lt;span class=&#34;nv&#34;&gt;DB_CONNECTION&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;mysql
-&lt;span class=&#34;nv&#34;&gt;DB_HOST&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;db
-&lt;span class=&#34;nv&#34;&gt;DB_PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3306&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;DB_DATABASE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=[&lt;/span&gt;my_database_name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;DB_USERNAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;root
-&lt;span class=&#34;nv&#34;&gt;DB_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=[my_database_name]
+DB_USERNAME=root
+DB_PASSWORD=
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;laravel-adminをインストール&#34;&gt;laravel-adminをインストール&lt;/h3&gt;
 &lt;p&gt;composerを使用してインストールし、有効化する。
 &lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/en/installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -960,56 +869,61 @@ admin/adminで入れます。&lt;/p&gt;
 (直接でも良いし、もしくは開発環境のリポジトリをサブモジュール として引っ張ってきて叩くなどする)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;例えば&lt;code&gt;test-app&lt;/code&gt;という名前のnetworkを設定している↓のであれば、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker:既存docker-compose.yml&#34; data-lang=&#34;docker:既存docker-compose.yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;database&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;hostname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;database&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;mysql:5.7&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;~~~&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;networks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;networks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;test-app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 既存docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  database:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    hostname: database&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    image: mysql:5.7&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    ~~~&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    networks:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;      - default&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;networks:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  default:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    name: test-app&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;管理画面側のdocker-compose.ymlでそれを使用するように書き換える↓&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker:docker-compose.yml&#34; data-lang=&#34;docker:docker-compose.yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;dockerfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;./docker/php/Dockerfile&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;PROJECT_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;recipe_app_admin&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;restart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;always&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;networks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# dbコンテナの設定は不要になる&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;web&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;./docker/nginx&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;restart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;always&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;depends_on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;networks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;networks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;test-app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;external&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 外部ファイルで設定していることを指定&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に&lt;code&gt;docker-compose up -d&lt;/code&gt;を叩くだけです。&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    app:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            context: .&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            dockerfile: ./docker/php/Dockerfile&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            args:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;                PROJECT_NAME: recipe_app_admin&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes: &lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports: &lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        tty: true&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        networks:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - default&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# dbコンテナの設定は不要になる&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    web:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build: ./docker/nginx&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - 80:80&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        networks:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - default&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;networks:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  default:&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    name: test-app&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    external: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 外部ファイルで設定していることを指定&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に&lt;code&gt;docker-compose up -d&lt;/code&gt;を叩くだけです。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【laravel-admin】インストール＆画面作成まで 編</title>
@@ -1017,9 +931,9 @@ admin/adminで入れます。&lt;/p&gt;
         <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
         
         <guid>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
-        <description>&lt;p&gt;こんにちは。バックエンドエンジニアの佐和です。&lt;br&gt;
-案件でしばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。&lt;br&gt;
-まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。&lt;/p&gt;
+        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
+&lt;p&gt;ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。&lt;/p&gt;
+&lt;p&gt;まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。&lt;/p&gt;
 &lt;h2 id=&#34;laravel-adminとは&#34;&gt;laravel-adminとは&lt;/h2&gt;
 &lt;p&gt;laravelで簡単にDBの管理画面を作成することができるライブラリです。&lt;br&gt;
 ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。&lt;/p&gt;
@@ -1092,15 +1006,19 @@ ID・PASSどちらにも&lt;code&gt;admin&lt;/code&gt;と入力し、無事ダ�
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Laravel-admin(ドキュメント)&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://github.com/z-song/laravel-admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;laravel-admin(GitHub)&lt;/a&gt;&lt;/p&gt;</description>
+    &gt;laravel-admin(GitHub)&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
-        <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時にちょっとハマった話</title>
-        <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
+        <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</title>
+        <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
         <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
         
-        <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
-        <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;database.connections.pgsql&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
+        <description>&lt;h2 id=&#34;起こった問題&#34;&gt;起こった問題&lt;/h2&gt;
+&lt;p&gt;タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。&lt;br&gt;
+設定後下記を確認して、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;database.connections.pgsql&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
      &lt;span class=&#34;s2&#34;&gt;&amp;#34;read&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
        &lt;span class=&#34;s2&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
@@ -1111,16 +1029,18 @@ ID・PASSどちらにも&lt;code&gt;admin&lt;/code&gt;と入力し、無事ダ�
        &lt;span class=&#34;s2&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;postgres&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
      &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
     &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;反映されてるな、と思ってconnectionを見る。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;反映されてるな、と思って念の為connectionも見てみました。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;connection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;pgsql::read&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getConfig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
 &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
     &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
      &lt;span class=&#34;s2&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;postgres&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
    &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;……あれ？
-Readコネクションなので&lt;code&gt;postgres2&lt;/code&gt;であって欲しいのに、&lt;code&gt;postgres&lt;/code&gt;が出てきてしまった。
-（ここでコードを読んでいけばすぐに解決できたはずだったが、結構遠回りをしてしまった）&lt;/p&gt;
-&lt;p&gt;getConfigで参照されるconfigはIlluminate\Database\Connectors\ConnectionFactory::make内で&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;……あれ？&lt;/p&gt;
+&lt;p&gt;Readコネクションなので&lt;code&gt;postgres2&lt;/code&gt;であって欲しいのに、&lt;code&gt;postgres&lt;/code&gt;が出てきてしまいました。&lt;br&gt;
+反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。&lt;/p&gt;
+&lt;h2 id=&#34;調べたこと&#34;&gt;調べたこと&lt;/h2&gt;
+&lt;p&gt;getConfigで参照されるconfigは、&lt;br&gt;
+&lt;code&gt;Illuminate\Database\Connectors\ConnectionFactory::make&lt;/code&gt;内で、&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
 &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * Establish a PDO connection based on the configuration.
 &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     *
@@ -1138,7 +1058,7 @@ Readコネクションなので&lt;code&gt;postgres2&lt;/code&gt;であって欲
 
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createSingleConnection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;make内でcreateReadWriteConnectionを呼び出され、&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;createReadWriteConnection&lt;/code&gt;が呼び出され、&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
 &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * Create a read / write database connection instance.
 &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     *
@@ -1151,9 +1071,11 @@ Readコネクションなので&lt;code&gt;postgres2&lt;/code&gt;であって欲
 
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$connection&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setReadPdo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createReadPdo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;その中でwrite用のconfigがセットされてるのでどう呼び出してもwriterのconfigが見える。
-Readとwriteのでconnectionインスタンスが切り替わってるわけではなさそう。&lt;br&gt;
-なので、「Readコネクションの向き先が正しく設定できているかどうか」はこの方法ではわからない。ということがわかりました。&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;その中でwrite用のconfigがセットされてるので、どう呼び出してもwriterのconfigが見える、というオチでした。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;ReadとWriteでconnectionインスタンスが切り替わってるわけではなさそうで、「Readコネクションの向き先が正しく設定できているかどうか」は&lt;code&gt;DB::connection(&#39;pgsql::read&#39;)-&amp;gt;getConfig();&lt;/code&gt;ではわからない、ということがわかりました。&lt;/p&gt;
+&lt;p&gt;そのため、&lt;code&gt;config(&#39;database.connections.pgsql&#39;)&lt;/code&gt;で確認できるhostが分かれていればヨシ！&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</title>
@@ -1165,7 +1087,7 @@ Readとwriteのでconnectionインスタンスが切り替わってるわけで�
 &lt;p&gt;Laravel くんで Controller をすっきりさせたいので、バリデーションをフォームリクエストで行いたい。&lt;br&gt;
 プラスで、簡単な条件分岐のバリデーションも付け足したい。&lt;/p&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;withValodator&lt;/code&gt;メソッドを通して&lt;code&gt;sometimes&lt;/code&gt;を使うのが良さげ。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;withValodator&lt;/code&gt;メソッドを通して&lt;code&gt;sometimes&lt;/code&gt;を使うのが良さげです。&lt;/p&gt;
 &lt;h2 id=&#34;詳しく&#34;&gt;詳しく&lt;/h2&gt;
 &lt;h3 id=&#34;通常のフォームリクエストでのバリデーション&#34;&gt;通常のフォームリクエストでのバリデーション&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// FormRequest
@@ -1209,9 +1131,8 @@ Readとwriteのでconnectionインスタンスが切り替わってるわけで�
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけで通常のバリデーションは出来ますね。&lt;br&gt;
-なんて便利なんだ Laravel。&lt;br&gt;
 ただ、例えば&lt;code&gt;item_type == &#39;web&#39;&lt;/code&gt;の時だけ&lt;code&gt;url&lt;/code&gt;カラムは必須にしたいとか、そういった簡単な条件付けは rules の中ではできません。&lt;/p&gt;
-&lt;h4 id=&#34;条件付きのバリデーションの追加&#34;&gt;条件付きのバリデーションの追加&lt;/h4&gt;
+&lt;h3 id=&#34;条件付きのバリデーションの追加&#34;&gt;条件付きのバリデーションの追加&lt;/h3&gt;
 &lt;p&gt;じゃあどうするよ。前述の通り、&lt;code&gt;withValidator&lt;/code&gt;メソッドと&lt;code&gt;sometimes&lt;/code&gt;を使います。&lt;br&gt;
 メソッドについては、以下にそれらしいことが書いてあります。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel.com/docs/5.4/validation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1245,10 +1166,10 @@ Readとwriteのでconnectionインスタンスが切り替わってるわけで�
 &lt;code&gt;Illuminate\Pagination\LengthAwarePaginator&lt;/code&gt;インスタンスを作成して、自前の Collection を Collection のままページネーションしたい。&lt;/p&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
 &lt;p&gt;ペジネーションは引数に Collection を許容しているので実装が可能。&lt;br&gt;
-&lt;code&gt;LengthAwarePaginator&lt;/code&gt;インスタンスの第一引数に渡す Collection を、&lt;code&gt;slice()&lt;/code&gt;メソッドを使って Collection の型を崩さずに区切る。&lt;br&gt;
-これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。&lt;/p&gt;
+&lt;code&gt;LengthAwarePaginator&lt;/code&gt;インスタンスの第一引数に渡す Collection を、&lt;code&gt;slice()&lt;/code&gt;メソッドを使って Collection の型を崩さずに区切る。&lt;/p&gt;
+&lt;p&gt;これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。&lt;/p&gt;
 &lt;h2 id=&#34;ハマった流れ&#34;&gt;ハマった流れ&lt;/h2&gt;
-&lt;p&gt;まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照。&lt;/p&gt;
+&lt;p&gt;まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照しました。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Note: 自前でペジネーターインスタンスを生成する場合、ペジネーターに渡す結果の配列を自分で”slice”する必要があります。その方法を思いつかなければ、 [array_slice] PHP 関数を調べてください。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1268,13 +1189,13 @@ Readとwriteのでconnectionインスタンスが切り替わってるわけで�
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;array_slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;LengthAwarePaginator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$page&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでも&lt;code&gt;$columns&lt;/code&gt;の値を参照する分には特に問題ない。&lt;br&gt;
-ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて&lt;code&gt;$this-&amp;gt;relatedUsers...&lt;/code&gt;なんていうふうに書くとその時点でエラーになってしまう。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでも&lt;code&gt;$columns&lt;/code&gt;の値を参照する分には特に問題ありません。&lt;/p&gt;
+&lt;p&gt;ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて&lt;code&gt;$this-&amp;gt;relatedUsers...&lt;/code&gt;なんていうふうに書くとその時点でエラーになってしまいます。&lt;/p&gt;
 &lt;p&gt;原因は&lt;code&gt;$slice = array_slice($items-&amp;gt;toArray(), $offset, $limit);&lt;/code&gt;の部分で、collection 型だった$items を配列に戻してしまっているので、この時点でリレーションの情報は消えてしまっていると。&lt;br&gt;
 (Collection から配列に変換する際、採用されるのは collection 内の attributes 部分だけ)&lt;/p&gt;
 &lt;h2 id=&#34;解決した流れ&#34;&gt;解決した流れ&lt;/h2&gt;
-&lt;p&gt;公式ドキュメントで&lt;code&gt;array_slice&lt;/code&gt;を推しているということは、&lt;code&gt;LengthAwarePaginator&lt;/code&gt;には collection を渡せないのか……？&lt;br&gt;
-と思い&lt;code&gt;LengthAwarePaginator&lt;/code&gt;の定義に飛ぶ。&lt;/p&gt;
+&lt;p&gt;公式ドキュメントで&lt;code&gt;array_slice&lt;/code&gt;を推しているということは、&lt;code&gt;LengthAwarePaginator&lt;/code&gt;には collection を渡せないのか……？&lt;/p&gt;
+&lt;p&gt;と思い&lt;code&gt;LengthAwarePaginator&lt;/code&gt;の定義を見てみました。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// LengthAwarePaginator.php
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LengthAwarePaginator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AbstractPaginator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Arrayable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ArrayAccess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Countable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;IteratorAggregate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JsonSerializable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Jsonable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;LengthAwarePaginatorContract&lt;/span&gt;
@@ -1307,12 +1228,12 @@ Readとwriteのでconnectionインスタンスが切り替わってるわけで�
             &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentPage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setCurrentPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$currentPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;pageName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
             &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Collection&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Collection&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
         &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;__construct&lt;/code&gt;を確認すると、任意の配列を受け取る第一引数は&lt;code&gt;$items&lt;/code&gt;と定義されている。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;__construct&lt;/code&gt;を確認すると、任意の配列を受け取る第一引数は&lt;code&gt;$items&lt;/code&gt;と定義されています。&lt;/p&gt;
 &lt;p&gt;この引数の初期化処理を見てみると、&lt;br&gt;
 &lt;code&gt;$this-&amp;gt;items = $items instanceof Collection ? $items : Collection::make($items);&lt;/code&gt;&lt;br&gt;
 「collection で来たらそのまま格納して、そうじゃなかったら collection 型にして返す」。&lt;br&gt;
-バリバリに collection 型を出す想定なので、引数に collection を渡しても大丈夫。&lt;/p&gt;
-&lt;p&gt;であれば後は、問題の箇所だった&lt;code&gt;array_slice&lt;/code&gt;の collection バージョンがあれば万事解決。&lt;/p&gt;
+バリバリに collection 型を出す想定なので、引数に collection を渡しても大丈夫そうです。&lt;/p&gt;
+&lt;p&gt;であれば後は、問題の箇所だった&lt;code&gt;array_slice&lt;/code&gt;の collection バージョンがあれば万事解決ということ。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://readouble.com/laravel/5.8/ja/collections.html#method-slice:embed:cite&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;コレクション 5.8 Laravel&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1320,7 +1241,7 @@ Readとwriteのでconnectionインスタンスが切り替わってるわけで�
 Slice メソッドは指定したインデックスからコレクションを切り分けます。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;ググれば一発ですね。&lt;/p&gt;
-&lt;h3 id=&#34;解決後のコード&#34;&gt;解決後のコード&lt;/h3&gt;
+&lt;h2 id=&#34;解決後のコード&#34;&gt;解決後のコード&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// app/Services/ItemsService.php
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 前略。$columnsには取得したいカラム名を格納
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
@@ -1336,11 +1257,10 @@ Slice メソッドは指定したインデックスからコレクションを�
 
     &lt;span class=&#34;c1&#34;&gt;// $sliceの中身はcollectionなので、この戻り値を受け取った先でもcollectionに対する操作が出来る
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;LengthAwarePaginator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$page&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで無事に Resource 側でもリレーションを参照できるようになった。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで無事に Resource 側でもリレーションを参照できるようになりました。&lt;/p&gt;
 &lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;Collection に対する理解が浅かった＆各動作の戻り値を意識しなかったために起きた悲劇。初心者のハマるポイントは誰にも予想ができない。&lt;br&gt;
-(昨日の出来事だったんだけど今見ても普通に恥ずかしい)&lt;br&gt;
-(というか名称からして LengthAwarePaginator が slice 周りもサポートしてくれるものだと思ってたけど違うんですね)&lt;/p&gt;
+&lt;p&gt;Collection に対する理解が浅かった＆各動作の戻り値を意識しなかったために起きた悲劇でした。初心者のハマるポイントは誰にも予想ができない。&lt;br&gt;
+(名称からして LengthAwarePaginator が slice 周りもサポートしてくれるものだと思ってたけど違うんですね)&lt;/p&gt;
 &lt;p&gt;もし他に良い実装方法があれば教えて頂けると嬉しいです:)&lt;br&gt;
 では。&lt;/p&gt;</description>
         </item>
@@ -1382,13 +1302,13 @@ tables created with &amp;gt;= InnoDB-4.1.12, and such columns in old tables
 cannot be referenced by such columns in new tables.
 Please refer to http://dev.mysql.com/doc/refman/5.7/en/innodb-foreign-key-constraints.html for correct foreign key definition.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;“参照された列が最初の列として表示される参照された表にインデックスが見つからないか、テーブルの列タイプと参照された表が制約に一致しません”&lt;/p&gt;
-&lt;p&gt;この一文に沿って見てみたら、参照される側のテーブルの項目と参照するテーブルの項目が合っていませんでした。&lt;br&gt;
-ちなみにこのエラーの前は(調べる前に気がつきましたが)「参照される側のテーブルの項目は PRIMARY KEY でなくてはならない」と言うのを忘れて外部キーを設定しようとしてました。&lt;br&gt;
+&lt;p&gt;この一文に沿って見てみたら、参照される側のテーブルの項目と参照するテーブルの項目が合っていませんでした。&lt;/p&gt;
+&lt;p&gt;ちなみにこのエラーの前は(調べる前に気がつきましたが)「参照される側のテーブルの項目は PRIMARY KEY でなくてはならない」と言うのを忘れて外部キーを設定しようとしてました。&lt;br&gt;
 正月ボケだね〜フフと言いたいところですが、これは単純な初心者ボケ(ガチ)です。&lt;/p&gt;
 &lt;p&gt;型を参照される側のテーブルの項目に合わせたら無事設定できました。&lt;/p&gt;
 &lt;h2 id=&#34;参考にさせて頂いたもの&#34;&gt;参考にさせて頂いたもの&lt;/h2&gt;
-&lt;p&gt;お世話になりました。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://dev.mysql.com/doc/refman/5.6/ja/show-engine.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;お世話になりました。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dev.mysql.com/doc/refman/5.6/ja/show-engine.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://taupe.site/entry/cannot-add-foreign-key-constraint/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MySQL の外部キー追加時にエラー…ERROR 1215 (HY000): Cannot add foreign key constraint&lt;/a&gt;&lt;br&gt;
@@ -1402,7 +1322,8 @@ Please refer to http://dev.mysql.com/doc/refman/5.7/en/innodb-foreign-key-constr
         <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
         
         <guid>https://SawaTszm.github.io/p/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-        <description>&lt;blockquote&gt;
+        <description>&lt;h2 id=&#34;cerberusとは&#34;&gt;cerberusとは&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。&lt;br&gt;
@@ -1666,7 +1587,8 @@ JSON とか。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dev.classmethod.jp/server-side/python/python-cerberus-often-use/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Python のバリデーションライブラリ「Cerberus」のよく使うバリデーションルールをまとめてみた ｜ Developers.IO&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://mkai.hateblo.jp/entry/2018/12/18/224244&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Cerberus 入門！ばりばりバリデーションしよう！ - hogehoge diary&lt;/a&gt;&lt;/p&gt;</description>
+    &gt;Cerberus 入門！ばりばりバリデーションしよう！ - hogehoge diary&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【Python】poetryを試してみる</title>
@@ -1675,16 +1597,16 @@ JSON とか。&lt;/p&gt;
         
         <guid>https://SawaTszm.github.io/p/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
         <description>&lt;h2 id=&#34;poetryとは&#34;&gt;poetryとは&lt;/h2&gt;
-&lt;p&gt;pythonの環境管理ツール。&lt;br&gt;
-機能としては&lt;code&gt;pipenv&lt;/code&gt;に近い。&lt;br&gt;
-本当に触りだけやってみたリポジトリはこちら。
+&lt;p&gt;pythonの環境管理ツールです。&lt;br&gt;
+機能としては&lt;code&gt;pipenv&lt;/code&gt;に近い感じでした。&lt;/p&gt;
+&lt;p&gt;本当に触りだけやってみたリポジトリはこちら。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://github.com/SawaTszm/sample-poetry&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;sample-poetry&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$pip&lt;/span&gt; install poetry
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;プロジェクトを作る&#34;&gt;プロジェクトを作る&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$poetry&lt;/span&gt; new sample-project
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;実行すると下記のファイル・フォルダが作成される。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;実行すると下記のファイル・フォルダが作成されます。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;sample-project
 ├── README.rst
 ├── pyproject.toml
@@ -1696,8 +1618,8 @@ JSON とか。&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;モジュールの追加&#34;&gt;モジュールの追加&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$cd&lt;/span&gt; sample-project  &lt;span class=&#34;c1&#34;&gt;# pyproject.tomlがある階層で&lt;/span&gt;
 &lt;span class=&#34;nv&#34;&gt;$poetry&lt;/span&gt; add &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--dev&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &amp;lt;package name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでpoetryが管理している仮想環境内にモジュールが追加される。&lt;br&gt;
-それに伴って、ファイルと依存関係を管理する &lt;code&gt;pyproject.toml&lt;/code&gt;と&lt;code&gt;poetry.lock&lt;/code&gt; が作成される。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでpoetryが管理している仮想環境内にモジュールが追加されます。&lt;br&gt;
+それに伴って、ファイルと依存関係を管理する &lt;code&gt;pyproject.toml&lt;/code&gt;と&lt;code&gt;poetry.lock&lt;/code&gt; が作成されます。&lt;/p&gt;
 &lt;h2 id=&#34;remove-deoendency&#34;&gt;Remove Deoendency&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$poetry&lt;/span&gt; remove &amp;lt;package name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is very simple :)&lt;/p&gt;
@@ -1717,11 +1639,12 @@ JSON とか。&lt;/p&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://testdriven.io/blog/python-environments/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Modern Python Environments - dependency and workspace management | TestDriven.io&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;めも&#34;&gt;めも&lt;/h2&gt;
-&lt;p&gt;Pipenvなんかにはないスマートな依存関係の解決ができるよって言ってる&lt;br&gt;
-確かに&lt;code&gt;pipenv uninstall&lt;/code&gt;は依存関係を見てないし、言われてみればinstallでコケることも割とあるので、
-&lt;code&gt;poetry remove&lt;/code&gt;とそのスマートさがよしなにしてくれるなら嬉しいなーという感じ&lt;/p&gt;
+&lt;p&gt;Pipenvなんかにはないスマートな依存関係の解決ができるよって話らしいです。&lt;/p&gt;
+&lt;p&gt;確かに&lt;code&gt;pipenv uninstall&lt;/code&gt;は依存関係を見てないし、言われてみればinstallでコケることも割とあるので、&lt;br&gt;
+&lt;code&gt;poetry remove&lt;/code&gt;とそのスマートさがよしなにしてくれるなら嬉しいなーという感じでした。&lt;/p&gt;
 &lt;p&gt;参考：&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/eduidl/items/c0e8256bb3a5a735d19c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Pipenv uninstallよりcleanの方が多分便利 - Qiita&lt;/a&gt;&lt;/p&gt;</description>
+    &gt;Pipenv uninstallよりcleanの方が多分便利 - Qiita&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【Python】エラーについて</title>
@@ -1730,8 +1653,10 @@ JSON とか。&lt;/p&gt;
         
         <guid>https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
         <description>&lt;h2 id=&#34;知りたかったこと&#34;&gt;知りたかったこと&lt;/h2&gt;
-&lt;p&gt;try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか)&lt;br&gt;
-ネストしたエラーの扱いってどうするのが良いんだろう&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか)&lt;/li&gt;
+&lt;li&gt;ネストしたエラーの扱いってどうするのが良いんだろう&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;調べて知ったこと&#34;&gt;調べて知ったこと&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;エラーには&lt;strong&gt;構文エラー&lt;/strong&gt;と&lt;strong&gt;例外&lt;/strong&gt;がある。&lt;/li&gt;
@@ -1740,15 +1665,16 @@ JSON とか。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;ne&#34;&gt;RuntimeError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;TypeError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;NameError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;except&lt;/code&gt;は上から順に見て、引っかかったタイミングでその&lt;code&gt;except&lt;/code&gt;節内部のみを実行する。&lt;/p&gt;
+&lt;li&gt;&lt;code&gt;except&lt;/code&gt;は上から順に見て、引っかかったタイミングでその&lt;code&gt;except&lt;/code&gt;節内部のみを実行する。&lt;/li&gt;
+&lt;li&gt;最後の except 節では例外名を省いて、ワイルドカードにすることができる。
+&lt;ul&gt;
+&lt;li&gt;しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最後の except 節では例外名を省いて、ワイルドカードにすることができる。
-が、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Try…except の中には else 節を設けることができる。else 節は全ての except 節よりも後ろに置く。   try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。&lt;/p&gt;
+&lt;li&gt;&lt;code&gt;Try…except&lt;/code&gt;の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。
+&lt;ul&gt;
+&lt;li&gt;try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:]:&lt;/span&gt;
@@ -1759,14 +1685,17 @@ JSON とか。&lt;/p&gt;
     &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
         &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;has&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;readlines&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()),&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;lines&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
         &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://note.nkmk.me/python-try-except-else-finally/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://note.nkmk.me/python-try-except-else-finally/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Python の例外処理（try, except, else, finally） | note.nkmk.me&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://docs.python.org/ja/3/tutorial/errors.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;8. エラーと例外 — Python 3.8.1 ドキュメント&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Except 節では例外名の後に変数を指定できる。  この変数は例外インスタンスに結び付けられ、&lt;code&gt;instance.args&lt;/code&gt;に例外インスタンス生成時の引数が入る。&lt;br&gt;
-例外インスタンスに実装されている&lt;code&gt;__str__&lt;/code&gt;は&lt;code&gt;instance.args&lt;/code&gt;をわざわざ出力しなくても見られるようになっているので、&lt;code&gt;print(inst)&lt;/code&gt;で見られる。便利。&lt;/p&gt;
+&lt;p&gt;Except 節では例外名の後に変数を指定できる。  この変数は例外インスタンスに結び付けられ、&lt;code&gt;instance.args&lt;/code&gt;に例外インスタンス生成時の引数が入る。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例外インスタンスに実装されている&lt;code&gt;__str__&lt;/code&gt;は&lt;code&gt;instance.args&lt;/code&gt;をわざわざ出力しなくても見られるようになっているので、&lt;code&gt;print(inst)&lt;/code&gt;で見られる。便利。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;例外ハンドラは、try 節の直下で発生した例外を処理するだけではなく、その try 節から(たとえ間接的にでも)呼び出された関数の内部で発生した例外も処理する。(！)&lt;/p&gt;
@@ -1782,7 +1711,8 @@ JSON とか。&lt;/p&gt;
 &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Handling&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;division&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;zero&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;呼び出された先の例外もキャッチできる&lt;em&gt;φ(･&lt;/em&gt;･&lt;/p&gt;</description>
+&lt;p&gt;呼び出された先の例外もキャッチできる！&lt;em&gt;φ(･&lt;/em&gt;･&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【Pytyon】リストの重複要素をカウントする</title>
@@ -1791,8 +1721,8 @@ JSON とか。&lt;/p&gt;
         
         <guid>https://SawaTszm.github.io/p/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;投票結果を DB に貯めて、その結果を一位から取得したい。&lt;br&gt;
-DB 構成は、&lt;/p&gt;
+&lt;p&gt;投票結果を DB に貯めて、その結果を一位から取得したい。&lt;/p&gt;
+&lt;p&gt;DB 構成は、&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1807,9 +1737,10 @@ DB 構成は、&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;というシンプルな感じです。&lt;br&gt;
-ここからレコードの recipe の値を、&lt;code&gt;[a, b, c, b, ...]&lt;/code&gt;と言ったリストに直した際、&lt;br&gt;
+&lt;p&gt;というシンプルな感じです。&lt;/p&gt;
+&lt;p&gt;ここからレコードの recipe の値を、&lt;code&gt;[a, b, c, b, ...]&lt;/code&gt;と言ったリストに直した際、&lt;br&gt;
 「一番投票数の多かったもの」や「投票数が多かった順の要素のリスト」が欲しい。&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;collections&lt;/code&gt;を使えば比較的簡単にできます。&lt;/p&gt;
 &lt;h2 id=&#34;要素のカウントは-collections-が便利&#34;&gt;要素のカウントは collections が便利&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;collections&lt;/span&gt;
@@ -1831,7 +1762,8 @@ DB 構成は、&lt;/p&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://docs.python.org/ja/3/library/collections.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;collections — コンテナデータ型 — Python 3.8.1 ドキュメント&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://note.nkmk.me/python-collections-counter/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Python の Counter でリストの各要素の出現個数をカウント | note.nkmk.me&lt;/a&gt;&lt;/p&gt;</description>
+    &gt;Python の Counter でリストの各要素の出現個数をカウント | note.nkmk.me&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【Redis】ってなんぞや</title>
@@ -1839,9 +1771,10 @@ DB 構成は、&lt;/p&gt;
         <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
         
         <guid>https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-        <description>&lt;p&gt;案件で触らせてもらうことになったぜ&lt;br&gt;
-何もわからないぜ&lt;br&gt;
-という状態なので、自分が調べたことについてまとめておきます。&lt;/p&gt;
+        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
+&lt;p&gt;案件で触らせてもらうことになったぜ&lt;br&gt;
+何もわからないぜ&lt;/p&gt;
+&lt;p&gt;という状態なので、自分が調べたことについてまとめておきます。&lt;/p&gt;
 &lt;h2 id=&#34;radis-とは&#34;&gt;Radis とは&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;REmote DIctionary Serverの略&lt;/li&gt;
@@ -1857,15 +1790,15 @@ SET
 HASH
 ZSET (ソート済みのset)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;補足インメモリdb&#34;&gt;補足：インメモリDB&lt;/h3&gt;
-&lt;p&gt;すべてのデータをコンピュータのメインメモリ上に展開しながら動作する。&lt;br&gt;
-コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータをどこかに保存したりすることがある。&lt;/p&gt;
+&lt;p&gt;すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。&lt;br&gt;
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.publickey1.jp/blog/13/_3.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;インストールと動作確認&#34;&gt;インストールと動作確認&lt;/h2&gt;
 &lt;p&gt;少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://try.redis.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Try Redis&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Macであればbrewコマンドで一発。&lt;/p&gt;
+&lt;p&gt;Macであれば下記brewコマンドで一発。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$brew&lt;/span&gt; install Redis
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールできたら、サーバを立ち上げてみます。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ redis-server
@@ -1875,13 +1808,13 @@ $ redis-cli
 OK
 127.0.0.1:6379&amp;gt; get &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt;
 &lt;span class=&#34;s2&#34;&gt;&amp;#34;hoge&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;動作確認までできました。&lt;br&gt;
-このコマンドを叩く先の&lt;code&gt;redis-server&lt;/code&gt;がローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。&lt;br&gt;
-(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくる位)&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;動作確認までできました。&lt;/p&gt;
+&lt;p&gt;このコマンドを叩く先の&lt;code&gt;redis-server&lt;/code&gt;がローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。&lt;br&gt;
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)&lt;/p&gt;
 &lt;h2 id=&#34;データのタイプ&#34;&gt;データのタイプ&lt;/h2&gt;
 &lt;p&gt;Redisは前述の通り様々なデータタイプに対応しています。&lt;br&gt;
-どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。&lt;br&gt;
-コマンドの詳細などは公式ドキュメントで。&lt;br&gt;
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。&lt;/p&gt;
+&lt;p&gt;コマンドの詳細などは公式ドキュメントで。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/topics/data-types&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Data types – Redis&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;strings&#34;&gt;Strings&lt;/h3&gt;
@@ -1970,128 +1903,8 @@ OK
 &lt;a class=&#34;link&#34; href=&#34;https://qiita.com/FukuharaYohei/items/48209d488bc7f412c3d7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;【初心者向け】Redisのデータ型とPythonでの使い方サンプル - Qiita&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://qiita.com/wind-up-bird/items/f2d41d08e86789322c71&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;【入門】Redis - Qiita&lt;/a&gt;&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>2021 02 09-19 Diary</title>
-        <link>https://SawaTszm.github.io/p/2021-02-09-19-diary/</link>
-        <pubDate>Tue, 09 Feb 2021 14:11:32 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/2021-02-09-19-diary/</guid>
-        <description>&lt;h2 id=&#34;気になったニュース&#34;&gt;気になったニュース&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://methane.hatenablog.jp/entry/2021/02/08/Python%E3%81%AE%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%92UTF-8%E3%81%AB%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PythonのデフォルトエンコーディングをUTF-8にするために - methaneのブログ&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pyconjp.blogspot.com/2021/02/Tentative-Conference-Schedule-for-PyCon-JP-2021.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PyCon JP Blog: PyCon JP 2021 カンファレンス開催日程仮決定のお知らせ&lt;/a&gt;&lt;br&gt;
-楽しみ&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.publickey1.jp/blog/09/facebook8php.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Facebookが大規模スケーラビリティへの挑戦で学んだこと（前編）～800億枚の写真データとPHPのスケーラビリティ問題 － Publickey&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dev.classmethod.jp/articles/lets-study-aws-organizations-basic/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;社内勉強会で AWS Organizations 基礎の話をしました | DevelopersIO&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;他&#34;&gt;他&lt;/h2&gt;
-&lt;p&gt;書くだけ書いてPushするのを忘れがち。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>2021 02 08 Diary</title>
-        <link>https://SawaTszm.github.io/p/2021-02-08-diary/</link>
-        <pubDate>Mon, 08 Feb 2021 10:09:51 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/2021-02-08-diary/</guid>
-        <description>&lt;h2 id=&#34;気になったニュース&#34;&gt;気になったニュース&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.publickey1.jp/blog/21/googleormsqlsqlcommenterrailsspringdjango.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Google、ORMが生成するSQLが遅いときの調査を容易にする「sqlcommenter」をオープンソースで公開。Rails、Spring、Djangoなど主要なフレームワークに対応 － Publickey&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Python触ってる割にはDjangoは通ってきていなけれども気になる&lt;/p&gt;
-&lt;h2 id=&#34;他&#34;&gt;他&lt;/h2&gt;
-&lt;p&gt;現神くんとBONDが熱い&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>2021 02 02 Diary</title>
-        <link>https://SawaTszm.github.io/p/2021-02-02-diary/</link>
-        <pubDate>Tue, 02 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/2021-02-02-diary/</guid>
-        <description>&lt;h2 id=&#34;気になったニュース&#34;&gt;気になったニュース&lt;/h2&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://togetter.com/li/1661221&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;【？】「github」の読み方は「ギットハブ」でも「ジットハブ」でもありません。「イ」です。 - Togetter&lt;/a&gt;&lt;br&gt;
-&lt;code&gt;Ghoti理論&lt;/code&gt;って言うものがあって、これは&lt;code&gt;fish&lt;/code&gt;と同じ読み方らしい。これに則って読むとgithubが「イ」になる。そうなんだ……&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://ascii.jp/elem/000/004/042/4042616/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;ASCII.jp：Apple Watchがあるとマスクを着けたままiPhoneのロック解除が可能に&lt;/a&gt;&lt;br&gt;
-ありがとうApple  ありがとう世界&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://codezine.jp/article/detail/13574&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Python向け科学計算パッケージの最新版「NumPy 1.20.0」がリリース：CodeZine（コードジン）&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「NumPy 1.20.0」はこれまでで最大となるアップデートで、Python 3.7～3.9をサポートし、Python 3.6のサポートは終了している。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;新しく使うときに3.6以下使うことはないと思うけど、一応頭の片隅で覚えておこう。&lt;/p&gt;
-&lt;hr&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;他&#34;&gt;他&lt;/h2&gt;
-&lt;hr&gt;
-&lt;p&gt;原神くんの事前ダウンロードも終えて準備万端なので明日が楽しみです。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>2021 02 01 Diary</title>
-        <link>https://SawaTszm.github.io/p/2021-02-01-diary/</link>
-        <pubDate>Mon, 01 Feb 2021 11:06:43 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/2021-02-01-diary/</guid>
-        <description>&lt;h2 id=&#34;気になったニュース&#34;&gt;気になったニュース&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://anond.hatelabo.jp/20160725092419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;gitにおけるコミットログ/メッセージ例文集100&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.blog/changelog/2021-01-21-access-control-for-github-pages/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Access control for GitHub Pages - GitHub Changelog&lt;/a&gt;&lt;br&gt;
-社内ドキュメントとしての運用とかにも良さそう。&lt;br&gt;
-エディタ+ mdファイル編集 + GithubにPushで完結するのはとても健康にいい。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;調べたこと&#34;&gt;調べたこと&lt;/h2&gt;
-&lt;h3 id=&#34;bigqueryへの差分アップロード&#34;&gt;BigQueryへの差分アップロード&lt;/h3&gt;
-&lt;p&gt;Insert/Upsertを意識するんじゃなくて、updated_dateを持った状態で複数データ入れてしまう方がいいかなと思った。&lt;br&gt;
-Insert/Upsertを実現できる&lt;code&gt;merge&lt;/code&gt;はテーブルサイズ分課金されるので（SELECTと同じ）、日次で取り込むデータサイクルに入れるのは避けたい。&lt;br&gt;
-対して上書きでなくて重複データをInsertする方法では、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;集計するときは&lt;code&gt;COUNT(DISTINCT x)&lt;/code&gt;で重複削除すればいい&lt;/li&gt;
-&lt;li&gt;重複データが積もってきたらSQLで整理ができる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ので、こっちの方が良さげ。&lt;br&gt;
-そうすればBQに移行する日次データは「その日に新規作成されたもの」と「その日に上書きされたもの」だけでよくなる。&lt;/p&gt;
-&lt;p&gt;参考：&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://dev.classmethod.jp/articles/bigquery-load-diff/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;BigQuery にデータを差分ロード（UPSERT）する方法まとめ | Developers.IO&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/satoru_mag/items/fb233c188dd63f1aafff&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;BigQueryでUPDATE？？ - Qiita&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions?hl=ja#count&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;標準 SQL の集計関数  |  BigQuery  |  Google Cloud&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;sqlのorについて&#34;&gt;SQLのORについて&lt;/h3&gt;
-&lt;p&gt;OR使わないといけないかなと思って調べてたら下記記事を見つけた。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://techracho.bpsinc.jp/hachi8833/2020_04_16/79219&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PostgreSQL: 「OR」を避けてパフォーマンスを向上させよう（翻訳）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;「まだマシ」なダメな例をやろうとしていたのと、後半の話は知らなかったのでﾁｮｯﾄ勉強になった。&lt;br&gt;
-SQL、苦手意識があって若干避けてきたけどそろそろ向き合うべき時が来た気がする。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;他&#34;&gt;他&lt;/h2&gt;
-&lt;p&gt;原神くんの1.3アプデ、鍾離先生の上方修正が確定したので楽しみ。&lt;br&gt;
-コントローラーで操作できるようになるのも楽しみ。&lt;br&gt;
-これでもうボタンスカって敵の攻撃が直撃するミスがなくなるんだ……。&lt;/p&gt;
-&lt;p&gt;プロセカはやっと実装された星4冬弥くん引きたいけど、金の力で解決しようとするとあと5万くらいかかるの普通に心が折れるなぁと思いました（作文）。&lt;br&gt;
-鍾離先生PU復刻が来たらそっちで天井引きたいしなぁ。等々。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>Amazonの荷物が届いたのに宅配ボックスの番号がわからなくて焦った</title>
-        <link>https://SawaTszm.github.io/p/amazon%E3%81%AE%E8%8D%B7%E7%89%A9%E3%81%8C%E5%B1%8A%E3%81%84%E3%81%9F%E3%81%AE%E3%81%AB%E5%AE%85%E9%85%8D%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AE%E7%95%AA%E5%8F%B7%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8F%E3%81%A6%E7%84%A6%E3%81%A3%E3%81%9F/</link>
-        <pubDate>Thu, 28 Jan 2021 19:10:59 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/amazon%E3%81%AE%E8%8D%B7%E7%89%A9%E3%81%8C%E5%B1%8A%E3%81%84%E3%81%9F%E3%81%AE%E3%81%AB%E5%AE%85%E9%85%8D%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AE%E7%95%AA%E5%8F%B7%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8F%E3%81%A6%E7%84%A6%E3%81%A3%E3%81%9F/</guid>
-        <description>&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;hr&gt;
-&lt;p&gt;メールの宅配業者を確認して、&lt;/p&gt;
-&lt;p&gt;①Amazonなら&lt;a class=&#34;link&#34; href=&#34;https://www.amazon.co.jp/gp/help/customer/contact-us&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;カスタマーサービス&lt;/a&gt;に電話 or チャットで相談&lt;br&gt;
-②それ以外なら&lt;a class=&#34;link&#34; href=&#34;https://www.amazon.co.jp/gp/help/customer/display.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;ここ&lt;/a&gt;の「配送業者の連絡先」から業者の番号を見つけて連絡&lt;/p&gt;
-&lt;p&gt;これで大体解決。&lt;br&gt;
-私の場合は①で、無事チャットで暗証番号を教えてもらって事なきを得ました。&lt;/p&gt;
-&lt;p&gt;こう言うことに遭遇したことがなかったので結構焦った。&lt;/p&gt;</description>
+    &gt;【入門】Redis - Qiita&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>【ディープリンク】ってなんぞや</title>
@@ -2100,14 +1913,18 @@ SQL、苦手意識があって若干避けてきたけどそろそろ向き合�
         
         <guid>https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;LINEBOT くんのメッセージからアプリに飛びたいという要件を貰ったけど、&lt;br&gt;
-そのあたり全く初見だったのでまとめてみた。&lt;br&gt;
-① なのは全然わからなかったところがあるからです。追記するかもう一個記事書くかします。&lt;/p&gt;
-&lt;h2 id=&#34;所感&#34;&gt;所感&lt;/h2&gt;
-&lt;p&gt;ディープリンク：任意のアプリの、任意の画面に遷移させる URI とその仕組み&lt;/p&gt;
+&lt;p&gt;「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」&lt;/p&gt;
+&lt;p&gt;という要件を貰ったけど、&lt;br&gt;
+そのあたり全く初見だったので調べてまとめてみました。&lt;/p&gt;
+&lt;h2 id=&#34;ディープリンクとは&#34;&gt;ディープリンクとは&lt;/h2&gt;
+&lt;p&gt;任意のアプリに遷移できるリンク(URL)のことです。&lt;br&gt;
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。&lt;/p&gt;
+&lt;p&gt;スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。&lt;/p&gt;
+&lt;h2 id=&#34;プラットフォームごとのディープリンク対応&#34;&gt;プラットフォームごとのディープリンク対応&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
+&lt;th&gt;プラットフォーム&lt;/th&gt;
 &lt;th&gt;種類&lt;/th&gt;
 &lt;th&gt;対応&lt;/th&gt;
 &lt;th&gt;URL&lt;/th&gt;
@@ -2115,38 +1932,35 @@ SQL、苦手意識があって若干避けてきたけどそろそろ向き合�
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;Android&lt;/td&gt;
 &lt;td&gt;App links&lt;/td&gt;
 &lt;td&gt;Android6.0 以降&lt;/td&gt;
 &lt;td&gt;WebURL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;Android&lt;/td&gt;
 &lt;td&gt;App Indexing&lt;/td&gt;
 &lt;td&gt;Android&lt;/td&gt;
 &lt;td&gt;WebURL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;Apple&lt;/td&gt;
 &lt;td&gt;universal links&lt;/td&gt;
 &lt;td&gt;iOS9 以降&lt;/td&gt;
 &lt;td&gt;WebURL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;どちらも&lt;/td&gt;
 &lt;td&gt;Custom URL Scheme&lt;/td&gt;
 &lt;td&gt;iOS,Android&lt;/td&gt;
 &lt;td&gt;カスタム URL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;App Links&lt;/code&gt; ≒ &lt;code&gt;universal links&lt;/code&gt;が良さげ&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;どちらも WebURL から直接アプリを起動できるので、LINE のメッセージ上から遷移が可能&lt;br&gt;
-受け取る URL を使ってアプリのどの画面を表示させるかを制御する&lt;/p&gt;
 &lt;h2 id=&#34;androidgoogle&#34;&gt;Android(Google)&lt;/h2&gt;
 &lt;h2 id=&#34;app-links&#34;&gt;App Links&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;https://&lt;/code&gt; から始まる URL を利用する。&lt;/p&gt;
-&lt;h3 id=&#34;設定方法&#34;&gt;設定方法&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/noboru_i/items/fd4634ecb326b3749ac0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;App Linksに対応してみた - Qiita&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。&lt;br&gt;
+&lt;code&gt;https://&lt;/code&gt; から始まる URL を利用できます。&lt;/p&gt;
 &lt;h3 id=&#34;メリット&#34;&gt;メリット&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;WebURL から直接アプリを起動できる&lt;/li&gt;
@@ -2157,18 +1971,20 @@ SQL、苦手意識があって若干避けてきたけどそろそろ向き合�
 &lt;li&gt;認証情報ファイルを https 通信可能なサーバに上げておく必要がある&lt;/li&gt;
 &lt;li&gt;android 6.0(2015 年 10 月リリース)以降しか対応していない&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;設定方法&#34;&gt;設定方法&lt;/h3&gt;
+&lt;p&gt;下記が参考になりました。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/noboru_i/items/fd4634ecb326b3749ac0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;App Linksに対応してみた - Qiita&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;app-indexing&#34;&gt;App Indexing&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/nein37/items/3b69f85b97d0883eb1ca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;AppIndexing について - Qiita&lt;/a&gt;&lt;br&gt;
-ムズカシイ　ヨクワカラナイ&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;App Indexingは、その名の通りアプリのコンテンツをインデックスして、Google検索の結果からアプリに直接遷移することができるサービスです。Googleが提供しています。&lt;/p&gt;
+&lt;p&gt;参考になった記事:
+&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/nein37/items/3b69f85b97d0883eb1ca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AppIndexing について - Qiita&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;iosapple&#34;&gt;iOS(Apple)&lt;/h2&gt;
 &lt;h2 id=&#34;universal-links&#34;&gt;universal links&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;https://&lt;/code&gt; から始まる URL を利用する。&lt;br&gt;
+&lt;p&gt;universal linksは、iOS9から使用できるサービスです。&lt;br&gt;
+&lt;code&gt;https://&lt;/code&gt; から始まる URL を利用できます。&lt;br&gt;
 例：LINE(&lt;code&gt;https://line.me/R/&lt;/code&gt;)&lt;/p&gt;
-&lt;h3 id=&#34;設定方法universal-links&#34;&gt;設定方法(universal links)&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dev.classmethod.jp/smartphone/universal-links/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Universal Links を試してみました。関連づけファイル(apple-app-site-association）は S3 に置きました。 ｜ Developers.IO&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;メリットuniversal-links&#34;&gt;メリット(universal links)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;アプリが端末に入っていない場合の挙動を設定できる(Store に飛ばす等)&lt;/li&gt;
@@ -2179,58 +1995,39 @@ SQL、苦手意識があって若干避けてきたけどそろそろ向き合�
 &lt;li&gt;認証情報ファイルを https 通信可能なサーバに上げておく必要がある&lt;/li&gt;
 &lt;li&gt;iOS9(2015 年 9 月リリース)以降でしか使えない&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
+&lt;h3 id=&#34;設定方法universal-links&#34;&gt;設定方法(universal links)&lt;/h3&gt;
+&lt;p&gt;こちらが参考になりました。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dev.classmethod.jp/smartphone/universal-links/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Universal Links を試してみました。関連づけファイル(apple-app-site-association）は S3 に置きました。 ｜ Developers.IO&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;共通&#34;&gt;共通&lt;/h2&gt;
 &lt;h2 id=&#34;custom-url-scheme&#34;&gt;Custom URL Scheme&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;amzn://apps/android?asin=B004FRX0MY&lt;/code&gt; や &lt;code&gt;comgooglemaps://&lt;/code&gt; など、アプリ独自に決めた scheme を利用する方法。&lt;/p&gt;
-&lt;h3 id=&#34;設定方法ios&#34;&gt;設定方法(iOS)&lt;/h3&gt;
-&lt;p&gt;２種類の実装方法があるけど内容は同じ。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;info.plist&lt;/code&gt;から設定する&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;TARGET &amp;gt; info&lt;/code&gt;から設定する&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Safari から固定 URL(&lt;code&gt;my-app://&lt;/code&gt;など)を叩けばアプリを起動できる。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;amzn://apps/android?asin=B004FRX0MY&lt;/code&gt; や &lt;code&gt;comgooglemaps://&lt;/code&gt; など、アプリ独自に決めた scheme を利用する方法です。&lt;/p&gt;
 &lt;h3 id=&#34;メリットcustom-url-scheme&#34;&gt;メリット(Custom URL Scheme)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;iOS8 以前,android 6.0 以前でも動く。&lt;/li&gt;
+&lt;li&gt;iOS8 以前,android 6.0 以前でも動く&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;デメリットcustom-url-scheme&#34;&gt;デメリット(Custom URL Scheme)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;アプリがインストールされていない場合に動作しない&lt;/li&gt;
 &lt;li&gt;他のアプリと競合する可能性がある&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
-&lt;hr&gt;
+&lt;h3 id=&#34;設定方法ios&#34;&gt;設定方法(iOS)&lt;/h3&gt;
+&lt;p&gt;２種類の実装方法があるけど内容は同じです。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;info.plist&lt;/code&gt;から設定する&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TARGET &amp;gt; info&lt;/code&gt;から設定する&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Safariから固定 URL(&lt;code&gt;my-app://&lt;/code&gt;など)を叩けばアプリを起動できます。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;今から実装するとなったら&lt;code&gt;App Links&lt;/code&gt; ≒ &lt;code&gt;universal links&lt;/code&gt;が良さげだなと思いました。&lt;/p&gt;
+&lt;p&gt;どちらもWebURLから直接アプリを起動できるので、LINEのメッセージ上から遷移が可能です。&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;途中に載せさせて頂いてるサイトも大変参考になりました……ありがとうございます……&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/dongri/items/a4430c20c2ea3b01a566&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;途中に載せさせて頂いてるサイトも大変参考になりました……ありがとうございます……&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/dongri/items/a4430c20c2ea3b01a566&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;真面目に Deep Link 対応したい話 - Qiita&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://qiita.com/noboru_i/items/abf83e068999a073d6b0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;iOS/Android のディープリンクについての雑な説明 - Qiita&lt;/a&gt;&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>2021-01-28 Diary</title>
-        <link>https://SawaTszm.github.io/p/2021-01-28-diary/</link>
-        <pubDate>Thu, 28 Jan 2021 14:20:35 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/2021-01-28-diary/</guid>
-        <description>&lt;h2 id=&#34;気になったニュース&#34;&gt;気になったニュース&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://news.mynavi.jp/article/20210126-1672177/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Pyston 2.1、本家Python 3.8/3.9よりも十分に高いパフォーマンスを実現 | マイナビニュース&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Dropboxが開発元（？）って言うのは知らなかった……&lt;/p&gt;
-&lt;h2 id=&#34;やってみたこと&#34;&gt;やってみたこと&lt;/h2&gt;
-&lt;h3 id=&#34;サイト構築&#34;&gt;サイト構築&lt;/h3&gt;
-&lt;p&gt;Github Pages と Hugoでサイト作ってみた（これ）&lt;/p&gt;
-&lt;p&gt;参考にさせてもらったサイト：&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://uzimihsr.github.io/post/2019-08-07-create-blog-1/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub PagesとHugoでブログをつくった&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://dev.to/mshr_h/hugo-github-pages-35me&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Hugo+Github Pagesで新しい個人ウェブサイトを作った - DEV Community&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;使用テーマはこれ：&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/beautifulhugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Beautifulhugo | Hugo Themes&lt;/a&gt;&lt;br&gt;
-拡張機能系もありそうなのでゆっくり見ていきたい&lt;/p&gt;
-&lt;p&gt;あと、Hugoの中身はGo言語らしいので、Go勉強し始めることがあったらソース読みたいなと思った&lt;/p&gt;</description>
+    &gt;iOS/Android のディープリンクについての雑な説明 - Qiita&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         
     </channel>
