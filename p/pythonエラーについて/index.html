@@ -8,7 +8,7 @@ Python の例外処理（try, except, else, finally） | note.nkmk.me
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/'>
 
-<link rel="stylesheet" href="/scss/style.min.0138f7b95d0129f02509909068f76ee4682c28dfd1397631daad73a97f57c322.css"><meta property='og:title' content='【Python】エラーについて'>
+<link rel="stylesheet" href="/scss/style.min.21707034bfc945a7033e170832e3560511f6859ecd94e5ef521b1821e03f3ac2.css"><meta property='og:title' content='【Python】エラーについて'>
 <meta property='og:description' content='知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
 8. エラーと例外 — Python 3.8.1 ドキュメント
@@ -450,6 +450,22 @@ if (!doNotTrack) {
             2020 - 
         
         2022 sawa.md
+    </section>
+
+    <section class="footer-menu">
+        <ul>
+            <li>
+                <a href="/privacy-policy">
+                    <span>プライバシーポリシー</span>
+                </a>
+            </li>
+            <li><span>|</span></li>
+            <li>
+                <a href="/contact-form">
+                    <span>お問い合わせ</span>
+                </a>
+            </li>
+        </ul>
     </section>
     
     <section class="powerby">
