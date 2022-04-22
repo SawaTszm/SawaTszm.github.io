@@ -1,56 +1,81 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pages on sawa.md</title>
-    <link>https://SawaTszm.github.io/page/</link>
-    <description>Recent content in Pages on sawa.md</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://SawaTszm.github.io/page/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>https://SawaTszm.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://SawaTszm.github.io/about/</guid>
-      <description>このブログは？ 社会人5年目の新米(？)Webエンジニアが学んだことを書いているブログです。
-誰？ 佐和(Sawa)です。
- Webエンジニア2年生（バックエンド/インフラ/運用） ネットワーク系SIer2年→転職してWebエンジニアへ 猫と爬虫類とお酒とゲームとPythonが好き たまに山に登ったりサイクリングしたりする  何使ってる？ 言語 現在はPython/Vue.jsがメイン。
-今まで触ってきたのはPHP(Laravel)など。
-学生時代はC/Javaを勉強してましたが忘却の彼方なので改めてお勉強中です。
-環境 AWS/GCP(ﾁｮｯﾄ)/Docker/&amp;hellip;
-普段はAWSメインで、GCPはBigQuery周りをちょっと触りました。
-どこに生息してる？ 大体都内にいます。</description>
-    </item>
-    
-    <item>
-      <title>Contact form</title>
-      <link>https://SawaTszm.github.io/contact-form/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://SawaTszm.github.io/contact-form/</guid>
-      <description>問い合わせ先 TwitterのDM、もしくはこちらのGoogleフォームよりお問い合わせください。</description>
-    </item>
-    
-    <item>
-      <title>Privacy Policy</title>
-      <link>https://SawaTszm.github.io/privacy-policy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://SawaTszm.github.io/privacy-policy/</guid>
-      <description>当サイトに掲載されている広告について 当サイトでは、第三者配信の広告サービス（Googleアドセンス）を利用しています。
-このような広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、当サイトや他サイトへのアクセスに関する情報 『Cookie』(氏名、住所、メール アドレス、電話番号は含まれません) を使用することがあります。
-当サイトが使用しているアクセス解析ツールについて 当サイトでは、Googleによるアクセス解析ツール「Google Analytics」を利用しています。
-このGoogle Analyticsはトラフィックデータの収集のためにCookieを使用しています。
-このトラフィックデータは匿名で収集されており、個人を特定するものではありません。
-この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
-この規約に関して、詳しくは下記をクリックしてご確認ください。
- Terms of Service | Google Analytics - Google（Google アナリティクス利用規約） Google のサービスを使用するサイトやアプリから収集した情報の Google による使用 - ポリシーと規約 - Google  当サイトの免責事項について 当サイトで掲載している画像の著作権・肖像権等は各権利所有者に帰属致します。権利を侵害する目的ではございません。記事の内容や掲載画像等に問題がございましたら、各権利所有者様本人が、お問い合わせフォームよりご連絡下さい。確認後、対応させて頂きます。
-当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。
-当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、誤情報が入り込んだり、情報が古くなっていることもございます。
-当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
-プライバシーポリシーの変更について 当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシーの内容を適宜見直しその改善に努めます。
-修正された最新のプライバシーポリシーは常に本ページにて開示されます。</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Pages on sawa.md</title>
+        <link>https://SawaTszm.github.io/page/</link>
+        <description>Recent content in Pages on sawa.md</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language><atom:link href="https://SawaTszm.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>About</title>
+        <link>https://SawaTszm.github.io/about/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://SawaTszm.github.io/about/</guid>
+        <description>&lt;h2 id=&#34;このブログは&#34;&gt;このブログは？&lt;/h2&gt;
+&lt;p&gt;社会人5年目の新米(？)Webエンジニアが学んだことを書いているブログです。&lt;/p&gt;
+&lt;h2 id=&#34;誰&#34;&gt;誰？&lt;/h2&gt;
+&lt;p&gt;佐和(Sawa)です。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Webエンジニア2年生（バックエンド/インフラ/運用）&lt;/li&gt;
+&lt;li&gt;ネットワーク系SIer2年→転職してWebエンジニアへ&lt;/li&gt;
+&lt;li&gt;猫と爬虫類とお酒とゲームとPythonが好き&lt;/li&gt;
+&lt;li&gt;たまに山に登ったりサイクリングしたりする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;何使ってる&#34;&gt;何使ってる？&lt;/h2&gt;
+&lt;h3 id=&#34;言語&#34;&gt;言語&lt;/h3&gt;
+&lt;p&gt;現在はPython/Vue.jsがメイン。&lt;br&gt;
+今まで触ってきたのはPHP(Laravel)など。&lt;br&gt;
+学生時代はC/Javaを勉強してましたが忘却の彼方なので改めてお勉強中です。&lt;/p&gt;
+&lt;h3 id=&#34;環境&#34;&gt;環境&lt;/h3&gt;
+&lt;p&gt;AWS/GCP(ﾁｮｯﾄ)/Docker/&amp;hellip;&lt;br&gt;
+普段はAWSメインで、GCPはBigQuery周りをちょっと触りました。&lt;/p&gt;
+&lt;h2 id=&#34;どこに生息してる&#34;&gt;どこに生息してる？&lt;/h2&gt;
+&lt;p&gt;大体都内にいます。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Contact form</title>
+        <link>https://SawaTszm.github.io/contact-form/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://SawaTszm.github.io/contact-form/</guid>
+        <description>&lt;h3 id=&#34;問い合わせ先&#34;&gt;問い合わせ先&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/SawaTszm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TwitterのDM&lt;/a&gt;、もしくはこちらの&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/forms/d/e/1FAIpQLSd9O0jhLyBsgThGuLJyFMD_sXF4fz3A6n5a5sRkv8ad6EgVPw/viewform?usp=sf_link&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Googleフォーム&lt;/a&gt;よりお問い合わせください。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Privacy Policy</title>
+        <link>https://SawaTszm.github.io/privacy-policy/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://SawaTszm.github.io/privacy-policy/</guid>
+        <description>&lt;h2 id=&#34;当サイトに掲載されている広告について&#34;&gt;当サイトに掲載されている広告について&lt;/h2&gt;
+&lt;p&gt;当サイトでは、第三者配信の広告サービス（Googleアドセンス）を利用しています。&lt;br&gt;
+このような広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、当サイトや他サイトへのアクセスに関する情報 『Cookie』(氏名、住所、メール アドレス、電話番号は含まれません) を使用することがあります。&lt;/p&gt;
+&lt;h2 id=&#34;当サイトが使用しているアクセス解析ツールについて&#34;&gt;当サイトが使用しているアクセス解析ツールについて&lt;/h2&gt;
+&lt;p&gt;当サイトでは、Googleによるアクセス解析ツール「Google Analytics」を利用しています。&lt;br&gt;
+このGoogle Analyticsはトラフィックデータの収集のためにCookieを使用しています。&lt;br&gt;
+このトラフィックデータは匿名で収集されており、個人を特定するものではありません。&lt;br&gt;
+この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。&lt;br&gt;
+この規約に関して、詳しくは下記をクリックしてご確認ください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.google.com/analytics/terms/jp.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Terms of Service | Google Analytics - Google（Google アナリティクス利用規約）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://policies.google.com/technologies/partner-sites?hl=ja&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google のサービスを使用するサイトやアプリから収集した情報の Google による使用 - ポリシーと規約 - Google&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;当サイトの免責事項について&#34;&gt;当サイトの免責事項について&lt;/h2&gt;
+&lt;p&gt;当サイトで掲載している画像の著作権・肖像権等は各権利所有者に帰属致します。権利を侵害する目的ではございません。記事の内容や掲載画像等に問題がございましたら、各権利所有者様本人が、お問い合わせフォームよりご連絡下さい。確認後、対応させて頂きます。&lt;/p&gt;
+&lt;p&gt;当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。&lt;/p&gt;
+&lt;p&gt;当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、誤情報が入り込んだり、情報が古くなっていることもございます。&lt;/p&gt;
+&lt;p&gt;当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。&lt;/p&gt;
+&lt;h2 id=&#34;プライバシーポリシーの変更について&#34;&gt;プライバシーポリシーの変更について&lt;/h2&gt;
+&lt;p&gt;当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシーの内容を適宜見直しその改善に努めます。&lt;/p&gt;
+&lt;p&gt;修正された最新のプライバシーポリシーは常に本ページにて開示されます。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

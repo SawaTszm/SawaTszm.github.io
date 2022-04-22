@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OSS on sawa.md</title>
-    <link>https://SawaTszm.github.io/tags/oss/</link>
-    <description>Recent content in OSS on sawa.md</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jan 2022 20:34:34 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/oss/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>初めてのOSS Contribute【First Contributions編】</title>
-      <link>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</link>
-      <pubDate>Wed, 05 Jan 2022 20:34:34 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>OSS on sawa.md</title>
+        <link>https://SawaTszm.github.io/tags/oss/</link>
+        <description>Recent content in OSS on sawa.md</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 05 Jan 2022 20:34:34 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/oss/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>初めてのOSS Contribute【First Contributions編】</title>
+        <link>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</link>
+        <pubDate>Wed, 05 Jan 2022 20:34:34 +0900</pubDate>
+        
+        <guid>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</guid>
+        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://firstcontributions.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;First Contributions - Make your first open source contribution in 5 minutes&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;ということで、「OSS貢献してみたいけどよくわからないなー」と思って調べていた時に発見したプロジェクトでタイトルの通りOSSコントリビュータデビューさせてもらった時の備忘録です。&lt;/p&gt;
+&lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
+&lt;p&gt;基本的にはリポジトリのREADMEに沿って進めるだけです。本当に5分かかりませんでした。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/firstcontributions/first-contributions/blob/master/translations/README.ja.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;first-contributions/README.ja.md at master · firstcontributions/first-contributions · GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/firstcontributions/first-contributions/blob/master/translations/Translations.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;様々な言語で翻訳&lt;/a&gt;されていて、コミュニティの大きさを感じます。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;k&#34;&gt;1.&lt;/span&gt; リポジトリをフォーク
+&lt;span class=&#34;k&#34;&gt;2.&lt;/span&gt; フォークしたリポジトリをクローン
+&lt;span class=&#34;k&#34;&gt;3.&lt;/span&gt; ブランチを作成
+&lt;span class=&#34;k&#34;&gt;4.&lt;/span&gt; コードを変更してコミット
+&lt;span class=&#34;k&#34;&gt;5.&lt;/span&gt; Push
+&lt;span class=&#34;k&#34;&gt;6.&lt;/span&gt; PRを送る(githubで自分のリポジトリに行くとCompare &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; pull requestボタンが表示される)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで完了です！botの手ですぐにmergeされました。&lt;/p&gt;
+&lt;h2 id=&#34;今後の貢献について&#34;&gt;今後の貢献について&lt;/h2&gt;
+&lt;p&gt;大体のリポジトリでは、READMEや&lt;code&gt;Contribute.md&lt;/code&gt;などに貢献の方法(ルール)が明記されています。まずはそれを見て、issueを立てたりPRを出して提案したりすることになりそうです。&lt;br&gt;
+（OSSコントリビューションというと花形のPRに目が行きがちですが、issueでのエラー報告も立派な貢献になるみたいです。言われてみれば確かに、実装中エラーに当たった時OSSのissueにはお世話になってます……）&lt;/p&gt;
+&lt;h2 id=&#34;余談&#34;&gt;余談&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;カタカナ表記の場合、&lt;code&gt;リポジトリ&lt;/code&gt;派閥と&lt;code&gt;レポジトリ&lt;/code&gt;派閥があることに気がつきました。&lt;a class=&#34;link&#34; href=&#34;https://e-words.jp/w/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IT用語辞典&lt;/a&gt;などでも併記されているので、完全に好みの問題みたいです。&lt;/li&gt;
+&lt;li&gt;軽い気持ちでやったお試しOSSコントリビューションでしたが、これひとつでfindyの偏差値が10近く上がりました（！）。OSSへの貢献は一つのハードルなのかも知れないですね。&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        
+    </channel>
 </rss>
