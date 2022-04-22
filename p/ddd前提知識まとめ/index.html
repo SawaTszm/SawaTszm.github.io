@@ -18,7 +18,7 @@ GoF デザインパターン 23 種類あるヤツ(雑)
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/ddd%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98%E3%81%BE%E3%81%A8%E3%82%81/'>
 
-<link rel="stylesheet" href="/scss/style.min.99c43378976a7d8533627915c2060656c52b90c4b29f3271e48d05ea4e16fdf5.css"><meta property='og:title' content='【DDD】前提知識まとめ'>
+<link rel="stylesheet" href="/scss/style.min.dc3a681f0f7f172f87ead8672cf733e6ffe4d58ac6b5a681313990c64844a160.css"><meta property='og:title' content='【DDD】前提知識まとめ'>
 <meta property='og:description' content='目的 社内お勉強会で DDD 本を輪読することになったんですが、
 改めて「〇〇ってわかりますか？」と言われると戸惑ってしまうことが多いので自分用にまとめました。
  抽象クラス(abstract class) 他のクラスで継承してもらうことを前提としたクラス。
@@ -68,8 +68,8 @@ if (!doNotTrack) {
 </script>
     </head>
     <body class="
-    article-page has-toc
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -672,7 +672,7 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -756,11 +756,13 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -770,11 +772,11 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
 
 
 
-                </div>
-                <h2 class="widget-title section-title">Table of contents</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
   <ol>
     <li><a href="#目的">目的</a></li>
     <li><a href="#抽象クラスabstract-class">抽象クラス(abstract class)</a></li>
@@ -800,10 +802,133 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
     <li><a href="#参考">参考</a></li>
   </ol>
 </nav>
+        </div>
+    </section>
+
+            
+        
+            
+                <form action="/search/" class="search-form widget" >
+        <p>
+            <label>Search</label>
+            <input name="keyword" required placeholder="Type something..." />
+        
+            <button title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+            
+                <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Archives</h2>
+
+        
+        
+        
+        
+        
+        <div class="widget-archive--list">
+            <div class="archives-year">
+                    <a href="/archives/#2022">
+                        
+                            <span class="year">2022</span>
+                            <span class="count">1</span>
+                        
+                    </a> 
                 </div>
-            </section>
-        </aside>
-    
+            <div class="archives-year">
+                    <a href="/archives/#2021">
+                        
+                            <span class="year">2021</span>
+                            <span class="count">18</span>
+                        
+                    </a> 
+                </div>
+            
+        </div>
+    </section>
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">Tags</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/tags/tech/" class="font_size_19">
+                Tech
+            </a>
+        
+            <a href="/tags/laravel/" class="font_size_5">
+                Laravel
+            </a>
+        
+            <a href="/tags/python/" class="font_size_5">
+                python
+            </a>
+        
+            <a href="/tags/mysql/" class="font_size_2">
+                MySQL
+            </a>
+        
+            <a href="/tags/nginx/" class="font_size_2">
+                nginx
+            </a>
+        
+            <a href="/tags/aws/" class="font_size_1">
+                AWS
+            </a>
+        
+            <a href="/tags/ddd/" class="font_size_1">
+                DDD
+            </a>
+        
+            <a href="/tags/docker/" class="font_size_1">
+                Docker
+            </a>
+        
+            <a href="/tags/embulk/" class="font_size_1">
+                Embulk
+            </a>
+        
+            <a href="/tags/javascript/" class="font_size_1">
+                JavaScript
+            </a>
+        
+    </div>
+</section>
+            
+        
+    </aside>
+
 
         </div>
         <script 
