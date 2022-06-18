@@ -8,7 +8,7 @@ Python の例外処理（try, except, else, finally） | note.nkmk.me
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/'>
 
-<link rel="stylesheet" href="/scss/style.min.dc3a681f0f7f172f87ead8672cf733e6ffe4d58ac6b5a681313990c64844a160.css"><meta property='og:title' content='【Python】エラーについて'>
+<link rel="stylesheet" href="/scss/style.min.7b8ba33adce1f9ddb87495243de44f914ce30889d90a01c384b0fbf57194d810.css"><meta property='og:title' content='【Python】エラーについて'>
 <meta property='og:description' content='知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
 8. エラーと例外 — Python 3.8.1 ドキュメント
@@ -387,9 +387,9 @@ if (!doNotTrack) {
 
     
 
-<aside class="related-contents--wrapper">
-    <h2 class="section-title">Related contents</h2>
-    <div class="related-contents">
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
         <div class="flex article-list--tile">
             
                 
@@ -403,6 +403,7 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
             
                 
 <article class="">
@@ -415,6 +416,7 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
             
                 
 <article class="">
@@ -427,6 +429,7 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
             
                 
 <article class="">
@@ -439,6 +442,7 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
             
         </div>
     </div>
@@ -553,10 +557,10 @@ if (!doNotTrack) {
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
@@ -717,7 +721,7 @@ if (!doNotTrack) {
 
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
