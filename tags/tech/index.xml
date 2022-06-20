@@ -6,7 +6,57 @@
         <description>Recent content in tech on sawa.md</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 18 Jun 2022 13:10:05 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 20 Jun 2022 19:54:19 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[TIL] display: contents;</title>
+        <link>https://SawaTszm.github.io/p/til-display-contents/</link>
+        <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
+        
+        <guid>https://SawaTszm.github.io/p/til-display-contents/</guid>
+        <description>&lt;p&gt;上手くいかないCSSをdev toolでぐりぐり動かしていたら&lt;code&gt;display: contents;&lt;/code&gt;なる値があることを知って、結局そのパターンは上手くいったんですがなんで上手くいったかわからないのでちょっとだけ調べました。&lt;br&gt;
+(本格的に調べるのは後日)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;display-contentsとは&#34;&gt;&lt;code&gt;display: contents;&lt;/code&gt;とは&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://coliss.com/articles/build-websites/operation/work/how-to-work-display-contents.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;coliss&lt;/a&gt;で紹介されていました。&lt;br&gt;
+(先日勉強会で紹介されていたサイトなのでちょっとテンションが上がる(？))&lt;/p&gt;
+&lt;p&gt;すごくざっくり言うと、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;タグ内のコンテンツを通常通り描画しつつ、周囲のタグは完全に省略する
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;display: contents;&lt;/code&gt; が指定されたタグ&lt;strong&gt;自体&lt;/strong&gt;が無視されたような挙動になる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CSS Gridのレイアウトで、複数あるカードのそれぞれの高さや幅を揃えるのに便利
+&lt;ul&gt;
+&lt;li&gt;(今回上手くいった修正はこのパターンだった)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;まだ全然追いきてれないですが、タグを無視したような挙動をする以上落とし穴(何かの拍子にめちゃくちゃ表示崩れる)とかもありそうなので、見れる時にもう少しちゃんと挙動を見たい……。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;ちなみに&lt;a class=&#34;link&#34; href=&#34;https://caniuse.com/css-display-contents&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Can I Use&lt;/a&gt;で見てみると、大体2018年くらいからパーシャルサポートが始まり、現在(2022/06)主要なブラウザはほとんどがフルサポートです。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/48425020/174588782-2b00ea44-dcb3-4791-98c6-9acca0396a95.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Can I Use Dissplay: contentsの結果&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;IE君はNot Supportedですが先日卒業式をしたので……&lt;/del&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;参考&#34;&gt;参考&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coliss.com/articles/build-websites/operation/work/how-to-work-display-contents.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[CSS]「display: contents;」がすごい便利！ラッパーを使った実装が大きく変わるこれからのテクニック&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://caniuse.com/css-display-contents&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Can I use display: contents&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        <item>
         <title>Frontend Roadmap 学んだことまとめ</title>
         <link>https://SawaTszm.github.io/p/frontend-roadmap-%E5%AD%A6%E3%82%93%E3%81%A0%E3%81%93%E3%81%A8%E3%81%BE%E3%81%A8%E3%82%81/</link>
         <pubDate>Sat, 18 Jun 2022 13:10:05 +0900</pubDate>
