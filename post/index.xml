@@ -6,7 +6,49 @@
         <description>Recent content in Posts on sawa.md</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 20 Jun 2022 19:54:19 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 23 Jun 2022 21:29:26 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>気をつけるべきだなと思ったこと</title>
+        <link>https://SawaTszm.github.io/p/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%A0%E3%81%AA%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</link>
+        <pubDate>Thu, 23 Jun 2022 21:29:26 +0900</pubDate>
+        
+        <guid>https://SawaTszm.github.io/p/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%A0%E3%81%AA%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
+        <description>&lt;p&gt;タイトルの通り、&lt;br&gt;
+最近仕事をしていて気がついたこと/教えてもらえたことで、自分はこれを気をつけた方がいいなと思ったことを忘れないために言語化したメモ。&lt;br&gt;
+(増えるかもしれない)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;既存のものを覆してはならない前提と捉えない&#34;&gt;「既存のもの」を「覆してはならない前提」と捉えない&lt;/h3&gt;
+&lt;h4 id=&#34;悪かった例この場合はdjango&#34;&gt;悪かった例(この場合はDjango)&lt;/h4&gt;
+&lt;p&gt;私「このmodelにカラム追加したいけど、似たようなカラムがあるしな。データ被るのも嫌だから、propertyメソッドで動的に返すようにしよう」&lt;/p&gt;
+&lt;p&gt;~30分後~&lt;/p&gt;
+&lt;p&gt;「あ、propertyだと&lt;code&gt;union()&lt;/code&gt;時ののcolumn数合わせに使えないんだった。どうしよう……」(ここで無限ググり編に突入)&lt;/p&gt;
+&lt;p&gt;~30分後~&lt;/p&gt;
+&lt;p&gt;「クエリもうひとつ発行して&lt;code&gt;itertools.chain()&lt;/code&gt;で繋げる手があるかぁ」(そうじゃない)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;この時の結論：&lt;br&gt;
+元のmodelのデータ定義自体が改善しても良い範囲だったので、unionできる形にmodelを寄せることを提案してもらって解決した&lt;/p&gt;
+&lt;h4 id=&#34;メタ的な原因&#34;&gt;メタ的な原因&lt;/h4&gt;
+&lt;p&gt;既にプロジェクトに存在しているコードを、無意識に「絶対的に正しいもの」「変えちゃいけないもの」として捉えていた。&lt;br&gt;
+「このmodelはこういう定義なんだから、これを変形してどうにかしないと」と言うところから思考がスタートしていた。&lt;/p&gt;
+&lt;p&gt;(責任転嫁をしたい訳ではなく無意識にそう考えるようになった要因として上げるけど)社会人初の案件がガチガチに要件が固まった後のネットワーク更改案件だったからかもしれない。「既存のconfigは絶対に正しい、これを崩さないように新しい経路繋げないと」的な。&lt;/p&gt;
+&lt;p&gt;(今までも似たような感覚に陥ったことが何回かあって、言語化できてちょっとスッキリした)&lt;/p&gt;
+&lt;h4 id=&#34;改善策&#34;&gt;改善策&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;「既存のもの」を「覆してはならない前提」と捉えない。(見出し回収(？))&lt;/li&gt;
+&lt;li&gt;実装のために考え始める時、「そもそも」の疑問を大切にする。
+&lt;ul&gt;
+&lt;li&gt;「そもそも、どうしてこのmodelってこういう構造になったんだろう？」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;言っても「考える時に気をつけよう」は忘れるので、しばらくモニターに付箋を貼る。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;緊張時に毎回心拍数120近くまで上がるのはいき過ぎなので対策を考えるべき&#34;&gt;緊張時に毎回心拍数120近くまで上がるのはいき過ぎなので対策を考えるべき&lt;/h3&gt;
+&lt;p&gt;最近調べて初めて知った……。&lt;/p&gt;
+&lt;p&gt;今まで緊張してる時(例えばプレゼン前とか、極端な例で言うと広めのメンションでslack送る前とか)Apple Watchに「非常に高い心拍数です」って言われるのをネタにして生きてきてたんだけど、最近動悸が激しすぎて頭が真っ白になる経験をして、これはまずいなと思って調べたらやっぱり心拍数上がりすぎらしい。&lt;br&gt;
+幸いその時は人前で喋るとかじゃなくて、家の中で一人ぜーはー言ってただけで落ち着く時間もあって事なきを得たけど、このままじゃ良くないので色々対策してみようと思った。&lt;/p&gt;
+&lt;hr&gt;</description>
+        </item>
+        <item>
         <title>[TIL] display: contents;</title>
         <link>https://SawaTszm.github.io/p/til-display-contents/</link>
         <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
