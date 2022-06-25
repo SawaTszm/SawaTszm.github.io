@@ -6,7 +6,30 @@
         <description>Recent content in Posts on sawa.md</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 23 Jun 2022 21:29:26 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 25 Jun 2022 13:08:08 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>日記(2022/06/25)</title>
+        <link>https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%982022/06/25/</link>
+        <pubDate>Sat, 25 Jun 2022 13:08:08 +0900</pubDate>
+        
+        <guid>https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%982022/06/25/</guid>
+        <description>&lt;h2 id=&#34;今更だけど&#34;&gt;今更だけど&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;rem&lt;/code&gt;について。&lt;br&gt;
+一回調べてなるほど〜！ってなった記憶はあるのにロジック考えずに見た目で数字決めてコミットしたの中々にテンパってたなって反省をした備忘録です。（一息）&lt;/p&gt;
+&lt;h2 id=&#34;remとは&#34;&gt;remとは&lt;/h2&gt;
+&lt;p&gt;基準のフォントサイズを1として考える単位。&lt;br&gt;
+例えば：&lt;code&gt;1rem=16px&lt;/code&gt;(html要素のフォントサイズが16px)の場合、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;12px: 0.75rem&lt;/li&gt;
+&lt;li&gt;14px: 0.875rem&lt;/li&gt;
+&lt;li&gt;18px: 1.125rem&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;って言う感じ。&lt;/p&gt;
+&lt;p&gt;「〇〇pxって何remだっけ……」ってなって他のコードと実際の表示を見にいくことが多かったんだけど、&lt;br&gt;
+&lt;code&gt;欲しいpx数/ルートのフォントサイズ(px)&lt;/code&gt;すれば出てくる……出てくるのに……何で今まで調べなきゃ出てこないって思ってたんだろう……。&lt;/p&gt;
+&lt;p&gt;反省。次からは間違えないと思います。&lt;/p&gt;</description>
+        </item>
+        <item>
         <title>気をつけるべきだなと思ったこと</title>
         <link>https://SawaTszm.github.io/p/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%A0%E3%81%AA%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</link>
         <pubDate>Thu, 23 Jun 2022 21:29:26 +0900</pubDate>

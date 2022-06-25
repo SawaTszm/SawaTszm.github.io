@@ -1,42 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='起こった問題 タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。
-設定後下記を確認して、
-&amp;gt;&amp;gt;&amp;gt; config(&amp;#39;database.connections.pgsql&amp;#39;) =&amp;gt; [ &amp;#34;read&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; [ &amp;#34;postgres2&amp;#34;, ], ], &amp;#34;write&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ], ... 反映されてるな、と思って念の為connectionも見てみました。
-&amp;gt;&amp;gt;&amp;gt; DB::connection(&amp;#39;pgsql::read&amp;#39;)-&amp;gt;getConfig(); =&amp;gt; [ ..., &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ] ……あれ？
-Readコネクションなのでpostgres2であって欲しいのに、postgresが出てきてしまいました。
-反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。
-調べたこと getConfigで参照されるconfigは、
-Illuminate\Database\Connectors\ConnectionFactory::make内で、
-/** * Establish a PDO connection based on the configuration. * * @param array $config * @param string|null $name * @return \Illuminate\Database\Connection */ public function make(array $config, $name = null) { $config = $this-&amp;gt;parseConfig($config, $name); if (isset($config[&amp;#39;read&amp;#39;])) { return $this-&amp;gt;createReadWriteConnection($config); } return $this-&amp;gt;createSingleConnection($config); } createReadWriteConnectionが呼び出され、'><title>【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>日記(2022/06/25)</title>
 
-<link rel='canonical' href='https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/'>
+<link rel='canonical' href='https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%982022/06/25/'>
 
-<link rel="stylesheet" href="/scss/style.min.7b8ba33adce1f9ddb87495243de44f914ce30889d90a01c384b0fbf57194d810.css"><meta property='og:title' content='【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話'>
-<meta property='og:description' content='起こった問題 タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。
-設定後下記を確認して、
-&amp;gt;&amp;gt;&amp;gt; config(&amp;#39;database.connections.pgsql&amp;#39;) =&amp;gt; [ &amp;#34;read&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; [ &amp;#34;postgres2&amp;#34;, ], ], &amp;#34;write&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ], ... 反映されてるな、と思って念の為connectionも見てみました。
-&amp;gt;&amp;gt;&amp;gt; DB::connection(&amp;#39;pgsql::read&amp;#39;)-&amp;gt;getConfig(); =&amp;gt; [ ..., &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ] ……あれ？
-Readコネクションなのでpostgres2であって欲しいのに、postgresが出てきてしまいました。
-反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。
-調べたこと getConfigで参照されるconfigは、
-Illuminate\Database\Connectors\ConnectionFactory::make内で、
-/** * Establish a PDO connection based on the configuration. * * @param array $config * @param string|null $name * @return \Illuminate\Database\Connection */ public function make(array $config, $name = null) { $config = $this-&amp;gt;parseConfig($config, $name); if (isset($config[&amp;#39;read&amp;#39;])) { return $this-&amp;gt;createReadWriteConnection($config); } return $this-&amp;gt;createSingleConnection($config); } createReadWriteConnectionが呼び出され、'>
-<meta property='og:url' content='https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/'>
+<link rel="stylesheet" href="/scss/style.min.7b8ba33adce1f9ddb87495243de44f914ce30889d90a01c384b0fbf57194d810.css"><meta property='og:title' content='日記(2022/06/25)'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%982022/06/25/'>
 <meta property='og:site_name' content='sawa.md'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Laravel' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-02-19T12:01:46&#43;09:00'/><meta property='article:modified_time' content='2021-02-19T12:01:46&#43;09:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='日記' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-06-25T13:08:08&#43;09:00'/><meta property='article:modified_time' content='2022-06-25T13:08:08&#43;09:00'/>
 <meta name="twitter:site" content="@SawaTszm">
-    <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話">
-<meta name="twitter:description" content="起こった問題 タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。
-設定後下記を確認して、
-&amp;gt;&amp;gt;&amp;gt; config(&amp;#39;database.connections.pgsql&amp;#39;) =&amp;gt; [ &amp;#34;read&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; [ &amp;#34;postgres2&amp;#34;, ], ], &amp;#34;write&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ], ... 反映されてるな、と思って念の為connectionも見てみました。
-&amp;gt;&amp;gt;&amp;gt; DB::connection(&amp;#39;pgsql::read&amp;#39;)-&amp;gt;getConfig(); =&amp;gt; [ ..., &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ] ……あれ？
-Readコネクションなのでpostgres2であって欲しいのに、postgresが出てきてしまいました。
-反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。
-調べたこと getConfigで参照されるconfigは、
-Illuminate\Database\Connectors\ConnectionFactory::make内で、
-/** * Establish a PDO connection based on the configuration. * * @param array $config * @param string|null $name * @return \Illuminate\Database\Connection */ public function make(array $config, $name = null) { $config = $this-&amp;gt;parseConfig($config, $name); if (isset($config[&amp;#39;read&amp;#39;])) { return $this-&amp;gt;createReadWriteConnection($config); } return $this-&amp;gt;createSingleConnection($config); } createReadWriteConnectionが呼び出され、">
+    <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="日記(2022/06/25)">
+<meta name="twitter:description" content="">
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
 <script type="application/javascript">
@@ -271,7 +247,7 @@ if (!doNotTrack) {
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/">【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</a>
+            <a href="/p/%E6%97%A5%E8%A8%982022/06/25/">日記(2022/06/25)</a>
         </h2>
     
         
@@ -290,7 +266,7 @@ if (!doNotTrack) {
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Feb 19, 2021</time>
+                <time class="article-time--published">Jun 25, 2022</time>
             </div>
         
 
@@ -305,67 +281,22 @@ if (!doNotTrack) {
     <section class="article-content">
     
     
-    <h2 id="起こった問題">起こった問題</h2>
-<p>タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。<br>
-設定後下記を確認して、</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&gt;&gt;&gt;</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;database.connections.pgsql&#39;</span><span class="p">)</span>
-<span class="o">=&gt;</span> <span class="p">[</span>
-     <span class="s2">&#34;read&#34;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-       <span class="s2">&#34;host&#34;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-         <span class="s2">&#34;postgres2&#34;</span><span class="p">,</span>
-       <span class="p">],</span>
-     <span class="p">],</span>
-     <span class="s2">&#34;write&#34;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-       <span class="s2">&#34;host&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;postgres&#34;</span><span class="p">,</span>
-     <span class="p">],</span>
-    <span class="o">...</span>
-</code></pre></div><p>反映されてるな、と思って念の為connectionも見てみました。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&gt;&gt;&gt;</span> <span class="nx">DB</span><span class="o">::</span><span class="na">connection</span><span class="p">(</span><span class="s1">&#39;pgsql::read&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getConfig</span><span class="p">();</span>
-<span class="o">=&gt;</span> <span class="p">[</span>
-    <span class="o">...</span><span class="p">,</span>
-     <span class="s2">&#34;host&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;postgres&#34;</span><span class="p">,</span>
-   <span class="p">]</span>
-</code></pre></div><p>……あれ？</p>
-<p>Readコネクションなので<code>postgres2</code>であって欲しいのに、<code>postgres</code>が出てきてしまいました。<br>
-反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。</p>
-<h2 id="調べたこと">調べたこと</h2>
-<p>getConfigで参照されるconfigは、<br>
-<code>Illuminate\Database\Connectors\ConnectionFactory::make</code>内で、</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="sd">/**
-</span><span class="sd">     * Establish a PDO connection based on the configuration.
-</span><span class="sd">     *
-</span><span class="sd">     * @param  array  $config
-</span><span class="sd">     * @param  string|null  $name
-</span><span class="sd">     * @return \Illuminate\Database\Connection
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">make</span><span class="p">(</span><span class="k">array</span> <span class="nv">$config</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parseConfig</span><span class="p">(</span><span class="nv">$config</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;read&#39;</span><span class="p">]))</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createReadWriteConnection</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createSingleConnection</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
-    <span class="p">}</span>
-</code></pre></div><p><code>createReadWriteConnection</code>が呼び出され、</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="sd">/**
-</span><span class="sd">     * Create a read / write database connection instance.
-</span><span class="sd">     *
-</span><span class="sd">     * @param  array  $config
-</span><span class="sd">     * @return \Illuminate\Database\Connection
-</span><span class="sd">     */</span>
-    <span class="k">protected</span> <span class="k">function</span> <span class="nf">createReadWriteConnection</span><span class="p">(</span><span class="k">array</span> <span class="nv">$config</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$connection</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createSingleConnection</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getWriteConfig</span><span class="p">(</span><span class="nv">$config</span><span class="p">));</span>
-
-        <span class="k">return</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="na">setReadPdo</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createReadPdo</span><span class="p">(</span><span class="nv">$config</span><span class="p">));</span>
-    <span class="p">}</span>
-</code></pre></div><p>その中でwrite用のconfigがセットされてるので、どう呼び出してもwriterのconfigが見える、というオチでした。</p>
-<h2 id="まとめ">まとめ</h2>
-<p>ReadとWriteでconnectionインスタンスが切り替わってるわけではなさそうで、「Readコネクションの向き先が正しく設定できているかどうか」は<code>DB::connection('pgsql::read')-&gt;getConfig();</code>ではわからない、ということがわかりました。</p>
-<p>そのため、<code>config('database.connections.pgsql')</code>で確認できるhostが分かれていればヨシ！</p>
-
+    <h2 id="今更だけど">今更だけど</h2>
+<p><code>rem</code>について。<br>
+一回調べてなるほど〜！ってなった記憶はあるのにロジック考えずに見た目で数字決めてコミットしたの中々にテンパってたなって反省をした備忘録です。（一息）</p>
+<h2 id="remとは">remとは</h2>
+<p>基準のフォントサイズを1として考える単位。<br>
+例えば：<code>1rem=16px</code>(html要素のフォントサイズが16px)の場合、</p>
+<ul>
+<li>12px: 0.75rem</li>
+<li>14px: 0.875rem</li>
+<li>18px: 1.125rem</li>
+<li>&hellip;</li>
+</ul>
+<p>って言う感じ。</p>
+<p>「〇〇pxって何remだっけ……」ってなって他のコードと実際の表示を見にいくことが多かったんだけど、<br>
+<code>欲しいpx数/ルートのフォントサイズ(px)</code>すれば出てくる……出てくるのに……何で今まで調べなきゃ出てこないって思ってたんだろう……。</p>
+<p>反省。次からは間違えないと思います。</p>
 </section>
 
 
@@ -373,9 +304,7 @@ if (!doNotTrack) {
     
     <section class="article-tags">
         
-            <a href="/tags/laravel/">Laravel</a>
-        
-            <a href="/tags/tech/">tech</a>
+            <a href="/tags/%E6%97%A5%E8%A8%98/">日記</a>
         
     </section>
 
@@ -409,12 +338,12 @@ if (!doNotTrack) {
             
                 
 <article class="">
-    <a href="/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">
+    <a href="/p/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%A0%E3%81%AA%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</h2>
+            <h2 class="article-title">気をつけるべきだなと思ったこと</h2>
         </div>
     </a>
 </article>
@@ -422,38 +351,12 @@ if (!doNotTrack) {
             
                 
 <article class="">
-    <a href="/p/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/">
+    <a href="/p/%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E3%81%AB%E5%8F%97%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">【Laravel】独自ペジネータで自前のCollectionを使う</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">【laravel-admin】インストール＆画面作成まで 編</h2>
+            <h2 class="article-title">基本情報に受かりました</h2>
         </div>
     </a>
 </article>
@@ -583,32 +486,6 @@ if (!doNotTrack) {
         
             
                 
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#起こった問題">起こった問題</a></li>
-    <li><a href="#調べたこと">調べたこと</a></li>
-    <li><a href="#まとめ">まとめ</a></li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
             
         
             
