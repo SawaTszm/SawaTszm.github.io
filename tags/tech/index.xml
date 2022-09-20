@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>tech on sawa.md</title>
+        <title>Tech on sawa.md</title>
         <link>https://SawaTszm.github.io/tags/tech/</link>
-        <description>Recent content in tech on sawa.md</description>
+        <description>Recent content in Tech on sawa.md</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Mon, 20 Jun 2022 19:54:19 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" /><item>
@@ -18,7 +18,7 @@
 &lt;h3 id=&#34;display-contentsとは&#34;&gt;&lt;code&gt;display: contents;&lt;/code&gt;とは&lt;/h3&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://coliss.com/articles/build-websites/operation/work/how-to-work-display-contents.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;coliss&lt;/a&gt;で紹介されていました。&lt;br&gt;
-(先日勉強会で紹介されていたサイトなのでちょっとテンションが上がる(？))&lt;/p&gt;
+(先日参加した勉強会で紹介されていたサイトなのでちょっとテンションが上が理ました)&lt;/p&gt;
 &lt;p&gt;すごくざっくり言うと、&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;タグ内のコンテンツを通常通り描画しつつ、周囲のタグは完全に省略する
@@ -57,106 +57,26 @@
 &lt;/ul&gt;</description>
         </item>
         <item>
-        <title>Frontend Roadmap 学んだことまとめ</title>
-        <link>https://SawaTszm.github.io/p/frontend-roadmap-%E5%AD%A6%E3%82%93%E3%81%A0%E3%81%93%E3%81%A8%E3%81%BE%E3%81%A8%E3%82%81/</link>
-        <pubDate>Sat, 18 Jun 2022 13:10:05 +0900</pubDate>
+        <title>基本情報に受かりました</title>
+        <link>https://SawaTszm.github.io/p/%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E3%81%AB%E5%8F%97%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F/</link>
+        <pubDate>Mon, 16 May 2022 21:41:51 +0900</pubDate>
         
-        <guid>https://SawaTszm.github.io/p/frontend-roadmap-%E5%AD%A6%E3%82%93%E3%81%A0%E3%81%93%E3%81%A8%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-        <description>&lt;hr&gt;
-&lt;p&gt;フロントエンドも触るようになって、一から勉強したいけど何みたら良いかなと思っているときに&lt;a class=&#34;link&#34; href=&#34;https://roadmap.sh/frontend&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Frontend Roadmap&lt;/a&gt;なるものを知りました。&lt;br&gt;
-しばらくこれに沿って勉強しようと思うので、進めるごとに少しずつ書き進めていこうと思います。&lt;/p&gt;
-&lt;p&gt;※個人の備忘録なので、まとめ・見直すときの指標になる質問・感想などが入り乱れてます。&lt;/p&gt;
+        <guid>https://SawaTszm.github.io/p/%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E3%81%AB%E5%8F%97%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+        <description>&lt;h2 id=&#34;タイトルの通り&#34;&gt;タイトルの通り&lt;/h2&gt;
+&lt;p&gt;3月頃に思い立って申し込みをして、1ヶ月前後の勉強で受かりました。嬉しいことに午前午後どちらも9割近く取った上での合格でした。&lt;br&gt;
+全体的には、学生時代に学んだことを思い出すのに役立ったなぁと言う印象でした。&lt;/p&gt;
+&lt;p&gt;学生の頃に「ITパスポート取るか。言っても専攻だし(情報工学科だった)いけるでしょ！」と全く勉強をせずに行って落ちた経験があり、国家試験系からは長年目を背け続けていたので、受けるにあたってちょっと驚いたことがいくつかあったので書いておきます。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;internet&#34;&gt;internet&lt;/h2&gt;
-&lt;h3 id=&#34;browsers-and-how-they-work&#34;&gt;Browsers and how they work?&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://web.dev/howbrowserswork/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;How Browsers Work&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;IEが90%を支配していた時代はブラウザは「ブラックボックス」として割り切るしかなかったが、現在はOSSブラウザのシェアが上がってきた。中身を除ける最高のタイミングですよ(確かに……)&lt;/li&gt;
-&lt;li&gt;W3CがWebブラウザのの標準仕様を維持しているけど、UIの正式な仕様は指定されていない。
-&lt;ul&gt;
-&lt;li&gt;長年の経験と相互模倣が現在のグッドプラクティスを作り上げている&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://web.dev/howbrowserswork/#the-browser%27s-high-level-structure&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;高レベルの機能:&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;UI&lt;/li&gt;
-&lt;li&gt;ブラウザエンジン: UIとレンダリングエンジンの間&lt;/li&gt;
-&lt;li&gt;レンダリングエンジン: コンテンツの表示を担当。HTML/CSSの解析など。(&lt;code&gt;Trident&lt;/code&gt;, &lt;code&gt;Gecko&lt;/code&gt;,  &lt;code&gt;WebKit&lt;/code&gt;, &lt;code&gt;blink&lt;/code&gt;&amp;hellip;)&lt;/li&gt;
-&lt;li&gt;ネットワーキング&lt;/li&gt;
-&lt;li&gt;UIバックエンド: 基本的なウィジェットの描画。&lt;/li&gt;
-&lt;li&gt;JSインタプリタ: JSの解析、実行。&lt;/li&gt;
-&lt;li&gt;データストレージ: 永続層。Cookieなど。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Chromeなどのブラウザはタブごとにレンダリングエンジンの複数のインスタンスを実行する(タブが多いと重くなる訳ですね)&lt;/li&gt;
-&lt;li&gt;レンダリングエンジンのメインフロー説明できる？ &lt;a class=&#34;link&#34; href=&#34;https://web.dev/howbrowserswork/#the-main-flow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;:答え&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;DOMとは何か簡潔に説明できる？&lt;/li&gt;
-&lt;li&gt;パーサーは、「決められた定義に沿って解析していくもの」
-&lt;ul&gt;
-&lt;li&gt;HTML等の定義もW3Cが定めている&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;パースツリー + DOM = DOMツリー + StyleRules(CSS) = RenderTree&lt;/li&gt;
-&lt;li&gt;このサイトで紹介しているみたいに、WebKitのソースコード追ってみるのはありだと思った&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://web.dev/howbrowserswork/#the-render-tree-relation-to-the-dom-tree&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;続きここから:&lt;/a&gt;&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>初めてのOSS Contribute【First Contributions編】</title>
-        <link>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</link>
-        <pubDate>Wed, 05 Jan 2022 20:34:34 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEoss-contributefirst-contributions%E7%B7%A8/</guid>
-        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://firstcontributions.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;First Contributions&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Make your first open source contribution in 5 minutes.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;君も5分でOSSコントリビューターだ！(意訳)&lt;/p&gt;
-&lt;p&gt;ということで、「OSS貢献してみたいけどよくわからないなー」と思って調べていた時に発見した上記のありがたいプロジェクトで、タイトルの通りOSSコントリビュータデビューさせてもらった時の備忘録です。&lt;/p&gt;
-&lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
-&lt;p&gt;基本的にはリポジトリのREADMEに沿って進めるだけです。5分もかかりませんでした。&lt;br&gt;
-(&lt;a class=&#34;link&#34; href=&#34;https://github.com/firstcontributions/first-contributions/blob/master/translations/Translations.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;様々な言語で翻訳&lt;/a&gt;されていて、コミュニティの大きさを感じます)&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/firstcontributions/first-contributions/blob/master/translations/README.ja.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;first-contributions/README.ja.md at master · firstcontributions/first-contributions · GitHub&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;簡単な手順は以下の通り。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;k&#34;&gt;1.&lt;/span&gt; リポジトリをフォーク
-&lt;span class=&#34;k&#34;&gt;2.&lt;/span&gt; フォークしたリポジトリをクローンしてくる
-&lt;span class=&#34;k&#34;&gt;3.&lt;/span&gt; ブランチを作成
-&lt;span class=&#34;k&#34;&gt;4.&lt;/span&gt; コードを変更してコミット
-&lt;span class=&#34;k&#34;&gt;5.&lt;/span&gt; Push
-&lt;span class=&#34;k&#34;&gt;6.&lt;/span&gt; PRを送る(githubで自分のリポジトリに行くとCompare &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; pull requestボタンが表示される)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで完了です！&lt;br&gt;
-記念すべき人生初OSSコミットが&lt;a class=&#34;link&#34; href=&#34;https://github.com/firstcontributions/first-contributions/pull/46378&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;こちら&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/48425020/164728052-d4f7c7d5-bee9-4851-a560-30a7c5da4363.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;PR-image&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;botの手ですぐにmergeされました。&lt;/p&gt;
-&lt;h2 id=&#34;今後の貢献について&#34;&gt;今後の貢献について&lt;/h2&gt;
-&lt;p&gt;大体のリポジトリはREADMEや&lt;code&gt;Contribute.md&lt;/code&gt;などに貢献の方法(ルール)が明記されている(らしい)のでまずはそれを見て、気がづいたことがあれば適宜issueを立てたりPRを出して提案したりすることになりそうです。&lt;/p&gt;
-&lt;p&gt;（OSSコントリビューションというと花形のPRに目が行きがちですが、issueでのエラー報告も立派な貢献になるみたいです。言われてみれば確かに、実装中エラーに当たった時OSSのissueにはお世話になってます……）&lt;/p&gt;
-&lt;h2 id=&#34;余談&#34;&gt;余談&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;カタカナ表記の場合、&lt;code&gt;リポジトリ&lt;/code&gt;派閥と&lt;code&gt;レポジトリ&lt;/code&gt;派閥があることに気がつきました。&lt;a class=&#34;link&#34; href=&#34;https://e-words.jp/w/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;IT用語辞典&lt;/a&gt;などでも併記されているので、完全に好みの問題みたいです。&lt;/li&gt;
-&lt;li&gt;軽い気持ちでやったお試しOSSコントリビューションでしたが、これひとつで&lt;a class=&#34;link&#34; href=&#34;https://findy-code.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;findy&lt;/a&gt;の偏差値が10近く上がりました（！）。OSSへの貢献はエンジニアのハードルの一つなのかも知れないですね。&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;h3 id=&#34;早起きを証明できる試験ではなくなっていた&#34;&gt;早起きを証明できる試験ではなくなっていた&lt;/h3&gt;
+&lt;p&gt;よく基本情報についてTwitterなどで「朝早く起きて会場に行ける社会性を証明できる試験」なんて揶揄されているのを目にしていましたが、CBT方式になって時間は選び放題、なんなら&lt;strong&gt;午前と午後を別日に受けてもいい&lt;/strong&gt;と言う緩さになっていました。&lt;/p&gt;
+&lt;p&gt;正直、今回基本情報を実際に受ける気になったのも、このCBT方式で受けられると言うのを知ったから、と言うところが大きかったです。&lt;/p&gt;
+&lt;h3 id=&#34;直近の過去問が参照できない&#34;&gt;直近の過去問が参照できない&lt;/h3&gt;
+&lt;p&gt;基本情報と言えば引くほど過去問が見れるイメージがあったんですが、CBT方式になってからの過去問は公開されていないみたいです。&lt;/p&gt;
+&lt;p&gt;今はまだCBT方式になってから日が浅い＆シラバスの大幅な改訂も入っていないので、公開されている過去問を一通り解いても十分勉強になります。ただ、これからどんどん過去問と実際の問題との乖離が進んでいくんじゃないかなーと思います。&lt;/p&gt;
+&lt;p&gt;(そもそもCBT方式にしてから合格者の割合がグッと増えてるらしいので、そう言う意味ではちょうど良いところに落ち着くのかも？)&lt;/p&gt;
+&lt;h3 id=&#34;応用情報はまだ紙試験&#34;&gt;応用情報はまだ紙試験&lt;/h3&gt;
+&lt;p&gt;この勢いで応用情報も受けようかな〜と思ったんですが、応用情報の方はまだ筆記らしくて悩んでます。&lt;br&gt;
+朝起きれないし、一日に午前午後で集中力続く気がしないので……(社会適応力皆無)。&lt;/p&gt;</description>
         </item>
         <item>
         <title>【Python】フォーマット済み文字列リテラル</title>
@@ -254,10 +174,10 @@
         
         <guid>https://SawaTszm.github.io/p/aws-sam%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%A7cloudwatch%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;バッチ処理も AWS Lambda で書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。&lt;/p&gt;
+&lt;p&gt;バッチ処理もAWS Lambdaで書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。&lt;/p&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;できる。&lt;br&gt;
-し、わかりやすい。&lt;br&gt;
+&lt;p&gt;できます。&lt;br&gt;
+し、かなりわかりやすいです。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;~https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-scheduledevents-example-use-app-spec.html~&#34; &gt;CloudWatch イベント アプリケーションの AWS SAM テンプレート&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;記述例&#34;&gt;記述例&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;AWSTemplateFormatVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2010-09-09&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -281,11 +201,9 @@
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Properties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 実行タイミングを決める&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Schedule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;cron(0 0 ? * SUN *)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最後の&lt;code&gt;Schedule&lt;/code&gt;式は、&lt;code&gt;rate&lt;/code&gt;と&lt;code&gt;cron&lt;/code&gt;のどちらでも使える。&lt;br&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最後の&lt;code&gt;Schedule&lt;/code&gt;式は、&lt;code&gt;rate&lt;/code&gt;と&lt;code&gt;cron&lt;/code&gt;のどちらでも使えます。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;~https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html~&#34; &gt;Rate または Cron を使用したスケジュール式&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;次調べること&#34;&gt;次調べること&lt;/h2&gt;
-&lt;p&gt;そもそもの&lt;code&gt;template.yml&lt;/code&gt;を先輩に書いて貰っていて、&lt;br&gt;
-あまり内容と記述方法を把握仕切れていないので確認する。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
 &lt;p&gt;ざっと見て参考にさせてもらいたいなと思った記事(と公式ドキュメント):&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;~https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html~&#34; &gt;What Is the AWS Serverless Application Model (AWS SAM)?&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;~https://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/tutorial-lambda-sam.html~&#34; &gt;チュートリアル: CodeDeploy および AWS サーバーレスアプリケーションモデル を使用して更新された Lambda 関数をデプロイする&lt;/a&gt;&lt;br&gt;
@@ -589,7 +507,7 @@ DB ファザードであれば、DB の操作に便利なメソッドがたく�
         
         <guid>https://SawaTszm.github.io/p/dockernginxdocker-compose%E4%B8%8A%E3%81%AEnginx%E3%82%92https%E5%AF%BE%E5%BF%9C%E3%81%99%E3%82%8B%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E7%B7%A8/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;docker-composeで立てたnginxをhttps対応にする。&lt;br&gt;
+&lt;p&gt;docker-composeで立てたnginxをhttps対応にしたい。&lt;br&gt;
 あくまでも開発環境用なのでオレオレ証明書です。&lt;/p&gt;
 &lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
 &lt;h3 id=&#34;自己署名証明書をサクッと作成する&#34;&gt;自己署名証明書をサクッと作成する&lt;/h3&gt;
@@ -641,7 +559,7 @@ web_1                 nginx -g daemon off&lt;span class=&#34;p&#34;&gt;;&lt;/spa
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;オレオレ証明書なので接続時に警告が出ますが、ひとまずこれでhttpsでの接続が可能になりました。&lt;/p&gt;
 &lt;h2 id=&#34;補足laravel-admin対応&#34;&gt;【補足】laravel-admin対応&lt;/h2&gt;
 &lt;h3 id=&#34;環境変数の更新&#34;&gt;環境変数の更新&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;.env&lt;/code&gt;の&lt;code&gt;APP_URL&lt;/code&gt;を更新する。&lt;br&gt;
+&lt;p&gt;&lt;code&gt;.env&lt;/code&gt;の&lt;code&gt;APP_URL&lt;/code&gt;を更新します。&lt;br&gt;
 &lt;code&gt;APP_URL=https://~~~&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;ちなみに実際の作業時、ここをちゃんとhttpsにはしてたんですが、お試しデプロイ時にlocalhostにしたままにしてしまって遷移先が全部つながらずフフ……となるなどしました。&lt;/p&gt;
 &lt;h3 id=&#34;設定ファイルの更新&#34;&gt;設定ファイルの更新&lt;/h3&gt;
@@ -652,7 +570,7 @@ web_1                 nginx -g daemon off&lt;span class=&#34;p&#34;&gt;;&lt;/spa
     &gt;オレだよオレオレ認証局で証明書つくる - Qiita&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://tomcky.hatenadiary.jp/entry/2018/01/28/193719&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Nginx on DockerでHTTPS接続できるローカルサーバーを用意する - Tomcky’s blog&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;これも大事&lt;br&gt;
+&lt;p&gt;これも大事:&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://qiita.com/Sheile/items/dc91128e8918fc823562&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;オレオレ証明書を使いたがる人を例を用いて説得する - Qiita&lt;/a&gt;&lt;/p&gt;</description>
         </item>
@@ -1718,7 +1636,7 @@ JSON とか。&lt;/p&gt;
 &lt;p&gt;pythonの環境管理ツールです。&lt;br&gt;
 機能としては&lt;code&gt;pipenv&lt;/code&gt;に近い感じでした。&lt;/p&gt;
 &lt;p&gt;本当に触りだけやってみたリポジトリはこちら。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/SawaTszm/sample-poetry&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/SawaTszm/playground/tree/main/python_poetry&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;sample-poetry&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$pip&lt;/span&gt; install poetry
@@ -1775,23 +1693,25 @@ JSON とか。&lt;/p&gt;
 &lt;li&gt;try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか)&lt;/li&gt;
 &lt;li&gt;ネストしたエラーの扱いってどうするのが良いんだろう&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;p&gt;呼び出された先の例外もキャッチできます&lt;em&gt;φ(･&lt;/em&gt;･&lt;/p&gt;
 &lt;h2 id=&#34;調べて知ったこと&#34;&gt;調べて知ったこと&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;エラーには&lt;strong&gt;構文エラー&lt;/strong&gt;と&lt;strong&gt;例外&lt;/strong&gt;がある。&lt;/li&gt;
-&lt;li&gt;複数の例外を指定することができる。&lt;/li&gt;
+&lt;li&gt;エラーには&lt;strong&gt;構文エラー&lt;/strong&gt;と&lt;strong&gt;例外&lt;/strong&gt;がある&lt;/li&gt;
+&lt;li&gt;複数の例外を指定することができる&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;ne&#34;&gt;RuntimeError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;TypeError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;NameError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;except&lt;/code&gt;は上から順に見て、引っかかったタイミングでその&lt;code&gt;except&lt;/code&gt;節内部のみを実行する。&lt;/li&gt;
-&lt;li&gt;最後の except 節では例外名を省いて、ワイルドカードにすることができる。
+&lt;li&gt;&lt;code&gt;except&lt;/code&gt;は上から順に見て、引っかかったタイミングでその&lt;code&gt;except&lt;/code&gt;節内部のみを実行する&lt;/li&gt;
+&lt;li&gt;最後の except 節では例外名を省いて、ワイルドカードにすることができる
 &lt;ul&gt;
-&lt;li&gt;しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。&lt;/li&gt;
+&lt;li&gt;しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Try…except&lt;/code&gt;の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。
+&lt;li&gt;&lt;code&gt;Try…except&lt;/code&gt;の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く
 &lt;ul&gt;
-&lt;li&gt;try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。&lt;/li&gt;
+&lt;li&gt;try 節で全く例外が創出されなかった時に実行されるコードを記述することができる&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1810,7 +1730,7 @@ JSON とか。&lt;/p&gt;
     &gt;8. エラーと例外 — Python 3.8.1 ドキュメント&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Except 節では例外名の後に変数を指定できる。  この変数は例外インスタンスに結び付けられ、&lt;code&gt;instance.args&lt;/code&gt;に例外インスタンス生成時の引数が入る。&lt;/p&gt;
+&lt;p&gt;Except 節では例外名の後に変数を指定できる。この変数は例外インスタンスに結び付けられ、&lt;code&gt;instance.args&lt;/code&gt;に例外インスタンス生成時の引数が入る。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;例外インスタンスに実装されている&lt;code&gt;__str__&lt;/code&gt;は&lt;code&gt;instance.args&lt;/code&gt;をわざわざ出力しなくても見られるようになっているので、&lt;code&gt;print(inst)&lt;/code&gt;で見られる。便利。&lt;/li&gt;
 &lt;/ul&gt;
@@ -1828,9 +1748,7 @@ JSON とか。&lt;/p&gt;
 &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;     &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Handling run-time error:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Handling&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;division&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;zero&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;呼び出された先の例外もキャッチできる！&lt;em&gt;φ(･&lt;/em&gt;･&lt;/p&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>【Pytyon】リストの重複要素をカウントする</title>
@@ -1970,7 +1888,7 @@ OK
 &lt;code&gt;Key = (value1, value2, ...)&lt;/code&gt;の形。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Valueの追加、削除、存在のテスト(要素の数に関係なく一定時間で動作)が可能&lt;/li&gt;
-&lt;li&gt;重複を許可せず、よし何してくれるので存在を確認してから追加する必要がない&lt;/li&gt;
+&lt;li&gt;重複を許可せず、よしなにしてくれるので存在を確認してから追加する必要がない&lt;/li&gt;
 &lt;li&gt;セット内の最大数は4294967295&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; SADD set-key value1 value2 value3

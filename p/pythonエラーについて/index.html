@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  結論 呼び出された先の例外もキャッチできますφ(･･
+調べて知ったこと  エラーには構文エラーと例外がある 複数の例外を指定することができる  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
-8. エラーと例外 — Python 3.8.1 ドキュメント
-  Except 節では例外名の後に変数を指定できる。 この変数は例外インスタンスに結び付けられ、instance.'><title>【Python】エラーについて</title>
+8. エラーと例外 — Python 3.8.1 ドキュメント'><title>【Python】エラーについて</title>
 
 <link rel='canonical' href='https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/'>
 
 <link rel="stylesheet" href="/scss/style.min.7b8ba33adce1f9ddb87495243de44f914ce30889d90a01c384b0fbf57194d810.css"><meta property='og:title' content='【Python】エラーについて'>
-<meta property='og:description' content='知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
+<meta property='og:description' content='知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  結論 呼び出された先の例外もキャッチできますφ(･･
+調べて知ったこと  エラーには構文エラーと例外がある 複数の例外を指定することができる  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
-8. エラーと例外 — Python 3.8.1 ドキュメント
-  Except 節では例外名の後に変数を指定できる。 この変数は例外インスタンスに結び付けられ、instance.'>
+8. エラーと例外 — Python 3.8.1 ドキュメント'>
 <meta property='og:url' content='https://SawaTszm.github.io/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/'>
 <meta property='og:site_name' content='sawa.md'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python' /><meta property='article:tag' content='Tech' /><meta property='article:published_time' content='2021-02-19T12:01:46&#43;09:00'/><meta property='article:modified_time' content='2021-02-19T12:01:46&#43;09:00'/>
 <meta name="twitter:site" content="@SawaTszm">
     <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="【Python】エラーについて">
-<meta name="twitter:description" content="知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  調べて知ったこと  エラーには構文エラーと例外がある。 複数の例外を指定することができる。  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する。 最後の except 節では例外名を省いて、ワイルドカードにすることができる。  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
+<meta name="twitter:description" content="知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  結論 呼び出された先の例外もキャッチできますφ(･･
+調べて知ったこと  エラーには構文エラーと例外がある 複数の例外を指定することができる  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
-8. エラーと例外 — Python 3.8.1 ドキュメント
-  Except 節では例外名の後に変数を指定できる。 この変数は例外インスタンスに結び付けられ、instance.">
+8. エラーと例外 — Python 3.8.1 ドキュメント">
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
 <script type="application/javascript">
@@ -295,23 +295,25 @@ if (!doNotTrack) {
 <li>try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか)</li>
 <li>ネストしたエラーの扱いってどうするのが良いんだろう</li>
 </ul>
+<h2 id="結論">結論</h2>
+<p>呼び出された先の例外もキャッチできます<em>φ(･</em>･</p>
 <h2 id="調べて知ったこと">調べて知ったこと</h2>
 <ul>
-<li>エラーには<strong>構文エラー</strong>と<strong>例外</strong>がある。</li>
-<li>複数の例外を指定することができる。</li>
+<li>エラーには<strong>構文エラー</strong>と<strong>例外</strong>がある</li>
+<li>複数の例外を指定することができる</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">except</span> <span class="p">(</span><span class="ne">RuntimeError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div><ul>
-<li><code>except</code>は上から順に見て、引っかかったタイミングでその<code>except</code>節内部のみを実行する。</li>
-<li>最後の except 節では例外名を省いて、ワイルドカードにすることができる。
+<li><code>except</code>は上から順に見て、引っかかったタイミングでその<code>except</code>節内部のみを実行する</li>
+<li>最後の except 節では例外名を省いて、ワイルドカードにすることができる
 <ul>
-<li>しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。</li>
+<li>しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要</li>
 </ul>
 </li>
-<li><code>Try…except</code>の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。
+<li><code>Try…except</code>の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く
 <ul>
-<li>try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。</li>
+<li>try 節で全く例外が創出されなかった時に実行されるコードを記述することができる</li>
 </ul>
 </li>
 </ul>
@@ -330,7 +332,7 @@ if (!doNotTrack) {
     >8. エラーと例外 — Python 3.8.1 ドキュメント</a></p>
 <ul>
 <li>
-<p>Except 節では例外名の後に変数を指定できる。  この変数は例外インスタンスに結び付けられ、<code>instance.args</code>に例外インスタンス生成時の引数が入る。</p>
+<p>Except 節では例外名の後に変数を指定できる。この変数は例外インスタンスに結び付けられ、<code>instance.args</code>に例外インスタンス生成時の引数が入る。</p>
 <ul>
 <li>例外インスタンスに実装されている<code>__str__</code>は<code>instance.args</code>をわざわざ出力しなくても見られるようになっているので、<code>print(inst)</code>で見られる。便利。</li>
 </ul>
@@ -348,9 +350,7 @@ if (!doNotTrack) {
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Handling run-time error:&#39;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="n">Handling</span> <span class="n">run</span><span class="o">-</span><span class="n">time</span> <span class="n">error</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-</code></pre></div><h2 id="結論">結論</h2>
-<p>呼び出された先の例外もキャッチできる！<em>φ(･</em>･</p>
-
+</code></pre></div>
 </section>
 
 
@@ -360,7 +360,7 @@ if (!doNotTrack) {
         
             <a href="/tags/python/">python</a>
         
-            <a href="/tags/tech/">tech</a>
+            <a href="/tags/tech/">Tech</a>
         
     </section>
 
@@ -587,8 +587,8 @@ if (!doNotTrack) {
             <nav id="TableOfContents">
   <ol>
     <li><a href="#知りたかったこと">知りたかったこと</a></li>
-    <li><a href="#調べて知ったこと">調べて知ったこと</a></li>
     <li><a href="#結論">結論</a></li>
+    <li><a href="#調べて知ったこと">調べて知ったこと</a></li>
   </ol>
 </nav>
         </div>
@@ -639,7 +639,7 @@ if (!doNotTrack) {
                     <a href="/archives/#2022">
                         
                             <span class="year">2022</span>
-                            <span class="count">8</span>
+                            <span class="count">6</span>
                         
                     </a> 
                 </div>
@@ -672,8 +672,8 @@ if (!doNotTrack) {
 
     <div class="tagCloud-tags">
         
-            <a href="/tags/tech/" class="font_size_21">
-                tech
+            <a href="/tags/tech/" class="font_size_20">
+                Tech
             </a>
         
             <a href="/tags/%E6%97%A5%E8%A8%98/" class="font_size_6">

@@ -93,7 +93,7 @@ OK
 &lt;code&gt;Key = (value1, value2, ...)&lt;/code&gt;の形。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Valueの追加、削除、存在のテスト(要素の数に関係なく一定時間で動作)が可能&lt;/li&gt;
-&lt;li&gt;重複を許可せず、よし何してくれるので存在を確認してから追加する必要がない&lt;/li&gt;
+&lt;li&gt;重複を許可せず、よしなにしてくれるので存在を確認してから追加する必要がない&lt;/li&gt;
 &lt;li&gt;セット内の最大数は4294967295&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; SADD set-key value1 value2 value3

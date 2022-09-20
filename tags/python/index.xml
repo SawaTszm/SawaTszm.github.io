@@ -326,7 +326,7 @@ JSON とか。&lt;/p&gt;
 &lt;p&gt;pythonの環境管理ツールです。&lt;br&gt;
 機能としては&lt;code&gt;pipenv&lt;/code&gt;に近い感じでした。&lt;/p&gt;
 &lt;p&gt;本当に触りだけやってみたリポジトリはこちら。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/SawaTszm/sample-poetry&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/SawaTszm/playground/tree/main/python_poetry&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;sample-poetry&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$pip&lt;/span&gt; install poetry
@@ -383,23 +383,25 @@ JSON とか。&lt;/p&gt;
 &lt;li&gt;try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか)&lt;/li&gt;
 &lt;li&gt;ネストしたエラーの扱いってどうするのが良いんだろう&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;p&gt;呼び出された先の例外もキャッチできます&lt;em&gt;φ(･&lt;/em&gt;･&lt;/p&gt;
 &lt;h2 id=&#34;調べて知ったこと&#34;&gt;調べて知ったこと&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;エラーには&lt;strong&gt;構文エラー&lt;/strong&gt;と&lt;strong&gt;例外&lt;/strong&gt;がある。&lt;/li&gt;
-&lt;li&gt;複数の例外を指定することができる。&lt;/li&gt;
+&lt;li&gt;エラーには&lt;strong&gt;構文エラー&lt;/strong&gt;と&lt;strong&gt;例外&lt;/strong&gt;がある&lt;/li&gt;
+&lt;li&gt;複数の例外を指定することができる&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;ne&#34;&gt;RuntimeError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;TypeError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;NameError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;except&lt;/code&gt;は上から順に見て、引っかかったタイミングでその&lt;code&gt;except&lt;/code&gt;節内部のみを実行する。&lt;/li&gt;
-&lt;li&gt;最後の except 節では例外名を省いて、ワイルドカードにすることができる。
+&lt;li&gt;&lt;code&gt;except&lt;/code&gt;は上から順に見て、引っかかったタイミングでその&lt;code&gt;except&lt;/code&gt;節内部のみを実行する&lt;/li&gt;
+&lt;li&gt;最後の except 節では例外名を省いて、ワイルドカードにすることができる
 &lt;ul&gt;
-&lt;li&gt;しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要。&lt;/li&gt;
+&lt;li&gt;しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Try…except&lt;/code&gt;の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く。
+&lt;li&gt;&lt;code&gt;Try…except&lt;/code&gt;の中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く
 &lt;ul&gt;
-&lt;li&gt;try 節で全く例外が創出されなかった時に実行されるコードを記述することができる。&lt;/li&gt;
+&lt;li&gt;try 節で全く例外が創出されなかった時に実行されるコードを記述することができる&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -418,7 +420,7 @@ JSON とか。&lt;/p&gt;
     &gt;8. エラーと例外 — Python 3.8.1 ドキュメント&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Except 節では例外名の後に変数を指定できる。  この変数は例外インスタンスに結び付けられ、&lt;code&gt;instance.args&lt;/code&gt;に例外インスタンス生成時の引数が入る。&lt;/p&gt;
+&lt;p&gt;Except 節では例外名の後に変数を指定できる。この変数は例外インスタンスに結び付けられ、&lt;code&gt;instance.args&lt;/code&gt;に例外インスタンス生成時の引数が入る。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;例外インスタンスに実装されている&lt;code&gt;__str__&lt;/code&gt;は&lt;code&gt;instance.args&lt;/code&gt;をわざわざ出力しなくても見られるようになっているので、&lt;code&gt;print(inst)&lt;/code&gt;で見られる。便利。&lt;/li&gt;
 &lt;/ul&gt;
@@ -436,9 +438,7 @@ JSON とか。&lt;/p&gt;
 &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;     &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Handling run-time error:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Handling&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;division&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;zero&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;呼び出された先の例外もキャッチできる！&lt;em&gt;φ(･&lt;/em&gt;･&lt;/p&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>【Pytyon】リストの重複要素をカウントする</title>

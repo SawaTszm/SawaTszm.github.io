@@ -13,7 +13,7 @@
         
         <guid>https://SawaTszm.github.io/p/dockernginxdocker-compose%E4%B8%8A%E3%81%AEnginx%E3%82%92https%E5%AF%BE%E5%BF%9C%E3%81%99%E3%82%8B%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E7%B7%A8/</guid>
         <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;docker-composeで立てたnginxをhttps対応にする。&lt;br&gt;
+&lt;p&gt;docker-composeで立てたnginxをhttps対応にしたい。&lt;br&gt;
 あくまでも開発環境用なのでオレオレ証明書です。&lt;/p&gt;
 &lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
 &lt;h3 id=&#34;自己署名証明書をサクッと作成する&#34;&gt;自己署名証明書をサクッと作成する&lt;/h3&gt;
@@ -65,7 +65,7 @@ web_1                 nginx -g daemon off&lt;span class=&#34;p&#34;&gt;;&lt;/spa
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;オレオレ証明書なので接続時に警告が出ますが、ひとまずこれでhttpsでの接続が可能になりました。&lt;/p&gt;
 &lt;h2 id=&#34;補足laravel-admin対応&#34;&gt;【補足】laravel-admin対応&lt;/h2&gt;
 &lt;h3 id=&#34;環境変数の更新&#34;&gt;環境変数の更新&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;.env&lt;/code&gt;の&lt;code&gt;APP_URL&lt;/code&gt;を更新する。&lt;br&gt;
+&lt;p&gt;&lt;code&gt;.env&lt;/code&gt;の&lt;code&gt;APP_URL&lt;/code&gt;を更新します。&lt;br&gt;
 &lt;code&gt;APP_URL=https://~~~&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;ちなみに実際の作業時、ここをちゃんとhttpsにはしてたんですが、お試しデプロイ時にlocalhostにしたままにしてしまって遷移先が全部つながらずフフ……となるなどしました。&lt;/p&gt;
 &lt;h3 id=&#34;設定ファイルの更新&#34;&gt;設定ファイルの更新&lt;/h3&gt;
@@ -76,7 +76,7 @@ web_1                 nginx -g daemon off&lt;span class=&#34;p&#34;&gt;;&lt;/spa
     &gt;オレだよオレオレ認証局で証明書つくる - Qiita&lt;/a&gt;&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://tomcky.hatenadiary.jp/entry/2018/01/28/193719&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Nginx on DockerでHTTPS接続できるローカルサーバーを用意する - Tomcky’s blog&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;これも大事&lt;br&gt;
+&lt;p&gt;これも大事:&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://qiita.com/Sheile/items/dc91128e8918fc823562&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;オレオレ証明書を使いたがる人を例を用いて説得する - Qiita&lt;/a&gt;&lt;/p&gt;</description>
         </item>

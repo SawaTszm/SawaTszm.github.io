@@ -282,10 +282,10 @@ if (!doNotTrack) {
     
     
     <h2 id="目的">目的</h2>
-<p>バッチ処理も AWS Lambda で書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。</p>
+<p>バッチ処理もAWS Lambdaで書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。</p>
 <h2 id="結論">結論</h2>
-<p>できる。<br>
-し、わかりやすい。<br>
+<p>できます。<br>
+し、かなりわかりやすいです。<br>
 <a class="link" href="~https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-scheduledevents-example-use-app-spec.html~" >CloudWatch イベント アプリケーションの AWS SAM テンプレート</a></p>
 <h2 id="記述例">記述例</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2010-09-09&#34;</span><span class="w">
@@ -309,11 +309,9 @@ if (!doNotTrack) {
 </span><span class="w">          </span><span class="nt">Properties</span><span class="p">:</span><span class="w">
 </span><span class="w">            </span><span class="c"># 実行タイミングを決める</span><span class="w">
 </span><span class="w">            </span><span class="nt">Schedule</span><span class="p">:</span><span class="w"> </span><span class="l">cron(0 0 ? * SUN *)</span><span class="w">
-</span></code></pre></div><p>最後の<code>Schedule</code>式は、<code>rate</code>と<code>cron</code>のどちらでも使える。<br>
+</span></code></pre></div><p>最後の<code>Schedule</code>式は、<code>rate</code>と<code>cron</code>のどちらでも使えます。<br>
 <a class="link" href="~https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html~" >Rate または Cron を使用したスケジュール式</a></p>
-<h2 id="次調べること">次調べること</h2>
-<p>そもそもの<code>template.yml</code>を先輩に書いて貰っていて、<br>
-あまり内容と記述方法を把握仕切れていないので確認する。</p>
+<h2 id="参考">参考</h2>
 <p>ざっと見て参考にさせてもらいたいなと思った記事(と公式ドキュメント):<br>
 <a class="link" href="~https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html~" >What Is the AWS Serverless Application Model (AWS SAM)?</a><br>
 <a class="link" href="~https://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/tutorial-lambda-sam.html~" >チュートリアル: CodeDeploy および AWS サーバーレスアプリケーションモデル を使用して更新された Lambda 関数をデプロイする</a><br>
@@ -327,7 +325,7 @@ if (!doNotTrack) {
         
             <a href="/tags/aws/">AWS</a>
         
-            <a href="/tags/tech/">tech</a>
+            <a href="/tags/tech/">Tech</a>
         
     </section>
 
@@ -495,7 +493,7 @@ if (!doNotTrack) {
     <li><a href="#目的">目的</a></li>
     <li><a href="#結論">結論</a></li>
     <li><a href="#記述例">記述例</a></li>
-    <li><a href="#次調べること">次調べること</a></li>
+    <li><a href="#参考">参考</a></li>
   </ol>
 </nav>
         </div>
@@ -546,7 +544,7 @@ if (!doNotTrack) {
                     <a href="/archives/#2022">
                         
                             <span class="year">2022</span>
-                            <span class="count">8</span>
+                            <span class="count">6</span>
                         
                     </a> 
                 </div>
@@ -579,8 +577,8 @@ if (!doNotTrack) {
 
     <div class="tagCloud-tags">
         
-            <a href="/tags/tech/" class="font_size_21">
-                tech
+            <a href="/tags/tech/" class="font_size_20">
+                Tech
             </a>
         
             <a href="/tags/%E6%97%A5%E8%A8%98/" class="font_size_6">
