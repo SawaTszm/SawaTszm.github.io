@@ -1,309 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>MySQL on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/mysql/</link>
-        <description>Recent content in MySQL on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
-        <link>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;laravel-admin使いたいだけの用途にLaradockは重すぎる……&lt;br&gt;
-ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。&lt;br&gt;
-その上でlaravel-adminの管理画面まで開けるようにしてみます。&lt;/p&gt;
-&lt;h2 id=&#34;構成&#34;&gt;構成&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;project_root_dir
-├── docker-compose.yml
-├── docker
-│   ├── nginx
-│   │   ├── Dockerfile
-│   │   └── default.conf
-│   ├── php
-│   │   └── Dockerfile
-│   └── db
-│   │   ├── my.cnf
-│       └── Dockerfile
-└── laravel
-        └── ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
-&lt;h3 id=&#34;docker-composeymlを作成&#34;&gt;docker-compose.ymlを作成&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    app:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            context: .&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            dockerfile: ./docker/php/Dockerfile&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            args:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;                PROJECT_NAME: app_admin&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - database&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - database&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        tty: true&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    database:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        image: mysql:5.7&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        env_file: .env_db&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;23306:3306&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    web:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build: ./docker/nginx&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - 80:80&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;appコンテナ設定&#34;&gt;appコンテナ設定&lt;/h3&gt;
-&lt;p&gt;composerはもうここに含めます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker&#34; data-lang=&#34;Docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/php/Dockerfile&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; php:7-fpm&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; php.ini /usr/local/etc/php/&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  libfreetype6-dev libjpeg62-turbo-dev libpng-dev libmcrypt-dev libonig-dev &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  git vim unzip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; docker-php-ext-install pdo_mysql mysqli gd iconv &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get clean&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# install composer&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; curl -sS https://getcomposer.org/installer &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; php -- --install-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/bin --filename&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;composer&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;webコンテナ設定&#34;&gt;webコンテナ設定&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker&#34; data-lang=&#34;Docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/nginx/Dockerfile&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; nginx:latest&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    vim &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    unzip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    zip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    git&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後々laravelディレクトリを作るので、設定ファイルのルートは&lt;code&gt;/var/www/html/laravel/~&lt;/code&gt;にしておきます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/nginx/default.conf&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;server &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    listen       80&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    index index.php index.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    server_name php-docker.local&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    error_log  /var/log/nginx/error.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    access_log /var/log/nginx/access.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    root /var/www/html/laravel/public&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# ココ&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location / &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;     try_files &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt;/ @laravel&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# redirect server error pages to the static page /50x.html&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    error_page   &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;502&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;503&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;504&lt;/span&gt;  /50x.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; /50x.html &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        root /var/www/html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location ~ &lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php$ &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    try_files &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt;/ @laravel&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_split_path_info ^&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;.+&lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php&lt;span class=&#34;o&#34;&gt;)(&lt;/span&gt;/.+&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;$&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_pass app:9000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_index index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        include fastcgi_params&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param SCRIPT_FILENAME &lt;span class=&#34;nv&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param PATH_INFO &lt;span class=&#34;nv&#34;&gt;$fastcgi_path_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location @laravel &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_split_path_info ^&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;.+&lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php&lt;span class=&#34;o&#34;&gt;)(&lt;/span&gt;/.+&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;$&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_pass app:9000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_index index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        include fastcgi_params&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  // ココ&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param PATH_INFO &lt;span class=&#34;nv&#34;&gt;$fastcgi_path_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dbコンテナの設定&#34;&gt;dbコンテナの設定&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker/database/my.cnf&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysql&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;default-character-set&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysqld&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;sql-mode&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;character-set-server&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;collation-server&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4_general_ci&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysqld_safe&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;timezone&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; UTC&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;default-time-zone &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; UTC&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はHOST情報などを&lt;code&gt;.enb_db&lt;/code&gt;(docker-compose.ymlで指定したファイル)に記述する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;MYSQL_DATABASE=[my_database_name]
-MYSQL_USERNAME=root
-MYSQL_PASSWORD=
-MYSQL_HOSTNAME=127.0.0.1
-MYSQL_ROOT_PASSWORD=
-API_MYSQL_PORT=23306
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;起動laravelのインストール&#34;&gt;起動＆Laravelのインストール&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 起動&lt;/span&gt;
-$ docker-compose up -d
-
-&lt;span class=&#34;c1&#34;&gt;# laravelプロジェクトの作成&lt;/span&gt;
-$ docker-compose &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; app /bin/bash  
-app$ composer create-project --prefer-dist laravel/laravel laravel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://localhost/&lt;/a&gt; でwelcomページが見られるようになる。&lt;/p&gt;
-&lt;h3 id=&#34;laravel環境変数ファイルの修正&#34;&gt;Laravel環境変数ファイルの修正&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;laravel/.env&lt;/code&gt;を、DB情報を作成したdockerコンテナに合わせて修正。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=[my_database_name]
-DB_USERNAME=root
-DB_PASSWORD=
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;laravel-adminをインストール&#34;&gt;laravel-adminをインストール&lt;/h3&gt;
-&lt;p&gt;composerを使用してインストールし、有効化する。
-&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/en/installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;公式ドキュメント&lt;/a&gt;がかなりまとまっていて素敵です。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ docker-compose &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; app /bin/bash 
-app $ &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; laravel
-app/laravel $ composer require encore/laravel-admin
-app/laravel $ php artisan vendor:publish --provider&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34;&lt;/span&gt;
-app/laravel $ php artisan admin:install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost/admin/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://localhost/admin/&lt;/a&gt;に接続して、ログイン画面が出ればおk！&lt;br&gt;
-admin/adminで入れます。&lt;/p&gt;
-&lt;h2 id=&#34;補足既にある開発環境のdbコンテナに接続する&#34;&gt;補足：既にある開発環境のDBコンテナに接続する&lt;/h2&gt;
-&lt;p&gt;なんらかの理由で、管理画面開発に使用したいDBコンテナが既存の&lt;code&gt;docker-compose.yml&lt;/code&gt;にある場合。&lt;br&gt;
-(開発側はPythonでもりもり作業してるからLaravelのディレクトリ混ぜたくないとかそう言った場合)&lt;/p&gt;
-&lt;p&gt;前提として、以下であれば比較的簡単に繋げられます。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DBコンテナ側でなんらかのDockerNetworkを設定している&lt;/li&gt;
-&lt;li&gt;開発環境の方でも&lt;code&gt;docker-compose up -d&lt;/code&gt;を実行している
-(直接でも良いし、もしくは開発環境のリポジトリをサブモジュール として引っ張ってきて叩くなどする)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例えば&lt;code&gt;test-app&lt;/code&gt;という名前のnetworkを設定している↓のであれば、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 既存docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  database:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    hostname: database&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    image: mysql:5.7&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    ~~~&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;      - default&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  default:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    name: test-app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;管理画面側のdocker-compose.ymlでそれを使用するように書き換える↓&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    app:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            context: .&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            dockerfile: ./docker/php/Dockerfile&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            args:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;                PROJECT_NAME: recipe_app_admin&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        tty: true&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - default&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# dbコンテナの設定は不要になる&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    web:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build: ./docker/nginx&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - 80:80&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - default&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  default:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    name: test-app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    external: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 外部ファイルで設定していることを指定&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に&lt;code&gt;docker-compose up -d&lt;/code&gt;を叩くだけです。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>【MySQL】外部キー追加時にエラー</title>
-        <link>https://SawaTszm.github.io/p/mysql%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/mysql%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</guid>
-        <description>&lt;h2 id=&#34;エラー&#34;&gt;エラー&lt;/h2&gt;
-&lt;p&gt;外部キー制約を追加しようとした時、下記エラーで怒られました。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ERROR &lt;span class=&#34;m&#34;&gt;1215&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;HY000&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: Cannot add foreign key constraint
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;“外部キー制約を追加できません”&lt;/p&gt;
-&lt;p&gt;もっと詳細なエラーログが……ほしい……！
-と思ったので調べました。&lt;/p&gt;
-&lt;h2 id=&#34;show-engine-innodb-status-で外部キー制約時のエラーを確認&#34;&gt;SHOW ENGINE INNODB STATUS で外部キー制約時のエラーを確認&lt;/h2&gt;
-&lt;p&gt;恐らくとてつもなく初歩的な話だと思うのですが、&lt;strong&gt;SHOW ENGINE 構文&lt;/strong&gt;なるものがあると。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ENGINE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;INNODB&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;STATUS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;SHOW ENGINE INNODB STATUS&lt;strong&gt;は、&lt;strong&gt;InnoDB&lt;/strong&gt;ストレージエンジンの状態に関する&lt;/strong&gt;InnoDB&lt;strong&gt;標準モニターからの広範囲にわたる情報を表示します。&lt;/strong&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://dev.mysql.com/doc/refman/5.6/ja/show-engine.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;便利だ！！！！！&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;実践&#34;&gt;実践&lt;/h2&gt;
-&lt;p&gt;早速入って見てみます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;$ docker exec -it [docker-name] bash
-# mysql -u [username] -p
-&amp;gt; SHOW ENGINE INNODB STATUS
-
-------------------------
-LATEST FOREIGN KEY ERROR
-------------------------
-Cannot find an index in the referenced table where the
-referenced columns appear as the first columns, or column types
-in the table and the referenced table do not match for constraint.
-Note that the internal storage type of ENUM and SET changed in
-tables created with &amp;gt;= InnoDB-4.1.12, and such columns in old tables
-cannot be referenced by such columns in new tables.
-Please refer to http://dev.mysql.com/doc/refman/5.7/en/innodb-foreign-key-constraints.html for correct foreign key definition.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;“参照された列が最初の列として表示される参照された表にインデックスが見つからないか、テーブルの列タイプと参照された表が制約に一致しません”&lt;/p&gt;
-&lt;p&gt;この一文に沿って見てみたら、参照される側のテーブルの項目と参照するテーブルの項目が合っていませんでした。&lt;/p&gt;
-&lt;p&gt;ちなみにこのエラーの前は(調べる前に気がつきましたが)「参照される側のテーブルの項目は PRIMARY KEY でなくてはならない」と言うのを忘れて外部キーを設定しようとしてました。&lt;br&gt;
-正月ボケだね〜フフと言いたいところですが、これは単純な初心者ボケ(ガチ)です。&lt;/p&gt;
-&lt;p&gt;型を参照される側のテーブルの項目に合わせたら無事設定できました。&lt;/p&gt;
-&lt;h2 id=&#34;参考にさせて頂いたもの&#34;&gt;参考にさせて頂いたもの&lt;/h2&gt;
-&lt;p&gt;お世話になりました。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dev.mysql.com/doc/refman/5.6/ja/show-engine.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://taupe.site/entry/cannot-add-foreign-key-constraint/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;MySQL の外部キー追加時にエラー…ERROR 1215 (HY000): Cannot add foreign key constraint&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://soudai.hatenablog.com/entry/2017/12/20/030013&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;なぜあなたは SHOW ENGINE INNODB STATUS を読まないのか - そーだいなるらくがき帳&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MySQL on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/mysql/</link>
+    <description>Recent content in MySQL on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
+      <link>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
+      <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
+    </item>
+    
+    <item>
+      <title>【MySQL】外部キー追加時にエラー</title>
+      <link>https://SawaTszm.github.io/post/mysql%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/mysql%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

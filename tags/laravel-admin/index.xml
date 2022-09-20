@@ -1,95 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>laravel-admin on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/laravel-admin/</link>
-        <description>Recent content in laravel-admin on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/laravel-admin/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【laravel-admin】インストール＆画面作成まで 編</title>
-        <link>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。&lt;/p&gt;
-&lt;p&gt;まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。&lt;/p&gt;
-&lt;h2 id=&#34;laravel-adminとは&#34;&gt;laravel-adminとは&lt;/h2&gt;
-&lt;p&gt;laravelで簡単にDBの管理画面を作成することができるライブラリです。&lt;br&gt;
-ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Laravel-admin(ドキュメント)&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/z-song/laravel-admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHubページ&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。&lt;/p&gt;
-&lt;p&gt;主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。&lt;/p&gt;
-&lt;h2 id=&#34;プロジェクトの作成&#34;&gt;プロジェクトの作成&lt;/h2&gt;
-&lt;p&gt;既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。&lt;/p&gt;
-&lt;p&gt;何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。&lt;/p&gt;
-&lt;p&gt;公式によると、現在のバージョンでは以下の環境が推奨されるようです。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;PHP 7+&lt;/li&gt;
-&lt;li&gt;laravel 5.5+&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/en/installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;laravel-admin install&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$composer&lt;/span&gt; create-project --prefer-dist &lt;span class=&#34;s2&#34;&gt;&amp;#34;laravel/laravel=5.5.*&amp;#34;&lt;/span&gt; &amp;lt;project-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。&lt;br&gt;
-よければこちらの記事も参考にしてみてください。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://sawa-t.hatenablog.com/entry/2020/04/16/081302&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;
-&lt;p&gt;laravelの準備ができたら早速laravel-adminをインストールします。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$composer&lt;/span&gt; require encore/laravel-admin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールが終わったら下記コマンドを実行します。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan vendor:publish --provider&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34;&lt;/span&gt;
-
-&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan admin:install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これらを実行すると、&lt;code&gt;app/Admin&lt;/code&gt;ディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。&lt;br&gt;
-ファイルの初期配置は以下。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;app/Admin
-├── Controllers
-│   ├── ExampleController.php
-│   └── HomeController.php
-├── bootstrap.php
-└── routes.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;フロント周りのファイルは&lt;code&gt;/public/packages/admin&lt;/code&gt;に置かれています。&lt;br&gt;
-構成ファイルは&lt;code&gt;config/admin.php&lt;/code&gt;です。後々触ることになります。&lt;/p&gt;
-&lt;p&gt;ここまでで既にダッシュボードは作成されているので、&lt;code&gt;php artisan serve&lt;/code&gt;などをして、&lt;a class=&#34;link&#34; href=&#34;http://localhost:8000/admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://localhost:8000/admin&lt;/a&gt; にアクセスしてみましょう。&lt;br&gt;
-ID・PASSどちらにも&lt;code&gt;admin&lt;/code&gt;と入力し、無事ダッシュボードが表示されれば成功です。&lt;br&gt;
-早速DBテーブルの管理画面を作成していきましょう。&lt;/p&gt;
-&lt;h2 id=&#34;モデルコントローラ作成&#34;&gt;モデル・コントローラ作成&lt;/h2&gt;
-&lt;p&gt;laravelでDBテーブルを認識するためにモデルを作成します。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan make:model Recipe
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;モデルが作成されたのを確認したら、それを利用して&lt;strong&gt;Admin用のコントローラ&lt;/strong&gt;を作成します。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan admin:make RecipeController --model&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;App&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;Recipe
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功すると、作成したコントローラのルーティング情報がターミナルに出力されます。&lt;br&gt;
-これを&lt;code&gt;app/Admin/routes.php&lt;/code&gt;に記述しましょう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$router&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;resource&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;admin/recipes&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;RecipeController&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上記ルーティング情報のURLを叩くと、それらしい画面が表示されていると思います。&lt;br&gt;
-あとは作成したAdmin用のコントローラを、ドキュメントを参考にしながら更新していく流れになります。&lt;/p&gt;
-&lt;p&gt;現在仕様として提供されているのは以下のページです。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一覧画面(&lt;code&gt;grid&lt;/code&gt;関数)&lt;/li&gt;
-&lt;li&gt;詳細画面(&lt;code&gt;show&lt;/code&gt;関数)&lt;/li&gt;
-&lt;li&gt;新規作成・編集画面(&lt;code&gt;form&lt;/code&gt;関数)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;それぞれドキュメントに基本の使用方法からカスタマイズ方法まで乗っていますので、一通り目を通すことをお勧めします。&lt;/p&gt;
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;とても簡単に導入できるので、気になっている方は一度試して見ると面白いかも知れません。&lt;br&gt;
-その他、主にカスタマイズ部分でつまづくことが多かったので、少しずつ記事にして行こうかと思います。&lt;/p&gt;
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Laravel-admin(ドキュメント)&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/z-song/laravel-admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;laravel-admin(GitHub)&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>laravel-admin on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/laravel-admin/</link>
+    <description>Recent content in laravel-admin on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/laravel-admin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【laravel-admin】インストール＆画面作成まで 編</title>
+      <link>https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
+      <description>目的 ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。
+まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。
+laravel-adminとは laravelで簡単にDBの管理画面を作成することができるライブラリです。
+ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。
+Laravel-admin(ドキュメント)
+GitHubページ
+基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。
+主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。
+プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
+何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
+公式によると、現在のバージョンでは以下の環境が推奨されるようです。
+ PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+laravel-admin install
+ $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+よければこちらの記事も参考にしてみてください。
+【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
+インストール laravelの準備ができたら早速laravel-adminをインストールします。
+$composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
+$php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
+ファイルの初期配置は以下。
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
+    </item>
+    
+  </channel>
 </rss>

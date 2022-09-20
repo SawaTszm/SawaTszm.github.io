@@ -1,491 +1,182 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-    <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='猫と爬虫類とゲームが好き。'><title>Tag: python - sawa.md</title>
-
-<link rel='canonical' href='https://SawaTszm.github.io/tags/python/'>
-
-<link rel="stylesheet" href="/scss/style.min.7b8ba33adce1f9ddb87495243de44f914ce30889d90a01c384b0fbf57194d810.css"><meta property='og:title' content='Tag: python - sawa.md'>
-<meta property='og:description' content='猫と爬虫類とゲームが好き。'>
-<meta property='og:url' content='https://SawaTszm.github.io/tags/python/'>
-<meta property='og:site_name' content='sawa.md'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2022-09-15T21:36:09&#43;09:00 '/>
-<meta name="twitter:site" content="@SawaTszm">
-    <meta name="twitter:creator" content="@SawaTszm"><meta name="twitter:title" content="Tag: python - sawa.md">
-<meta name="twitter:description" content="猫と爬虫類とゲームが好き。"><link rel="alternate" type="application/rss&#43;xml" href="https://SawaTszm.github.io/tags/python/index.xml">
-    <link rel="shortcut icon" href="/images/favicon.ico" />
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-188317733-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-    </head>
-    <body class="">
-    <script>
-        (function() {
-            const colorSchemeKey = 'StackColorScheme';
-            if(!localStorage.getItem(colorSchemeKey)){
-                localStorage.setItem(colorSchemeKey, "auto");
-            }
-        })();
-    </script><script>
-    (function() {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
-
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
-        }
-    })();
-</script>
-<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
-
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu36a3fa031909792b2162b29f9ca36f9e_154811_300x0_resize_box_3.png" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-                    <span class="emoji">😀</span>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">sawa.md</a></h1>
-            <h2 class="site-description">猫と爬虫類とゲームが好き。</h2>
-        </div>
-    </header><ol class="social-menu">
-            
-                <li>
-                    <a 
-                        href='https://github.com/SawaTszm'
-                        target="_blank"
-                        title="GitHub"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
-
-
-
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://twitter.com/SawaTszm'
-                        target="_blank"
-                        title="Twitter"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
-</svg>
-
-
-
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-
-        <li >
-            <a href='/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg>
-
-
-
-                
-                <span>Home</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/about/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
-
-
-
-                
-                <span>About</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>Archives</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>Search</span>
-            </a>
-        </li>
-        
-
-        <div class="menu-bottom-section">
-            
-            
-                <li id="dark-mode-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                    <span>Dark Mode</span>
-                </li>
-            
-        </div>
-    </ol>
-</aside>
-<main class="main full-width">
-    <header>
-        <h3 class="section-title">
-            
-                Tags
-            
-        </h3>
-
-        <div class="section-card">
-            <div class="section-details">
-                <h3 class="section-count">5 pages</h3>
-                <h1 class="section-term">python</h1>
-                
-            </div>
-        </div>
-    </header>
-    
-    <section class="article-list--compact">
-        
-            <article>
-    <a href="/p/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/">
-        <div class="article-details">
-            <h2 class="article-title">【Python】フォーマット済み文字列リテラル</h2>
-            <footer class="article-time">
-                <time datetime='2021-08-02T18:52:08&#43;09:00'>Aug 02, 2021</time>
-            </footer>
-        </div>
-    </a>
+<!doctype html><html lang=ja dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>python | sawa.md</title>
+<meta name=keywords content>
+<meta name=description content="猫と爬虫類とゲームが好き">
+<meta name=author content>
+<link rel=canonical href=https://SawaTszm.github.io/tags/python/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://SawaTszm.github.io/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://SawaTszm.github.io/images/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://SawaTszm.github.io/images/favicon.ico>
+<link rel=apple-touch-icon href=https://SawaTszm.github.io/images/favicon.ico>
+<link rel=mask-icon href=https://SawaTszm.github.io/images/favicon.ico>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<link rel=alternate type=application/rss+xml href=https://SawaTszm.github.io/tags/python/index.xml>
+<link rel=alternate hreflang=ja href=https://SawaTszm.github.io/tags/python/>
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-188317733-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="python">
+<meta property="og:description" content="猫と爬虫類とゲームが好き">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://SawaTszm.github.io/tags/python/"><meta property="og:image" content="https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="sawa.md">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="python">
+<meta name=twitter:description content="猫と爬虫類とゲームが好き">
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://SawaTszm.github.io accesskey=h title="sawa.md (Alt + H)">
+<img src=https://SawaTszm.github.io/images/avatar.png alt aria-label=logo height=35>sawa.md</a>
+<div class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<ul class=lang-switch><li>|</li>
+<li>
+<a href=https://SawaTszm.github.io/en/ title=En aria-label=En>En</a>
+</li>
+</ul>
+</div>
+</div>
+<ul id=menu>
+<li>
+<a href=https://SawaTszm.github.io/page/about/ title=About>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=https://SawaTszm.github.io/archives/ title=Archives>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=https://SawaTszm.github.io/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+<li>
+<a href=https://SawaTszm.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<header class=page-header><div class=breadcrumbs><a href=https://SawaTszm.github.io>ホーム</a>&nbsp;»&nbsp;<a href=https://SawaTszm.github.io/tags/>Tags</a></div>
+<h1>
+python
+<a href=index.xml title=RSS aria-label=RSS><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="23"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg>
+</a>
+</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>【Python】フォーマット済み文字列リテラル
+</h2>
+</header>
+<div class=entry-content>
+<p>目的 すごく今更&簡潔にだけど、python3.6以降で利用できる文字列フォーマットについてまとめていきます。
+（ずっとstr.format()を使っていたので戒めも兼ねて）。
+フォーマット済み文字列リテラルとは フォーマット済み文字列リテラル(f-string)では、文字列の先頭にfを付けることで、pythonの式を文字列内に{式}の形で埋め込むことができます。
+従来の書き方よりも簡潔、かつわかりやすく記述することができる書き方です。
+公式ドキュメント
+使い方 変数に入った数字を3文字のカンマ区切りにする hoge = 99999999 # 従来のstr.format() print("{:,}".format(hoge)) # フォーマット済み文字列リテラル print(f"{hoge:,d}") :の後ろに整数をつけて縦を揃える tokuten = {"kokugo": 9, "sugaku": 81, "eigo": 100} for sub, point in tokuten.items(): print(f'{sub:10}==> {point:5d}') # kokugo ==> 9 # sugaku ==> 81 # eigo ==> 100 まとめ 従来のstr.format()と比べると、f-stringは最終結果が人の目で見てもわかりやすいですね。</p>
+</div>
+<footer class=entry-footer><span title="2021-08-02 18:52:08 +0900 JST">8月 2, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Python】フォーマット済み文字列リテラル" href=https://SawaTszm.github.io/post/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/></a>
 </article>
-        
-            <article>
-    <a href="/p/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/">
-        <div class="article-details">
-            <h2 class="article-title">【Python】cerberusまとめ</h2>
-            <footer class="article-time">
-                <time datetime='2021-02-19T12:01:46&#43;09:00'>Feb 19, 2021</time>
-            </footer>
-        </div>
-    </a>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>【Python】cerberusまとめ
+</h2>
+</header>
+<div class=entry-content>
+<p>cerberusとは CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary
+ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。
+公式曰く、拡張も容易なため、カスタム検証も可能です。
+(以下、9割公式のドキュメントの翻訳です)
+概要 検証用のスキーマを定義し、それを Validator クラスのインスタンスに渡します。
+schma = {'name': {'type': 'string'}} v = Validator(schema) 次に、validate()を呼び出すことで、簡単にスキーマと辞書を検証できます。
+検証が成功すると True が返されます。
+document = {'name': 'john doe'} v.validate(document) # True インストール 安定バージョンはpipから取得できます。...</p>
+</div>
+<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Python】cerberusまとめ" href=https://SawaTszm.github.io/post/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/></a>
 </article>
-        
-            <article>
-    <a href="/p/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/">
-        <div class="article-details">
-            <h2 class="article-title">【Python】poetryを試してみる</h2>
-            <footer class="article-time">
-                <time datetime='2021-02-19T12:01:46&#43;09:00'>Feb 19, 2021</time>
-            </footer>
-        </div>
-    </a>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>【Python】poetryを試してみる
+</h2>
+</header>
+<div class=entry-content>
+<p>poetryとは pythonの環境管理ツールです。
+機能としてはpipenvに近い感じでした。
+本当に触りだけやってみたリポジトリはこちら。
+sample-poetry
+インストール $pip install poetry プロジェクトを作る $poetry new sample-project 実行すると下記のファイル・フォルダが作成されます。
+sample-project ├── README.rst ├── pyproject.toml ├── sample_project │ └── __init__.py └── tests ├── __init__.py └── test_sample_project.py モジュールの追加 $cd sample-project # pyproject.tomlがある階層で $poetry add [--dev] &lt;package name> これでpoetryが管理している仮想環境内にモジュールが追加されます。
+それに伴って、ファイルと依存関係を管理する pyproject.tomlとpoetry.lock が作成されます。
+Remove Deoendency $poetry remove &lt;package name> This is very simple :)
+Use Virtual Environment # not active $poetry run python -m pytest # active $poetry shell Use Exsting Environment $poetry install [--no-dev] Reference Poetry - Python dependency management and packaging made easy....</p>
+</div>
+<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Python】poetryを試してみる" href=https://SawaTszm.github.io/post/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/></a>
 </article>
-        
-            <article>
-    <a href="/p/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">
-        <div class="article-details">
-            <h2 class="article-title">【Python】エラーについて</h2>
-            <footer class="article-time">
-                <time datetime='2021-02-19T12:01:46&#43;09:00'>Feb 19, 2021</time>
-            </footer>
-        </div>
-    </a>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>【Python】エラーについて
+</h2>
+</header>
+<div class=entry-content>
+<p>知りたかったこと try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう 結論 呼び出された先の例外もキャッチできますφ(･･
+調べて知ったこと エラーには構文エラーと例外がある 複数の例外を指定することができる except (RuntimeError, TypeError, NameError): pass exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要 Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く try 節で全く例外が創出されなかった時に実行されるコードを記述することができる for arg in sys.argv[1:]: try: f = open(arg, 'r') except OSError: print('cannot open', arg) else: print(arg, 'has', len(f.readlines()), 'lines') f.close() 参考：
+Python の例外処理（try, except, else, finally） | note.nkmk.me
+8. エラーと例外 — Python 3.8.1 ドキュメント...</p>
+</div>
+<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Python】エラーについて" href=https://SawaTszm.github.io/post/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/></a>
 </article>
-        
-            <article>
-    <a href="/p/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/">
-        <div class="article-details">
-            <h2 class="article-title">【Pytyon】リストの重複要素をカウントする</h2>
-            <footer class="article-time">
-                <time datetime='2021-02-19T12:01:46&#43;09:00'>Feb 19, 2021</time>
-            </footer>
-        </div>
-    </a>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>【Pytyon】リストの重複要素をカウントする
+</h2>
+</header>
+<div class=entry-content>
+<p>目的 投票結果を DB に貯めて、その結果を一位から取得したい。
+DB 構成は、
+Id Recipe int str というシンプルな感じです。
+ここからレコードの recipe の値を、[a, b, c, b, ...]と言ったリストに直した際、
+「一番投票数の多かったもの」や「投票数が多かった順の要素のリスト」が欲しい。
+TL;DR collectionsを使えば比較的簡単にできます。
+要素のカウントは collections が便利 import collections votes_list = [a, b, c, b] c = collections.Counter(votes_list) # Counter({'b': 2, 'a': 1, 'c': 1}) # `要素`: `出現回数` recipe = c.most_common() # [('b', 2), ('a', 1), ('c', 1)] # 出現回数が多い順に並べ替えてくれる recipe = c.most_common()[0][0] # b 参考にさせていただいたもの お世話になりました。...</p>
+</div>
+<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Pytyon】リストの重複要素をカウントする" href=https://SawaTszm.github.io/post/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/></a>
 </article>
-        
-    </section>
-<footer class="site-footer">
-    <section class="copyright">
-        &copy; 
-        
-            2020 - 
-        
-        2022 sawa.md
-    </section>
-
-    <section class="footer-menu">
-        <ul>
-            <li>
-                <a href="/privacy-policy">
-                    <span>プライバシーポリシー</span>
-                </a>
-            </li>
-            <li><span>|</span></li>
-            <li>
-                <a href="/contact-form">
-                    <span>お問い合わせ</span>
-                </a>
-            </li>
-        </ul>
-    </section>
-    
-    <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-    </section>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://SawaTszm.github.io>sawa.md</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span>
 </footer>
-
-
-            </main>
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>Search</label>
-            <input name="keyword" required placeholder="Type something..." />
-        
-            <button title="Search">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Archives</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2022">
-                        
-                            <span class="year">2022</span>
-                            <span class="count">6</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2021">
-                        
-                            <span class="year">2021</span>
-                            <span class="count">18</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">Tags</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/tech/" class="font_size_20">
-                Tech
-            </a>
-        
-            <a href="/tags/%E6%97%A5%E8%A8%98/" class="font_size_6">
-                日記
-            </a>
-        
-            <a href="/tags/laravel/" class="font_size_5">
-                Laravel
-            </a>
-        
-            <a href="/tags/python/" class="font_size_5">
-                python
-            </a>
-        
-            <a href="/tags/mysql/" class="font_size_2">
-                MySQL
-            </a>
-        
-            <a href="/tags/nginx/" class="font_size_2">
-                nginx
-            </a>
-        
-            <a href="/tags/aws/" class="font_size_1">
-                AWS
-            </a>
-        
-            <a href="/tags/css/" class="font_size_1">
-                CSS
-            </a>
-        
-            <a href="/tags/ddd/" class="font_size_1">
-                DDD
-            </a>
-        
-            <a href="/tags/docker/" class="font_size_1">
-                Docker
-            </a>
-        
-    </div>
-</section>
-            
-        
-    </aside>
-
-
-        </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
-
-    </body>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
 </html>

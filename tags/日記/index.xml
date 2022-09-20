@@ -1,191 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>日記 on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/</link>
-        <description>Recent content in 日記 on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Thu, 15 Sep 2022 21:36:09 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>日記 2022-09-15</title>
-        <link>https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%98-2022-09-15/</link>
-        <pubDate>Thu, 15 Sep 2022 21:36:09 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%98-2022-09-15/</guid>
-        <description>&lt;p&gt;体調悪くてお休みいただいて、夜になってやっと復活してきたので、前記事(&lt;a class=&#34;link&#34; href=&#34;https://medium.com/vanguards-of-code/lodash-is-dead-long-live-radash-d9d52abf428b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;lodash is dead, long live radash&lt;/a&gt;)を見かけて気になってたRadashについて調べてました。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/rayepps/radash&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Radash - github&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;だけど調べてたら&#34;&gt;だけど調べてたら&lt;/h3&gt;
-&lt;p&gt;この「Lodashは死んだ」の記事と公式のドキュメント、githubページ以外全然関連の記事が出てこなくて（Radashって検索欄に入れてるのにRedashの記事ばっかり出てきて、マイナス検索してもRadashに触れてる記事はなかった）、記事は結構見られてたけどな……？と思って記事に戻ってみたら、&lt;strong&gt;書いてるのが作者本人でした。&lt;/strong&gt;&lt;br&gt;
-(最後の方に書いてあったし、早い段階でGithubページ見に行ってリポジトリ名チェックしてたらもっと早く気づけたかもしれません)&lt;/p&gt;
-&lt;p&gt;タイトルだけ読んで現行のlodashに取ってかわる最新版なんだと思ってしまっていたので、この事実＆それ自体に気づくまでが結構長かったのが個人的なショックでした。そういう意味ではいい学びになった感じがします。&lt;/p&gt;
-&lt;p&gt;あと、コメント欄で「自分で書いとるんか〜い」みたいな突っ込みもされてましたが、それらに対して「それでもこのライブラリを作った彼の労力は賞賛すべき」「このような肯定的な批判を受け取る場を自ら作り出すこと自体に批判的になってはいけない。それはOSSの衰退につながる」みたいなコメントが多かったことも、OSS文化に触れてまだ浅い身からすると新しい気づきでした。&lt;/p&gt;
-&lt;p&gt;次からは、何かしら記事を見るときは「どういう立場で書かれているものか」は軽くチェックすることを心がけようと思います。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>TOEICを受けてきました</title>
-        <link>https://SawaTszm.github.io/p/toeic%E3%82%92%E5%8F%97%E3%81%91%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
-        <pubDate>Tue, 13 Sep 2022 19:07:16 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/toeic%E3%82%92%E5%8F%97%E3%81%91%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-        <description>&lt;hr&gt;
-&lt;p&gt;タイトル通りTOEIC受けてきました。&lt;/p&gt;
-&lt;p&gt;新卒時代にIPテストを受けて驚異の300点台前半を叩き出してから一回も受けてなかったんですが、最近英語圏のVtuberにハマって英語に触れる機会が増えてきたのでいけるのでは……？と思って勢いで申し込みました。&lt;br&gt;
-一応1ヶ月間は真面目に勉強したので、過去最高点は取れるんじゃないかなと思います（低すぎるハードル）。&lt;/p&gt;
-&lt;p&gt;以下備忘録を兼ねた感想です。&lt;/p&gt;
-&lt;h3 id=&#34;腕時計必須それはそう&#34;&gt;腕時計必須（それはそう）&lt;/h3&gt;
-&lt;p&gt;スマートウォッチ系がダメだって言うのを前日の夜に知って、腕時計なしで挑むことになったのが辛かったです。&lt;br&gt;
-1問20秒ほどだっていうのは知ってたので何とか体内時計で頑張りました。最後の問題解いたあたりで試験が終わったので、結構正確だったんだと思います（そこじゃない）。&lt;/p&gt;
-&lt;p&gt;今後も年1くらいで受けたいな〜と思ってるのでお気に入りの腕時計探しておきます。&lt;/p&gt;
-&lt;h3 id=&#34;慣れてないと集中力続けさせるのが結構キツい&#34;&gt;慣れてないと集中力続けさせるのが結構キツい&lt;/h3&gt;
-&lt;p&gt;リスニングのPart4の途中と、リーディングのPart7の途中で「もう残り全部塗りつぶして帰りたいな……」ってなってました。&lt;br&gt;
-勉強してはいたんですが、一問一答形式のものをずっとやっていただけだったので、本番の長さに全く体が適応できてなかったです。&lt;br&gt;
-模試とか絶対やった方がいい。&lt;/p&gt;
-&lt;h3 id=&#34;勉強してる時ほど音声はクリアじゃない&#34;&gt;勉強してる時ほど音声はクリアじゃない&lt;/h3&gt;
-&lt;p&gt;ノイキャン付きのイヤホンつけて聞く音源とやたらデカい室内のスピーカーの音は全然違うので、最初の音量合わせの時に慣れるのにもうちょっとフォーカス当てた方がいいなと思いました。&lt;/p&gt;
-&lt;h3 id=&#34;成長はちょっと感じた&#34;&gt;成長はちょっと感じた&lt;/h3&gt;
-&lt;p&gt;IP受けた時（3~4年前……？）は正直「問題に何聞かれてるかわからない」レベルだったのが、少なくともそこで困ることはなかったのでちょっとは成長してるんだな〜って感じました。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;1ヶ月くらいで結果出ると思うので楽しみです。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>日記(2022/06/25)</title>
-        <link>https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%982022/06/25/</link>
-        <pubDate>Sat, 25 Jun 2022 13:08:08 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/%E6%97%A5%E8%A8%982022/06/25/</guid>
-        <description>&lt;h2 id=&#34;今更だけど&#34;&gt;今更だけど&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;rem&lt;/code&gt;について。&lt;br&gt;
-一回調べてなるほど〜！ってなった記憶はあるのにロジック考えずに見た目で数字決めてコミットしたの中々にテンパってたなって反省をした備忘録です。（一息）&lt;/p&gt;
-&lt;h2 id=&#34;remとは&#34;&gt;remとは&lt;/h2&gt;
-&lt;p&gt;基準のフォントサイズを1として考える単位。&lt;br&gt;
-例えば：&lt;code&gt;1rem=16px&lt;/code&gt;(html要素のフォントサイズが16px)の場合、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;12px: 0.75rem&lt;/li&gt;
-&lt;li&gt;14px: 0.875rem&lt;/li&gt;
-&lt;li&gt;18px: 1.125rem&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;と言う感じ。&lt;/p&gt;
-&lt;p&gt;「〇〇pxって何remだっけ……」ってなって他のコードと実際の表示を見にいくことが多かったんですが、&lt;br&gt;
-&lt;code&gt;欲しいpx数/ルートのフォントサイズ(px)&lt;/code&gt;すれば出てくる……出てくるのに……何で今まで調べなきゃ出てこないって思ってたんだろう……。&lt;/p&gt;
-&lt;p&gt;反省。次からは間違えないと思います。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>気をつけるべきだなと思ったこと</title>
-        <link>https://SawaTszm.github.io/p/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%A0%E3%81%AA%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</link>
-        <pubDate>Thu, 23 Jun 2022 21:29:26 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%A0%E3%81%AA%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
-        <description>&lt;p&gt;タイトルの通り、&lt;br&gt;
-最近仕事をしていて気がついたこと/教えてもらえたことで、自分はこれを気をつけた方がいいなと思ったことを忘れないために言語化したメモです。&lt;br&gt;
-(増えるかもしれません)&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;既存のものを覆してはならない前提と捉えない&#34;&gt;「既存のもの」を「覆してはならない前提」と捉えない&lt;/h3&gt;
-&lt;h4 id=&#34;悪かった例この場合はdjango&#34;&gt;悪かった例(この場合はDjango)&lt;/h4&gt;
-&lt;p&gt;私「このmodelにカラム追加したいけど、似たようなカラムがあるしな。データ被るのも嫌だから、propertyメソッドで動的に返すようにしよう」&lt;/p&gt;
-&lt;p&gt;~30分後~&lt;/p&gt;
-&lt;p&gt;「あ、propertyだと&lt;code&gt;union()&lt;/code&gt;時ののcolumn数合わせに使えないんだった。どうしよう……」(ここで無限ググり編に突入)&lt;/p&gt;
-&lt;p&gt;~30分後~&lt;/p&gt;
-&lt;p&gt;「クエリもうひとつ発行して&lt;code&gt;itertools.chain()&lt;/code&gt;で繋げる手があるかぁ」(そうじゃない)&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;この時の結論：&lt;br&gt;
-元のmodelのデータ定義自体が改善しても良い範囲だったので、unionできる形にmodelを寄せることを提案してもらって解決しました。&lt;/p&gt;
-&lt;h4 id=&#34;メタ的な原因&#34;&gt;メタ的な原因&lt;/h4&gt;
-&lt;p&gt;既にプロジェクトに存在しているコードを、無意識に「絶対的に正しいもの」「変えちゃいけないもの」として捉えていました。&lt;br&gt;
-（「このmodelはこういう定義なんだから、これを変形してどうにかしないと」と言うところから思考がスタートしていた）&lt;/p&gt;
-&lt;p&gt;社会人初の案件がガチガチに要件が固まった後のネットワーク更改案件だったので、「既存のconfigは絶対に正しい、これを崩さないように新しい経路繋げないと」的な考えが根底に残ってたのかもしれないです。&lt;/p&gt;
-&lt;p&gt;(今までも似たような感覚に陥ったことが何回かあって、言語化できてちょっとスッキリしました)&lt;/p&gt;
-&lt;h4 id=&#34;改善策&#34;&gt;改善策&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;「既存のもの」を「覆してはならない前提」と捉えない。&lt;/li&gt;
-&lt;li&gt;実装のために考え始める時、「そもそも」の疑問を大切にする。
-&lt;ul&gt;
-&lt;li&gt;「そもそも、どうしてこのmodelってこういう構造になったんだろう？」&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;言っても「考える時に気をつけよう」は忘れるので、しばらくモニターに付箋を貼る。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;緊張時に毎回心拍数120近くまで上がるのはいき過ぎなので対策を考えるべき&#34;&gt;緊張時に毎回心拍数120近くまで上がるのはいき過ぎなので対策を考えるべき&lt;/h3&gt;
-&lt;p&gt;これ、最近調べて初めて知りました。&lt;/p&gt;
-&lt;p&gt;今まで緊張してる時(例えばプレゼン前とか、極端な例で言うと広めのメンションでslack送る前とか)Apple Watchに「非常に高い心拍数です」って言われるのをネタにして生きてきてたんですが、最近動悸が激しすぎて頭が真っ白になる経験をして、これはまずいなと思って調べたらやっぱり心拍数上がりすぎらしいです。&lt;br&gt;
-幸いその時は人前で喋るとかじゃなくて、家の中で一人ぜーはー言ってただけで落ち着く時間もあって事なきを得ましたが、このままじゃ良くないので色々対策してみようと思いました。&lt;/p&gt;
-&lt;hr&gt;</description>
-        </item>
-        <item>
-        <title>[TIL] display: contents;</title>
-        <link>https://SawaTszm.github.io/p/til-display-contents/</link>
-        <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/til-display-contents/</guid>
-        <description>&lt;p&gt;上手くいかないCSSをdev toolでぐりぐり動かしていたら&lt;code&gt;display: contents;&lt;/code&gt;なる値があることを知って、結局そのパターンは上手くいったんですがなんで上手くいったかわからないのでちょっとだけ調べました。&lt;br&gt;
-(本格的に調べるのは後日)&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;display-contentsとは&#34;&gt;&lt;code&gt;display: contents;&lt;/code&gt;とは&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://coliss.com/articles/build-websites/operation/work/how-to-work-display-contents.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;coliss&lt;/a&gt;で紹介されていました。&lt;br&gt;
-(先日参加した勉強会で紹介されていたサイトなのでちょっとテンションが上が理ました)&lt;/p&gt;
-&lt;p&gt;すごくざっくり言うと、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;タグ内のコンテンツを通常通り描画しつつ、周囲のタグは完全に省略する
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;display: contents;&lt;/code&gt; が指定されたタグ&lt;strong&gt;自体&lt;/strong&gt;が無視されたような挙動になる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;CSS Gridのレイアウトで、複数あるカードのそれぞれの高さや幅を揃えるのに便利
-&lt;ul&gt;
-&lt;li&gt;(今回上手くいった修正はこのパターンだった)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;まだ全然追いきてれないですが、タグを無視したような挙動をする以上落とし穴(何かの拍子にめちゃくちゃ表示崩れる)とかもありそうなので、見れる時にもう少しちゃんと挙動を見たい……。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;ちなみに&lt;a class=&#34;link&#34; href=&#34;https://caniuse.com/css-display-contents&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Can I Use&lt;/a&gt;で見てみると、大体2018年くらいからパーシャルサポートが始まり、現在(2022/06)主要なブラウザはほとんどがフルサポートです。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/48425020/174588782-2b00ea44-dcb3-4791-98c6-9acca0396a95.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Can I Use Dissplay: contentsの結果&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;del&gt;IE君はNot Supportedですが先日卒業式をしたので……&lt;/del&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;参考&#34;&gt;参考&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coliss.com/articles/build-websites/operation/work/how-to-work-display-contents.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;[CSS]「display: contents;」がすごい便利！ラッパーを使った実装が大きく変わるこれからのテクニック&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://caniuse.com/css-display-contents&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Can I use display: contents&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-        </item>
-        <item>
-        <title>基本情報に受かりました</title>
-        <link>https://SawaTszm.github.io/p/%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E3%81%AB%E5%8F%97%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F/</link>
-        <pubDate>Mon, 16 May 2022 21:41:51 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E3%81%AB%E5%8F%97%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-        <description>&lt;h2 id=&#34;タイトルの通り&#34;&gt;タイトルの通り&lt;/h2&gt;
-&lt;p&gt;3月頃に思い立って申し込みをして、1ヶ月前後の勉強で受かりました。嬉しいことに午前午後どちらも9割近く取った上での合格でした。&lt;br&gt;
-全体的には、学生時代に学んだことを思い出すのに役立ったなぁと言う印象でした。&lt;/p&gt;
-&lt;p&gt;学生の頃に「ITパスポート取るか。言っても専攻だし(情報工学科だった)いけるでしょ！」と全く勉強をせずに行って落ちた経験があり、国家試験系からは長年目を背け続けていたので、受けるにあたってちょっと驚いたことがいくつかあったので書いておきます。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;早起きを証明できる試験ではなくなっていた&#34;&gt;早起きを証明できる試験ではなくなっていた&lt;/h3&gt;
-&lt;p&gt;よく基本情報についてTwitterなどで「朝早く起きて会場に行ける社会性を証明できる試験」なんて揶揄されているのを目にしていましたが、CBT方式になって時間は選び放題、なんなら&lt;strong&gt;午前と午後を別日に受けてもいい&lt;/strong&gt;と言う緩さになっていました。&lt;/p&gt;
-&lt;p&gt;正直、今回基本情報を実際に受ける気になったのも、このCBT方式で受けられると言うのを知ったから、と言うところが大きかったです。&lt;/p&gt;
-&lt;h3 id=&#34;直近の過去問が参照できない&#34;&gt;直近の過去問が参照できない&lt;/h3&gt;
-&lt;p&gt;基本情報と言えば引くほど過去問が見れるイメージがあったんですが、CBT方式になってからの過去問は公開されていないみたいです。&lt;/p&gt;
-&lt;p&gt;今はまだCBT方式になってから日が浅い＆シラバスの大幅な改訂も入っていないので、公開されている過去問を一通り解いても十分勉強になります。ただ、これからどんどん過去問と実際の問題との乖離が進んでいくんじゃないかなーと思います。&lt;/p&gt;
-&lt;p&gt;(そもそもCBT方式にしてから合格者の割合がグッと増えてるらしいので、そう言う意味ではちょうど良いところに落ち着くのかも？)&lt;/p&gt;
-&lt;h3 id=&#34;応用情報はまだ紙試験&#34;&gt;応用情報はまだ紙試験&lt;/h3&gt;
-&lt;p&gt;この勢いで応用情報も受けようかな〜と思ったんですが、応用情報の方はまだ筆記らしくて悩んでます。&lt;br&gt;
-朝起きれないし、一日に午前午後で集中力続く気がしないので……(社会適応力皆無)。&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>日記 on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/</link>
+    <description>Recent content in 日記 on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 15 Sep 2022 21:36:09 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日記 2022-09-15</title>
+      <link>https://SawaTszm.github.io/post/2022-09-15-diary/</link>
+      <pubDate>Thu, 15 Sep 2022 21:36:09 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/2022-09-15-diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TOEICを受けてきました</title>
+      <link>https://SawaTszm.github.io/post/toeic%E3%82%92%E5%8F%97%E3%81%91%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 13 Sep 2022 19:07:16 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/toeic%E3%82%92%E5%8F%97%E3%81%91%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>日記(2022/06/25)</title>
+      <link>https://SawaTszm.github.io/post/2022-06-25-rem/</link>
+      <pubDate>Sat, 25 Jun 2022 13:08:08 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/2022-06-25-rem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>気をつけるべきだなと思ったこと</title>
+      <link>https://SawaTszm.github.io/post/things-to-watch-out-for/</link>
+      <pubDate>Thu, 23 Jun 2022 21:29:26 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/things-to-watch-out-for/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[TIL] display: contents;</title>
+      <link>https://SawaTszm.github.io/post/display-contents/</link>
+      <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/display-contents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>基本情報に受かりました</title>
+      <link>https://SawaTszm.github.io/post/2021-05-16/</link>
+      <pubDate>Mon, 16 May 2022 21:41:51 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/2021-05-16/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

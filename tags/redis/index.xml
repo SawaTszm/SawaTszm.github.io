@@ -1,152 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Redis on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/redis/</link>
-        <description>Recent content in Redis on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【Redis】ってなんぞや</title>
-        <link>https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;案件で触らせてもらうことになったぜ&lt;br&gt;
-何もわからないぜ&lt;/p&gt;
-&lt;p&gt;という状態なので、自分が調べたことについてまとめておきます。&lt;/p&gt;
-&lt;h2 id=&#34;radis-とは&#34;&gt;Radis とは&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;REmote DIctionary Serverの略&lt;/li&gt;
-&lt;li&gt;読んで字の如く、ネットワーク接続された&lt;code&gt;Key-Value&lt;/code&gt;型のNoSQLデータベース&lt;/li&gt;
-&lt;li&gt;永続化可能なインメモリデータベース&lt;/li&gt;
-&lt;li&gt;オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語&lt;/li&gt;
-&lt;li&gt;AWS上でもRedis-serverが提供されている&lt;/li&gt;
-&lt;li&gt;様々なデータ構造をサポートしている&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;STRING
-LIST
-SET
-HASH
-ZSET (ソート済みのset)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;補足インメモリdb&#34;&gt;補足：インメモリDB&lt;/h3&gt;
-&lt;p&gt;すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。&lt;br&gt;
-コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.publickey1.jp/blog/13/_3.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;インストールと動作確認&#34;&gt;インストールと動作確認&lt;/h2&gt;
-&lt;p&gt;少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://try.redis.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Try Redis&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Macであれば下記brewコマンドで一発。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$brew&lt;/span&gt; install Redis
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールできたら、サーバを立ち上げてみます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ redis-server
-&lt;span class=&#34;c1&#34;&gt;# 立ち上がったら別のタブで動作確認&lt;/span&gt;
-$ redis-cli
-127.0.0.1:6379&amp;gt; &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;hoge&amp;#34;&lt;/span&gt;
-OK
-127.0.0.1:6379&amp;gt; get &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt;
-&lt;span class=&#34;s2&#34;&gt;&amp;#34;hoge&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;動作確認までできました。&lt;/p&gt;
-&lt;p&gt;このコマンドを叩く先の&lt;code&gt;redis-server&lt;/code&gt;がローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。&lt;br&gt;
-(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)&lt;/p&gt;
-&lt;h2 id=&#34;データのタイプ&#34;&gt;データのタイプ&lt;/h2&gt;
-&lt;p&gt;Redisは前述の通り様々なデータタイプに対応しています。&lt;br&gt;
-どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。&lt;/p&gt;
-&lt;p&gt;コマンドの詳細などは公式ドキュメントで。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://redis.io/topics/data-types&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Data types – Redis&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;strings&#34;&gt;Strings&lt;/h3&gt;
-&lt;p&gt;最も基本的な、KeyとValueが1:1な構造。&lt;br&gt;
-&lt;code&gt;Key = value&lt;/code&gt;の形。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;バイナリセーフ(JPEG画像やシリアル化されたRubyオブジェクトなども格納可能)&lt;/li&gt;
-&lt;li&gt;最大512MBまで&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; string-key &lt;span class=&#34;s2&#34;&gt;&amp;#34;value1&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# OK&lt;/span&gt;
-127.0.0.1:6379&amp;gt; get string-key
-&lt;span class=&#34;c1&#34;&gt;# &amp;#34;value1&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;lists&#34;&gt;Lists&lt;/h3&gt;
-&lt;p&gt;文字列のリスト構造。&lt;br&gt;
-&lt;code&gt;Key = [value1, value2, ...]&lt;/code&gt;の形。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;挿入順にソートされる&lt;/li&gt;
-&lt;li&gt;先頭/末尾に対して追加、削除を実行する&lt;/li&gt;
-&lt;li&gt;リストの最大長は4294967295&lt;/li&gt;
-&lt;li&gt;リストの両端(先頭、末尾)へのアクセスは早いが、基本的にO（N）操作なので、膨大な量のリストの中間値へのアクセスは遅くなる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; LPUSH list-key a
-&lt;span class=&#34;c1&#34;&gt;# (integer) 1&lt;/span&gt;
-127.0.0.1:6379&amp;gt; LPUSH list-key b
-&lt;span class=&#34;c1&#34;&gt;# (integer) 2&lt;/span&gt;
-127.0.0.1:6379&amp;gt; RPUSH list-key c
-&lt;span class=&#34;c1&#34;&gt;# (integer) 3&lt;/span&gt;
-127.0.0.1:6379&amp;gt; LRANGE list-key &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 1) &amp;#34;b&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 2) &amp;#34;a&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 3) &amp;#34;c&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sets&#34;&gt;Sets&lt;/h3&gt;
-&lt;p&gt;順序、重複なしの文字型集合構造。&lt;br&gt;
-&lt;code&gt;Key = (value1, value2, ...)&lt;/code&gt;の形。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Valueの追加、削除、存在のテスト(要素の数に関係なく一定時間で動作)が可能&lt;/li&gt;
-&lt;li&gt;重複を許可せず、よしなにしてくれるので存在を確認してから追加する必要がない&lt;/li&gt;
-&lt;li&gt;セット内の最大数は4294967295&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; SADD set-key value1 value2 value3
-&lt;span class=&#34;c1&#34;&gt;# (integer) 3&lt;/span&gt;
-127.0.0.1:6379&amp;gt; SMEMBERS set-key
-&lt;span class=&#34;c1&#34;&gt;# 1) &amp;#34;value3&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 2) &amp;#34;value2&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 3) &amp;#34;value1&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;hashes&#34;&gt;Hashes&lt;/h3&gt;
-&lt;p&gt;重複なく、順序のないfield:valueのセットを持つ構造。&lt;br&gt;
-&lt;code&gt;Key = {field1: value1, field2: value2, ...}&lt;/code&gt;の形。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;field:valueのセットの最大数は4294967295&lt;/li&gt;
-&lt;li&gt;オブジェクトを表すのにも使用される&lt;/li&gt;
-&lt;li&gt;少量(100くらい)のハッシュは、スペースをほぼ取らない方法で格納されるので、小さなRedisインスタンスに数百万のオブジェクトを格納できる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; HSET hash-key field1 value1
-&lt;span class=&#34;c1&#34;&gt;# (integer) 1&lt;/span&gt;
-127.0.0.1:6379&amp;gt; HSET hash-key field2 value2
-&lt;span class=&#34;c1&#34;&gt;# (integer) 1&lt;/span&gt;
-127.0.0.1:6379&amp;gt; HGETALL hash-key
-&lt;span class=&#34;c1&#34;&gt;# 1) &amp;#34;field1&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 2) &amp;#34;value1&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 3) &amp;#34;field2&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 4) &amp;#34;value2&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sorted-sets&#34;&gt;Sorted Sets&lt;/h3&gt;
-&lt;p&gt;重複なし、Scoreによる順序があるvalue:scoreのセットを持つ構造。&lt;br&gt;
-&lt;code&gt;Key = {value1: score1, value2: score2, ...}&lt;/code&gt;の形。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;valueは一意、scoreは重複する可能性がある&lt;/li&gt;
-&lt;li&gt;要素の追加、削除、更新がO（log(N)）操作でできるため高速&lt;/li&gt;
-&lt;li&gt;要素はscore順で並べられ、後で並べ替えられるわけではない(ランク付けなどに便利)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;127.0.0.1:6379&amp;gt; ZADD sort-key &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; user_1
-&lt;span class=&#34;c1&#34;&gt;# (integer) 1&lt;/span&gt;
-127.0.0.1:6379&amp;gt; ZADD sort-key &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; user_2
-&lt;span class=&#34;c1&#34;&gt;# (integer) 1&lt;/span&gt;
-127.0.0.1:6379&amp;gt; ZRANGE sort-key &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; WITHSCORES
-&lt;span class=&#34;c1&#34;&gt;# 1) &amp;#34;user_1&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 2) &amp;#34;10&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 3) &amp;#34;user_2&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# 4) &amp;#34;20&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;Redisは早くて便利。&lt;/p&gt;
-&lt;h2 id=&#34;参考にさせていただいたもの&#34;&gt;参考にさせていただいたもの&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://redis.io/topics/data-types&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Data types – Redis&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/FukuharaYohei/items/48209d488bc7f412c3d7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;【初心者向け】Redisのデータ型とPythonでの使い方サンプル - Qiita&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/wind-up-bird/items/f2d41d08e86789322c71&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;【入門】Redis - Qiita&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Redis on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/redis/</link>
+    <description>Recent content in Redis on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Redis】ってなんぞや</title>
+      <link>https://SawaTszm.github.io/post/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/redis%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
+      <description>目的 案件で触らせてもらうことになったぜ
+何もわからないぜ
+という状態なので、自分が調べたことについてまとめておきます。
+Radis とは  REmote DIctionary Serverの略 読んで字の如く、ネットワーク接続されたKey-Value型のNoSQLデータベース 永続化可能なインメモリデータベース オープンソースのプロジェクトで、Redis Labsがスポンサー。中身はC言語 AWS上でもRedis-serverが提供されている 様々なデータ構造をサポートしている  STRING LIST SET HASH ZSET (ソート済みのset) 補足：インメモリDB すべてのデータをコンピュータのメインメモリ上に展開しながら動作する仕組みのことです。
+コンピュータ(サーバ)の電源が落ちれば消えてしまうので、永続化の手段としてデータを別途どこかに保存することがあります。
+インメモリデータベースでサーバが落ちたらデータはどうなる？ インメモリとカラム型データベースの可能性を調べる（その3） － Publickey
+インストールと動作確認 少し挙動を試してみたいだけなら、公式チュートリアルの画面でコマンドを叩くことができます。
+Try Redis
+Macであれば下記brewコマンドで一発。
+$brew install Redis インストールできたら、サーバを立ち上げてみます。
+$ redis-server # 立ち上がったら別のタブで動作確認 $ redis-cli 127.0.0.1:6379&amp;gt; set test &amp;#34;hoge&amp;#34; OK 127.0.0.1:6379&amp;gt; get test &amp;#34;hoge&amp;#34; 動作確認までできました。
+このコマンドを叩く先のredis-serverがローカルにあるかAWS上のサービスとしてあるかが変わってくるだけで、cli側の設定や叩き方は基本的に変わりません。
+(PythonなんかでRedisクライアントを作成する時に指すHOSTが変わってくるくらい、の認識です)
+データのタイプ Redisは前述の通り様々なデータタイプに対応しています。
+どのデータタイプを使用するかによって、コマンドやデータの指定方法が違ってきます。
+コマンドの詳細などは公式ドキュメントで。
+Data types – Redis
+Strings 最も基本的な、KeyとValueが1:1な構造。
+Key = valueの形。</description>
+    </item>
+    
+  </channel>
 </rss>

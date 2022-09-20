@@ -1,134 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>ディープリンク on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF/</link>
-        <description>Recent content in ディープリンク on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Thu, 28 Jan 2021 19:10:59 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【ディープリンク】ってなんぞや</title>
-        <link>https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</link>
-        <pubDate>Thu, 28 Jan 2021 19:10:59 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」&lt;/p&gt;
-&lt;p&gt;という要件を貰ったけど、&lt;br&gt;
-そのあたり全く初見だったので調べてまとめてみました。&lt;/p&gt;
-&lt;h2 id=&#34;ディープリンクとは&#34;&gt;ディープリンクとは&lt;/h2&gt;
-&lt;p&gt;任意のアプリに遷移できるリンク(URL)のことです。&lt;br&gt;
-アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。&lt;/p&gt;
-&lt;p&gt;スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。&lt;/p&gt;
-&lt;h2 id=&#34;プラットフォームごとのディープリンク対応&#34;&gt;プラットフォームごとのディープリンク対応&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;プラットフォーム&lt;/th&gt;
-&lt;th&gt;種類&lt;/th&gt;
-&lt;th&gt;対応&lt;/th&gt;
-&lt;th&gt;URL&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Android&lt;/td&gt;
-&lt;td&gt;App links&lt;/td&gt;
-&lt;td&gt;Android6.0 以降&lt;/td&gt;
-&lt;td&gt;WebURL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Android&lt;/td&gt;
-&lt;td&gt;App Indexing&lt;/td&gt;
-&lt;td&gt;Android&lt;/td&gt;
-&lt;td&gt;WebURL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Apple&lt;/td&gt;
-&lt;td&gt;universal links&lt;/td&gt;
-&lt;td&gt;iOS9 以降&lt;/td&gt;
-&lt;td&gt;WebURL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;どちらも&lt;/td&gt;
-&lt;td&gt;Custom URL Scheme&lt;/td&gt;
-&lt;td&gt;iOS,Android&lt;/td&gt;
-&lt;td&gt;カスタム URL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;androidgoogle&#34;&gt;Android(Google)&lt;/h2&gt;
-&lt;h2 id=&#34;app-links&#34;&gt;App Links&lt;/h2&gt;
-&lt;p&gt;App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。&lt;br&gt;
-&lt;code&gt;https://&lt;/code&gt; から始まる URL を利用できます。&lt;/p&gt;
-&lt;h3 id=&#34;メリット&#34;&gt;メリット&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;WebURL から直接アプリを起動できる&lt;/li&gt;
-&lt;li&gt;Android 特有のアプリ選択画面を飛ばせる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;デメリット&#34;&gt;デメリット&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;認証情報ファイルを https 通信可能なサーバに上げておく必要がある&lt;/li&gt;
-&lt;li&gt;android 6.0(2015 年 10 月リリース)以降しか対応していない&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;設定方法&#34;&gt;設定方法&lt;/h3&gt;
-&lt;p&gt;下記が参考になりました。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/noboru_i/items/fd4634ecb326b3749ac0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;App Linksに対応してみた - Qiita&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;app-indexing&#34;&gt;App Indexing&lt;/h2&gt;
-&lt;p&gt;App Indexingは、その名の通りアプリのコンテンツをインデックスして、Google検索の結果からアプリに直接遷移することができるサービスです。Googleが提供しています。&lt;/p&gt;
-&lt;p&gt;参考になった記事:
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/nein37/items/3b69f85b97d0883eb1ca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;AppIndexing について - Qiita&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;iosapple&#34;&gt;iOS(Apple)&lt;/h2&gt;
-&lt;h2 id=&#34;universal-links&#34;&gt;universal links&lt;/h2&gt;
-&lt;p&gt;universal linksは、iOS9から使用できるサービスです。&lt;br&gt;
-&lt;code&gt;https://&lt;/code&gt; から始まる URL を利用できます。&lt;br&gt;
-例：LINE(&lt;code&gt;https://line.me/R/&lt;/code&gt;)&lt;/p&gt;
-&lt;h3 id=&#34;メリットuniversal-links&#34;&gt;メリット(universal links)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;アプリが端末に入っていない場合の挙動を設定できる(Store に飛ばす等)&lt;/li&gt;
-&lt;li&gt;WebURL から直接アプリを起動できる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;デメリットuniversal-links&#34;&gt;デメリット(universal links)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;認証情報ファイルを https 通信可能なサーバに上げておく必要がある&lt;/li&gt;
-&lt;li&gt;iOS9(2015 年 9 月リリース)以降でしか使えない&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;設定方法universal-links&#34;&gt;設定方法(universal links)&lt;/h3&gt;
-&lt;p&gt;こちらが参考になりました。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://dev.classmethod.jp/smartphone/universal-links/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Universal Links を試してみました。関連づけファイル(apple-app-site-association）は S3 に置きました。 ｜ Developers.IO&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;共通&#34;&gt;共通&lt;/h2&gt;
-&lt;h2 id=&#34;custom-url-scheme&#34;&gt;Custom URL Scheme&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;amzn://apps/android?asin=B004FRX0MY&lt;/code&gt; や &lt;code&gt;comgooglemaps://&lt;/code&gt; など、アプリ独自に決めた scheme を利用する方法です。&lt;/p&gt;
-&lt;h3 id=&#34;メリットcustom-url-scheme&#34;&gt;メリット(Custom URL Scheme)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;iOS8 以前,android 6.0 以前でも動く&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;デメリットcustom-url-scheme&#34;&gt;デメリット(Custom URL Scheme)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;アプリがインストールされていない場合に動作しない&lt;/li&gt;
-&lt;li&gt;他のアプリと競合する可能性がある&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;設定方法ios&#34;&gt;設定方法(iOS)&lt;/h3&gt;
-&lt;p&gt;２種類の実装方法があるけど内容は同じです。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;info.plist&lt;/code&gt;から設定する&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;TARGET &amp;gt; info&lt;/code&gt;から設定する&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Safariから固定 URL(&lt;code&gt;my-app://&lt;/code&gt;など)を叩けばアプリを起動できます。&lt;/p&gt;
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;今から実装するとなったら&lt;code&gt;App Links&lt;/code&gt; ≒ &lt;code&gt;universal links&lt;/code&gt;が良さげだなと思いました。&lt;/p&gt;
-&lt;p&gt;どちらもWebURLから直接アプリを起動できるので、LINEのメッセージ上から遷移が可能です。&lt;/p&gt;
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;途中に載せさせて頂いてるサイトも大変参考になりました……ありがとうございます……&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/dongri/items/a4430c20c2ea3b01a566&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;真面目に Deep Link 対応したい話 - Qiita&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://qiita.com/noboru_i/items/abf83e068999a073d6b0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;iOS/Android のディープリンクについての雑な説明 - Qiita&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ディープリンク on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF/</link>
+    <description>Recent content in ディープリンク on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 28 Jan 2021 19:10:59 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【ディープリンク】ってなんぞや</title>
+      <link>https://SawaTszm.github.io/post/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</link>
+      <pubDate>Thu, 28 Jan 2021 19:10:59 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
+      <description>目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
+という要件を貰ったけど、
+そのあたり全く初見だったので調べてまとめてみました。
+ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
+アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
+スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
+プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+https:// から始まる URL を利用できます。
+メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.</description>
+    </item>
+    
+  </channel>
 </rss>

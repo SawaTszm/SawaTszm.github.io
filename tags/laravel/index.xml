@@ -1,596 +1,90 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Laravel on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/laravel/</link>
-        <description>Recent content in Laravel on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
-        <link>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravel-mysql-nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;laravel-admin使いたいだけの用途にLaradockは重すぎる……&lt;br&gt;
-ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。&lt;br&gt;
-その上でlaravel-adminの管理画面まで開けるようにしてみます。&lt;/p&gt;
-&lt;h2 id=&#34;構成&#34;&gt;構成&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;project_root_dir
-├── docker-compose.yml
-├── docker
-│   ├── nginx
-│   │   ├── Dockerfile
-│   │   └── default.conf
-│   ├── php
-│   │   └── Dockerfile
-│   └── db
-│   │   ├── my.cnf
-│       └── Dockerfile
-└── laravel
-        └── ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
-&lt;h3 id=&#34;docker-composeymlを作成&#34;&gt;docker-compose.ymlを作成&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    app:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            context: .&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            dockerfile: ./docker/php/Dockerfile&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            args:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;                PROJECT_NAME: app_admin&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - database&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - database&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        tty: true&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    database:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        image: mysql:5.7&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        env_file: .env_db&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;23306:3306&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    web:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build: ./docker/nginx&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - 80:80&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;appコンテナ設定&#34;&gt;appコンテナ設定&lt;/h3&gt;
-&lt;p&gt;composerはもうここに含めます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker&#34; data-lang=&#34;Docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/php/Dockerfile&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; php:7-fpm&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; php.ini /usr/local/etc/php/&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  libfreetype6-dev libjpeg62-turbo-dev libpng-dev libmcrypt-dev libonig-dev &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  git vim unzip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; docker-php-ext-install pdo_mysql mysqli gd iconv &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get clean&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# install composer&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; curl -sS https://getcomposer.org/installer &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; php -- --install-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/bin --filename&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;composer&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;webコンテナ設定&#34;&gt;webコンテナ設定&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Docker&#34; data-lang=&#34;Docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/nginx/Dockerfile&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; nginx:latest&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    vim &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    unzip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    zip &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    git&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後々laravelディレクトリを作るので、設定ファイルのルートは&lt;code&gt;/var/www/html/laravel/~&lt;/code&gt;にしておきます。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# ./docker/nginx/default.conf&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;server &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    listen       80&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    index index.php index.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    server_name php-docker.local&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    error_log  /var/log/nginx/error.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    access_log /var/log/nginx/access.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    root /var/www/html/laravel/public&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# ココ&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location / &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;     try_files &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt;/ @laravel&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# redirect server error pages to the static page /50x.html&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    error_page   &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;502&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;503&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;504&lt;/span&gt;  /50x.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; /50x.html &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        root /var/www/html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location ~ &lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php$ &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    try_files &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$uri&lt;/span&gt;/ @laravel&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_split_path_info ^&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;.+&lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php&lt;span class=&#34;o&#34;&gt;)(&lt;/span&gt;/.+&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;$&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_pass app:9000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_index index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        include fastcgi_params&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param SCRIPT_FILENAME &lt;span class=&#34;nv&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param PATH_INFO &lt;span class=&#34;nv&#34;&gt;$fastcgi_path_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    location @laravel &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_split_path_info ^&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;.+&lt;span class=&#34;se&#34;&gt;\.&lt;/span&gt;php&lt;span class=&#34;o&#34;&gt;)(&lt;/span&gt;/.+&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;$&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_pass app:9000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_index index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        include fastcgi_params&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param SCRIPT_FILENAME /var/www/html/laravel/public/index.php&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  // ココ&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        fastcgi_param PATH_INFO &lt;span class=&#34;nv&#34;&gt;$fastcgi_path_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dbコンテナの設定&#34;&gt;dbコンテナの設定&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker/database/my.cnf&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysql&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;default-character-set&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysqld&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;sql-mode&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;character-set-server&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;collation-server&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;utf8mb4_general_ci&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mysqld_safe&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;timezone&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; UTC&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;default-time-zone &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; UTC&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はHOST情報などを&lt;code&gt;.enb_db&lt;/code&gt;(docker-compose.ymlで指定したファイル)に記述する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;MYSQL_DATABASE=[my_database_name]
-MYSQL_USERNAME=root
-MYSQL_PASSWORD=
-MYSQL_HOSTNAME=127.0.0.1
-MYSQL_ROOT_PASSWORD=
-API_MYSQL_PORT=23306
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;起動laravelのインストール&#34;&gt;起動＆Laravelのインストール&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 起動&lt;/span&gt;
-$ docker-compose up -d
-
-&lt;span class=&#34;c1&#34;&gt;# laravelプロジェクトの作成&lt;/span&gt;
-$ docker-compose &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; app /bin/bash  
-app$ composer create-project --prefer-dist laravel/laravel laravel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://localhost/&lt;/a&gt; でwelcomページが見られるようになる。&lt;/p&gt;
-&lt;h3 id=&#34;laravel環境変数ファイルの修正&#34;&gt;Laravel環境変数ファイルの修正&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;laravel/.env&lt;/code&gt;を、DB情報を作成したdockerコンテナに合わせて修正。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=[my_database_name]
-DB_USERNAME=root
-DB_PASSWORD=
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;laravel-adminをインストール&#34;&gt;laravel-adminをインストール&lt;/h3&gt;
-&lt;p&gt;composerを使用してインストールし、有効化する。
-&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/en/installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;公式ドキュメント&lt;/a&gt;がかなりまとまっていて素敵です。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ docker-compose &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; app /bin/bash 
-app $ &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; laravel
-app/laravel $ composer require encore/laravel-admin
-app/laravel $ php artisan vendor:publish --provider&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34;&lt;/span&gt;
-app/laravel $ php artisan admin:install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost/admin/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://localhost/admin/&lt;/a&gt;に接続して、ログイン画面が出ればおk！&lt;br&gt;
-admin/adminで入れます。&lt;/p&gt;
-&lt;h2 id=&#34;補足既にある開発環境のdbコンテナに接続する&#34;&gt;補足：既にある開発環境のDBコンテナに接続する&lt;/h2&gt;
-&lt;p&gt;なんらかの理由で、管理画面開発に使用したいDBコンテナが既存の&lt;code&gt;docker-compose.yml&lt;/code&gt;にある場合。&lt;br&gt;
-(開発側はPythonでもりもり作業してるからLaravelのディレクトリ混ぜたくないとかそう言った場合)&lt;/p&gt;
-&lt;p&gt;前提として、以下であれば比較的簡単に繋げられます。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DBコンテナ側でなんらかのDockerNetworkを設定している&lt;/li&gt;
-&lt;li&gt;開発環境の方でも&lt;code&gt;docker-compose up -d&lt;/code&gt;を実行している
-(直接でも良いし、もしくは開発環境のリポジトリをサブモジュール として引っ張ってきて叩くなどする)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例えば&lt;code&gt;test-app&lt;/code&gt;という名前のnetworkを設定している↓のであれば、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 既存docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  database:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    hostname: database&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    image: mysql:5.7&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    ~~~&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;      - default&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  default:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    name: test-app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;管理画面側のdocker-compose.ymlでそれを使用するように書き換える↓&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;c&#34;&gt;# docker-compose.yml&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;services:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    app:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            context: .&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            dockerfile: ./docker/php/Dockerfile&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            args:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;                PROJECT_NAME: recipe_app_admin&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports: &lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4000:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - &lt;span class=&#34;s2&#34;&gt;&amp;#34;4001:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        tty: true&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - default&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# dbコンテナの設定は不要になる&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    web:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        build: ./docker/nginx&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        restart: always&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        ports:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - 80:80&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        depends_on:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        volumes:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./:/var/www/html&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        links:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;        networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;            - default&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;networks:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;  default:&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    name: test-app&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    external: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 外部ファイルで設定していることを指定&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後はよしなに環境変数ファイルを更新し、開発環境→管理画面開発環境の順に&lt;code&gt;docker-compose up -d&lt;/code&gt;を叩くだけです。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>【laravel-admin】インストール＆画面作成まで 編</title>
-        <link>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
-        <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
-&lt;p&gt;ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。&lt;/p&gt;
-&lt;p&gt;まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。&lt;/p&gt;
-&lt;h2 id=&#34;laravel-adminとは&#34;&gt;laravel-adminとは&lt;/h2&gt;
-&lt;p&gt;laravelで簡単にDBの管理画面を作成することができるライブラリです。&lt;br&gt;
-ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Laravel-admin(ドキュメント)&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/z-song/laravel-admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHubページ&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。&lt;/p&gt;
-&lt;p&gt;主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。&lt;/p&gt;
-&lt;h2 id=&#34;プロジェクトの作成&#34;&gt;プロジェクトの作成&lt;/h2&gt;
-&lt;p&gt;既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。&lt;/p&gt;
-&lt;p&gt;何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。&lt;/p&gt;
-&lt;p&gt;公式によると、現在のバージョンでは以下の環境が推奨されるようです。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;PHP 7+&lt;/li&gt;
-&lt;li&gt;laravel 5.5+&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/en/installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;laravel-admin install&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$composer&lt;/span&gt; create-project --prefer-dist &lt;span class=&#34;s2&#34;&gt;&amp;#34;laravel/laravel=5.5.*&amp;#34;&lt;/span&gt; &amp;lt;project-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。&lt;br&gt;
-よければこちらの記事も参考にしてみてください。&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://sawa-t.hatenablog.com/entry/2020/04/16/081302&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;
-&lt;p&gt;laravelの準備ができたら早速laravel-adminをインストールします。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$composer&lt;/span&gt; require encore/laravel-admin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールが終わったら下記コマンドを実行します。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan vendor:publish --provider&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34;&lt;/span&gt;
-
-&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan admin:install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これらを実行すると、&lt;code&gt;app/Admin&lt;/code&gt;ディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。&lt;br&gt;
-ファイルの初期配置は以下。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;app/Admin
-├── Controllers
-│   ├── ExampleController.php
-│   └── HomeController.php
-├── bootstrap.php
-└── routes.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;フロント周りのファイルは&lt;code&gt;/public/packages/admin&lt;/code&gt;に置かれています。&lt;br&gt;
-構成ファイルは&lt;code&gt;config/admin.php&lt;/code&gt;です。後々触ることになります。&lt;/p&gt;
-&lt;p&gt;ここまでで既にダッシュボードは作成されているので、&lt;code&gt;php artisan serve&lt;/code&gt;などをして、&lt;a class=&#34;link&#34; href=&#34;http://localhost:8000/admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://localhost:8000/admin&lt;/a&gt; にアクセスしてみましょう。&lt;br&gt;
-ID・PASSどちらにも&lt;code&gt;admin&lt;/code&gt;と入力し、無事ダッシュボードが表示されれば成功です。&lt;br&gt;
-早速DBテーブルの管理画面を作成していきましょう。&lt;/p&gt;
-&lt;h2 id=&#34;モデルコントローラ作成&#34;&gt;モデル・コントローラ作成&lt;/h2&gt;
-&lt;p&gt;laravelでDBテーブルを認識するためにモデルを作成します。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan make:model Recipe
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;モデルが作成されたのを確認したら、それを利用して&lt;strong&gt;Admin用のコントローラ&lt;/strong&gt;を作成します。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$php&lt;/span&gt; artisan admin:make RecipeController --model&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;App&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;Recipe
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功すると、作成したコントローラのルーティング情報がターミナルに出力されます。&lt;br&gt;
-これを&lt;code&gt;app/Admin/routes.php&lt;/code&gt;に記述しましょう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$router&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;resource&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;admin/recipes&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;RecipeController&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上記ルーティング情報のURLを叩くと、それらしい画面が表示されていると思います。&lt;br&gt;
-あとは作成したAdmin用のコントローラを、ドキュメントを参考にしながら更新していく流れになります。&lt;/p&gt;
-&lt;p&gt;現在仕様として提供されているのは以下のページです。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一覧画面(&lt;code&gt;grid&lt;/code&gt;関数)&lt;/li&gt;
-&lt;li&gt;詳細画面(&lt;code&gt;show&lt;/code&gt;関数)&lt;/li&gt;
-&lt;li&gt;新規作成・編集画面(&lt;code&gt;form&lt;/code&gt;関数)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;それぞれドキュメントに基本の使用方法からカスタマイズ方法まで乗っていますので、一通り目を通すことをお勧めします。&lt;/p&gt;
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;とても簡単に導入できるので、気になっている方は一度試して見ると面白いかも知れません。&lt;br&gt;
-その他、主にカスタマイズ部分でつまづくことが多かったので、少しずつ記事にして行こうかと思います。&lt;/p&gt;
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel-admin.org/docs/#/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Laravel-admin(ドキュメント)&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/z-song/laravel-admin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;laravel-admin(GitHub)&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</title>
-        <link>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
-        <description>&lt;h2 id=&#34;起こった問題&#34;&gt;起こった問題&lt;/h2&gt;
-&lt;p&gt;タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。&lt;br&gt;
-設定後下記を確認して、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;database.connections.pgsql&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
-     &lt;span class=&#34;s2&#34;&gt;&amp;#34;read&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
-       &lt;span class=&#34;s2&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
-         &lt;span class=&#34;s2&#34;&gt;&amp;#34;postgres2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-       &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
-     &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
-     &lt;span class=&#34;s2&#34;&gt;&amp;#34;write&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
-       &lt;span class=&#34;s2&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;postgres&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-     &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;反映されてるな、と思って念の為connectionも見てみました。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;connection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;pgsql::read&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getConfig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
-    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-     &lt;span class=&#34;s2&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;postgres&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-   &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;……あれ？&lt;/p&gt;
-&lt;p&gt;Readコネクションなので&lt;code&gt;postgres2&lt;/code&gt;であって欲しいのに、&lt;code&gt;postgres&lt;/code&gt;が出てきてしまいました。&lt;br&gt;
-反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。&lt;/p&gt;
-&lt;h2 id=&#34;調べたこと&#34;&gt;調べたこと&lt;/h2&gt;
-&lt;p&gt;getConfigで参照されるconfigは、&lt;br&gt;
-&lt;code&gt;Illuminate\Database\Connectors\ConnectionFactory::make&lt;/code&gt;内で、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * Establish a PDO connection based on the configuration.
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     *
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * @param  array  $config
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * @param  string|null  $name
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * @return \Illuminate\Database\Connection
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;array&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;parseConfig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;isset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;read&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createReadWriteConnection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createSingleConnection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;createReadWriteConnection&lt;/code&gt;が呼び出され、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * Create a read / write database connection instance.
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     *
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * @param  array  $config
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     * @return \Illuminate\Database\Connection
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;createReadWriteConnection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;array&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;nv&#34;&gt;$connection&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createSingleConnection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWriteConfig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$connection&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setReadPdo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createReadPdo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;その中でwrite用のconfigがセットされてるので、どう呼び出してもwriterのconfigが見える、というオチでした。&lt;/p&gt;
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;ReadとWriteでconnectionインスタンスが切り替わってるわけではなさそうで、「Readコネクションの向き先が正しく設定できているかどうか」は&lt;code&gt;DB::connection(&#39;pgsql::read&#39;)-&amp;gt;getConfig();&lt;/code&gt;ではわからない、ということがわかりました。&lt;/p&gt;
-&lt;p&gt;そのため、&lt;code&gt;config(&#39;database.connections.pgsql&#39;)&lt;/code&gt;で確認できるhostが分かれていればヨシ！&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</title>
-        <link>https://SawaTszm.github.io/p/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</guid>
-        <description>&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
-&lt;p&gt;Laravel くんで Controller をすっきりさせたいので、バリデーションをフォームリクエストで行いたい。&lt;br&gt;
-プラスで、簡単な条件分岐のバリデーションも付け足したい。&lt;/p&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;withValodator&lt;/code&gt;メソッドを通して&lt;code&gt;sometimes&lt;/code&gt;を使うのが良さげです。&lt;/p&gt;
-&lt;h2 id=&#34;詳しく&#34;&gt;詳しく&lt;/h2&gt;
-&lt;h3 id=&#34;通常のフォームリクエストでのバリデーション&#34;&gt;通常のフォームリクエストでのバリデーション&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// FormRequest
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;App\Http\Request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;\\illuminate\Foundation\Http\FormRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ItemUpdateRequest&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FormRequest&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;sd&#34;&gt;/**
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;          * Determine if the user is authorized to make this request.
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;          *
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;          * @return bool
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;          */&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;authorize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rules&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
-                &lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;required|integer&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                &lt;span class=&#34;s1&#34;&gt;&amp;#39;item_type&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;required|string|in:tv,web,radio&amp;#39;&lt;/span&gt;
-                &lt;span class=&#34;s1&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;required|string|max:255&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-                &lt;span class=&#34;s1&#34;&gt;&amp;#39;url&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;nullable|url|max:2083,
-&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;                &amp;#39;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;note&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39; =&amp;gt; &amp;#39;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;nullable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2047&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-            &lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-
-    &lt;span class=&#34;c1&#34;&gt;// Controller(必要な記述以外は省略)
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;App\Http\Request\ItemUpdateRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ItemController&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ItemUpdateRequest&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;c1&#34;&gt;//
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけで通常のバリデーションは出来ますね。&lt;br&gt;
-ただ、例えば&lt;code&gt;item_type == &#39;web&#39;&lt;/code&gt;の時だけ&lt;code&gt;url&lt;/code&gt;カラムは必須にしたいとか、そういった簡単な条件付けは rules の中ではできません。&lt;/p&gt;
-&lt;h3 id=&#34;条件付きのバリデーションの追加&#34;&gt;条件付きのバリデーションの追加&lt;/h3&gt;
-&lt;p&gt;じゃあどうするよ。前述の通り、&lt;code&gt;withValidator&lt;/code&gt;メソッドと&lt;code&gt;sometimes&lt;/code&gt;を使います。&lt;br&gt;
-メソッドについては、以下にそれらしいことが書いてあります。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://laravel.com/docs/5.4/validation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Laravel Validation&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;sometimes は条件ごとに適応するルールを記載できるものなので、それを使用してフォームリクエストに下記メソッドを追加するだけ。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;      * Configure the validator instance.
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;      *
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;      * @param \Illuminate\Validation\Validator $validator
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;      * @return void
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;      */&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;withValidator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$validator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;nv&#34;&gt;$validator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sometimes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;required&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;item_type&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;web&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このフォームリクエストを継承して作る子クラスにもこのメソッド内の条件は引き継がれます。&lt;br&gt;
-この記述だと条件一つに対して一文が長くなってしまうので、条件分岐が多い/複雑な場合には向かないかもですが、ちょっとした分岐が必要な際には活用できると思います。&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>【Laravel】独自ペジネータで自前のCollectionを使う</title>
-        <link>https://SawaTszm.github.io/p/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</link>
-        <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</guid>
-        <description>&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://readouble.com/laravel/5.8/ja/pagination.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;データベース：ペジネーション 5.8 Laravel&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;このページの「独自ペジネータ作成」の欄にあるように、&lt;br&gt;
-&lt;code&gt;Illuminate\Pagination\LengthAwarePaginator&lt;/code&gt;インスタンスを作成して、自前の Collection を Collection のままページネーションしたい。&lt;/p&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;ペジネーションは引数に Collection を許容しているので実装が可能。&lt;br&gt;
-&lt;code&gt;LengthAwarePaginator&lt;/code&gt;インスタンスの第一引数に渡す Collection を、&lt;code&gt;slice()&lt;/code&gt;メソッドを使って Collection の型を崩さずに区切る。&lt;/p&gt;
-&lt;p&gt;これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。&lt;/p&gt;
-&lt;h2 id=&#34;ハマった流れ&#34;&gt;ハマった流れ&lt;/h2&gt;
-&lt;p&gt;まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照しました。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Note: 自前でペジネーターインスタンスを生成する場合、ペジネーターに渡す結果の配列を自分で”slice”する必要があります。その方法を思いつかなければ、 [array_slice] PHP 関数を調べてください。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;なるほど！！！！！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;と思い array_slice()を使用して記述したのが以下のような書き方。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// app/Services/ItemsService.php
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 前略。$columnsには取得したいカラム名を格納
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-    &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ItemMaster&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$columns&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;relatedUsers&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-
-    &lt;span class=&#34;c1&#34;&gt;// 表示する件数のみ取得するために、ページ番号($page)と最大表示件数($limit)から$offsetを計算
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$page&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;// ドキュメントに言われたように表示する部分のみ切り取った配列を用意
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;array_slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;LengthAwarePaginator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$page&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでも&lt;code&gt;$columns&lt;/code&gt;の値を参照する分には特に問題ありません。&lt;/p&gt;
-&lt;p&gt;ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて&lt;code&gt;$this-&amp;gt;relatedUsers...&lt;/code&gt;なんていうふうに書くとその時点でエラーになってしまいます。&lt;/p&gt;
-&lt;p&gt;原因は&lt;code&gt;$slice = array_slice($items-&amp;gt;toArray(), $offset, $limit);&lt;/code&gt;の部分で、collection 型だった$items を配列に戻してしまっているので、この時点でリレーションの情報は消えてしまっていると。&lt;br&gt;
-(Collection から配列に変換する際、採用されるのは collection 内の attributes 部分だけ)&lt;/p&gt;
-&lt;h2 id=&#34;解決した流れ&#34;&gt;解決した流れ&lt;/h2&gt;
-&lt;p&gt;公式ドキュメントで&lt;code&gt;array_slice&lt;/code&gt;を推しているということは、&lt;code&gt;LengthAwarePaginator&lt;/code&gt;には collection を渡せないのか……？&lt;/p&gt;
-&lt;p&gt;と思い&lt;code&gt;LengthAwarePaginator&lt;/code&gt;の定義を見てみました。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// LengthAwarePaginator.php
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LengthAwarePaginator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AbstractPaginator&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Arrayable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ArrayAccess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Countable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;IteratorAggregate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JsonSerializable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Jsonable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;LengthAwarePaginatorContract&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-
-    &lt;span class=&#34;c1&#34;&gt;// 略
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-        &lt;span class=&#34;sd&#34;&gt;/**
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * Create a new paginator instance.
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         *
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * @param  mixed  $items
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * @param  int  $total
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * @param  int  $perPage
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * @param  int|null  $currentPage
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * @param  array  $options (path, query, fragment, pageName)
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         * @return void
-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;         */&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$total&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$perPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$currentPage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;array&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$options&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[])&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;options&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-
-            &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$options&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;total&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$total&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;perPage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$perPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;lastPage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ceil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$total&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$perPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rtrim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentPage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setCurrentPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$currentPage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;pageName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Collection&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Collection&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;__construct&lt;/code&gt;を確認すると、任意の配列を受け取る第一引数は&lt;code&gt;$items&lt;/code&gt;と定義されています。&lt;/p&gt;
-&lt;p&gt;この引数の初期化処理を見てみると、&lt;br&gt;
-&lt;code&gt;$this-&amp;gt;items = $items instanceof Collection ? $items : Collection::make($items);&lt;/code&gt;&lt;br&gt;
-「collection で来たらそのまま格納して、そうじゃなかったら collection 型にして返す」。&lt;br&gt;
-バリバリに collection 型を出す想定なので、引数に collection を渡しても大丈夫そうです。&lt;/p&gt;
-&lt;p&gt;であれば後は、問題の箇所だった&lt;code&gt;array_slice&lt;/code&gt;の collection バージョンがあれば万事解決ということ。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://readouble.com/laravel/5.8/ja/collections.html#method-slice:embed:cite&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;コレクション 5.8 Laravel&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;slice()
-Slice メソッドは指定したインデックスからコレクションを切り分けます。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ググれば一発ですね。&lt;/p&gt;
-&lt;h2 id=&#34;解決後のコード&#34;&gt;解決後のコード&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// app/Services/ItemsService.php
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 前略。$columnsには取得したいカラム名を格納
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-    &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ItemMaster&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$columns&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;relatedUsers&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-
-    &lt;span class=&#34;c1&#34;&gt;// 表示する件数のみ取得するために、ページ番号($page)と最大表示件数($limit)から$offsetを計算
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$page&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;// *collection型を崩さずに切り取る*
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-
-    &lt;span class=&#34;c1&#34;&gt;// $sliceの中身はcollectionなので、この戻り値を受け取った先でもcollectionに対する操作が出来る
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;LengthAwarePaginator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$page&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで無事に Resource 側でもリレーションを参照できるようになりました。&lt;/p&gt;
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;Collection に対する理解が浅かった＆各動作の戻り値を意識しなかったために起きた悲劇でした。初心者のハマるポイントは誰にも予想ができない。&lt;br&gt;
-(名称からして LengthAwarePaginator が slice 周りもサポートしてくれるものだと思ってたけど違うんですね)&lt;/p&gt;
-&lt;p&gt;もし他に良い実装方法があれば教えて頂けると嬉しいです:)&lt;br&gt;
-では。&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Laravel on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/laravel/</link>
+    <description>Recent content in Laravel on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
+      <link>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
+      <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
+    </item>
+    
+    <item>
+      <title>【laravel-admin】インストール＆画面作成まで 編</title>
+      <link>https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</guid>
+      <description>目的 ここ最近、しばらくlaravel-adminという管理画面を作成するためのライブラリを使っていたので、調べたことやつまづいたところも含めて少しずつ書き起こそうと思います。
+まずはインストール編です。簡単に管理画面を確認できるところまで見ていきましょう。
+laravel-adminとは laravelで簡単にDBの管理画面を作成することができるライブラリです。
+ドキュメントやデモサイトなど使用するために必要な資料が充実しており、難しいカスタムを行う必要がなければものすごく簡単に管理画面が構築できます。
+Laravel-admin(ドキュメント)
+GitHubページ
+基本的な使用方法は上記でカバーし、カスタマイズして使用したい際には直接ソースコードを読んで適宜書き換えていく形になります。
+主観ですが、コード内のコメントも(おそらく書き換える前提の部分は)丁寧に書かれているので、しっかり読み解けば問題ないかと思います。
+プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
+何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
+公式によると、現在のバージョンでは以下の環境が推奨されるようです。
+ PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+laravel-admin install
+ $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+よければこちらの記事も参考にしてみてください。
+【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
+インストール laravelの準備ができたら早速laravel-adminをインストールします。
+$composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
+$php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
+ファイルの初期配置は以下。
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
+    </item>
+    
+    <item>
+      <title>【Laravel】Laravelで使用するDBををReadWrite構成にする時の確認でちょっとハマった話</title>
+      <link>https://SawaTszm.github.io/post/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravellaravel%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdb%E3%82%92%E3%82%92readwrite%E6%A7%8B%E6%88%90%E3%81%AB%E3%81%99%E3%82%8B%E6%99%82%E3%81%AB%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E8%A9%B1/</guid>
+      <description>起こった問題 タイトルの通り、Laravelで使用するDBのhostをRead/Weiteで切り替えたい、と思って設定をしていました。
+設定後下記を確認して、
+&amp;gt;&amp;gt;&amp;gt; config(&amp;#39;database.connections.pgsql&amp;#39;) =&amp;gt; [ &amp;#34;read&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; [ &amp;#34;postgres2&amp;#34;, ], ], &amp;#34;write&amp;#34; =&amp;gt; [ &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ], ... 反映されてるな、と思って念の為connectionも見てみました。
+&amp;gt;&amp;gt;&amp;gt; DB::connection(&amp;#39;pgsql::read&amp;#39;)-&amp;gt;getConfig(); =&amp;gt; [ ..., &amp;#34;host&amp;#34; =&amp;gt; &amp;#34;postgres&amp;#34;, ] ……あれ？
+Readコネクションなのでpostgres2であって欲しいのに、postgresが出てきてしまいました。
+反映されてないのかな？と思い色々調べたので、備忘録として置いて起きます。
+調べたこと getConfigで参照されるconfigは、
+Illuminate\Database\Connectors\ConnectionFactory::make内で、
+/** * Establish a PDO connection based on the configuration. * * @param array $config * @param string|null $name * @return \Illuminate\Database\Connection */ public function make(array $config, $name = null) { $config = $this-&amp;gt;parseConfig($config, $name); if (isset($config[&amp;#39;read&amp;#39;])) { return $this-&amp;gt;createReadWriteConnection($config); } return $this-&amp;gt;createSingleConnection($config); } createReadWriteConnectionが呼び出され、</description>
+    </item>
+    
+    <item>
+      <title>【Laravel】フォームリクエストでのバリデーションに条件付きの制約を追加する</title>
+      <link>https://SawaTszm.github.io/post/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Laravel】独自ペジネータで自前のCollectionを使う</title>
+      <link>https://SawaTszm.github.io/post/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

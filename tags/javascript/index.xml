@@ -1,64 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>JavaScript on sawa.md</title>
-        <link>https://SawaTszm.github.io/tags/javascript/</link>
-        <description>Recent content in JavaScript on sawa.md</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Sat, 17 Jul 2021 11:11:15 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Lodashの概要と関数まとめ</title>
-        <link>https://SawaTszm.github.io/p/lodash%E3%81%AE%E6%A6%82%E8%A6%81%E3%81%A8%E9%96%A2%E6%95%B0%E3%81%BE%E3%81%A8%E3%82%81/</link>
-        <pubDate>Sat, 17 Jul 2021 11:11:15 +0900</pubDate>
-        
-        <guid>https://SawaTszm.github.io/p/lodash%E3%81%AE%E6%A6%82%E8%A6%81%E3%81%A8%E9%96%A2%E6%95%B0%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-        <description>&lt;h2 id=&#34;lodashとは&#34;&gt;lodashとは&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The Lodash library exported as a UMD module.&lt;br&gt;
-(中略) &amp;hellip;Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリです。&lt;br&gt;
-&lt;code&gt;_.get&lt;/code&gt;や&lt;code&gt;_.each&lt;/code&gt;などがそれ。&lt;/p&gt;
-&lt;p&gt;公式ドキュメントがすごくわかりやすくていい感じです。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lodash/lodash&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;lodash - github&lt;/a&gt;&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://lodash.com/docs/4.17.15&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;公式ドキュメント&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;使い方&#34;&gt;使い方&lt;/h2&gt;
-&lt;h3 id=&#34;インポート&#34;&gt;インポート&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;lodash&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;関数&#34;&gt;関数&lt;/h2&gt;
-&lt;h3 id=&#34;_get&#34;&gt;_.get()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;defaultValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;object&lt;/code&gt;の&lt;code&gt;path&lt;/code&gt;の値を取得する。値を解決できなかった場合、&lt;code&gt;defaultValue&lt;/code&gt;を返す。&lt;/p&gt;
-&lt;h3 id=&#34;_has&#34;&gt;_.has()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;has&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;object&lt;/code&gt;の&lt;code&gt;path&lt;/code&gt;の値が存在するかを調べる。値自体は返さない。&lt;/p&gt;
-&lt;h3 id=&#34;_set&#34;&gt;_.set()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;object&lt;/code&gt;の&lt;code&gt;path&lt;/code&gt;に&lt;code&gt;value&lt;/code&gt;の値をセットする。&lt;br&gt;
-&lt;code&gt;path&lt;/code&gt;が定義されていない場合は新しく作られる。&lt;/p&gt;
-&lt;p&gt;インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)&lt;/p&gt;
-&lt;h3 id=&#34;_each---foreach&#34;&gt;_.each() -&amp;gt; forEach()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;forEach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iteratee&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;identity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;collection&lt;/code&gt;の要素を反復し、各要素に対して&lt;code&gt;iteratee&lt;/code&gt;を実行。&lt;br&gt;
-&lt;code&gt;iteratee&lt;/code&gt;は3つの引数(value, index|key, collection)で呼び出される。&lt;/p&gt;
-&lt;p&gt;※&lt;code&gt;iteratee&lt;/code&gt;関数は明示的にfalseを返すことで反復を終わらせることができる&lt;/p&gt;
-&lt;h3 id=&#34;_flatten&#34;&gt;_.flatten()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flatten&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;array&lt;/code&gt;を一段分フラットにする。非破壊的メソッド。&lt;br&gt;
-(例：&lt;code&gt;[1, [2, [3, [4]], 5]]&lt;/code&gt;を&lt;code&gt;[1, 2, [3, [4]], 5]&lt;/code&gt;に)&lt;br&gt;
-全部フラットにする&lt;code&gt;_.flattenDeep(array)&lt;/code&gt;や任意の深さをフラットにする&lt;code&gt;_.flattenDepth(array, [depth=1])&lt;/code&gt;もある。&lt;/p&gt;
-&lt;h3 id=&#34;_isnil&#34;&gt;_.isNil()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;isNil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;value&lt;/code&gt;の値がnullか、もしくは未定義かをチェックする。&lt;/p&gt;
-&lt;h3 id=&#34;sortby&#34;&gt;sortBy()&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Javascript&#34; data-lang=&#34;Javascript&#34;&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;sortBy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iteratees&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;identity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;// 例：_.sortBy(users, [&amp;#34;id&amp;#34;, &amp;#34;name&amp;#34;]) id-&amp;gt;nameの順でソート
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要素の配列を作成する。非破壊的メソッド。&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JavaScript on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Jul 2021 11:11:15 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lodashの概要と関数まとめ</title>
+      <link>https://SawaTszm.github.io/post/javascriptlodash/</link>
+      <pubDate>Sat, 17 Jul 2021 11:11:15 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/javascriptlodash/</guid>
+      <description>lodashとは  The Lodash library exported as a UMD module.
+(中略) &amp;hellip;Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+ 配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリです。
+_.getや_.eachなどがそれ。
+公式ドキュメントがすごくわかりやすくていい感じです。
+lodash - github
+公式ドキュメント
+ 使い方 インポート import _ from &amp;#39;lodash&amp;#39;; 関数 _.get() _.get(object, path, [defaultValue]) objectのpathの値を取得する。値を解決できなかった場合、defaultValueを返す。
+_.has() _.has(object, path) objectのpathの値が存在するかを調べる。値自体は返さない。
+_.set() _.set(object, path, value) objectのpathにvalueの値をセットする。
+pathが定義されていない場合は新しく作られる。
+インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)
+_.each() -&amp;gt; forEach() _.forEach(collection, [iteratee=_.identity]) collectionの要素を反復し、各要素に対してiterateeを実行。
+iterateeは3つの引数(value, index|key, collection)で呼び出される。
+※iteratee関数は明示的にfalseを返すことで反復を終わらせることができる</description>
+    </item>
+    
+  </channel>
 </rss>
