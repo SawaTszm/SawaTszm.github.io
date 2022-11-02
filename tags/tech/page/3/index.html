@@ -83,6 +83,23 @@ Tech
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>【Pytyon】リストの重複要素をカウントする
+</h2>
+</header>
+<div class=entry-content>
+<p>目的 投票結果を DB に貯めて、その結果を一位から取得したい。
+DB 構成は、
+Id Recipe int str というシンプルな感じです。
+ここからレコードの recipe の値を、[a, b, c, b, ...]と言ったリストに直した際、
+「一番投票数の多かったもの」や「投票数が多かった順の要素のリスト」が欲しい。
+TL;DR collectionsを使えば比較的簡単にできます。
+要素のカウントは collections が便利 import collections votes_list = [a, b, c, b] c = collections.Counter(votes_list) # Counter({'b': 2, 'a': 1, 'c': 1}) # `要素`: `出現回数` recipe = c.most_common() # [('b', 2), ('a', 1), ('c', 1)] # 出現回数が多い順に並べ替えてくれる recipe = c.most_common()[0][0] # b 参考にさせていただいたもの お世話になりました。...</p>
+</div>
+<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Pytyon】リストの重複要素をカウントする" href=https://SawaTszm.github.io/post/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>【Redis】ってなんぞや
 </h2>
 </header>
