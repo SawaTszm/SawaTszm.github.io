@@ -9,7 +9,20 @@
       <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Nov 2022 11:27:17 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Dec 2022 19:20:31 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugoを使用しているサイトでmermaidを記述できるようにする</title>
+      <link>https://SawaTszm.github.io/post/2022-12-14-mermaid/</link>
+      <pubDate>Wed, 14 Dec 2022 19:20:31 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/2022-12-14-mermaid/</guid>
+      <description>最近読んだGoF本を記事としてまとめたくて、このサイト内でmermaidを記述したかったので組み込みました。その時の備忘録です。
+※「エラーを出さずに動くようにする」をメインに進めていったので、「こっちの方がいい」「これやらない方がいい」等もあるかもです。適宜読み替えて実施してください。
+手順  mermaidのUNPKGから、mermaild.min.jsとmermaild.min.js.mapをダウンロードする static/jsあたりに取得した2つのファイルを置く  適宜リネームしてください。私はVersion情報を入れてmermaild.min.9.2.jsにしました   layouts/shortcodes/mermaid.htmlを作成する。  &amp;lt;script src=&amp;#34;{{&amp;#34;js/mermaid.min.9.2.js&amp;#34; | relURL}}&amp;#34; defer&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;div class=&amp;#34;mermaid&amp;#34; align=&amp;#34;{{ if .Get &amp;#34;align&amp;#34; }}{{ .Get &amp;#34;align&amp;#34; }}{{ else }}center{{ end }}&amp;#34;&amp;gt; {{ safeHTML .Inner }} &amp;lt;/div&amp;gt; (ローカルで確認するときは)ビルド＆devサーバ立ち上げ 記事内に{{&amp;lt;mermaid&amp;gt;}} mermaidの記述 {{&amp;lt; /mermaid &amp;gt;}}と記述することで、図として表示されるようになります。  結果 これは試しに入れてみた公式ドキュメントの例:
+(ダークモードだとちょっと見づらいかも)
+ sequenceDiagram participant Alice participant Bob Alice-John: Hello John, how are you? loop Healthcheck John-John: Fight against hypochondria end Note right of John: Rational thoughts prevail!</description>
+    </item>
+    
     <item>
       <title>VSCodeで開いているファイルをgithubで表示する</title>
       <link>https://SawaTszm.github.io/post/vscode%E3%81%A7%E9%96%8B%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92github%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B/</link>

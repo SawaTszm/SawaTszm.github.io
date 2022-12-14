@@ -2,8 +2,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/hugo/</loc>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://SawaTszm.github.io/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://SawaTszm.github.io/tags/hugo/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/post/2022-12-14-mermaid/</loc>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://SawaTszm.github.io/en/post/2022-12-14-mermaid/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://SawaTszm.github.io/post/2022-12-14-mermaid/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/mermaid/</loc>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://SawaTszm.github.io/en/tags/mermaid/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://SawaTszm.github.io/tags/mermaid/"
+                />
+  </url>
+  
+  <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/post/</loc>
-    <lastmod>2022-11-02T11:27:17+09:00</lastmod>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,7 +63,7 @@
   
   <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/</loc>
-    <lastmod>2022-11-02T11:27:17+09:00</lastmod>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -33,7 +78,7 @@
   
   <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/</loc>
-    <lastmod>2022-11-02T11:27:17+09:00</lastmod>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

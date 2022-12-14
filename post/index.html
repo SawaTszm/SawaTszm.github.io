@@ -84,6 +84,21 @@ Posts
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Hugoを使用しているサイトでmermaidを記述できるようにする
+</h2>
+</header>
+<div class=entry-content>
+<p>最近読んだGoF本を記事としてまとめたくて、このサイト内でmermaidを記述したかったので組み込みました。その時の備忘録です。
+※「エラーを出さずに動くようにする」をメインに進めていったので、「こっちの方がいい」「これやらない方がいい」等もあるかもです。適宜読み替えて実施してください。
+手順 mermaidのUNPKGから、mermaild.min.jsとmermaild.min.js.mapをダウンロードする static/jsあたりに取得した2つのファイルを置く 適宜リネームしてください。私はVersion情報を入れてmermaild.min.9.2.jsにしました layouts/shortcodes/mermaid.htmlを作成する。 &lt;script src="{{"js/mermaid.min.9.2.js" | relURL}}" defer>&lt;/script> &lt;div class="mermaid" align="{{ if .Get "align" }}{{ .Get "align" }}{{ else }}center{{ end }}"> {{ safeHTML .Inner }} &lt;/div> (ローカルで確認するときは)ビルド＆devサーバ立ち上げ 記事内に{{&lt;mermaid>}} mermaidの記述 {{&lt; /mermaid >}}と記述することで、図として表示されるようになります。 結果 これは試しに入れてみた公式ドキュメントの例:
+(ダークモードだとちょっと見づらいかも)
+sequenceDiagram participant Alice participant Bob Alice-John: Hello John, how are you? loop Healthcheck John-John: Fight against hypochondria end Note right of John: Rational thoughts prevail!...</p>
+</div>
+<footer class=entry-footer><span title="2022-12-14 19:20:31 +0900 JST">12月 14, 2022</span></footer>
+<a class=entry-link aria-label="post link to Hugoを使用しているサイトでmermaidを記述できるようにする" href=https://SawaTszm.github.io/post/2022-12-14-mermaid/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>VSCodeで開いているファイルをgithubで表示する
 </h2>
 </header>
@@ -188,31 +203,6 @@ GitLens: Open File on Remote # ブラウザで開く GitLens: Copy Remote File U
 </div>
 <footer class=entry-footer><span title="2021-08-02 18:52:08 +0900 JST">8月 2, 2021</span></footer>
 <a class=entry-link aria-label="post link to 【Python】フォーマット済み文字列リテラル" href=https://SawaTszm.github.io/post/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Lodashの概要と関数まとめ
-</h2>
-</header>
-<div class=entry-content>
-<p>lodashとは The Lodash library exported as a UMD module.
-(中略) …Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
-配列、数値、オブジェクト、文字列など、値を扱う際に便利な関数を多く提供しているJavaspriptのライブラリです。
-_.getや_.eachなどがそれ。
-公式ドキュメントがすごくわかりやすくていい感じです。
-lodash - github
-公式ドキュメント
-使い方 インポート import _ from 'lodash'; 関数 _.get() _.get(object, path, [defaultValue]) objectのpathの値を取得する。値を解決できなかった場合、defaultValueを返す。
-_.has() _.has(object, path) objectのpathの値が存在するかを調べる。値自体は返さない。
-_.set() _.set(object, path, value) objectのpathにvalueの値をセットする。
-pathが定義されていない場合は新しく作られる。
-インデックスのプロパティがない場合は配列が作成され、それ以外のプロパティがない場合はオブジェクトが作成される。(？)
-_.each() -> forEach() _.forEach(collection, [iteratee=_.identity]) collectionの要素を反復し、各要素に対してiterateeを実行。
-iterateeは3つの引数(value, index|key, collection)で呼び出される。
-※iteratee関数は明示的にfalseを返すことで反復を終わらせることができる...</p>
-</div>
-<footer class=entry-footer><span title="2021-07-17 11:11:15 +0900 JST">7月 17, 2021</span></footer>
-<a class=entry-link aria-label="post link to Lodashの概要と関数まとめ" href=https://SawaTszm.github.io/post/javascriptlodash/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

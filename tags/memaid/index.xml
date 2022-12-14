@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>memaid on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/memaid/</link>
+    <description>Recent content in memaid on sawa.md</description>
+    <image>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 14 Dec 2022 19:20:31 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/memaid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugoを使用しているサイトでmemaidを記述できるようにする</title>
+      <link>https://SawaTszm.github.io/post/hugo%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B5%E3%82%A4%E3%83%88%E3%81%A7memaid%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/</link>
+      <pubDate>Wed, 14 Dec 2022 19:20:31 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/hugo%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B5%E3%82%A4%E3%83%88%E3%81%A7memaid%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/</guid>
+      <description>最近読んだGoF本を記事としてまとめたくて、このサイト内でmermaidを記述したかったので組み込みました。その時の備忘録です。
+※「エラーを出さずに動くようにする」をメインに進めていったので、「こっちの方がいい」「これやらない方がいい」等もあるかもです。適宜読み替えて実施してください。
+手順  sequenceDiagram participant Alice participant Bob Alice-John: Hello John, how are you? loop Healthcheck John-John: Fight against hypochondria end Note right of John: Rational thoughts prevail! John--Alice: Great! John-Bob: How about you? Bob--John: Jolly good!  </description>
+    </item>
+    
+  </channel>
+</rss>
