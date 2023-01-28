@@ -107,21 +107,6 @@
   </url>
   
   <url>
-    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/en/tags/docker/</loc>
-    <lastmod>2022-01-10T12:45:25+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://SawaTszm.github.io/tags/docker/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://SawaTszm.github.io/en/tags/docker/"
-                />
-  </url>
-  
-  <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/en/post/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</loc>
     <lastmod>2022-01-10T12:45:25+09:00</lastmod>
     <xhtml:link
@@ -133,6 +118,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://SawaTszm.github.io/en/post/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/en/tags/docker/</loc>
+    <lastmod>2022-01-10T12:45:25+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://SawaTszm.github.io/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://SawaTszm.github.io/en/tags/docker/"
                 />
   </url>
   

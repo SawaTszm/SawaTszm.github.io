@@ -19,7 +19,7 @@
       <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
 ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
 その上でlaravel-adminの管理画面まで開けるようにしてみます。
-構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.yml version: &amp;#34;3.5&amp;#34; services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes: - ./:/var/www/html depends_on: - database links: - database ports: - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
     </item>
     
     <item>

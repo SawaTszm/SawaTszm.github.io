@@ -27,16 +27,16 @@ GitHubページ
 プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
 何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
 公式によると、現在のバージョンでは以下の環境が推奨されるようです。
- PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+PHP 7+ laravel 5.5+ This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
 laravel-admin install
- $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+$composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
 よければこちらの記事も参考にしてみてください。
 【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
 インストール laravelの準備ができたら早速laravel-adminをインストールします。
 $composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
 $php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
 ファイルの初期配置は以下。
-app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.php ├── bootstrap.</description>
     </item>
     
   </channel>

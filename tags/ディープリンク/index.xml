@@ -22,9 +22,11 @@
 ディープリンクとは 任意のアプリに遷移できるリンク(URL)のことです。
 アプリに遷移できるだけでなく、更にその中の特定の画面を指定して遷移することができます。
 スマホでTwitterやYoutubeのリンクをタップした時に、アプリが立ち上がって見たかった投稿や動画を開いてくれることってありますよね？ あの仕組みのことです。
-プラットフォームごとのディープリンク対応    プラットフォーム 種類 対応 URL     Android App links Android6.0 以降 WebURL   Android App Indexing Android WebURL   Apple universal links iOS9 以降 WebURL   どちらも Custom URL Scheme iOS,Android カスタム URL    Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
+プラットフォームごとのディープリンク対応 プラットフォーム 種類 対応 URL Android App links Android6.0 以降 WebURL Android App Indexing Android WebURL Apple universal links iOS9 以降 WebURL どちらも Custom URL Scheme iOS,Android カスタム URL Android(Google) App Links App Linksはオープンソースのアプリ連携サービスです。Facebookが提供しています。
 https:// から始まる URL を利用できます。
-メリット  WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる  デメリット  認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.</description>
+メリット WebURL から直接アプリを起動できる Android 特有のアプリ選択画面を飛ばせる デメリット 認証情報ファイルを https 通信可能なサーバに上げておく必要がある android 6.0(2015 年 10 月リリース)以降しか対応していない 設定方法 下記が参考になりました。
+App Linksに対応してみた - Qiita
+App Indexing App Indexingは、その名の通りアプリのコンテンツをインデックスして、Google検索の結果からアプリに直接遷移することができるサービスです。Googleが提供しています。</description>
     </item>
     
   </channel>

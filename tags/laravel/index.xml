@@ -11,18 +11,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
-      <link>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
-      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
-      <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
-ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
-その上でlaravel-adminの管理画面まで開けるようにしてみます。
-構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.ymlversion: &amp;#34;3.5&amp;#34;services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes:  - ./:/var/www/html depends_on: - database links: - database ports:  - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
-    </item>
-    
-    <item>
       <title>【laravel-admin】インストール＆画面作成まで 編</title>
       <link>https://SawaTszm.github.io/post/laravel-admin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E4%BD%9C%E6%88%90%E3%81%BE%E3%81%A7-%E7%B7%A8/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
@@ -39,16 +27,16 @@ GitHubページ
 プロジェクトの作成 既に開発しているlaravelプロジェクトに追加する場合は、この章は飛ばしてもらって大丈夫です。
 何もないところからlaravel-adminを試したい方は、まずlaravelプロジェクトを作成するところから始めましょう。
 公式によると、現在のバージョンでは以下の環境が推奨されるようです。
- PHP 7+ laravel 5.5+   This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
+PHP 7+ laravel 5.5+ This package requires PHP 7+ and Laravel 5.5, for old versions please refer to 1.4
 laravel-admin install
- $composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
+$composer create-project --prefer-dist &amp;#34;laravel/laravel=5.5.*&amp;#34; &amp;lt;project-name&amp;gt; DBも必要になってくるので、.envにDBの情報も書き足しておきましょう。
 よければこちらの記事も参考にしてみてください。
 【Laravel+MySQL+nginx】docker-composeで最小構成の環境構築 - SawaLog
 インストール laravelの準備ができたら早速laravel-adminをインストールします。
 $composer require encore/laravel-admin インストールが終わったら下記コマンドを実行します。
 $php artisan vendor:publish --provider=&amp;#34;Encore\Admin\AdminServiceProvider&amp;#34; $php artisan admin:install これらを実行すると、app/Adminディレクトリが作られます。これからの実装はこのディレクトリ配下で行うことになります。
 ファイルの初期配置は以下。
-app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.</description>
+app/Admin ├── Controllers │ ├── ExampleController.php │ └── HomeController.php ├── bootstrap.</description>
     </item>
     
     <item>
@@ -84,6 +72,18 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       
       <guid>https://SawaTszm.github.io/post/laravel%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
+      <link>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
+      <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
+      <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
+ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
+その上でlaravel-adminの管理画面まで開けるようにしてみます。
+構成 project_root_dir ├── docker-compose.yml ├── docker │ ├── nginx │ │ ├── Dockerfile │ │ └── default.conf │ ├── php │ │ └── Dockerfile │ └── db │ │ ├── my.cnf │ └── Dockerfile └── laravel └── ... 手順 docker-compose.ymlを作成 # docker-compose.yml version: &amp;#34;3.5&amp;#34; services: app: build: context: . dockerfile: ./docker/php/Dockerfile args: PROJECT_NAME: app_admin volumes: - ./:/var/www/html depends_on: - database links: - database ports: - &amp;#34;4000:80&amp;#34; - &amp;#34;4001:8080&amp;#34; tty: true database: image: mysql:5.</description>
     </item>
     
   </channel>

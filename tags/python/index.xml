@@ -21,7 +21,7 @@
 フォーマット済み文字列リテラルとは フォーマット済み文字列リテラル(f-string)では、文字列の先頭にfを付けることで、pythonの式を文字列内に{式}の形で埋め込むことができます。
 従来の書き方よりも簡潔、かつわかりやすく記述することができる書き方です。
 公式ドキュメント
-使い方 変数に入った数字を3文字のカンマ区切りにする hoge = 99999999 # 従来のstr.format() print(&amp;#34;{:,}&amp;#34;.format(hoge)) # フォーマット済み文字列リテラル print(f&amp;#34;{hoge:,d}&amp;#34;) :の後ろに整数をつけて縦を揃える tokuten = {&amp;#34;kokugo&amp;#34;: 9, &amp;#34;sugaku&amp;#34;: 81, &amp;#34;eigo&amp;#34;: 100} for sub, point in tokuten.items(): print(f&amp;#39;{sub:10}==&amp;gt; {point:5d}&amp;#39;) # kokugo ==&amp;gt; 9 # sugaku ==&amp;gt; 81 # eigo ==&amp;gt; 100 まとめ 従来のstr.format()と比べると、f-stringは最終結果が人の目で見てもわかりやすいですね。</description>
+使い方 変数に入った数字を3文字のカンマ区切りにする hoge = 99999999 # 従来のstr.format() print(&amp;#34;{:,}&amp;#34;.format(hoge)) # フォーマット済み文字列リテラル print(f&amp;#34;{hoge:,d}&amp;#34;) :の後ろに整数をつけて縦を揃える tokuten = {&amp;#34;kokugo&amp;#34;: 9, &amp;#34;sugaku&amp;#34;: 81, &amp;#34;eigo&amp;#34;: 100} for sub, point in tokuten.items(): print(f&amp;#39;{sub:10} ==&amp;gt; {point:5d}&amp;#39;) # kokugo ==&amp;gt; 9 # sugaku ==&amp;gt; 81 # eigo ==&amp;gt; 100 まとめ 従来のstr.format()と比べると、f-stringは最終結果が人の目で見てもわかりやすいですね。</description>
     </item>
     
     <item>
@@ -30,14 +30,16 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/</guid>
-      <description>cerberusとは  CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary
- ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。
+      <description>cerberusとは CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary
+ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。
 公式曰く、拡張も容易なため、カスタム検証も可能です。
 (以下、9割公式のドキュメントの翻訳です)
- 概要 検証用のスキーマを定義し、それを Validator クラスのインスタンスに渡します。
+概要 検証用のスキーマを定義し、それを Validator クラスのインスタンスに渡します。
 schma = {&amp;#39;name&amp;#39;: {&amp;#39;type&amp;#39;: &amp;#39;string&amp;#39;}} v = Validator(schema) 次に、validate()を呼び出すことで、簡単にスキーマと辞書を検証できます。
 検証が成功すると True が返されます。
-document = {&amp;#39;name&amp;#39;: &amp;#39;john doe&amp;#39;} v.validate(document) # True  インストール 安定バージョンはpipから取得できます。</description>
+document = {&amp;#39;name&amp;#39;: &amp;#39;john doe&amp;#39;} v.validate(document) # True インストール 安定バージョンはpipから取得できます。
+pip install cerberus
+使い方 基本的な使い方 # 概要の通り。スキーマを定義し、Validatorクラスに渡して検証する。 &amp;gt;&amp;gt;&amp;gt; from cerberus import Validator &amp;gt;&amp;gt;&amp;gt; schema = {&amp;#39;name&amp;#39;: {&amp;#39;type&amp;#39;: &amp;#39;string&amp;#39;}} &amp;gt;&amp;gt;&amp;gt; v = Validator(schema) &amp;gt;&amp;gt;&amp;gt; document = {&amp;#39;name&amp;#39;: &amp;#39;john doe&amp;#39;} &amp;gt;&amp;gt;&amp;gt; v.</description>
     </item>
     
     <item>
@@ -63,10 +65,13 @@ Use Virtual Environment # not active $poetry run python -m pytest # active $poet
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
-      <description>知りたかったこと  try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう  結論 呼び出された先の例外もキャッチできますφ(･･
-調べて知ったこと  エラーには構文エラーと例外がある 複数の例外を指定することができる  except (RuntimeError, TypeError, NameError): pass  exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる  しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要   Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く  try 節で全く例外が創出されなかった時に実行されるコードを記述することができる    for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
+      <description>知りたかったこと try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう 結論 呼び出された先の例外もキャッチできますφ(･･
+調べて知ったこと エラーには構文エラーと例外がある 複数の例外を指定することができる except (RuntimeError, TypeError, NameError): pass exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要 Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く try 節で全く例外が創出されなかった時に実行されるコードを記述することができる for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
-8. エラーと例外 — Python 3.8.1 ドキュメント</description>
+8. エラーと例外 — Python 3.8.1 ドキュメント
+Except 節では例外名の後に変数を指定できる。この変数は例外インスタンスに結び付けられ、instance.argsに例外インスタンス生成時の引数が入る。
+例外インスタンスに実装されている__str__はinstance.argsをわざわざ出力しなくても見られるようになっているので、print(inst)で見られる。便利。 例外ハンドラは、try 節の直下で発生した例外を処理するだけではなく、その try 節から(たとえ間接的にでも)呼び出された関数の内部で発生した例外も処理する。(！)
+def this_fails(): ... x = 1/0 .</description>
     </item>
     
     <item>
@@ -77,11 +82,12 @@ Python の例外処理（try, except, else, finally） | note.nkmk.me
       <guid>https://SawaTszm.github.io/post/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</guid>
       <description>目的 投票結果を DB に貯めて、その結果を一位から取得したい。
 DB 構成は、
-   Id Recipe     int str    というシンプルな感じです。
+Id Recipe int str というシンプルな感じです。
 ここからレコードの recipe の値を、[a, b, c, b, ...]と言ったリストに直した際、
 「一番投票数の多かったもの」や「投票数が多かった順の要素のリスト」が欲しい。
 TL;DR collectionsを使えば比較的簡単にできます。
-要素のカウントは collections が便利 import collections votes_list = [a, b, c, b] c = collections.Counter(votes_list) # Counter({&amp;#39;b&amp;#39;: 2, &amp;#39;a&amp;#39;: 1, &amp;#39;c&amp;#39;: 1}) # `要素`: `出現回数` recipe = c.most_common() # [(&amp;#39;b&amp;#39;, 2), (&amp;#39;a&amp;#39;, 1), (&amp;#39;c&amp;#39;, 1)] # 出現回数が多い順に並べ替えてくれる recipe = c.most_common()[0][0] # b 参考にさせていただいたもの お世話になりました。</description>
+要素のカウントは collections が便利 import collections votes_list = [a, b, c, b] c = collections.Counter(votes_list) # Counter({&amp;#39;b&amp;#39;: 2, &amp;#39;a&amp;#39;: 1, &amp;#39;c&amp;#39;: 1}) # `要素`: `出現回数` recipe = c.most_common() # [(&amp;#39;b&amp;#39;, 2), (&amp;#39;a&amp;#39;, 1), (&amp;#39;c&amp;#39;, 1)] # 出現回数が多い順に並べ替えてくれる recipe = c.most_common()[0][0] # b 参考にさせていただいたもの お世話になりました。
+collections — コンテナデータ型 — Python 3.8.1 ドキュメント</description>
     </item>
     
   </channel>
