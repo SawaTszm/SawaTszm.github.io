@@ -83,6 +83,20 @@ Tech
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>【Python】エラーについて
+</h2>
+</header>
+<div class=entry-content>
+<p>知りたかったこと try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう 結論 呼び出された先の例外もキャッチできますφ(･･
+調べて知ったこと エラーには構文エラーと例外がある 複数の例外を指定することができる except (RuntimeError, TypeError, NameError): pass exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要 Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く try 節で全く例外が創出されなかった時に実行されるコードを記述することができる for arg in sys.argv[1:]: try: f = open(arg, 'r') except OSError: print('cannot open', arg) else: print(arg, 'has', len(f.readlines()), 'lines') f.close() 参考：
+Python の例外処理（try, except, else, finally） | note.nkmk.me
+8. エラーと例外 — Python 3.8.1 ドキュメント...</p>
+</div>
+<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
+<a class=entry-link aria-label="post link to 【Python】エラーについて" href=https://SawaTszm.github.io/post/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>【Pytyon】リストの重複要素をカウントする
 </h2>
 </header>
@@ -155,7 +169,7 @@ https:// から始まる URL を利用できます。
 </footer>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://SawaTszm.github.io>sawa.md</a></span>
+<span>&copy; 2023 <a href=https://SawaTszm.github.io>sawa.md</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

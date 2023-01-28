@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tech on sawa.md</title>
+    <title>tech on sawa.md</title>
     <link>https://SawaTszm.github.io/en/tags/tech/</link>
-    <description>Recent content in Tech on sawa.md</description>
+    <description>Recent content in tech on sawa.md</description>
     <image>
       <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 10 Jan 2022 12:45:25 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/en/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Dec 2022 19:20:31 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/en/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to write mermaid on a site using Hugo</title>
+      <link>https://SawaTszm.github.io/en/post/2022-12-14-mermaid/</link>
+      <pubDate>Wed, 14 Dec 2022 19:20:31 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/en/post/2022-12-14-mermaid/</guid>
+      <description>※ Some sentences were helped with translator site:)
+ I had a chance to think about using mermaid in this site I created using Hugo theme. I actually tried to incorporate it into the site, so I leave it as an article.
+※ I mainly tried to make it work without any errors, so there may be some things that are better to do this way or not to do this way.</description>
+    </item>
+    
     <item>
       <title>【Docker】Docker for mac doesn&#39;t work</title>
       <link>https://SawaTszm.github.io/en/post/dockerdocker-for-mac%E3%81%8C%E6%9B%B4%E6%96%B0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</link>

@@ -83,6 +83,21 @@ Tech
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Hugoを使用しているサイトでmermaidを記述できるようにする
+</h2>
+</header>
+<div class=entry-content>
+<p>最近読んだGoF本を記事としてまとめたくて、このサイト内でmermaidを記述したかったので組み込みました。その時の備忘録です。
+※「エラーを出さずに動くようにする」をメインに進めていったので、「こっちの方がいい」「これやらない方がいい」等もあるかもです。適宜読み替えて実施してください。
+手順 mermaidのUNPKGから、mermaild.min.jsとmermaild.min.js.mapをダウンロードする static/jsあたりに取得した2つのファイルを置く 適宜リネームしてください。私はVersion情報を入れてmermaild.min.9.2.jsにしました layouts/shortcodes/mermaid.htmlを作成する。 &lt;script src="{{"js/mermaid.min.9.2.js" | relURL}}" defer>&lt;/script> &lt;div class="mermaid" align="{{ if .Get "align" }}{{ .Get "align" }}{{ else }}center{{ end }}"> {{ safeHTML .Inner }} &lt;/div> (ローカルで確認するときは)ビルド＆devサーバ立ち上げ 記事内に{{&lt;mermaid>}} mermaidの記述 {{&lt; /mermaid >}}と記述することで、図として表示されるようになります。 結果 これは試しに入れてみた公式ドキュメントの例:
+(ダークモードだとちょっと見づらいかも)
+sequenceDiagram participant Alice participant Bob Alice-John: Hello John, how are you? loop Healthcheck John-John: Fight against hypochondria end Note right of John: Rational thoughts prevail!...</p>
+</div>
+<footer class=entry-footer><span title="2022-12-14 19:20:31 +0900 JST">12月 14, 2022</span></footer>
+<a class=entry-link aria-label="post link to Hugoを使用しているサイトでmermaidを記述できるようにする" href=https://SawaTszm.github.io/post/2022-12-14-mermaid/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>VSCodeで開いているファイルをgithubで表示する
 </h2>
 </header>
@@ -215,17 +230,6 @@ GoF デザインパターン 23 種類あるヤツ(雑)
 <footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
 <a class=entry-link aria-label="post link to 【Docker】Killedと言われないためにメモリ割り当てを増やす" href=https://SawaTszm.github.io/post/dockerkilled%E3%81%A8%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%83%A1%E3%83%A2%E3%83%AA%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%92%E5%A2%97%E3%82%84%E3%81%99/></a>
 </article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)
-</h2>
-</header>
-<div class=entry-content>
-<p>...</p>
-</div>
-<footer class=entry-footer><span title="2021-02-19 12:01:46 +0900 JST">2月 19, 2021</span></footer>
-<a class=entry-link aria-label="post link to 【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)" href=https://SawaTszm.github.io/post/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://SawaTszm.github.io/tags/tech/page/2/>次のページ&nbsp;&nbsp;»
@@ -234,7 +238,7 @@ GoF デザインパターン 23 種類あるヤツ(雑)
 </footer>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://SawaTszm.github.io>sawa.md</a></span>
+<span>&copy; 2023 <a href=https://SawaTszm.github.io>sawa.md</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

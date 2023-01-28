@@ -92,6 +92,21 @@
   </url>
   
   <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/en/tags/tech/</loc>
+    <lastmod>2022-12-14T19:20:31+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://SawaTszm.github.io/tags/tech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://SawaTszm.github.io/en/tags/tech/"
+                />
+  </url>
+  
+  <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/en/tags/docker/</loc>
     <lastmod>2022-01-10T12:45:25+09:00</lastmod>
     <xhtml:link
@@ -103,21 +118,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://SawaTszm.github.io/en/tags/docker/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/en/tags/tech/</loc>
-    <lastmod>2022-01-10T12:45:25+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://SawaTszm.github.io/tags/tech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://SawaTszm.github.io/en/tags/tech/"
                 />
   </url>
   
