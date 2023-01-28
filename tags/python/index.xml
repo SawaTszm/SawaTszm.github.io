@@ -12,10 +12,10 @@
     <lastBuildDate>Mon, 02 Aug 2021 18:52:08 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Python】フォーマット済み文字列リテラル</title>
-      <link>https://SawaTszm.github.io/post/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</link>
+      <link>https://SawaTszm.github.io/post/python-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</link>
       <pubDate>Mon, 02 Aug 2021 18:52:08 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/python%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</guid>
+      <guid>https://SawaTszm.github.io/post/python-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</guid>
       <description>目的 すごく今更&amp;amp;簡潔にだけど、python3.6以降で利用できる文字列フォーマットについてまとめていきます。
 （ずっとstr.format()を使っていたので戒めも兼ねて）。
 フォーマット済み文字列リテラルとは フォーマット済み文字列リテラル(f-string)では、文字列の先頭にfを付けることで、pythonの式を文字列内に{式}の形で埋め込むことができます。
@@ -26,10 +26,10 @@
     
     <item>
       <title>【Python】cerberusまとめ</title>
-      <link>https://SawaTszm.github.io/post/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <link>https://SawaTszm.github.io/post/python-summary-of-cerberus/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/pythoncerberus%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <guid>https://SawaTszm.github.io/post/python-summary-of-cerberus/</guid>
       <description>cerberusとは CERBERUS, n. The watch-dog of Hades, whose duty it was to guard the entrance; everybody, sooner or later, had to go there, and nobody wanted to carry off the entrance. - Ambrose Bierce, The Devil’s Dictionary
 ケルベロスはシンプルで軽量なデータ検証機能を提供するパッケージです。
 公式曰く、拡張も容易なため、カスタム検証も可能です。
@@ -44,10 +44,10 @@ pip install cerberus
     
     <item>
       <title>【Python】poetryを試してみる</title>
-      <link>https://SawaTszm.github.io/post/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</link>
+      <link>https://SawaTszm.github.io/post/python-try-poetry/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/pythonpoetry%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
+      <guid>https://SawaTszm.github.io/post/python-try-poetry/</guid>
       <description>poetryとは pythonの環境管理ツールです。
 機能としてはpipenvに近い感じでした。
 本当に触りだけやってみたリポジトリはこちら。
@@ -61,10 +61,10 @@ Use Virtual Environment # not active $poetry run python -m pytest # active $poet
     
     <item>
       <title>【Python】エラーについて</title>
-      <link>https://SawaTszm.github.io/post/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</link>
+      <link>https://SawaTszm.github.io/post/python-about-error/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/python%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
+      <guid>https://SawaTszm.github.io/post/python-about-error/</guid>
       <description>知りたかったこと try-catch の有効範囲はどれくらいなのか(呼び出した関数で起きたエラーも拾えるのか) ネストしたエラーの扱いってどうするのが良いんだろう 結論 呼び出された先の例外もキャッチできますφ(･･
 調べて知ったこと エラーには構文エラーと例外がある 複数の例外を指定することができる except (RuntimeError, TypeError, NameError): pass exceptは上から順に見て、引っかかったタイミングでそのexcept節内部のみを実行する 最後の except 節では例外名を省いて、ワイルドカードにすることができる しかし、ワイルドカードの except 節は通常のプログラムエラーをたやすく隠してしまうため、注意は必要 Try…exceptの中にはelse節を設けることができる。else節は全てのexcept節よりも後ろに置く try 節で全く例外が創出されなかった時に実行されるコードを記述することができる for arg in sys.argv[1:]: try: f = open(arg, &amp;#39;r&amp;#39;) except OSError: print(&amp;#39;cannot open&amp;#39;, arg) else: print(arg, &amp;#39;has&amp;#39;, len(f.readlines()), &amp;#39;lines&amp;#39;) f.close() 参考：
 Python の例外処理（try, except, else, finally） | note.nkmk.me
@@ -76,10 +76,10 @@ def this_fails(): ... x = 1/0 .</description>
     
     <item>
       <title>【Pytyon】リストの重複要素をカウントする</title>
-      <link>https://SawaTszm.github.io/post/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</link>
+      <link>https://SawaTszm.github.io/post/pytyon-%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/pytyon%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</guid>
+      <guid>https://SawaTszm.github.io/post/pytyon-%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B/</guid>
       <description>目的 投票結果を DB に貯めて、その結果を一位から取得したい。
 DB 構成は、
 Id Recipe int str というシンプルな感じです。

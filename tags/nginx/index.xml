@@ -12,19 +12,19 @@
     <lastBuildDate>Fri, 19 Feb 2021 12:01:46 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Docker】【nginx】docker-compose上のnginxをhttps対応する(開発環境編)</title>
-      <link>https://SawaTszm.github.io/post/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B/</link>
+      <link>https://SawaTszm.github.io/post/docker-nginx-ssl-on-server/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/dockernginxssl-on-%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B/</guid>
+      <guid>https://SawaTszm.github.io/post/docker-nginx-ssl-on-server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>【Laravel&#43;MySQL&#43;nginx】docker-composeで最小構成の環境構築</title>
-      <link>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
+      <link>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginx-docker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginxdocker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
+      <guid>https://SawaTszm.github.io/post/laravel&#43;mysql&#43;nginx-docker-compose%E3%81%A7%E6%9C%80%E5%B0%8F%E6%A7%8B%E6%88%90%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
       <description>目的 laravel-admin使いたいだけの用途にLaradockは重すぎる……
 ので、お勉強も兼ねて、docker-composeでLaravel&amp;amp;MySQLのみの環境を立てました。
 その上でlaravel-adminの管理画面まで開けるようにしてみます。

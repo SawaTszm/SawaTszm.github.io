@@ -12,10 +12,10 @@
     <lastBuildDate>Thu, 28 Jan 2021 19:10:59 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【ディープリンク】ってなんぞや</title>
-      <link>https://SawaTszm.github.io/post/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</link>
+      <link>https://SawaTszm.github.io/post/summary-of-deep-link/</link>
       <pubDate>Thu, 28 Jan 2021 19:10:59 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%9E%E3%82%84/</guid>
+      <guid>https://SawaTszm.github.io/post/summary-of-deep-link/</guid>
       <description>目的 「LINEBOT くんのメッセージをタップしたらアプリに飛ぶようにしてほしい！」
 という要件を貰ったけど、
 そのあたり全く初見だったので調べてまとめてみました。
