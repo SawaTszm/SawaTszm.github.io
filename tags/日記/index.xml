@@ -5,63 +5,29 @@
     <link>https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/</link>
     <description>Recent content in 日記 on sawa.md</description>
     <image>
+      <title>sawa.md</title>
       <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 15 Sep 2022 21:36:09 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Feb 2023 23:40:16 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>日記 2022-09-15</title>
-      <link>https://SawaTszm.github.io/post/2022-09-15-diary/</link>
-      <pubDate>Thu, 15 Sep 2022 21:36:09 +0900</pubDate>
+      <title>Wakatime導入してみた</title>
+      <link>https://SawaTszm.github.io/post/install-wakatime/</link>
+      <pubDate>Tue, 28 Feb 2023 23:40:16 +0900</pubDate>
       
-      <guid>https://SawaTszm.github.io/post/2022-09-15-diary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TOEICを受けてきました</title>
-      <link>https://SawaTszm.github.io/post/toeic%E3%82%92%E5%8F%97%E3%81%91%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
-      <pubDate>Tue, 13 Sep 2022 19:07:16 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/post/toeic%E3%82%92%E5%8F%97%E3%81%91%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>日記(2022/06/25)</title>
-      <link>https://SawaTszm.github.io/post/2022-06-25-rem/</link>
-      <pubDate>Sat, 25 Jun 2022 13:08:08 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/post/2022-06-25-rem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>気をつけるべきだなと思ったこと</title>
-      <link>https://SawaTszm.github.io/post/things-to-watch-out-for/</link>
-      <pubDate>Thu, 23 Jun 2022 21:29:26 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/post/things-to-watch-out-for/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[TIL] display: contents;</title>
-      <link>https://SawaTszm.github.io/post/display-contents/</link>
-      <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/post/display-contents/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>基本情報に受かりました</title>
-      <link>https://SawaTszm.github.io/post/2021-05-16/</link>
-      <pubDate>Mon, 16 May 2022 21:41:51 +0900</pubDate>
-      
-      <guid>https://SawaTszm.github.io/post/2021-05-16/</guid>
-      <description></description>
+      <guid>https://SawaTszm.github.io/post/install-wakatime/</guid>
+      <description>個人開発でアプリ出したいなぁと思っていて（今はFlutterくんと仲良くなるためにチュートリアルやってるだけですが）、毎日少しずつでもコーディングするモチベーションが欲しい……！と思ってwakatimeを導入しました。
+wakatimeは、VSCodeなどのエディタと連携して、実際にコーディングしている時間を計測してくれるサービスです。
+ちょうど最近登録したLAPRAS(GithubやTwitterなどからクローリングした情報をまとめてポートフォリオにしてくれるサービス)のbeta版機能として連携できるようになっていて知りました。
+個人で使っているPCのVSCodeにだけ導入しておけば、完全に個人でコーディングしている時間を集計できるのが良さげです。
+インストール&amp;amp;セットアップ サイトからgithubでサインアップ settingsにあるSecret API Keyをコピーしておく VSCodeの拡張機能でwakatimeをインストール インストールが終わるとAPIKeyの入力を求められるのでペースト これだけです。ダッシュボードは割とリアルタイムに反映されるので、少しコードを触って見に行くと集計されてます。
+どのリポジトリを触ったか、どの言語を触ったか、更にはデバッグしていた時間なども記録されてました。
+profileに反映されるのは少し時間がかかりますが、少しすると表示され始めます:
+（githubのProfileにバッジも置いてみた）
+結論: 良さそう 最初は「ブログでもzennの記事書くときでも結構だらだらmdファイル触るし、触った言語比率とかそういうのpublicになるとちょっと恥ずかしいな〜」みたいな謎のプライド(？)で導入を悩んでいたんですが、公表するデータは制御できるし、最初から気軽な気持ちで導入しておけばよかったなと思いました。
+サイト内でコーディング時間のゴールも設定できる&amp;amp;profileの草形式で自分の頑張りが見られるので、モチベーションアップに繋がりそうです。
+(個人で触るコードのみの環境なのでサクッと導入しましたが、仕事上の守秘義務のあるコードを触る環境なんかに入れる時はセキュリティ的にちゃんと色々調べないといけないと思います。)</description>
     </item>
     
   </channel>
