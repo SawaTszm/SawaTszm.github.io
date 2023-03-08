@@ -10,7 +10,32 @@
       <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Feb 2023 23:40:16 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Mar 2023 16:47:00 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python: requestsのタイムアウトエラーについて</title>
+      <link>https://SawaTszm.github.io/post/python-requests-timeout/</link>
+      <pubDate>Wed, 08 Mar 2023 16:47:00 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/python-requests-timeout/</guid>
+      <description>pythonでHTTP通信するときに大体使うrequestsで、timeoutエラーの種類で問題の切り分けがしたくて調べたのでちょっとまとめ。
+TL;DR 公式ドキュメントのExceptionsを見るとわかりやすい。
+中でもタイムアウト関連のエラーは以下の二つ:
+connect timeout requests.exceptions.ConnectTimeout例外が投げられる。
+相手のサーバと接続を確立する時に時間がかかりすぎたtimeout。
+公式ドキュメント
+read timeout requests.exceptions.ReadTimeout例外が投げられる。
+相手のサーバからレスポンスが返ってくるまでに時間がかかりすぎたtimeout。
+公式ドキュメント
+両方まとめてcatchしたい時は requests.exceptions.Timeout例外が設定されていて、ConnectTimeout, ReadTimeoutどちらも含まれます。
+もうちょっと詳しく そもそもRequestsの例外の中には、RequestException（曖昧な例外）やConnectionErrorが設定されていて、明らかに設定がおかしい場合や早期に接続エラーが起きた場合には、レスポンスを待つ前にこの例外が投げられます。
+それらが起きずにtimeoutエラーが起きた場合は、接続の確立で相手からレスポンスが返ってこない(ConnectTimeout)か、接続確率はできてるけど接続先がデータの準備などで時間がかかりすぎて設定したtimeout時間内にレスポンスが返ってこない(Readtimeout)かの二択。
+なので、ConnectTimeoutが起きた時には安全に再試行できると公式ドキュメントにも書かれてます（少なくともリクエスト時の設定に問題がある訳じゃないから）。
+Timeout例外が出た時にする事は下記の感じになると思います:
+ConnectTimeoutが出た場合は、リクエストを投げてる相手のサーバがダウンしてないか、ネットワーク設定に問題がないかを確認する。 ReadTimeoutが出た場合は、接続の確立には成功していて、向こうのレスポンスに時間がかかっているので、リクエストするサーバ側にも責任がある場合はチューニングする。そうでない場合は一度timeout時間を伸ばして成功するか様子を見る。 デフォルトのtimeout時間は設定されていないので注意する 明示的に設定しない限り、timeoutのデフォルトはNoneです。つまりtimeoutしません。
+基本的にはtimeoutを設定して、上記のtimeoutエラーで原因がわかるようにした方が良さそうです。
+import requests try: # connect timeout, read timeoutどちらも同じ値で良い場合 res = requests.get(&amp;#39;有効なURL&amp;#39;, timeout=30) # connect timeout=30, read timeout=60とかで分けたい場合 res = requests.get(&amp;#39;有効なURL&amp;#39;, timeout=(30, 60)) except requests.exceptions.ConnectTimeout: print(&amp;#34;接続確立のエラー&amp;#34;) except requests.exceptions.ReadTimeout: print(&amp;#34;レスポンスが遅すぎたエラー&amp;#34;) </description>
+    </item>
+    
     <item>
       <title>Wakatime導入してみた</title>
       <link>https://SawaTszm.github.io/post/install-wakatime/</link>
