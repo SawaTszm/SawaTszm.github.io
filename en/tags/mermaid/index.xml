@@ -10,6 +10,7 @@
       <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 14 Dec 2022 19:20:31 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/en/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to write mermaid on a site using Hugo</title>

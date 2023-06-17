@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SSO on sawa.md</title>
+    <link>https://SawaTszm.github.io/tags/sso/</link>
+    <description>Recent content in SSO on sawa.md</description>
+    <image>
+      <title>sawa.md</title>
+      <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 17 Jun 2023 11:06:39 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/sso/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSOについて調べたことまとめ</title>
+      <link>https://SawaTszm.github.io/post/sumary-sso/</link>
+      <pubDate>Sat, 17 Jun 2023 11:06:39 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/sumary-sso/</guid>
+      <description>SSO、使う側としてはよく見かけますが実装する側としてはあんまりキャッチアップしてこなかったなと思ったので、軽く調べたのをまとめておきます。
+SSOとは シングルサインオン（Single Sign-On、SSO）は、ユーザが1回の認証で複数のアプリケーションにアクセスできるようにする仕組み全般のことを指します。
+大きく分けるとSAML（Security Assertion Markup Lnaguage）、OIDC（OpenID Connect）の2つの一般的なプロトコルがあります。（※諸説ある）
+SAML SAMLアサーション（ユーザ情報とアクセスできる内容を含む暗号化署名されたXMLドキュメント）を使用してサービス間でID情報を共有します。
+ビジネス系（Slack, Office365, Salesforce）などでよく見られる（らしい）です。
+OpenID Connect JWT(JSON Web Token)を使用してサービス間でID情報を共有します。
+よくお世話になる「GoogleアカウントでYoutubeにログインしている」系はOpenID Connectで実現されています。
+代表的な実現方式 （【図解つき】シングルサインオン（SSO）とは？機能や仕組み、導入メリット、デメリットをわかりやすく解説！ | mobiconnect（モビコネクト）を多大に参考にしています、ありがとうございます）
+代行認証方式 利用者の代わりにエージェントが認証情報を保持し、ログイン画面を検知したら代行して各システムのID、パスワードを入力する方式です。
+（個人的にはこれをSSOと呼んでも良いのか、という気持ちは多少あるけど、パスワード自動生成などで認証情報を意識しないので実質SSO、と言うことなのかもしれない）
+システム側でSSOに対応していなくても、ID/パスワードでログインする一般的なシステムであれば使用することができ、活用範囲が広いです。
+その代わり、利用者側のPC（もしくはWebブラウザ）に常駐するエージェントを必ず入れる必要があります。
+リバースプロキシ方式 Web上で実現するSSOの仕組みとして、アクセスを全てリバースプロキシと呼ばれる中継サーバを介して行うようにネットワークを設計する方式です。
+リバースプロキシに対して認証を行うと、認証済みのCookieが発行され、各サイトにアクセスできるようになります。 対象としたいシステムに何か導入する必要がないため、既存システムへの影響がほぼない状態で事前検証ができます。が、リバースプロキシがボトルネックになる可能性があります。
+実装する場合はざっくり以下のような構成になります:
+Nginx等を使用して、アプリケーションへのリバースプロキシをセットアップ SSOプロバイダの設定（色々あるので最適なものを選ぶ） アプリケーション側の認証ビュー（API）の実装 エージェント方式 リバースプロキシ方式同様、Web上で実現するSSOの仕組みで、Webサーバやアプリケーションサーバにエージェントソフトウェアを組み込む方式です。
+組み込んだモジュールがSSOサーバと連携することでSSOを実現します。
+リバースプロキシと異なり、ボトルネックが発生しづらい、既存のネットワーク環境に変更を加えなくて良い点がメリットです。
+SAML認証方式 SAML認証方式は、IdP（Identity Provider）とSP（Service Provider）の2つの要素で構成され、SP側（Webサーバやアプリケーション側）をSAMLに対応させることで、IdPが提供する認証情報を利用してSSOを実現できます。
+（名前がすごくややこしいけど、別に他の方式がSAMLプロトコルを使わないと言うわけではなくて、この方式の説明の意図は「上二つの方式と異なりWeb上で完結せず、アプリケーション側でSAMLに対応するSSO方式」ってことだと思います）
+まとめ 認証まわりって難しいですね。
+（見ている途中でソーシャル認証やOAuth2あたりの情報も出てきましたがちょっとパンクしてきたのでここで止めておきます）
+参考 シングルサインオンとは｜「分かりそう」で「分からない」でも「分かった」気になれるIT用語辞典 【図解つき】シングルサインオン（SSO）とは？機能や仕組み、導入メリット、デメリットをわかりやすく解説！ | mobiconnect（モビコネクト） What Is Single Sign-on (SSO)? How It Works - YouTube 後で見たい Django SSO - YouTube </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -10,7 +10,28 @@
       <link>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Mar 2023 20:43:27 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Sat, 17 Jun 2023 15:11:15 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日記(~2023/06)</title>
+      <link>https://SawaTszm.github.io/post/diary-2023-06/</link>
+      <pubDate>Sat, 17 Jun 2023 15:11:15 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/diary-2023-06/</guid>
+      <description>(純然たる日記の寄せ集めです)
+(2023/04/01)
+ながら聞き用にbocoのPEACE SS-1買いました。
+仕事中に音楽とかラジオとか聴きたい派なんですが、ずっとイヤホンをしていると耳が痛いし、中耳炎になって危ないってよく聞くし……と思って数年前にShokz(旧Aftershokz)の骨伝導イヤホンを買ったのが骨伝導との出会いでした。
+買った当時は気にならなかったんですが、しばらく経ってちょっといい椅子を導入してヘッドレストにクッションをつけたら首周りの部分が干渉するようになってしまって、ちょっと不便だな〜と思っていたところにPEACE SS-1くんと出会いました。実に快適です。ありがとうboco。
+（耳を挟むように押し込むと音量上げたりできるらしいですが、なんか直感的に出来なくてコツが必要＆挟み込み部分の寿命縮めそうなので本体操作は諦めてます）
+(2023/06/16)
+最近調べ物によくChatGPTを使っていて、便利だなぁと思う反面このままいくと原神のスメール編で学者たちに起きていたこと（聞けばなんでも出してくれるアーカーシャ端末があるから、誰も一次情報に触れようとしなくなる）が自分の中で起こりそうだなぁと漠然と考えたりしてました。
+利便性の恩恵を受けつつ、自分で調べ物をする感覚は忘れないように上手く間をとっていきたいです。
+(2023/06/17)
+応用情報がCBT方式になるのを密かに待っているんですが（基本情報はそれで去年受けた）、長文読解とか記述方式の回答とかの相性の問題で中々導入されないんじゃないか説が結構濃厚な感じがするので、観念して秋季に受けようかなと考え中です。
+予定があれば早起きできることを証明したいと思います。</description>
+    </item>
+    
     <item>
       <title>Flutter周りで知ったことまとめ</title>
       <link>https://SawaTszm.github.io/post/diary-2023-03-11-about-flutter/</link>
