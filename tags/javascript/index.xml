@@ -11,7 +11,24 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 17 Jul 2021 11:11:15 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 23:05:31 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【覚え書き】JavaScriptのプライベートクラス機能</title>
+      <link>https://SawaTszm.github.io/post/private-class-field/</link>
+      <pubDate>Tue, 20 Jun 2023 23:05:31 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/private-class-field/</guid>
+      <description>TypeScriptを使っていると、「ちゃんとprivateとかreadonlyとか使って制約かけないとな〜」と認識し直すタイミングが定期的に来るんですが、
+そんな折にJavaScript側で実現できるプライベートクラス機能なるものがあることを知りました。
+プライベートクラス機能 - JavaScript | MDN
+クラスのフィールドの先頭にハッシュ(#)をつけることで、プライベートなインスタンスフィールドを生成することができます。
+あくまでコンパイル時にエラーの判定を行うTypeScriptと異なり、JavaScript自身の機能なのでランタイム時に判定＆エラーを返してくれます。
+継承を使う場合は、privateと同じく子クラスからは参照不可になりますが、
+子クラス側で同じ名前のプライベートインスタンスフィールドを定義することはできます。
+存在を知ってパッと概要を追って、良さそうと思ったけど世の反応（？）はどんな感じなんでしょうか。
+（ちなみに、インスタンス生成時に少し遅くなるらしい、と言う旨の去年の記事はお見かけしました: JavaScriptでプライベートを使うと遅くなる話）</description>
+    </item>
+    
     <item>
       <title>Lodashの概要と関数まとめ</title>
       <link>https://SawaTszm.github.io/post/javascript-lodash/</link>

@@ -2,8 +2,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/post/private-class-field/</loc>
+    <lastmod>2023-06-20T23:05:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/javascript/</loc>
+    <lastmod>2023-06-20T23:05:31+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/post/</loc>
-    <lastmod>2023-06-17T15:11:15+09:00</lastmod>
+    <lastmod>2023-06-20T23:05:31+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,7 +28,7 @@
   
   <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/</loc>
-    <lastmod>2023-06-17T15:11:15+09:00</lastmod>
+    <lastmod>2023-06-20T23:05:31+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -33,7 +43,7 @@
   
   <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/</loc>
-    <lastmod>2023-06-17T15:11:15+09:00</lastmod>
+    <lastmod>2023-06-20T23:05:31+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -43,6 +53,21 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://SawaTszm.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/tech/</loc>
+    <lastmod>2023-06-20T23:05:31+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://SawaTszm.github.io/en/tags/tech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://SawaTszm.github.io/tags/tech/"
                 />
   </url>
   
@@ -64,21 +89,6 @@
   <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/post/sumary-sso/</loc>
     <lastmod>2023-06-17T11:06:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/tech/</loc>
-    <lastmod>2023-06-17T11:06:39+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://SawaTszm.github.io/en/tags/tech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://SawaTszm.github.io/tags/tech/"
-                />
   </url>
   
   <url>
@@ -264,11 +274,6 @@
   <url>
     <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/post/python-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E6%B8%88%E3%81%BF%E6%96%87%E5%AD%97%E5%88%97%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB/</loc>
     <lastmod>2021-08-02T18:52:08+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://SawaTszm.github.iohttps://SawaTszm.github.io/tags/javascript/</loc>
-    <lastmod>2021-07-17T11:11:15+09:00</lastmod>
   </url>
   
   <url>
