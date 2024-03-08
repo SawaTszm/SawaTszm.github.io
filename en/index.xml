@@ -29,7 +29,9 @@ I had a chance to think about using mermaid in this site I created using Hugo th
       <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/en/post/docker-for-mac-does-not-work/</guid>
-      <description></description>
+      <description>Environment PC: macbook Air (M1) OS: Big Sur 11.6.1 Problem One day, when I pressed Preferences from the docker desktop for mac icon, the Docker screen did not come up (the icon bounced a couple of times and then dropped).
+When I restarted my PC, I got an error window saying Fatal Error Failed to ping backend API and docker itself did not start up.
+The Reset Docker to factory defaults, Diagnose &amp;amp; Feedback, Exit option is there, but I can&amp;rsquo;t press it (the cursor is going around) and it won&amp;rsquo;t let me reset it.</description>
     </item>
     
     <item>
@@ -38,7 +40,9 @@ I had a chance to think about using mermaid in this site I created using Hugo th
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/en/post/increase-memory-allocation-of-docker-to-avoid-killed/</guid>
-      <description></description>
+      <description>Problem When I tried to install the aws s3 adapter in my laravel project, I went into the docker container and ran composer require league/flysystem-aws-s3-v3 ~1.0 and it was killed as follows.
+root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0 ./composer.json has been updated Loading composer repositories with package information Updating dependencies (including require-dev) Killed Pls don&amp;rsquo;t kill it&amp;hellip; I want to complete the installation of this without getting killed.
+TL;DR Increase the memory allocation of Docker for Mac as much as possible.</description>
     </item>
     
     

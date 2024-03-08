@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>docker on sawa.md</title>
+    <title>Docker on sawa.md</title>
     <link>https://SawaTszm.github.io/tags/docker/</link>
-    <description>Recent content in docker on sawa.md</description>
+    <description>Recent content in Docker on sawa.md</description>
     <image>
       <title>sawa.md</title>
       <url>https://SawaTszm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -18,7 +18,19 @@
       <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-for-mac-does-not-work/</guid>
-      <description></description>
+      <description>環境 PC: macbook Air (M1) OS: Big Sur 11.6.1 起きた問題 ある日、docker desktop for macのアイコンからPreferencesを押してもDockerの画面が立ち上がらなくなりました(アイコンが2,3回跳ねて落ちる)。
+同様にDownload updateも立ち上がらないのでおや？と思い、一度PCを再起動したらFatal Error Failed to ping backend APIというエラーウィンドウが出てdocker自体が立ち上がらなくなりました。
+Reset Docker to factory defaults, Diagnose &amp;amp; Feedback, Exitの選択肢はありますが押せない（カーソルぐるぐる）状態になっていて、リセットもさせてくれません。
+どうやら似た状況になっている方も結構いるようで、既知のバグ？のようです。(docker for macのissue)。こちらでも未だに議論されていて、完璧な解決策はまだ出ていないように見えます。
+色々参考にさせてもらいつつとりあえず復旧はさせたので、手順を残しておこうと思います。
+復帰方法 docker関連のプロセスをkillする コマンドで消すか、アクティビティモニタでdockerを調べて出てきたものを終了させます。
+# コマンドの場合 $killall Docker アンインストール アプリケーションフォルダからゴミ箱にどん。今思えばもうちょっとスマートなやりようがあった気がします。
+新しいのをインストールする 公式サイトから最新版をダウンロード＆インストール。
+フルアクセスを許可 上記でインストールしたものが上手く立ち上がればここはスキップしてもいいと思います（起動時にアクセス権限の変更をdocker側から提案してくれる筈なので）。
+システム環境設定&amp;gt;セキュリティとプライバシー&amp;gt;フルディスクアクセスからdockerにフルアクセスを許可します。
+（追記）
+しばらく触っていなかった別のmacbookを見てみたらdockerにそんな権限は渡していなかった（でも上手く動いている）ので、ここに関してはちょっと不確かかも知れません。
+docker再起動 うまく動きました。</description>
     </item>
     
     <item>
@@ -27,7 +39,12 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-nginx-ssl-on-server/</guid>
-      <description></description>
+      <description>目的 docker-composeで立てたnginxをhttps対応にしたい。
+あくまでも開発環境用なのでオレオレ証明書です。
+手順 自己署名証明書をサクッと作成する ❯ openssl req -x509 -nodes -new -keyout server.key -out server.crt -days 365 docker-composeの更新 443ポートを使用するように変更。
+また、作成した証明書も読み込めるようにvolumesも更新。
+version: &amp;#34;3.5&amp;#34; services: web: build: ./docker/nginx restart: always ports: - 443:443 # 変更 depends_on: - app volumes: - ./:/var/www/html - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf - ./docker/nginx/server.crt:/etc/nginx/server.crt # 追加 - ./docker/nginx/server.key:/etc/nginx/server.key # 追加 links: - app networks: - default default.confの更新 ポートを443に変更し、証明書の情報を追加します。
+server { listen 443; ssl on; ssl_certificate /etc/nginx/server.crt; ssl_certificate_key /etc/nginx/server.key; index index.php index.html; server_name php-docker.</description>
     </item>
     
     <item>
@@ -36,7 +53,22 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/increase-memory-allocation-of-docker-to-avoid-killed/</guid>
-      <description></description>
+      <description>目的 laravelプロジェクトにawsのs3アダプタをインストールしようとして、dockerコンテナ内に入ってcomposer require league/flysystem-aws-s3-v3 ~1.0を実行したら下記の通りKillされました。
+root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0 ./composer.json has been updated Loading composer repositories with package information Updating dependencies (including require-dev) Killed ｺﾛｻﾅｲﾃﾞ……
+これを、ちゃんと殺されずにインストール完了させたいので色々調べました。
+TL;DR Docker for Macのメモリ割り当てをできる範囲で増やす。
+解決法 調べたこと まず、Killedがどういう時に発動するのかを調べました。
+ら、OOM Killerと呼ばれる動作らしいです。
+OOM Killer（Out of Memory Killer）は，システムが実メモリーと仮想メモリー空間（スワップ領域）を使い切り，必要なメモリー領域を新たに確保できない場合に，プロセスを強制終了させて空きメモリーを確保する，Linuxカーネルの仕組みです。OOM Killerは，空きメモリーが確保できないことによりシステム自体が停止するという最悪の事態を避けるために用意されています。
+日経XTECHさんより引用
+強制的にプロセスがKillされてしまうのは、システム自体が止まってしまわないようにOOM Killerさんが働いた結果らしいです。
+つまり、今回の原因はメモリ不足。
+Docker for macで、Preferences &amp;gt; Resources &amp;gt; Memoryを見てみると、現在は3.75GB割り当てしていることがわかりました。Swapは1GB。
+合わせてMacのアクティビティモニタでdockerが使っているメモリを調べて見ると、割り当て分ほとんど使い切っていました。
+実行したこと Docker for macのPreferences &amp;gt; Resources &amp;gt; Memoryから、割り当てのメモリをできる範囲で増やしました。
+mac自体は16GBなので、まぁ一回様子見て5GBまであげてみることに。
+改めてcomposer require league/flysystem-aws-s3-v3 ~1.0を実行。
+root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 Using version ^1.</description>
     </item>
     
   </channel>

@@ -18,7 +18,14 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/aws-sam-template/</guid>
-      <description></description>
+      <description>目的 バッチ処理もAWS Lambdaで書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。
+結論 できます。
+し、かなりわかりやすいです。
+CloudWatch イベント アプリケーションの AWS SAM テンプレート
+記述例 AWSTemplateFormatVersion: &amp;#34;2010-09-09&amp;#34; Transform: AWS::Serverless-2016-10-31 Globals: Function: Timeout: 30 MemorySize: 256 Handler: app.lambda_handler Runtime: python3.7 Resources: ### Batch ### HogeBatchFunction: Type: AWS::Serverless::Function Properties: CodeUri: api/batch/hoge_batch Events: HogeBatch: # TypeをScheduleに Type: Schedule Properties: # 実行タイミングを決める Schedule: cron(0 0 ? * SUN *) 最後のSchedule式は、rateとcronのどちらでも使えます。
+Rate または Cron を使用したスケジュール式
+参考 ざっと見て参考にさせてもらいたいなと思った記事(と公式ドキュメント):
+What Is the AWS Serverless Application Model (AWS SAM)?</description>
     </item>
     
   </channel>

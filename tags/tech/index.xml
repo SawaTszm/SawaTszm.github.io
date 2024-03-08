@@ -161,7 +161,15 @@ GitLens: Open File on Remote # ブラウザで開く GitLens: Copy Remote File U
       <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/css-display-contents/</guid>
-      <description></description>
+      <description>上手くいかないCSSをdev toolでぐりぐり動かしていたらdisplay: contents;なる値があることを知って、結局そのパターンは上手くいったんですがなんで上手くいったかわからないのでちょっとだけ調べました。
+(本格的に調べるのは後日)
+display: contents;とは colissで紹介されていました。
+(先日参加した勉強会で紹介されていたサイトなのでちょっとテンションが上が理ました)
+すごくざっくり言うと、
+タグ内のコンテンツを通常通り描画しつつ、周囲のタグは完全に省略する display: contents; が指定されたタグ自体が無視されたような挙動になる CSS Gridのレイアウトで、複数あるカードのそれぞれの高さや幅を揃えるのに便利 (今回上手くいった修正はこのパターンだった) まだ全然追いきてれないですが、タグを無視したような挙動をする以上落とし穴(何かの拍子にめちゃくちゃ表示崩れる)とかもありそうなので、見れる時にもう少しちゃんと挙動を見たい……。
+ちなみにCan I Useで見てみると、大体2018年くらいからパーシャルサポートが始まり、現在(2022/06)主要なブラウザはほとんどがフルサポートです。
+IE君はNot Supportedですが先日卒業式をしたので……
+参考 [CSS]「display: contents;」がすごい便利！ラッパーを使った実装が大きく変わるこれからのテクニック Can I use display: contents </description>
     </item>
     
     <item>
@@ -170,7 +178,16 @@ GitLens: Open File on Remote # ブラウザで開く GitLens: Copy Remote File U
       <pubDate>Mon, 16 May 2022 21:41:51 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-05-16/</guid>
-      <description></description>
+      <description>タイトルの通り 3月頃に思い立って申し込みをして、1ヶ月前後の勉強で受かりました。嬉しいことに午前午後どちらも9割近く取った上での合格でした。
+全体的には、学生時代に学んだことを思い出すのに役立ったなぁと言う印象でした。
+学生の頃に「ITパスポート取るか。言っても専攻だし(情報工学科だった)いけるでしょ！」と全く勉強をせずに行って落ちた経験があり、国家試験系からは長年目を背け続けていたので、受けるにあたってちょっと驚いたことがいくつかあったので書いておきます。
+早起きを証明できる試験ではなくなっていた よく基本情報についてTwitterなどで「朝早く起きて会場に行ける社会性を証明できる試験」なんて揶揄されているのを目にしていましたが、CBT方式になって時間は選び放題、なんなら午前と午後を別日に受けてもいいと言う緩さになっていました。
+正直、今回基本情報を実際に受ける気になったのも、このCBT方式で受けられると言うのを知ったから、と言うところが大きかったです。
+直近の過去問が参照できない 基本情報と言えば引くほど過去問が見れるイメージがあったんですが、CBT方式になってからの過去問は公開されていないみたいです。
+今はまだCBT方式になってから日が浅い＆シラバスの大幅な改訂も入っていないので、公開されている過去問を一通り解いても十分勉強になります。ただ、これからどんどん過去問と実際の問題との乖離が進んでいくんじゃないかなーと思います。
+(そもそもCBT方式にしてから合格者の割合がグッと増えてるらしいので、そう言う意味ではちょうど良いところに落ち着くのかも？)
+応用情報はまだ紙試験 この勢いで応用情報も受けようかな〜と思ったんですが、応用情報の方はまだ筆記らしくて悩んでます。
+朝起きれないし、一日に午前午後で集中力続く気がしないので……(社会適応力皆無)。</description>
     </item>
     
     <item>
@@ -179,7 +196,19 @@ GitLens: Open File on Remote # ブラウザで開く GitLens: Copy Remote File U
       <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-for-mac-does-not-work/</guid>
-      <description></description>
+      <description>環境 PC: macbook Air (M1) OS: Big Sur 11.6.1 起きた問題 ある日、docker desktop for macのアイコンからPreferencesを押してもDockerの画面が立ち上がらなくなりました(アイコンが2,3回跳ねて落ちる)。
+同様にDownload updateも立ち上がらないのでおや？と思い、一度PCを再起動したらFatal Error Failed to ping backend APIというエラーウィンドウが出てdocker自体が立ち上がらなくなりました。
+Reset Docker to factory defaults, Diagnose &amp;amp; Feedback, Exitの選択肢はありますが押せない（カーソルぐるぐる）状態になっていて、リセットもさせてくれません。
+どうやら似た状況になっている方も結構いるようで、既知のバグ？のようです。(docker for macのissue)。こちらでも未だに議論されていて、完璧な解決策はまだ出ていないように見えます。
+色々参考にさせてもらいつつとりあえず復旧はさせたので、手順を残しておこうと思います。
+復帰方法 docker関連のプロセスをkillする コマンドで消すか、アクティビティモニタでdockerを調べて出てきたものを終了させます。
+# コマンドの場合 $killall Docker アンインストール アプリケーションフォルダからゴミ箱にどん。今思えばもうちょっとスマートなやりようがあった気がします。
+新しいのをインストールする 公式サイトから最新版をダウンロード＆インストール。
+フルアクセスを許可 上記でインストールしたものが上手く立ち上がればここはスキップしてもいいと思います（起動時にアクセス権限の変更をdocker側から提案してくれる筈なので）。
+システム環境設定&amp;gt;セキュリティとプライバシー&amp;gt;フルディスクアクセスからdockerにフルアクセスを許可します。
+（追記）
+しばらく触っていなかった別のmacbookを見てみたらdockerにそんな権限は渡していなかった（でも上手く動いている）ので、ここに関してはちょっと不確かかも知れません。
+docker再起動 うまく動きました。</description>
     </item>
     
     <item>
@@ -253,7 +282,14 @@ _.flatten() _.flatten(array) arrayを一段分フラットにする。非破壊�
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/aws-sam-template/</guid>
-      <description></description>
+      <description>目的 バッチ処理もAWS Lambdaで書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。
+結論 できます。
+し、かなりわかりやすいです。
+CloudWatch イベント アプリケーションの AWS SAM テンプレート
+記述例 AWSTemplateFormatVersion: &amp;#34;2010-09-09&amp;#34; Transform: AWS::Serverless-2016-10-31 Globals: Function: Timeout: 30 MemorySize: 256 Handler: app.lambda_handler Runtime: python3.7 Resources: ### Batch ### HogeBatchFunction: Type: AWS::Serverless::Function Properties: CodeUri: api/batch/hoge_batch Events: HogeBatch: # TypeをScheduleに Type: Schedule Properties: # 実行タイミングを決める Schedule: cron(0 0 ? * SUN *) 最後のSchedule式は、rateとcronのどちらでも使えます。
+Rate または Cron を使用したスケジュール式
+参考 ざっと見て参考にさせてもらいたいなと思った記事(と公式ドキュメント):
+What Is the AWS Serverless Application Model (AWS SAM)?</description>
     </item>
     
     <item>
@@ -285,7 +321,12 @@ SOLID 原則 SOLID 原則とは Robert C.</description>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-nginx-ssl-on-server/</guid>
-      <description></description>
+      <description>目的 docker-composeで立てたnginxをhttps対応にしたい。
+あくまでも開発環境用なのでオレオレ証明書です。
+手順 自己署名証明書をサクッと作成する ❯ openssl req -x509 -nodes -new -keyout server.key -out server.crt -days 365 docker-composeの更新 443ポートを使用するように変更。
+また、作成した証明書も読み込めるようにvolumesも更新。
+version: &amp;#34;3.5&amp;#34; services: web: build: ./docker/nginx restart: always ports: - 443:443 # 変更 depends_on: - app volumes: - ./:/var/www/html - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf - ./docker/nginx/server.crt:/etc/nginx/server.crt # 追加 - ./docker/nginx/server.key:/etc/nginx/server.key # 追加 links: - app networks: - default default.confの更新 ポートを443に変更し、証明書の情報を追加します。
+server { listen 443; ssl on; ssl_certificate /etc/nginx/server.crt; ssl_certificate_key /etc/nginx/server.key; index index.php index.html; server_name php-docker.</description>
     </item>
     
     <item>
@@ -294,7 +335,15 @@ SOLID 原則 SOLID 原則とは Robert C.</description>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/embulk-install-and-dynamodb-import/</guid>
-      <description></description>
+      <description>割と大量のデータを別の場所に転送したい。といった要件があり、諸々模索している最中で、先輩から教えてもらったEmbulkを触ってみたのでまとめました。
+Embulkとは GitHub - embulk/embulk: Embulk: Pluggable Bulk Data Loader.
+さまざまなストレージ、データベース、NoSQL、クラウドサービス間のデータ転送を支援する並列バルクデータローダーです。
+関数を追加するプラグインをサポートしており、インプット先/アウトプット先に沿ったプラグインを適宜使用する/作成することで、前述の様々なストレージやDBなどでデータ転送を行うことができます。
+インストール Brewでインストール可能です。
+$ brew install embulk # embulk: Java 1.8 is required to install this formula. と言われたらエラー文通り下記でJava入れてもう一回 $ brew cask install homebrew/cask-versions/adoptopenjdk8 必要だなと思ったプラグインをプラグイン一覧から確認してインストール。
+# CSVインポート $ embulk gem install embulk-input-jdbc # mysqlインポート $ embulk gem install embulk-input-mysql # mysqlアウトプット $ embulk gem install embulk-output-mysql # などなど チュートリアル 公式ドキュメントに乗っている、めちゃくちゃ簡単な動作確認チュートリアルです。
+CSVを読み込んで画面に表示するだけの簡単なものになっています。
+# サンプルCSVファイル、構成ファイルを作成 $ embulk example ./try1 # 推測プラグインを呼び出して適切な構成ファイル(提案)を出力。 $ embulk guess .</description>
     </item>
     
     <item>
@@ -349,7 +398,10 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/laravel-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</guid>
-      <description></description>
+      <description>やりたいこと Laravel くんで Controller をすっきりさせたいので、バリデーションをフォームリクエストで行いたい。
+プラスで、簡単な条件分岐のバリデーションも付け足したい。
+結論 withValodatorメソッドを通してsometimesを使うのが良さげです。
+詳しく 通常のフォームリクエストでのバリデーション // FormRequest namespace App\Http\Request; use \\illuminate\Foundation\Http\FormRequest; class ItemUpdateRequest extends FormRequest { /** * Determine if the user is authorized to make this request. * * @return bool */ public function authorize() { return true; } public function rules() { return [ &amp;#39;id&amp;#39; =&amp;gt; &amp;#39;required|integer&amp;#39;, &amp;#39;item_type&amp;#39; =&amp;gt; &amp;#39;required|string|in:tv,web,radio&amp;#39; &amp;#39;name&amp;#39; =&amp;gt; &amp;#39;required|string|max:255&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; &amp;#39;nullable|url|max:2083, &amp;#39;note&amp;#39; =&amp;gt; &amp;#39;nullable|string|max:2047&amp;#39;, ]; } } // Controller(必要な記述以外は省略) use App\Http\Request\ItemUpdateRequest; class ItemController extends Controller { public function update(ItemUpdateRequest $request) { // } } これだけで通常のバリデーションは出来ますね。</description>
     </item>
     
     <item>
@@ -358,7 +410,18 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/laravel-%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</guid>
-      <description></description>
+      <description>やりたいこと データベース：ペジネーション 5.8 Laravel
+このページの「独自ペジネータ作成」の欄にあるように、
+Illuminate\Pagination\LengthAwarePaginatorインスタンスを作成して、自前の Collection を Collection のままページネーションしたい。
+結論 ペジネーションは引数に Collection を許容しているので実装が可能。
+LengthAwarePaginatorインスタンスの第一引数に渡す Collection を、slice()メソッドを使って Collection の型を崩さずに区切る。
+これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。
+ハマった流れ まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照しました。
+Note: 自前でペジネーターインスタンスを生成する場合、ペジネーターに渡す結果の配列を自分で”slice”する必要があります。その方法を思いつかなければ、 [array_slice] PHP 関数を調べてください。
+なるほど！！！！！
+と思い array_slice()を使用して記述したのが以下のような書き方。
+// app/Services/ItemsService.php // 前略。$columnsには取得したいカラム名を格納 $items = ItemMaster::query() -&amp;gt;select($columns) -&amp;gt;with(&amp;#39;relatedUsers&amp;#39;) -&amp;gt;get(); // 表示する件数のみ取得するために、ページ番号($page)と最大表示件数($limit)から$offsetを計算 $offset = ($page * $limit) - $limit; // ドキュメントに言われたように表示する部分のみ切り取った配列を用意 $slice = array_slice($items-&amp;gt;toArray(), $offset, $limit); return new LengthAwarePaginator($slice, count($items), $limit, $page); これでも$columnsの値を参照する分には特に問題ありません。
+ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて$this-&amp;gt;relatedUsers.</description>
     </item>
     
     <item>
@@ -379,7 +442,15 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/mysql-%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</guid>
-      <description></description>
+      <description>エラー 外部キー制約を追加しようとした時、下記エラーで怒られました。
+ERROR 1215 (HY000): Cannot add foreign key constraint “外部キー制約を追加できません”
+もっと詳細なエラーログが……ほしい……！ と思ったので調べました。
+SHOW ENGINE INNODB STATUS で外部キー制約時のエラーを確認 恐らくとてつもなく初歩的な話だと思うのですが、SHOW ENGINE 構文なるものがあると。
+SHOW ENGINE INNODB STATUS SHOW ENGINE INNODB STATUSは、InnoDBストレージエンジンの状態に関するInnoDB標準モニターからの広範囲にわたる情報を表示します。
+MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文
+便利だ！！！！！
+実践 早速入って見てみます。
+$ docker exec -it [docker-name] bash # mysql -u [username] -p &amp;gt; SHOW ENGINE INNODB STATUS ------------------------ LATEST FOREIGN KEY ERROR ------------------------ Cannot find an index in the referenced table where the referenced columns appear as the first columns, or column types in the table and the referenced table do not match for constraint.</description>
     </item>
     
     <item>
@@ -482,7 +553,22 @@ Key = valueの形。
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/increase-memory-allocation-of-docker-to-avoid-killed/</guid>
-      <description></description>
+      <description>目的 laravelプロジェクトにawsのs3アダプタをインストールしようとして、dockerコンテナ内に入ってcomposer require league/flysystem-aws-s3-v3 ~1.0を実行したら下記の通りKillされました。
+root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0 ./composer.json has been updated Loading composer repositories with package information Updating dependencies (including require-dev) Killed ｺﾛｻﾅｲﾃﾞ……
+これを、ちゃんと殺されずにインストール完了させたいので色々調べました。
+TL;DR Docker for Macのメモリ割り当てをできる範囲で増やす。
+解決法 調べたこと まず、Killedがどういう時に発動するのかを調べました。
+ら、OOM Killerと呼ばれる動作らしいです。
+OOM Killer（Out of Memory Killer）は，システムが実メモリーと仮想メモリー空間（スワップ領域）を使い切り，必要なメモリー領域を新たに確保できない場合に，プロセスを強制終了させて空きメモリーを確保する，Linuxカーネルの仕組みです。OOM Killerは，空きメモリーが確保できないことによりシステム自体が停止するという最悪の事態を避けるために用意されています。
+日経XTECHさんより引用
+強制的にプロセスがKillされてしまうのは、システム自体が止まってしまわないようにOOM Killerさんが働いた結果らしいです。
+つまり、今回の原因はメモリ不足。
+Docker for macで、Preferences &amp;gt; Resources &amp;gt; Memoryを見てみると、現在は3.75GB割り当てしていることがわかりました。Swapは1GB。
+合わせてMacのアクティビティモニタでdockerが使っているメモリを調べて見ると、割り当て分ほとんど使い切っていました。
+実行したこと Docker for macのPreferences &amp;gt; Resources &amp;gt; Memoryから、割り当てのメモリをできる範囲で増やしました。
+mac自体は16GBなので、まぁ一回様子見て5GBまであげてみることに。
+改めてcomposer require league/flysystem-aws-s3-v3 ~1.0を実行。
+root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 Using version ^1.</description>
     </item>
     
     <item>

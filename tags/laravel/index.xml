@@ -64,7 +64,10 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/laravel-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</guid>
-      <description></description>
+      <description>やりたいこと Laravel くんで Controller をすっきりさせたいので、バリデーションをフォームリクエストで行いたい。
+プラスで、簡単な条件分岐のバリデーションも付け足したい。
+結論 withValodatorメソッドを通してsometimesを使うのが良さげです。
+詳しく 通常のフォームリクエストでのバリデーション // FormRequest namespace App\Http\Request; use \\illuminate\Foundation\Http\FormRequest; class ItemUpdateRequest extends FormRequest { /** * Determine if the user is authorized to make this request. * * @return bool */ public function authorize() { return true; } public function rules() { return [ &amp;#39;id&amp;#39; =&amp;gt; &amp;#39;required|integer&amp;#39;, &amp;#39;item_type&amp;#39; =&amp;gt; &amp;#39;required|string|in:tv,web,radio&amp;#39; &amp;#39;name&amp;#39; =&amp;gt; &amp;#39;required|string|max:255&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; &amp;#39;nullable|url|max:2083, &amp;#39;note&amp;#39; =&amp;gt; &amp;#39;nullable|string|max:2047&amp;#39;, ]; } } // Controller(必要な記述以外は省略) use App\Http\Request\ItemUpdateRequest; class ItemController extends Controller { public function update(ItemUpdateRequest $request) { // } } これだけで通常のバリデーションは出来ますね。</description>
     </item>
     
     <item>
@@ -73,7 +76,18 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/laravel-%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</guid>
-      <description></description>
+      <description>やりたいこと データベース：ペジネーション 5.8 Laravel
+このページの「独自ペジネータ作成」の欄にあるように、
+Illuminate\Pagination\LengthAwarePaginatorインスタンスを作成して、自前の Collection を Collection のままページネーションしたい。
+結論 ペジネーションは引数に Collection を許容しているので実装が可能。
+LengthAwarePaginatorインスタンスの第一引数に渡す Collection を、slice()メソッドを使って Collection の型を崩さずに区切る。
+これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。
+ハマった流れ まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照しました。
+Note: 自前でペジネーターインスタンスを生成する場合、ペジネーターに渡す結果の配列を自分で”slice”する必要があります。その方法を思いつかなければ、 [array_slice] PHP 関数を調べてください。
+なるほど！！！！！
+と思い array_slice()を使用して記述したのが以下のような書き方。
+// app/Services/ItemsService.php // 前略。$columnsには取得したいカラム名を格納 $items = ItemMaster::query() -&amp;gt;select($columns) -&amp;gt;with(&amp;#39;relatedUsers&amp;#39;) -&amp;gt;get(); // 表示する件数のみ取得するために、ページ番号($page)と最大表示件数($limit)から$offsetを計算 $offset = ($page * $limit) - $limit; // ドキュメントに言われたように表示する部分のみ切り取った配列を用意 $slice = array_slice($items-&amp;gt;toArray(), $offset, $limit); return new LengthAwarePaginator($slice, count($items), $limit, $page); これでも$columnsの値を参照する分には特に問題ありません。
+ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて$this-&amp;gt;relatedUsers.</description>
     </item>
     
     <item>
