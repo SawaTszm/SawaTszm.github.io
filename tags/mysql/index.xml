@@ -30,15 +30,7 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/mysql-%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</guid>
-      <description>エラー 外部キー制約を追加しようとした時、下記エラーで怒られました。
-ERROR 1215 (HY000): Cannot add foreign key constraint “外部キー制約を追加できません”
-もっと詳細なエラーログが……ほしい……！ と思ったので調べました。
-SHOW ENGINE INNODB STATUS で外部キー制約時のエラーを確認 恐らくとてつもなく初歩的な話だと思うのですが、SHOW ENGINE 構文なるものがあると。
-SHOW ENGINE INNODB STATUS SHOW ENGINE INNODB STATUSは、InnoDBストレージエンジンの状態に関するInnoDB標準モニターからの広範囲にわたる情報を表示します。
-MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文
-便利だ！！！！！
-実践 早速入って見てみます。
-$ docker exec -it [docker-name] bash # mysql -u [username] -p &amp;gt; SHOW ENGINE INNODB STATUS ------------------------ LATEST FOREIGN KEY ERROR ------------------------ Cannot find an index in the referenced table where the referenced columns appear as the first columns, or column types in the table and the referenced table do not match for constraint.</description>
+      <description></description>
     </item>
     
   </channel>

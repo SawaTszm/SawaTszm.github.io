@@ -18,15 +18,7 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/embulk-install-and-dynamodb-import/</guid>
-      <description>割と大量のデータを別の場所に転送したい。といった要件があり、諸々模索している最中で、先輩から教えてもらったEmbulkを触ってみたのでまとめました。
-Embulkとは GitHub - embulk/embulk: Embulk: Pluggable Bulk Data Loader.
-さまざまなストレージ、データベース、NoSQL、クラウドサービス間のデータ転送を支援する並列バルクデータローダーです。
-関数を追加するプラグインをサポートしており、インプット先/アウトプット先に沿ったプラグインを適宜使用する/作成することで、前述の様々なストレージやDBなどでデータ転送を行うことができます。
-インストール Brewでインストール可能です。
-$ brew install embulk # embulk: Java 1.8 is required to install this formula. と言われたらエラー文通り下記でJava入れてもう一回 $ brew cask install homebrew/cask-versions/adoptopenjdk8 必要だなと思ったプラグインをプラグイン一覧から確認してインストール。
-# CSVインポート $ embulk gem install embulk-input-jdbc # mysqlインポート $ embulk gem install embulk-input-mysql # mysqlアウトプット $ embulk gem install embulk-output-mysql # などなど チュートリアル 公式ドキュメントに乗っている、めちゃくちゃ簡単な動作確認チュートリアルです。
-CSVを読み込んで画面に表示するだけの簡単なものになっています。
-# サンプルCSVファイル、構成ファイルを作成 $ embulk example ./try1 # 推測プラグインを呼び出して適切な構成ファイル(提案)を出力。 $ embulk guess .</description>
+      <description></description>
     </item>
     
   </channel>

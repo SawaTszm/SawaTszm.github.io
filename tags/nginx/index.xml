@@ -18,12 +18,7 @@
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-nginx-ssl-on-server/</guid>
-      <description>目的 docker-composeで立てたnginxをhttps対応にしたい。
-あくまでも開発環境用なのでオレオレ証明書です。
-手順 自己署名証明書をサクッと作成する ❯ openssl req -x509 -nodes -new -keyout server.key -out server.crt -days 365 docker-composeの更新 443ポートを使用するように変更。
-また、作成した証明書も読み込めるようにvolumesも更新。
-version: &amp;#34;3.5&amp;#34; services: web: build: ./docker/nginx restart: always ports: - 443:443 # 変更 depends_on: - app volumes: - ./:/var/www/html - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf - ./docker/nginx/server.crt:/etc/nginx/server.crt # 追加 - ./docker/nginx/server.key:/etc/nginx/server.key # 追加 links: - app networks: - default default.confの更新 ポートを443に変更し、証明書の情報を追加します。
-server { listen 443; ssl on; ssl_certificate /etc/nginx/server.crt; ssl_certificate_key /etc/nginx/server.key; index index.php index.html; server_name php-docker.</description>
+      <description></description>
     </item>
     
     <item>

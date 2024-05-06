@@ -11,7 +11,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 08 Mar 2024 18:16:03 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2024 14:51:45 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【git】カウントしたコミットファイルの総文字数を自動でコミットメッセージに追加する</title>
+      <link>https://SawaTszm.github.io/post/auto-counting-word/</link>
+      <pubDate>Mon, 06 May 2024 14:51:45 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/auto-counting-word/</guid>
+      <description>趣味で書いている小説をgitで管理していて、進捗把握のためにコミットメッセージにその日1日書いた総文字数を入れ込んでいます。
+こんな感じで。
+以前までは、SF作家である藤井太洋先生自身が公開してくださっている拡張機能: novel-writerのステータスバー表示で文字数を把握し、手動でコミットメッセージを書いていました。
+ただ、この方法にはいくつかの（個人的には解決したい）問題があり、
+日付が回ると文字数がリセットされるので、うっかりしてると差分の文字数がわからなくなる 特定のファイルや変更は含みたくない場合がある（翌日への自分のメモなど） コミットメッセージへの手打ちを辞めたい 上記二つに関しては、私が拡張機能で出来ることを把握しきれていないだけ or 今後改善される可能性はありますが、どうせならコミット時に自動でコミットメッセージ入力できたら楽だよなぁという動機があったので、ちょっと調べてスクリプトを組んでみました。
+やったこと 下記のスクリプトを.git/hooks/commit-msgとして設定します。
+#!/bin/bash # ステージングエリアに追加されたファイルの差分を取得し、文字数をカウントする関数 # .git/hooksに移動させて、`chmod +x .git/hooks/commit-msg`を実行することでコミット時にhookされる get_character_count() { # ステージングエリアに追加されたファイルの差分を取得 diff_output=$(git diff --cached) # 追加された行の文字数を合計する added_characters=$(echo &amp;#34;$diff_output&amp;#34; | grep &amp;#39;^+&amp;#39; | sed &amp;#39;s/^+//g&amp;#39; | wc -m) # 削除された行の文字数を合計する deleted_characters=$(echo &amp;#34;$diff_output&amp;#34; | grep &amp;#39;^-&amp;#39; | sed &amp;#39;s/^-//g&amp;#39; | wc -m) # 追加された文字数と削除された文字数の合計を計算する total_characters=$((added_characters - deleted_characters)) # 結果を出力 echo &amp;#34;$total_characters&amp;#34; } # コミットメッセージに追加 character_count=$(get_character_count) echo &amp;#34;📝 $character_count 文字&amp;#34; &amp;gt;&amp;gt; &amp;#34;$1&amp;#34; スクリプト内でやっている事はかなりシンプルで、git diffの結果である追加行(+で始まるもの)と削除行(-で始まるもの)の文字数をそれぞれカウントして差し引いて、総文字数を計算しているだけです。</description>
+    </item>
+    
     <item>
       <title>【github】mainではないブランチから派生したブランチでPRを出すとき</title>
       <link>https://SawaTszm.github.io/post/pr-on-a-branch-not-main/</link>
@@ -38,6 +53,24 @@ Base automatically changed from test-branch-A to mainというログが残って
 めちゃくちゃ便利だ……。もっと早く気が付きたかった。
 PR出した後は、ベースとなるブランチ自体に先んじてマージしちゃうか、そっちの作業を待ってからmainにマージするか、どちらにせよベースとなるブランチで作業している方とのコミュニケーションは必要ですが、とりあえず派生元にPR出しておけばあんまり困ることは（今のところの経験上）ないです。
 派生PR、もう怖くない！な備忘録でした。</description>
+    </item>
+    
+    <item>
+      <title>日記(~2023/07)</title>
+      <link>https://SawaTszm.github.io/post/diary-2023-07/</link>
+      <pubDate>Tue, 27 Jun 2023 17:14:07 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/diary-2023-07/</guid>
+      <description>(2023/06/17)
+We updated our RSA SSH host key - Github
+私用のPCで久々にpushしようとして警告出て、ちゃんと公式情報見た上で対応できたけど、3/24以降仕事以外のコードをpushしてなかったことが地味にショックでした。
+(2023/06/24)
+広くなったベランダで育て始めたペパーミント、苗買ってきた時よりなんか葉っぱ過疎ってないか……？と思って見てみたら馬鹿でかい青虫がついててリアルタイムでもりもり葉っぱ食べられてました。
+(2023/06/26)
+「AI分析でわかった トップ5％社員の習慣」を読んで、上位5%社員のXX%が〜っていうのに関しては、サンプリング数少ないから95%の人たちと違って一概には言えないんじゃないの？（この本作るために良いところだけピックアップするときにだいぶバイアスかかってそう）とは思ったけど、これ実践してみようかなと思うところはいくつかあったので読んでよかったです。
+読んですぐに（内容は本とは全然関係ない）スーパーミニマムな社内LTをしたんですが、「資料作りに時間をかけない」と割り切って最初からNotionにまとめることで割と短い時間で形に出来たのが個人的にいい学びでした。
+(2023/06/27)
+JavaScriptの入れ子の関数とクロージャ、シンプルに知らなかったです。使い過ぎはネストが辛くなりそうなので良くないと思う（というかユースケース自体あんまり思いつかない）けど、外側の関数のスコープを持ってくれる性質を利用して、コード理解の一助のためにロジックの一部を別関数に切り出す時なんかには有効そうだなと思いました。</description>
     </item>
     
     <item>
@@ -209,13 +242,7 @@ GitLens: Open File on Remote # ブラウザで開く GitLens: Copy Remote File U
       <pubDate>Thu, 15 Sep 2022 21:36:09 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2022-09-15/</guid>
-      <description>体調悪くてお休みいただいて、夜になってやっと復活してきたので、前記事(lodash is dead, long live radash)を見かけて気になってたRadashについて調べてました。
-Radash - github
-だけど調べてたら この「Lodashは死んだ」の記事と公式のドキュメント、githubページ以外全然関連の記事が出てこなくて（Radashって検索欄に入れてるのにRedashの記事ばっかり出てきて、マイナス検索してもRadashに触れてる記事はなかった）、記事は結構見られてたけどな……？と思って記事に戻ってみたら、書いてるのが作者本人でした。
-(最後の方に書いてあったし、早い段階でGithubページ見に行ってリポジトリ名チェックしてたらもっと早く気づけたかもしれません)
-タイトルだけ読んで現行のlodashに取ってかわる最新版なんだと思ってしまっていたので、この事実＆それ自体に気づくまでが結構長かったのが個人的なショックでした。そういう意味ではいい学びになった感じがします。
-あと、コメント欄で「自分で書いとるんか〜い」みたいな突っ込みもされてましたが、それらに対して「それでもこのライブラリを作った彼の労力は賞賛すべき」「このような肯定的な批判を受け取る場を自ら作り出すこと自体に批判的になってはいけない。それはOSSの衰退につながる」みたいなコメントが多かったことも、OSS文化に触れてまだ浅い身からすると新しい気づきでした。
-次からは、何かしら記事を見るときは「どういう立場で書かれているものか」は軽くチェックすることを心がけようと思います。</description>
+      <description></description>
     </item>
     
     <item>
@@ -224,21 +251,7 @@ Radash - github
       <pubDate>Tue, 13 Sep 2022 19:07:16 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2022-09-13/</guid>
-      <description>タイトル通りTOEIC受けてきました。
-新卒時代にIPテストを受けて驚異の300点台前半を叩き出してから一回も受けてなかったんですが、最近英語圏のVtuberにハマって英語に触れる機会が増えてきたのでいけるのでは……？と思って勢いで申し込みました。
-一応1ヶ月間は真面目に勉強したので、過去最高点は取れるんじゃないかなと思います（低すぎるハードル）。
-以下備忘録を兼ねた感想です。
-腕時計必須（それはそう） スマートウォッチ系がダメだって言うのを前日の夜に知って、腕時計なしで挑むことになったのが辛かったです。
-1問20秒ほどだっていうのは知ってたので何とか体内時計で頑張りました。最後の問題解いたあたりで試験が終わったので、結構正確だったんだと思います（そこじゃない）。
-今後も年1くらいで受けたいな〜と思ってるのでお気に入りの腕時計探しておきます。
-慣れてないと集中力続けさせるのが結構キツい リスニングのPart4の途中と、リーディングのPart7の途中で「もう残り全部塗りつぶして帰りたいな……」ってなってました。
-勉強してはいたんですが、一問一答形式のものをずっとやっていただけだったので、本番の長さに全く体が適応できてなかったです。
-模試とか絶対やった方がいい。
-勉強してる時ほど音声はクリアじゃない ノイキャン付きのイヤホンつけて聞く音源とやたらデカい室内のスピーカーの音は全然違うので、最初の音量合わせの時に慣れるのにもうちょっとフォーカス当てた方がいいなと思いました。
-成長はちょっと感じた IP受けた時（3~4年前……？）は正直「問題に何聞かれてるかわからない」レベルだったのが、少なくともそこで困ることはなかったのでちょっとは成長してるんだな〜って感じました。
-1ヶ月くらいで結果出ると思うので楽しみです。
-追記 結果が出ました。初めて400点代が取れました＆今までの最高得点から100点近く上がりました！
-点数的にはまだまだですが、この調子でこれからも頑張っていきたいです。</description>
+      <description></description>
     </item>
     
     <item>
@@ -247,14 +260,7 @@ Radash - github
       <pubDate>Sat, 25 Jun 2022 13:08:08 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2022-06-25/</guid>
-      <description>今更だけど remについて。
-一回調べてなるほど〜！ってなった記憶はあるのにロジック考えずに見た目で数字決めてコミットしたの中々にテンパってたなって反省をした備忘録です。（一息）
-remとは 基準のフォントサイズを1として考える単位。
-例えば：1rem=16px(html要素のフォントサイズが16px)の場合、
-12px: 0.75rem 14px: 0.875rem 18px: 1.125rem &amp;hellip; と言う感じ。
-「〇〇pxって何remだっけ……」ってなって他のコードと実際の表示を見にいくことが多かったんですが、
-欲しいpx数/ルートのフォントサイズ(px)すれば出てくる……出てくるのに……何で今まで調べなきゃ出てこないって思ってたんだろう……。
-反省。次からは間違えないと思います。</description>
+      <description></description>
     </item>
     
     <item>
@@ -263,23 +269,7 @@ remとは 基準のフォントサイズを1として考える単位。
       <pubDate>Thu, 23 Jun 2022 21:29:26 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/things-to-watch-out-for/</guid>
-      <description>タイトルの通り、
-最近仕事をしていて気がついたこと/教えてもらえたことで、自分はこれを気をつけた方がいいなと思ったことを忘れないために言語化したメモです。
-(増えるかもしれません)
-「既存のもの」を「覆してはならない前提」と捉えない 悪かった例(この場合はDjango) 私「このmodelにカラム追加したいけど、似たようなカラムがあるしな。データ被るのも嫌だから、propertyメソッドで動的に返すようにしよう」
-~30分後~
-「あ、propertyだとunion()時ののcolumn数合わせに使えないんだった。どうしよう……」(ここで無限ググり編に突入)
-~30分後~
-「クエリもうひとつ発行してitertools.chain()で繋げる手があるかぁ」(そうじゃない)
-この時の結論：
-元のmodelのデータ定義自体が改善しても良い範囲だったので、unionできる形にmodelを寄せることを提案してもらって解決しました。
-メタ的な原因 既にプロジェクトに存在しているコードを、無意識に「絶対的に正しいもの」「変えちゃいけないもの」として捉えていました。
-（「このmodelはこういう定義なんだから、これを変形してどうにかしないと」と言うところから思考がスタートしていた）
-社会人初の案件がガチガチに要件が固まった後のネットワーク更改案件だったので、「既存のconfigは絶対に正しい、これを崩さないように新しい経路繋げないと」的な考えが根底に残ってたのかもしれないです。
-(今までも似たような感覚に陥ったことが何回かあって、言語化できてちょっとスッキリしました)
-改善策 「既存のもの」を「覆してはならない前提」と捉えない。 実装のために考え始める時、「そもそも」の疑問を大切にする。 「そもそも、どうしてこのmodelってこういう構造になったんだろう？」 言っても「考える時に気をつけよう」は忘れるので、しばらくモニターに付箋を貼る。 緊張時に毎回心拍数120近くまで上がるのはいき過ぎなので対策を考えるべき これ、最近調べて初めて知りました。
-今まで緊張してる時(例えばプレゼン前とか、極端な例で言うと広めのメンションでslack送る前とか)Apple Watchに「非常に高い心拍数です」って言われるのをネタにして生きてきてたんですが、最近動悸が激しすぎて頭が真っ白になる経験をして、これはまずいなと思って調べたらやっぱり心拍数上がりすぎらしいです。
-幸いその時は人前で喋るとかじゃなくて、家の中で一人ぜーはー言ってただけで落ち着く時間もあって事なきを得ましたが、このままじゃ良くないので色々対策してみようと思いました。</description>
+      <description></description>
     </item>
     
     <item>
@@ -288,15 +278,7 @@ remとは 基準のフォントサイズを1として考える単位。
       <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/css-display-contents/</guid>
-      <description>上手くいかないCSSをdev toolでぐりぐり動かしていたらdisplay: contents;なる値があることを知って、結局そのパターンは上手くいったんですがなんで上手くいったかわからないのでちょっとだけ調べました。
-(本格的に調べるのは後日)
-display: contents;とは colissで紹介されていました。
-(先日参加した勉強会で紹介されていたサイトなのでちょっとテンションが上が理ました)
-すごくざっくり言うと、
-タグ内のコンテンツを通常通り描画しつつ、周囲のタグは完全に省略する display: contents; が指定されたタグ自体が無視されたような挙動になる CSS Gridのレイアウトで、複数あるカードのそれぞれの高さや幅を揃えるのに便利 (今回上手くいった修正はこのパターンだった) まだ全然追いきてれないですが、タグを無視したような挙動をする以上落とし穴(何かの拍子にめちゃくちゃ表示崩れる)とかもありそうなので、見れる時にもう少しちゃんと挙動を見たい……。
-ちなみにCan I Useで見てみると、大体2018年くらいからパーシャルサポートが始まり、現在(2022/06)主要なブラウザはほとんどがフルサポートです。
-IE君はNot Supportedですが先日卒業式をしたので……
-参考 [CSS]「display: contents;」がすごい便利！ラッパーを使った実装が大きく変わるこれからのテクニック Can I use display: contents </description>
+      <description></description>
     </item>
     
     <item>
@@ -305,16 +287,7 @@ IE君はNot Supportedですが先日卒業式をしたので……
       <pubDate>Mon, 16 May 2022 21:41:51 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-05-16/</guid>
-      <description>タイトルの通り 3月頃に思い立って申し込みをして、1ヶ月前後の勉強で受かりました。嬉しいことに午前午後どちらも9割近く取った上での合格でした。
-全体的には、学生時代に学んだことを思い出すのに役立ったなぁと言う印象でした。
-学生の頃に「ITパスポート取るか。言っても専攻だし(情報工学科だった)いけるでしょ！」と全く勉強をせずに行って落ちた経験があり、国家試験系からは長年目を背け続けていたので、受けるにあたってちょっと驚いたことがいくつかあったので書いておきます。
-早起きを証明できる試験ではなくなっていた よく基本情報についてTwitterなどで「朝早く起きて会場に行ける社会性を証明できる試験」なんて揶揄されているのを目にしていましたが、CBT方式になって時間は選び放題、なんなら午前と午後を別日に受けてもいいと言う緩さになっていました。
-正直、今回基本情報を実際に受ける気になったのも、このCBT方式で受けられると言うのを知ったから、と言うところが大きかったです。
-直近の過去問が参照できない 基本情報と言えば引くほど過去問が見れるイメージがあったんですが、CBT方式になってからの過去問は公開されていないみたいです。
-今はまだCBT方式になってから日が浅い＆シラバスの大幅な改訂も入っていないので、公開されている過去問を一通り解いても十分勉強になります。ただ、これからどんどん過去問と実際の問題との乖離が進んでいくんじゃないかなーと思います。
-(そもそもCBT方式にしてから合格者の割合がグッと増えてるらしいので、そう言う意味ではちょうど良いところに落ち着くのかも？)
-応用情報はまだ紙試験 この勢いで応用情報も受けようかな〜と思ったんですが、応用情報の方はまだ筆記らしくて悩んでます。
-朝起きれないし、一日に午前午後で集中力続く気がしないので……(社会適応力皆無)。</description>
+      <description></description>
     </item>
     
     <item>
@@ -323,19 +296,7 @@ IE君はNot Supportedですが先日卒業式をしたので……
       <pubDate>Mon, 10 Jan 2022 12:45:25 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-for-mac-does-not-work/</guid>
-      <description>環境 PC: macbook Air (M1) OS: Big Sur 11.6.1 起きた問題 ある日、docker desktop for macのアイコンからPreferencesを押してもDockerの画面が立ち上がらなくなりました(アイコンが2,3回跳ねて落ちる)。
-同様にDownload updateも立ち上がらないのでおや？と思い、一度PCを再起動したらFatal Error Failed to ping backend APIというエラーウィンドウが出てdocker自体が立ち上がらなくなりました。
-Reset Docker to factory defaults, Diagnose &amp;amp; Feedback, Exitの選択肢はありますが押せない（カーソルぐるぐる）状態になっていて、リセットもさせてくれません。
-どうやら似た状況になっている方も結構いるようで、既知のバグ？のようです。(docker for macのissue)。こちらでも未だに議論されていて、完璧な解決策はまだ出ていないように見えます。
-色々参考にさせてもらいつつとりあえず復旧はさせたので、手順を残しておこうと思います。
-復帰方法 docker関連のプロセスをkillする コマンドで消すか、アクティビティモニタでdockerを調べて出てきたものを終了させます。
-# コマンドの場合 $killall Docker アンインストール アプリケーションフォルダからゴミ箱にどん。今思えばもうちょっとスマートなやりようがあった気がします。
-新しいのをインストールする 公式サイトから最新版をダウンロード＆インストール。
-フルアクセスを許可 上記でインストールしたものが上手く立ち上がればここはスキップしてもいいと思います（起動時にアクセス権限の変更をdocker側から提案してくれる筈なので）。
-システム環境設定&amp;gt;セキュリティとプライバシー&amp;gt;フルディスクアクセスからdockerにフルアクセスを許可します。
-（追記）
-しばらく触っていなかった別のmacbookを見てみたらdockerにそんな権限は渡していなかった（でも上手く動いている）ので、ここに関してはちょっと不確かかも知れません。
-docker再起動 うまく動きました。</description>
+      <description></description>
     </item>
     
     <item>
@@ -371,17 +332,7 @@ https://firstcontributions.github.io/
       <pubDate>Thu, 05 Aug 2021 21:26:58 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-08-05/</guid>
-      <description>最近やったこと DIY(初級) 人生初DIYで元々使ってた机をL字に改造しました。
-加工済みのいい感じのサイズの板買ってきてネジで止めただけの簡易机ながら結構快適。仕事も趣味も机に向かってやる系でオンオフの切り替え(というか机片付けてPCしまってiPad出して……の一連の作業)が面倒くさくて困ってたから、趣味の環境をL字の部分にそのまま広げて置くことで凄く楽になりました。
-ブログ(ここ)の改装 見た目を若干弄りました。
-HTML, CSSに苦手意識を持っててあんまり積極的に触ってこなかったけど(仕事で必要な時にリファレンス見ればいいやの精神)、色々教えてもらってソース見たり弄ったりするのが楽しくなってきました。
-そのうちHUGOのテーマ作りたいですね。
-気になったもの crowdin crowdin - Agile localization for tech companies
-最近買ったDjango本で紹介されてたDjango Girlsのチュートリアル内で、翻訳を進めていくために使われてました。
-Django Girlsのチュートリアル Django Girls(上とダブるけど)
-さっと見たけどめちゃくちゃわかりやすかったです。特にインターネットの仕組みあたり。
-人に教える機会があったらここおすすめしたいです。
-その他 新すばせかが楽しいです。指は死んでます。</description>
+      <description></description>
     </item>
     
     <item>
@@ -428,14 +379,7 @@ _.flatten() _.flatten(array) arrayを一段分フラットにする。非破壊�
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/aws-sam-template/</guid>
-      <description>目的 バッチ処理もAWS Lambdaで書きたいので、SAM テンプレートに記述できるのかどうかを調べたい。
-結論 できます。
-し、かなりわかりやすいです。
-CloudWatch イベント アプリケーションの AWS SAM テンプレート
-記述例 AWSTemplateFormatVersion: &amp;#34;2010-09-09&amp;#34; Transform: AWS::Serverless-2016-10-31 Globals: Function: Timeout: 30 MemorySize: 256 Handler: app.lambda_handler Runtime: python3.7 Resources: ### Batch ### HogeBatchFunction: Type: AWS::Serverless::Function Properties: CodeUri: api/batch/hoge_batch Events: HogeBatch: # TypeをScheduleに Type: Schedule Properties: # 実行タイミングを決める Schedule: cron(0 0 ? * SUN *) 最後のSchedule式は、rateとcronのどちらでも使えます。
-Rate または Cron を使用したスケジュール式
-参考 ざっと見て参考にさせてもらいたいなと思った記事(と公式ドキュメント):
-What Is the AWS Serverless Application Model (AWS SAM)?</description>
+      <description></description>
     </item>
     
     <item>
@@ -467,12 +411,7 @@ SOLID 原則 SOLID 原則とは Robert C.</description>
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/docker-nginx-ssl-on-server/</guid>
-      <description>目的 docker-composeで立てたnginxをhttps対応にしたい。
-あくまでも開発環境用なのでオレオレ証明書です。
-手順 自己署名証明書をサクッと作成する ❯ openssl req -x509 -nodes -new -keyout server.key -out server.crt -days 365 docker-composeの更新 443ポートを使用するように変更。
-また、作成した証明書も読み込めるようにvolumesも更新。
-version: &amp;#34;3.5&amp;#34; services: web: build: ./docker/nginx restart: always ports: - 443:443 # 変更 depends_on: - app volumes: - ./:/var/www/html - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf - ./docker/nginx/server.crt:/etc/nginx/server.crt # 追加 - ./docker/nginx/server.key:/etc/nginx/server.key # 追加 links: - app networks: - default default.confの更新 ポートを443に変更し、証明書の情報を追加します。
-server { listen 443; ssl on; ssl_certificate /etc/nginx/server.crt; ssl_certificate_key /etc/nginx/server.key; index index.php index.html; server_name php-docker.</description>
+      <description></description>
     </item>
     
     <item>
@@ -481,15 +420,7 @@ server { listen 443; ssl on; ssl_certificate /etc/nginx/server.crt; ssl_certific
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/embulk-install-and-dynamodb-import/</guid>
-      <description>割と大量のデータを別の場所に転送したい。といった要件があり、諸々模索している最中で、先輩から教えてもらったEmbulkを触ってみたのでまとめました。
-Embulkとは GitHub - embulk/embulk: Embulk: Pluggable Bulk Data Loader.
-さまざまなストレージ、データベース、NoSQL、クラウドサービス間のデータ転送を支援する並列バルクデータローダーです。
-関数を追加するプラグインをサポートしており、インプット先/アウトプット先に沿ったプラグインを適宜使用する/作成することで、前述の様々なストレージやDBなどでデータ転送を行うことができます。
-インストール Brewでインストール可能です。
-$ brew install embulk # embulk: Java 1.8 is required to install this formula. と言われたらエラー文通り下記でJava入れてもう一回 $ brew cask install homebrew/cask-versions/adoptopenjdk8 必要だなと思ったプラグインをプラグイン一覧から確認してインストール。
-# CSVインポート $ embulk gem install embulk-input-jdbc # mysqlインポート $ embulk gem install embulk-input-mysql # mysqlアウトプット $ embulk gem install embulk-output-mysql # などなど チュートリアル 公式ドキュメントに乗っている、めちゃくちゃ簡単な動作確認チュートリアルです。
-CSVを読み込んで画面に表示するだけの簡単なものになっています。
-# サンプルCSVファイル、構成ファイルを作成 $ embulk example ./try1 # 推測プラグインを呼び出して適切な構成ファイル(提案)を出力。 $ embulk guess .</description>
+      <description></description>
     </item>
     
     <item>
@@ -544,10 +475,7 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/laravel-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%81%AE%E5%88%B6%E7%B4%84%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/</guid>
-      <description>やりたいこと Laravel くんで Controller をすっきりさせたいので、バリデーションをフォームリクエストで行いたい。
-プラスで、簡単な条件分岐のバリデーションも付け足したい。
-結論 withValodatorメソッドを通してsometimesを使うのが良さげです。
-詳しく 通常のフォームリクエストでのバリデーション // FormRequest namespace App\Http\Request; use \\illuminate\Foundation\Http\FormRequest; class ItemUpdateRequest extends FormRequest { /** * Determine if the user is authorized to make this request. * * @return bool */ public function authorize() { return true; } public function rules() { return [ &amp;#39;id&amp;#39; =&amp;gt; &amp;#39;required|integer&amp;#39;, &amp;#39;item_type&amp;#39; =&amp;gt; &amp;#39;required|string|in:tv,web,radio&amp;#39; &amp;#39;name&amp;#39; =&amp;gt; &amp;#39;required|string|max:255&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; &amp;#39;nullable|url|max:2083, &amp;#39;note&amp;#39; =&amp;gt; &amp;#39;nullable|string|max:2047&amp;#39;, ]; } } // Controller(必要な記述以外は省略) use App\Http\Request\ItemUpdateRequest; class ItemController extends Controller { public function update(ItemUpdateRequest $request) { // } } これだけで通常のバリデーションは出来ますね。</description>
+      <description></description>
     </item>
     
     <item>
@@ -556,18 +484,7 @@ Illuminate\Database\Connectors\ConnectionFactory::make内で、
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/laravel-%E7%8B%AC%E8%87%AA%E3%83%9A%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%BF%E3%81%A7%E8%87%AA%E5%89%8D%E3%81%AEcollection%E3%82%92%E4%BD%BF%E3%81%86/</guid>
-      <description>やりたいこと データベース：ペジネーション 5.8 Laravel
-このページの「独自ペジネータ作成」の欄にあるように、
-Illuminate\Pagination\LengthAwarePaginatorインスタンスを作成して、自前の Collection を Collection のままページネーションしたい。
-結論 ペジネーションは引数に Collection を許容しているので実装が可能。
-LengthAwarePaginatorインスタンスの第一引数に渡す Collection を、slice()メソッドを使って Collection の型を崩さずに区切る。
-これだけ見ると「自明では？」と思うけど、初心者(私)はどハマりしたので過程も含めて書いておきます。
-ハマった流れ まず「Eloquent ORM から取ってきた結果をページネーションしたいわね」と思い Laravel くんドキュメント(前述)を参照しました。
-Note: 自前でペジネーターインスタンスを生成する場合、ペジネーターに渡す結果の配列を自分で”slice”する必要があります。その方法を思いつかなければ、 [array_slice] PHP 関数を調べてください。
-なるほど！！！！！
-と思い array_slice()を使用して記述したのが以下のような書き方。
-// app/Services/ItemsService.php // 前略。$columnsには取得したいカラム名を格納 $items = ItemMaster::query() -&amp;gt;select($columns) -&amp;gt;with(&amp;#39;relatedUsers&amp;#39;) -&amp;gt;get(); // 表示する件数のみ取得するために、ページ番号($page)と最大表示件数($limit)から$offsetを計算 $offset = ($page * $limit) - $limit; // ドキュメントに言われたように表示する部分のみ切り取った配列を用意 $slice = array_slice($items-&amp;gt;toArray(), $offset, $limit); return new LengthAwarePaginator($slice, count($items), $limit, $page); これでも$columnsの値を参照する分には特に問題ありません。
-ただ、return を受け取った先の Resource なんかでリレーションの情報が欲しくて$this-&amp;gt;relatedUsers.</description>
+      <description></description>
     </item>
     
     <item>
@@ -588,15 +505,7 @@ Note: 自前でペジネーターインスタンスを生成する場合、ペ�
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/mysql-%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E8%BF%BD%E5%8A%A0%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC/</guid>
-      <description>エラー 外部キー制約を追加しようとした時、下記エラーで怒られました。
-ERROR 1215 (HY000): Cannot add foreign key constraint “外部キー制約を追加できません”
-もっと詳細なエラーログが……ほしい……！ と思ったので調べました。
-SHOW ENGINE INNODB STATUS で外部キー制約時のエラーを確認 恐らくとてつもなく初歩的な話だと思うのですが、SHOW ENGINE 構文なるものがあると。
-SHOW ENGINE INNODB STATUS SHOW ENGINE INNODB STATUSは、InnoDBストレージエンジンの状態に関するInnoDB標準モニターからの広範囲にわたる情報を表示します。
-MySQL :: MySQL 5.6 リファレンスマニュアル :: 13.7.5.16 SHOW ENGINE 構文
-便利だ！！！！！
-実践 早速入って見てみます。
-$ docker exec -it [docker-name] bash # mysql -u [username] -p &amp;gt; SHOW ENGINE INNODB STATUS ------------------------ LATEST FOREIGN KEY ERROR ------------------------ Cannot find an index in the referenced table where the referenced columns appear as the first columns, or column types in the table and the referenced table do not match for constraint.</description>
+      <description></description>
     </item>
     
     <item>
@@ -699,22 +608,7 @@ Key = valueの形。
       <pubDate>Fri, 19 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/increase-memory-allocation-of-docker-to-avoid-killed/</guid>
-      <description>目的 laravelプロジェクトにawsのs3アダプタをインストールしようとして、dockerコンテナ内に入ってcomposer require league/flysystem-aws-s3-v3 ~1.0を実行したら下記の通りKillされました。
-root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 ~1.0 ./composer.json has been updated Loading composer repositories with package information Updating dependencies (including require-dev) Killed ｺﾛｻﾅｲﾃﾞ……
-これを、ちゃんと殺されずにインストール完了させたいので色々調べました。
-TL;DR Docker for Macのメモリ割り当てをできる範囲で増やす。
-解決法 調べたこと まず、Killedがどういう時に発動するのかを調べました。
-ら、OOM Killerと呼ばれる動作らしいです。
-OOM Killer（Out of Memory Killer）は，システムが実メモリーと仮想メモリー空間（スワップ領域）を使い切り，必要なメモリー領域を新たに確保できない場合に，プロセスを強制終了させて空きメモリーを確保する，Linuxカーネルの仕組みです。OOM Killerは，空きメモリーが確保できないことによりシステム自体が停止するという最悪の事態を避けるために用意されています。
-日経XTECHさんより引用
-強制的にプロセスがKillされてしまうのは、システム自体が止まってしまわないようにOOM Killerさんが働いた結果らしいです。
-つまり、今回の原因はメモリ不足。
-Docker for macで、Preferences &amp;gt; Resources &amp;gt; Memoryを見てみると、現在は3.75GB割り当てしていることがわかりました。Swapは1GB。
-合わせてMacのアクティビティモニタでdockerが使っているメモリを調べて見ると、割り当て分ほとんど使い切っていました。
-実行したこと Docker for macのPreferences &amp;gt; Resources &amp;gt; Memoryから、割り当てのメモリをできる範囲で増やしました。
-mac自体は16GBなので、まぁ一回様子見て5GBまであげてみることに。
-改めてcomposer require league/flysystem-aws-s3-v3 ~1.0を実行。
-root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s3-v3 Using version ^1.</description>
+      <description></description>
     </item>
     
     <item>
@@ -723,12 +617,7 @@ root@9f833b0a116f:/var/www/html/laravel# composer require league/flysystem-aws-s
       <pubDate>Tue, 09 Feb 2021 14:11:32 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-02-09/</guid>
-      <description>気になったニュース PythonのデフォルトエンコーディングをUTF-8にするために - methaneのブログ
-PyCon JP Blog: PyCon JP 2021 カンファレンス開催日程仮決定のお知らせ
-楽しみ
-Facebookが大規模スケーラビリティへの挑戦で学んだこと（前編）～800億枚の写真データとPHPのスケーラビリティ問題 － Publickey
-社内勉強会で AWS Organizations 基礎の話をしました | DevelopersIO
-他 書くだけ書いてPushするのを忘れがち。</description>
+      <description></description>
     </item>
     
     <item>
@@ -737,14 +626,7 @@ Facebookが大規模スケーラビリティへの挑戦で学んだこと（前
       <pubDate>Tue, 02 Feb 2021 12:01:46 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-02-02/</guid>
-      <description>気になったニュース 【？】「github」の読み方は「ギットハブ」でも「ジットハブ」でもありません。「イ」です。 - Togetter
-Ghoti理論って言うものがあって、これはfishと同じ読み方らしい。これに則って読むとgithubが「イ」になる。そうなんだ……
-ASCII.jp：Apple Watchがあるとマスクを着けたままiPhoneのロック解除が可能に
-ありがとうApple ありがとう世界
-Python向け科学計算パッケージの最新版「NumPy 1.20.0」がリリース：CodeZine（コードジン）
-「NumPy 1.20.0」はこれまでで最大となるアップデートで、Python 3.7～3.9をサポートし、Python 3.6のサポートは終了している。
-新しく使うときに3.6以下使うことはないと思うけど、一応頭の片隅で覚えておこう。
-他 原神くんの事前ダウンロードも終えて準備万端なので明日が楽しみです。</description>
+      <description></description>
     </item>
     
     <item>
@@ -753,26 +635,7 @@ Python向け科学計算パッケージの最新版「NumPy 1.20.0」がリリ�
       <pubDate>Mon, 01 Feb 2021 11:06:43 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-02-01/</guid>
-      <description>気になったニュース gitにおけるコミットログ/メッセージ例文集100
-Access control for GitHub Pages - GitHub Changelog
-社内ドキュメントとしての運用とかにも良さそう。
-エディタ+ mdファイル編集 + GithubにPushで完結するのはとても健康にいい。
-調べたこと BigQueryへの差分アップロード Insert/Upsertを意識するんじゃなくて、updated_dateを持った状態で複数データ入れてしまう方がいいかなと思った。
-Insert/Upsertを実現できるmergeはテーブルサイズ分課金されるので（SELECTと同じ）、日次で取り込むデータサイクルに入れるのは避けたい。
-対して上書きでなくて重複データをInsertする方法では、
-集計するときはCOUNT(DISTINCT x)で重複削除すればいい 重複データが積もってきたらSQLで整理ができる ので、こっちの方が良さげ。
-そうすればBQに移行する日次データは「その日に新規作成されたもの」と「その日に上書きされたもの」だけでよくなる。
-参考：
-BigQuery にデータを差分ロード（UPSERT）する方法まとめ | Developers.IO
-BigQueryでUPDATE？？ - Qiita
-標準 SQL の集計関数 | BigQuery | Google Cloud
-SQLのORについて OR使わないといけないかなと思って調べてたら下記記事を見つけた。
-PostgreSQL: 「OR」を避けてパフォーマンスを向上させよう（翻訳）
-「まだマシ」なダメな例をやろうとしていたのと、後半の話は知らなかったのでﾁｮｯﾄ勉強になった。
-SQL、苦手意識があって若干避けてきたけどそろそろ向き合うべき時が来た気がする。
-他 原神くんの1.3アプデ、鍾離先生の上方修正が確定したので楽しみです。
-コントローラーで操作できるようになるのも楽しみ。
-これでもうボタンスカって敵の攻撃が直撃するミスがなくなるんだ……。</description>
+      <description></description>
     </item>
     
     <item>
@@ -800,16 +663,7 @@ App Indexing App Indexingは、その名の通りアプリのコンテンツを�
       <pubDate>Thu, 28 Jan 2021 14:20:35 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/diary-2021-01-28/</guid>
-      <description>気になったニュース Pyston 2.1、本家Python 3.8/3.9よりも十分に高いパフォーマンスを実現 | マイナビニュース
-Dropboxが開発元（？）って言うのは知らなかった……
-やってみたこと サイト構築 Github Pages と Hugoでサイト作ってみました。（これ）
-参考にさせてもらったサイト：
-GitHub PagesとHugoでブログをつくった
-Hugo+Github Pagesで新しい個人ウェブサイトを作った - DEV Community
-使用テーマはこれ：
-Beautifulhugo | Hugo Themes
-拡張機能系もありそうなのでゆっくり見ていきたいです。
-あと、Hugoの中身はGo言語らしいので、Go勉強し始めることがあったらソース読みたいなと思いました。</description>
+      <description></description>
     </item>
     
   </channel>

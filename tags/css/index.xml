@@ -18,15 +18,7 @@
       <pubDate>Mon, 20 Jun 2022 19:54:19 +0900</pubDate>
       
       <guid>https://SawaTszm.github.io/post/css-display-contents/</guid>
-      <description>上手くいかないCSSをdev toolでぐりぐり動かしていたらdisplay: contents;なる値があることを知って、結局そのパターンは上手くいったんですがなんで上手くいったかわからないのでちょっとだけ調べました。
-(本格的に調べるのは後日)
-display: contents;とは colissで紹介されていました。
-(先日参加した勉強会で紹介されていたサイトなのでちょっとテンションが上が理ました)
-すごくざっくり言うと、
-タグ内のコンテンツを通常通り描画しつつ、周囲のタグは完全に省略する display: contents; が指定されたタグ自体が無視されたような挙動になる CSS Gridのレイアウトで、複数あるカードのそれぞれの高さや幅を揃えるのに便利 (今回上手くいった修正はこのパターンだった) まだ全然追いきてれないですが、タグを無視したような挙動をする以上落とし穴(何かの拍子にめちゃくちゃ表示崩れる)とかもありそうなので、見れる時にもう少しちゃんと挙動を見たい……。
-ちなみにCan I Useで見てみると、大体2018年くらいからパーシャルサポートが始まり、現在(2022/06)主要なブラウザはほとんどがフルサポートです。
-IE君はNot Supportedですが先日卒業式をしたので……
-参考 [CSS]「display: contents;」がすごい便利！ラッパーを使った実装が大きく変わるこれからのテクニック Can I use display: contents </description>
+      <description></description>
     </item>
     
   </channel>

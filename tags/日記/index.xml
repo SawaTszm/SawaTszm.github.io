@@ -11,7 +11,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 08 Mar 2024 18:16:03 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2024 14:51:45 +0900</lastBuildDate><atom:link href="https://SawaTszm.github.io/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【git】カウントしたコミットファイルの総文字数を自動でコミットメッセージに追加する</title>
+      <link>https://SawaTszm.github.io/post/auto-counting-word/</link>
+      <pubDate>Mon, 06 May 2024 14:51:45 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/auto-counting-word/</guid>
+      <description>趣味で書いている小説をgitで管理していて、進捗把握のためにコミットメッセージにその日1日書いた総文字数を入れ込んでいます。
+こんな感じで。
+以前までは、SF作家である藤井太洋先生自身が公開してくださっている拡張機能: novel-writerのステータスバー表示で文字数を把握し、手動でコミットメッセージを書いていました。
+ただ、この方法にはいくつかの（個人的には解決したい）問題があり、
+日付が回ると文字数がリセットされるので、うっかりしてると差分の文字数がわからなくなる 特定のファイルや変更は含みたくない場合がある（翌日への自分のメモなど） コミットメッセージへの手打ちを辞めたい 上記二つに関しては、私が拡張機能で出来ることを把握しきれていないだけ or 今後改善される可能性はありますが、どうせならコミット時に自動でコミットメッセージ入力できたら楽だよなぁという動機があったので、ちょっと調べてスクリプトを組んでみました。
+やったこと 下記のスクリプトを.git/hooks/commit-msgとして設定します。
+#!/bin/bash # ステージングエリアに追加されたファイルの差分を取得し、文字数をカウントする関数 # .git/hooksに移動させて、`chmod +x .git/hooks/commit-msg`を実行することでコミット時にhookされる get_character_count() { # ステージングエリアに追加されたファイルの差分を取得 diff_output=$(git diff --cached) # 追加された行の文字数を合計する added_characters=$(echo &amp;#34;$diff_output&amp;#34; | grep &amp;#39;^+&amp;#39; | sed &amp;#39;s/^+//g&amp;#39; | wc -m) # 削除された行の文字数を合計する deleted_characters=$(echo &amp;#34;$diff_output&amp;#34; | grep &amp;#39;^-&amp;#39; | sed &amp;#39;s/^-//g&amp;#39; | wc -m) # 追加された文字数と削除された文字数の合計を計算する total_characters=$((added_characters - deleted_characters)) # 結果を出力 echo &amp;#34;$total_characters&amp;#34; } # コミットメッセージに追加 character_count=$(get_character_count) echo &amp;#34;📝 $character_count 文字&amp;#34; &amp;gt;&amp;gt; &amp;#34;$1&amp;#34; スクリプト内でやっている事はかなりシンプルで、git diffの結果である追加行(+で始まるもの)と削除行(-で始まるもの)の文字数をそれぞれカウントして差し引いて、総文字数を計算しているだけです。</description>
+    </item>
+    
     <item>
       <title>【github】mainではないブランチから派生したブランチでPRを出すとき</title>
       <link>https://SawaTszm.github.io/post/pr-on-a-branch-not-main/</link>
@@ -38,6 +53,24 @@ Base automatically changed from test-branch-A to mainというログが残って
 めちゃくちゃ便利だ……。もっと早く気が付きたかった。
 PR出した後は、ベースとなるブランチ自体に先んじてマージしちゃうか、そっちの作業を待ってからmainにマージするか、どちらにせよベースとなるブランチで作業している方とのコミュニケーションは必要ですが、とりあえず派生元にPR出しておけばあんまり困ることは（今のところの経験上）ないです。
 派生PR、もう怖くない！な備忘録でした。</description>
+    </item>
+    
+    <item>
+      <title>日記(~2023/07)</title>
+      <link>https://SawaTszm.github.io/post/diary-2023-07/</link>
+      <pubDate>Tue, 27 Jun 2023 17:14:07 +0900</pubDate>
+      
+      <guid>https://SawaTszm.github.io/post/diary-2023-07/</guid>
+      <description>(2023/06/17)
+We updated our RSA SSH host key - Github
+私用のPCで久々にpushしようとして警告出て、ちゃんと公式情報見た上で対応できたけど、3/24以降仕事以外のコードをpushしてなかったことが地味にショックでした。
+(2023/06/24)
+広くなったベランダで育て始めたペパーミント、苗買ってきた時よりなんか葉っぱ過疎ってないか……？と思って見てみたら馬鹿でかい青虫がついててリアルタイムでもりもり葉っぱ食べられてました。
+(2023/06/26)
+「AI分析でわかった トップ5％社員の習慣」を読んで、上位5%社員のXX%が〜っていうのに関しては、サンプリング数少ないから95%の人たちと違って一概には言えないんじゃないの？（この本作るために良いところだけピックアップするときにだいぶバイアスかかってそう）とは思ったけど、これ実践してみようかなと思うところはいくつかあったので読んでよかったです。
+読んですぐに（内容は本とは全然関係ない）スーパーミニマムな社内LTをしたんですが、「資料作りに時間をかけない」と割り切って最初からNotionにまとめることで割と短い時間で形に出来たのが個人的にいい学びでした。
+(2023/06/27)
+JavaScriptの入れ子の関数とクロージャ、シンプルに知らなかったです。使い過ぎはネストが辛くなりそうなので良くないと思う（というかユースケース自体あんまり思いつかない）けど、外側の関数のスコープを持ってくれる性質を利用して、コード理解の一助のためにロジックの一部を別関数に切り出す時なんかには有効そうだなと思いました。</description>
     </item>
     
     <item>
